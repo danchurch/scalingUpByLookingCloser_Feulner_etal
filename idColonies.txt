@@ -917,6 +917,11 @@ https://www.nature.com/articles/s41396-021-00898-x
 ## KT760404.1 = undescribed n-fixing nostoc from grassland soil of NZ (unpub)
 ## JQ771626.1 = Finnish peltigera
 
+## related:
+## the closest blast from microbial genomes of NCBI is to N. punctiforme, with 90% seq sim in 16S
+## and for just 16S sequences from genbank, it blasts at 91.26% seq sim to two Nostocs:
+KF359696.1, a leptogium symbiont, and JN847344.1, also from leptogium.
+
 ## Nostoc.s sp.str KVJ20  = liverwort symbiont
 ## the genome for this has been sequenced: https://doi.org/10.1128/mra.01190-19
 
