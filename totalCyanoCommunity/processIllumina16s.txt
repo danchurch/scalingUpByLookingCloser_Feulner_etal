@@ -1,0 +1,10 @@
+## we have illumina data from alfons, some of which is from our cyanobacterial cultures
+
+## let's have a look. work on the optiplex for now.
+
+## which samples are the moss samples?:
+
+Oemik-002018
+Oemik-002019
+Oemik-002020
+ 
