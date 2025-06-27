@@ -1,10 +1,60 @@
 ## we have illumina data from alfons, some of which is from our cyanobacterial cultures
 
+
 ## let's have a look. work on the optiplex for now.
 
 ## which samples are the moss samples?:
 
+ls /home/daniel/Documents/projects/wernerSphagnum/wernerSphagnumSequences/
+
+cd /home/daniel/Documents/projects/wernerSphagnum/wernerSphagnumSequences/
+
+## our moss samples have the following IDs:
 Oemik-002018
 Oemik-002019
-Oemik-002020
+Oemik-002020 (neg)
+
+## so...
+cp Oemik-0020{18..20}_S4[5-7]_L001_R1_001.fastq.gz /home/daniel/Documents/projects/mossSymbiosis/
  
+cd /home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture
+
+## how do they look?
+
+mkdir fastqcOut
+
+fastqc -o fastqcOut -t 11 reads/*.gz
+
+## from laptop
+getThis=/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/fastqcOut/*html
+puthere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/totalCyanoCommunity/
+rsync -auv daniel@132.180.113.114:$getThis $puthere
+## looks fine. 
+
+## trim primers:
+
+mkdir trimmed_reads/
+
+## go to the directory with the raw read files on optiplex
+cd reads
+
+outputDir="../trimmed_reads/"
+for inputFastq in *; do
+    cutadapt --rc \
+        -g TCGTGYCAGCMGCCGCGGTAA \
+        --length 280 \
+        -a GGACTACNVGGGTWTCTAAT \
+        -o ${outputDir}${inputFastq} \
+           ${inputFastq}
+done
+
+## we can use our environment from the spatialdirt environment (that we use for carbon4d data):
+
+conda activate spatialDirt
+
+R
+install.packages("BiocManager")
+library("BiocManager")
+BiocManager::install("dada2")
+
+library("dada2")
