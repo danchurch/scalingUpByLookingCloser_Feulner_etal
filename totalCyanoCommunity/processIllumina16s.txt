@@ -3,6 +3,12 @@
 
 ## let's have a look. work on the optiplex for now.
 
+## we'll need silva, properly formatted:
+
+wget https://zenodo.org/records/14169026/files/silva_nr99_v138.2_toGenus_trainset.fa.gz
+
+## it's here:
+/home/daniel/Documents/databases/silva/silva_nr99_v138.2_toGenus_trainset.fa
 ## which samples are the moss samples?:
 
 ls /home/daniel/Documents/projects/wernerSphagnum/wernerSphagnumSequences/
@@ -53,8 +59,113 @@ done
 conda activate spatialDirt
 
 R
-install.packages("BiocManager")
-library("BiocManager")
-BiocManager::install("dada2")
+
+#install.packages("BiocManager")
+#library("BiocManager")
+#BiocManager::install("dada2")
 
 library("dada2")
+library("phyloseq")
+
+setwd("/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/reads")
+
+fileNames <- list.files()
+
+filterPath <- "../filteredReads"
+
+out <- filterAndTrim(fileNames, filterPath,
+              maxN=0, maxEE=2, truncQ=2, rm.phix=TRUE,
+              compress=TRUE, multithread=TRUE)
+
+setwd("../filteredReads")
+
+err <- learnErrors(fileNames, multithread=TRUE)
+
+save(err, file="../err.rda")
+
+plotErrors(err, nominalQ=TRUE)
+
+dadaF <- dada(fileNames, err=err, pool=TRUE, multithread=TRUE)
+
+seqtab <- makeSequenceTable(dadaF)
+
+seqtab
+
+seqtab.nochim <- removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
+
+## make the sample names prettier
+
+rownames(seqtab.nochim) <- c("S45","S46","S47")
+
+
+## now we have OTUs (ASVs) and an otu table
+## let's get taxonomic assignments:
+
+path2silvaDB <- "/home/daniel/Documents/databases/silva/silva_nr99_v138.2_toGenus_trainset.fa"
+
+taxa <- assignTaxonomy(seqtab.nochim, path2silvaDB, multithread=TRUE)
+
+ps <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE), tax_table(taxa))
+
+## insert our representative sequences for our OTUs:
+
+dna <- Biostrings::DNAStringSet(taxa_names(ps))
+names(dna) <- taxa_names(ps)
+ps <- merge_phyloseq(ps, dna)
+## give our ASVs pretty names instead of DNA sequences:
+taxa_names(ps) <- paste0("ASV", seq(ntaxa(ps)))
+
+save(ps, file="../cyanoPS.rda")
+
+load(file="cyanoPS.rda")
+
+library(phyloseq)
+
+## okay, how do they look?
+
+rank_names(ps)
+
+tax_table(ps)["ASV1",]
+
+tax_table(ps)["ASV17",] ## chloroplast from eukaryotic algae
+
+head(as.data.frame(refseq(ps.cya)))
+
+as.data.frame(refseq(ps.cya))['ASV17',]
+
+tax_table(ps)["ASV2",]
+
+## lots of stuff in there. Subset to cyanos?:
+
+ps.cya = subset_taxa(ps, Phylum=="Cyanobacteriota")
+
+GP.chl = subset_taxa(GlobalPatterns, Phylum=="Chlamydiae")
+
+barplot(sort(taxa_sums(ps.cya), decreasing=TRUE))
+
+onlyCyanos <- 
+
+barplot(sort(taxa_sums(ps) > 10, decreasing=TRUE))
+
+plot_bar(ps, fill = "Phylum")
+
+plot_bar(ps.cya, fill = "Family")
+
+plot_bar(ps.cya, fill = "Order")
+
+## still a lot of chloroplasts, probably from the eukaryotic algae
+
+aa <- as.data.frame(tax_table(ps.cya))$Order == "Chloroplast"
+aa[is.na(aa)] <- FALSE
+aa <- !aa
+length(aa)
+ps.noCp <- prune_taxa(aa, ps.cya)
+
+plot_bar(ps.noCp, fill= "Order")
+
+refseq(ps.noCp)
+
+as.data.frame(refseq(ps.noCp))
+
+ps.cya = subset_taxa(ps, Order=="Cyanobacteriales")
+
