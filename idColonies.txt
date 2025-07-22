@@ -931,3 +931,180 @@ less ${cydDir}Cydrasil-v3-reference-alignment.afa ## they aren't in there, as fa
 
 ## do we need/want a graphic for our JGI application?
 
+
+
+############## start over with new nostocs #############
+
+## we have repeated the same nanopore sequencing process
+## on some nostoc colonies isolated from other hosts
+
+
+## We had to do the sequencing without the basecalling because
+## of software updates and driver issues. How can we start the basecalling of
+## the Pod5 voltage files we created?
+
+## which are here, btw:
+/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/pod5
+
+
+## maybe some help here:
+## https://nanoporetech.com/document/data-analysis
+
+## back up the read files:
+
+cd /media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90
+
+tar cvzf nostocColonyPCRsRound2.tar.gz pod5/
+
+## back this up to desktop:
+
+cd /media/vol/mossStuff/nostocColonyPCRbackups
+rsync -auv test@132.180.112.115:/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/nostocColonyPCRsRound2.tar.gz . 
+
+## as far as basecalling, is it as simple as?:
+
+#mkdir /media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled
+outDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled"
+pod5="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/pod5"
+dorado basecaller sup $pod5 -v --device cuda:all --emit-fastq -o $outDir
+
+(dorado basecaller sup $pod5 -v --device cuda:all --emit-fastq -o $outDir & ) &
+
+## seems to work. As per the documentation (https://dorado-docs.readthedocs.io/en/latest/)
+## pipe the results to the demultiplexer:
+
+dorado basecaller sup $pod5 --device cuda:all -v |
+dorado demux --output demuxed -v
+
+dorado basecaller ... | dorado demux --output demuxed
+
+dorado basecaller sup
+
+dorado demux --output demuxed
+
+## not working for me, not sure why. Try on basecalled files without piping 
+## commands:
+
+reads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/calls_2025-07-19_T09-33-22.fastq"
+demuxDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed"
+dorado demux --kit-name SQK-RBK114-24 --emit-fastq -o $demuxDir $reads
+
+## but the vast majority are unclassified.
+## maybe because I'm not using BAM formatting?
+## see here: https://github.com/nanoporetech/dorado/issues/1178
+
+## maybe something like:
+
+pod5="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/pod5"
+demuxDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed"
+
+dorado basecaller sup $pod5 -v --device cuda:all | dorado demux --kit-name SQK-RBK114-24 -o $demuxDir $reads
+
+## that helped dramatically. The vast majority are still unclassified reads, though. 
+## Also reads from barcodes that were not in my study. These are either erroneous or 
+## from Dimitri's experiments. 
+
+## any other defaults we can tweak? break up the command:
+
+pod5="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/pod5"
+demuxDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed"
+basecalledDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/basecalled"
+
+cd $pod5
+
+dorado basecaller -v --device cuda:all  -o $basecalledDir sup $pod5 
+
+## is trimming the default? try turning it off. 
+dorado basecaller -v --no-trim --device cuda:all  -o $basecalledDir sup $pod5
+
+
+## GPU is working hard:
+nvidia-smi -l 5
+
+## now try demultiplexing...
+dorado demux -v --kit-name SQK-RBK114-24 -o $demuxDir $basecalledDir
+
+## that helped a lot, we're up to 31% classified. Still low, though...
+## any errors reported in veryVerbose mode?
+
+dorado demux -vv --kit-name SQK-RBK114-24 -o $demuxDir $basecalledDir 2> log.txt
+
+dorado demux -h | less
+
+grep -c "midstrand" log.txt ## 23810 hits, lots. May be why we have low classification %
+
+## is there a way to ignore these mid strand barcodes?
+## don't see it. 
+
+## maybe let's focus on those that demultiplexed properly, see if they make sense
+
+## trim primers and adapters?
+## for now just adapters. We might need the primers to clear things up (nif vs. 16s, etc)
+
+trimmedDir=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed
+
+cd /media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed
+
+demuxedFile1="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.bam"
+dorado trim \
+    -k SQK-RBK114-24 \
+    -v \
+    --no-trim-primers \
+    --emit-fastq \
+    $demuxedFile1 > ${trimmedDir}/${demuxedFile1}
+
+
+for demuxedFile in *bam; do
+  echo "Starting ${demuxedFile}"
+  dorado trim \
+    -k SQK-RBK114-24 \
+    -v \
+    --no-trim-primers \
+    --emit-fastq \
+    $demuxedFile > ${trimmedDir}/${demuxedFile/\.bam/\.fastq}
+  echo "Done ${demuxedFile}"
+done
+
+## try aligning to 16s, NifH, etc. 
+
+## on line 188 above, we made a formatted blastn database for finding
+## hits to nostoc, try it here for our 16s reads.
+## would be barcodes 9-11
+
+## need to convert to fasta
+
+seqtk seq -A 2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq > 
+
+outDir=/media/vol1/daniel/nostoc/blastout/round1_Hylocomium/round2_ZygodonHomaliaAmbylostegium
+cyanoDB=/media/vol1/daniel/nostoc/cyanoRef16s/silvaCyanos.fasta
+minionReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed
+
+cd $minionReads
+for i in 2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode{09..11}.fastq; do
+  echo $i
+  j=${i/*SQK-RBK114-24/nostoc_16S}
+  k=${j/\.fastq/\.fasta}
+  l=${k/\.fasta/\_cyanoMatches.csv}
+  seqtk seq -A $i > $k
+  echo $l
+  blastn -db $cyanoDB \
+    -query $k \
+    -num_threads 10 \
+    -num_alignments 1 \
+    -out $l \
+    -outfmt 10 
+done
+
+mv *cyanoMatches.csv 
+grep "Nostocaceae;Nostoc" minion2cyanoMatches.csv > nostocMatches.csv
+cut -f1 -d, nostocMatches.csv > nostocReads.txt
+
+## what do we use for NifH blast matches? 
+
+## we need a nifH database and maybe a tree. Maybe a good database here:
+## https://www.jzehrlab.com/nifh  
+
+## for the moment, let's see if we can make sense of our 16s. Worried about
+## the Amblystegium, doesn't come out cleanly as a nostoc
+
+## as above, we blasted every thing that came out as a cyanobacteria.  
