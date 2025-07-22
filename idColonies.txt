@@ -1076,7 +1076,9 @@ done
 seqtk seq -A 2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq > 
 
 outDir=/media/vol1/daniel/nostoc/blastout/round1_Hylocomium/round2_ZygodonHomaliaAmbylostegium
+
 cyanoDB=/media/vol1/daniel/nostoc/cyanoRef16s/silvaCyanos.fasta
+
 minionReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed
 
 cd $minionReads
@@ -1095,9 +1097,8 @@ for i in 2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode{09..11}.fast
     -outfmt 10 
 done
 
-mv *cyanoMatches.csv 
-grep "Nostocaceae;Nostoc" minion2cyanoMatches.csv > nostocMatches.csv
-cut -f1 -d, nostocMatches.csv > nostocReads.txt
+mv *cyanoMatches.csv /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/
+
 
 ## what do we use for NifH blast matches? 
 
@@ -1107,4 +1108,120 @@ cut -f1 -d, nostocMatches.csv > nostocReads.txt
 ## for the moment, let's see if we can make sense of our 16s. Worried about
 ## the Amblystegium, doesn't come out cleanly as a nostoc
 
-## as above, we blasted every thing that came out as a cyanobacteria.  
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/
+
+grep "Nostocaceae;Nostoc" nostoc_16S_barcode09_cyanoMatches.csv 
+
+grep -c  "Nostocaceae" nostoc_16S_barcode09_cyanoMatches.csv ## 350
+grep -c  "Nostocaceae;Nostoc" nostoc_16S_barcode09_cyanoMatches.csv ## 64, out of...
+
+grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq ## 4367 reads
+wc -l nostoc_16S_barcode09_cyanoMatches.csv ## and 3861 of these 4367 matched to cyanobacteria? seems high.
+## before, in hylocomium, only 25% matched to cyanobacteria, but of these almost all matched nostoc. 
+
+## could this be a relic of the fact that we parsed our database down to just cyanbacteria? What happens
+## if we blast again all bacteria?
+
+## download full silva db, blast against this?
+
+wget https://www.arb-silva.de/fileadmin/silva_databases/release_138/Exports/SILVA_138_SSURef_tax_silva.fasta.gz
+
+mv SILVA_138_SSURef_tax_silva.fasta.gz /media/vol1/daniel/databases/silva
+
+cd /media/vol1/daniel/databases/silva
+
+gunzip SILVA_138_SSURef_tax_silva.fasta.gz 
+
+head -n 100 SILVA_138_SSURef_tax_silva.fasta  ## ugh the spaces are going to cause a problem in the headers.
+
+
+head SILVA_138_SSURef_tax_silva.fasta  ## ugh the spaces are going to cause a problem in the headers.
+
+clear
+head -n 1 SILVA_138_SSURef_tax_silva.fasta 
+
+## this seems to work, get rid of first space
+head -n 1 SILVA_138_SSURef_tax_silva.fasta | sed -r 's/(^>[^ ]*) /\1;/' 
+
+## try for the whole file:
+sed -r 's/(^>[^ ]*) /\1;/' SILVA_138_SSURef_tax_silva.fasta > silva138_SSU_reformathead.fasta
+
+## do it without parsing seq ids, because of our very long headers.
+makeblastdb -in silva138_SSU_reformathead.fasta -dbtype nucl 
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq"
+
+## need a fasta
+seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
+
+blastn -db $blastDB \
+  -query ${readFile/\.fastq/\.fasta} \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode9-allSilva.csv \
+  -outfmt 10 
+
+## that will run for a while?
+## and the others?
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+
+## barcode 10 should be nostoc from Homalia:
+grep -c  "Nostocaceae" nostoc_16S_barcode10_cyanoMatches.csv ## 393
+grep -c  "Nostocaceae;Nostoc" nostoc_16S_barcode10_cyanoMatches.csv ## 380, out of...
+grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq ## 569 reads
+## that is simpler, clearly a nostoc. But not abundant, let's hope we can work with that.
+
+## barcode 11 should be nostoc from Zygodon:
+grep -c  "Nostocaceae" nostoc_16S_barcode11_cyanoMatches.csv ## 1762
+grep -c  "Nostocaceae;Nostoc" nostoc_16S_barcode11_cyanoMatches.csv ## 1121, out of...
+grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq ## 4859 reads
+
+## both are more promising. Start with barcode10. 
+
+grep "Nostocaceae;Nostoc" nostoc_16S_barcode10_cyanoMatches.csv > barcode10_nostocMatches.csv
+cut -f1 -d, barcode10_nostocMatches.csv > barcode10_nostocReads.txt
+
+
+
+## use seqtk to keep only the matches to nostoc
+allReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+
+seqtk subseq $allReads barcode10_nostocReads.txt > barcode10_onlyNostoc.fastq
+
+
+
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode10_nostocMatches.csv
+
+## check out barcode 10 with python:
+
+python3 
+
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+
+os.getcwd()
+
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium')
+
+nostocMatches = pd.read_csv('barcode10_nostocMatches.csv', index_col='qseqid')
+## all of these have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+nostocMatches.head()
+
+nostocMatches.groupby('sseqid').count() 
+## the most common match (117 matches) is JQ007760.1.1503, Peltigera degenii, from Kaasalainen et al. (2012) 
+## Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis
+## second most common (43) is nephroma cyanobiont HQ591517.1.1534
+## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
+
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
