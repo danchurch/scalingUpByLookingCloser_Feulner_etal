@@ -1135,8 +1135,6 @@ gunzip SILVA_138_SSURef_tax_silva.fasta.gz
 head -n 100 SILVA_138_SSURef_tax_silva.fasta  ## ugh the spaces are going to cause a problem in the headers.
 
 
-head SILVA_138_SSURef_tax_silva.fasta  ## ugh the spaces are going to cause a problem in the headers.
-
 clear
 head -n 1 SILVA_138_SSURef_tax_silva.fasta 
 
@@ -1165,6 +1163,21 @@ blastn -db $blastDB \
   -out round2Barcode9-allSilva.csv \
   -outfmt 10 
 
+## did this make a difference?
+grep -c "Nostocaceae;Nostoc" nostoc_16S_barcode09_cyanoMatches.csv ## 64
+grep -c "Nostocaceae;Nostoc" round2Barcode9-allSilva.csv  ## 9
+## quite. 
+
+grep -c  "Nostocaceae" nostoc_16S_barcode09_cyanoMatches.csv ## 350
+grep -c  "Nostocaceae" round2Barcode9-allSilva.csv ## 26, many of which are calothrix.
+
+grep "Nostocaceae" nostoc_16S_barcode09_cyanoMatches.csv 
+grep "Nostocaceae" round2Barcode9-allSilva.csv ## 26, 
+
+## anyway, not sure what to do with this barcode. I cannot tell if we actually sequenced the c.f. nostoc colony 
+## or not. 
+
+
 ## that will run for a while?
 ## and the others?
 
@@ -1183,18 +1196,21 @@ grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK
 
 ## both are more promising. Start with barcode10. 
 
+## just curious, are there a lot of duplicate reads, as before? 
+## Could skewing results here.
+readDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+barcode="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+seqtk seq -A ${readDir}/${barcode} | sed -n "/>/p" |  cut -f 1 -d " " | sort | uniq -d ## I see no dups
+
 grep "Nostocaceae;Nostoc" nostoc_16S_barcode10_cyanoMatches.csv > barcode10_nostocMatches.csv
 cut -f1 -d, barcode10_nostocMatches.csv > barcode10_nostocReads.txt
-
-
 
 ## use seqtk to keep only the matches to nostoc
 allReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
 
 seqtk subseq $allReads barcode10_nostocReads.txt > barcode10_onlyNostoc.fastq
 
-
-
+## add headers
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode10_nostocMatches.csv
 
 ## check out barcode 10 with python:
@@ -1218,10 +1234,237 @@ nostocMatches.head()
 
 nostocMatches.groupby('sseqid').count() 
 ## the most common match (117 matches) is JQ007760.1.1503, Peltigera degenii, from Kaasalainen et al. (2012) 
-## Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis
+## "Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis"
 ## second most common (43) is nephroma cyanobiont HQ591517.1.1534
 ## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
 
 aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
 
 bb = aa.T.iloc[0,:].sort_values(ascending=False)
+
+peltigeraMatches = nostocMatches[nostocMatches['sseqid']=='JQ007760.1.1503']
+
+nephromaMatches = nostocMatches[nostocMatches['sseqid']=='HQ591517.1.1534']
+
+pd.set_option('display.max_rows', None)
+
+peltigeraMatches
+
+nephromaMatches
+
+## both are very strong. Perhaps we have two strains? Hard to tell.
+
+##  
+
+peltigeraMatches[['pident', 'length']].mean() ## on average, 95% match
+
+## overall picture:
+aa = nostocMatches[['sseqid', 'pident', 'length']].groupby('sseqid')
+
+
+
+nephromaMatches[['pident', 'length']].mean() ## on average, 95% match also.
+
+## so halfway between two cyanobionts. Kind of like last time. 
+
+## at this point, before, we used the best blast matches to nostoc, 
+## selected ~500 seqs with strict matches to a particular region 
+## aligned these, and manually curated a consensus sequence for downsteam
+
+## last time, SSUalign didn't work that well, but I think we may have
+## cleaner data this time, or at least smaller data. Let's try to align our 
+## barcode 10 reads that aligned 
+
+readDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+barcode="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+
+/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium
+
+
+conda activate cydrasil
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium
+seqtk seq -A ${readDir}/${barcode} > ${barcode/.fastq/.fasta}
+nohup ssu-align -f ${barcode/.fastq/.fasta} msaBarcode10 
+ssu-mask msaBarcode10 
+
+conda activate jalview
+
+jalview 
+
+## this is a worthless alignment, as before. Not sure why.
+
+## try muscle: 
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle
+
+seqtk seq -A ${readDir}/${barcode} > ${barcode/.fastq/.fasta}
+
+muscle -in ${barcode/.fastq/.fasta} -out muscleMSAbarcode10.fa
+
+## looks promising. Grab it locally:
+
+rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSAbarcode10.fa \
+  /home/daniel/Documents/projects/mossSymbiosis/alignments4viewing/
+
+## and it's a mess. Hard to identify what is best here. we can do a lot of manual
+## editing to the alignment to maybe get a consensus sequence. But let's 
+## repeat the first pipeline we did, of looking for a region of high-agreement 
+## in the verbose blast document, and selecting reads that contain this region 
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+
+#readDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+#barcode="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+readDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium"
+barcode="barcode10_onlyNostoc.fastq"
+seqtk seq -A ${readDir}/${barcode} > ${barcode/.fastq/.fasta}
+nostocReads=${barcode/.fastq/.fasta}
+cyanoDB=/media/vol1/daniel/nostoc/cyanoRef16s/silvaCyanos.fasta
+nohup blastn -db $cyanoDB \
+  -query ${barcode/.fastq/.fasta} \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out barcode10nostocs_2cyanoSilvaVerbose.txt &
+  #-out barcode10minion2cyanoMatchesVerbose.txt &
+
+######################################################################################################
+## to review, last time we randomly grabbed a conserved region around position 1050 :
+## less /media/vol1/daniel/nostoc/blastout/round1_Hylocomium/minion2cyanoMatchesVerbose.txt 
+## grep  "Query.*AAACCGGAGGAAGGTGG" /media/vol1/daniel/nostoc/blastout/round1_Hylocomium/minion2cyanoMatchesVerbose.txt |
+## grep  "AAACCGGAGGAAGGTGG"  
+## ## which took us from many (35,220) of matches to 400 or so:
+## grep -c  "Query.*AAACCGGAGGAAGGTGG" /media/vol1/daniel/nostoc/blastout/round1_Hylocomium/minion2cyanoMatchesVerbose.txt 
+## wc -l /media/vol1/daniel/nostoc/blastout/round1_Hylocomium/minion2cyanoMatches.csv
+## still not sure if that was a good way to do this...
+######################################################################################################
+
+## is this sequence also in our new nostoc?
+
+grep "Query.*AAACCGGAGGAAGGTGG" /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10minion2cyanoMatchesVerbose.txt |
+grep  "AAACCGGAGGAAGGTGG"  
+## yes, but scattered all over the place.
+
+## how are our qualities of these reads that aligned to nostocaceae
+
+fastqc barcode10_onlyNostoc.fastq
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+
+## checking on just these nostoc...
+fastqc -t 10 -o /media/vol1/daniel/nostoc/fastqcOutputs/round2/barcode10 barcode10_onlyNostoc.fastq
+
+rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/fastqcOutputs/round2/barcode10/barcode10_onlyNostoc_fastqc.html \
+  /home/daniel/Documents/projects/mossSymbiosis/fastqc/
+
+## they actually seem quite good, for nanopore, somewhere around 28 for most of the positions of most of the reads.
+
+## let see if we can identify and other sequence that could be useful
+## maybe let's try to hit the v4 region, inside the normal EMB primers 515/806
+
+less barcode10nostocs_2cyanoSilvaVerbose.txt
+
+## eg this sequence, or RC:
+grep -c "AAGAGTCTAGCTCAACTAGATAAGAGCAGTGGAAACTAC\|GTAGTTTCCACTGCTCTTATCTAGTTGAGCTAGACTCTT" barcode10_onlyNostoc.fasta 
+## 60 hits, out of 569 ~ 10% of reads in the barcode
+
+## eg this sequence, or RC:
+grep -c "GCATTTCACCGCTACACCAGGAATTCCCTCTGCCCCGAA\|TTCGGGGCAGAGGGAATTCCTGGTGTAGCGGTGAAATGC" barcode10_onlyNostoc.fasta 
+## 56 hits
+
+## if we go to the just the matches to our most common match, JQ007760.1.1503:
+grep -c ">JQ007760" barcode10nostocs_2cyanoSilvaVerbose.txt  ## 121 matches. look at these
+
+
+
+## some possibilities:
+
+grep -c "TTCTTCCTGATCTCTACGCATTTCACCGCTACACCA\|TGGTGTAGCGGTGAAATGCGTAGAGATCAGGAAGAA" barcode10_onlyNostoc.fasta
+
+## meh, unlike last time, I think we are dealing with intentionally fragmented amplicons,
+## from tagmentation, so it is probably best to simply use all the sequences that align with our most 
+## common match.
+
+## then we can use this align to structure the rest, as per https://drive5.com/muscle/manual/addtomsa.html
+
+## so, let's pull out those with just an best hit to JQ007760.1.1503:
+
+less barcode10_nostocMatches.csv 
+
+grep -c JQ007760 barcode10_nostocMatches.csv 
+
+#grep JQ007760.1.1503 barcode10_nostocMatches.csv > barcode10_nostocJQ007760Matches.csv
+## don't rerun unless you need to! Hand-edited to remove a few sequences, below
+cut -f1 -d, barcode10_nostocJQ007760Matches.csv > barcode10_JQ007760Reads.txt
+
+
+allReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq
+seqtk subseq $allReads barcode10_JQ007760Reads.txt > barcode10_JQ007760.fastq
+
+## let's try aligning these:
+
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle
+
+readDir=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+barcode=barcode10_JQ007760.fastq
+seqtk seq -A ${readDir}/${barcode} > ${barcode/.fastq/.fasta}
+
+muscle -in ${barcode/.fastq/.fasta} -out muscleMSA_barcode10_JQ007760.fa
+
+rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSA_barcode10_JQ007760.fa \
+  /home/daniel/Documents/projects/mossSymbiosis/alignments4viewing/
+
+## actually looks good. Time for some hand editing.
+
+## record of hand-edits of round2 barcode 10 blast matches to JQ007760
+
+## 1 the following sequences don't fit in the alignment at all. I'm not sure what happened. 
+#    for the moment, removing them and rerun alignment as above:
+
+2b8c14b7-24e5-4306-8954-ff42c0098a21
+2d8a4e8e-0771-41b9-b1f2-5c699df1dcbe
+71337ef8-62aa-49fe-872e-83fad3ed302c
+7dcfc702-f1cd-4dec-9d6d-318bbf6ea096
+9080bca4-5689-426d-af53-0b0aa9f107be
+925d2359-c67a-4076-bfc5-b59def3a5f9e
+dfc03e80-3375-4193-baec-e3408bf0b186
+e3322d0f-3fc4-4708-b442-25403222eeb4
+
+## saved as weirdJQ007760matches.txt
+
+## removed these by hand from our list of sequences for the msa
+#vim barcode10_nostocJQ007760Matches.csv
+
+## then rerun above code to run the msa
+cut -f1 -d, barcode10_nostocJQ007760Matches.csv > barcode10_JQ007760Reads.txt
+allReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq
+seqtk subseq $allReads barcode10_JQ007760Reads.txt > barcode10_JQ007760.fastq
+
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle
+
+readDir=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+barcode=barcode10_JQ007760.fastq
+seqtk seq -A ${readDir}/${barcode} > ${barcode/.fastq/.fasta}
+muscle -in ${barcode/.fastq/.fasta} -out muscleMSA_barcode10_JQ007760.fa
+
+## from desktop:
+rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSA_barcode10_JQ007760.fa \
+  /home/daniel/Documents/projects/mossSymbiosis/alignments4viewing/
+
+## following this, some more hand-editing in ugene, removed all gaps that were 90% or more empty.
+## also removed all gaps that were mostly empty and next to homopolymers, especially if the
+## gap was created by the same nucleotide in the homopolymer in a few reads (cause Nanopore).
+## then clipped the first 134 bp from the alignment, there was a lot of noise in the 
+## early reads and low coverage. Must be the tagmentation issue?
+
+## anyway, here is at least one consensus seq from that effort (barcode 10, from Homalia)
+aaggcgtaaggggcatgctgacttgacgtcatccccaccttcctccggtttgtcaccggcagtctctctagagtgcccaacttaatgctggcaactaaaaacgagggttgcgctcgttgcgggacttaacccaacatctcacgacacgagctgacgacagccatgcaccacctgtgttcgcgctcccgaaggcacttgaagctttcactccaattcgcgacatgtcaagccttggtaaggttcttcgcgttgcatcgaattaaaccacatactccaccgcttgtgcgggcccccgtcaattcctttgagtttcaccgttgccggcgtactccccaggcgggatacttaacgcgttagctacggcacggctcgggtcgatacaagccacgcctagtatccatcgtttacggctaggactactggggtatctaatcccattcgctcccctagctttcgtccctcagtgtcagttgcggcctagcagagcgccttcgccaccggtgtttctcctgatctctacgcatttcaccgctacaccaggaattccctctgcccgaacgcactctagcgatgtagtttccactgctctttatctagttgagctagactctttaacagcagacttacatcgccacctgcggacgctttacgcccaatcattccggataacgcttgcatcctccgtattaccgcggctgctggcacggagttagccgatgcttattcctcaggtaccgtcattgtgttcttccctgagaaaagaggtttacgacccaagagccttcctccctcacgcggtattgctccgtcaggctttcgcccattgcggaaaattccccactgctgcctcccgtaggagtctgggccgtgtctcagtcccagtgtggctgatcgtcctctcagaccagctactgatcgtcgccttggtaggctcttactctaccaactagctaatcagacgcgagctcatcttcaggcagttaacctttcaccccgaagggcacatccggtattagccaccgtttccagtggttgtcccagacctgaagccagattctcacgcgttactcacccgtccgccactaaatcccgaaagatttcgttcgacttgcatgtgttaagcataccgccagcgttcatcctgagcca
+
+## as predicted, still blasts best to peltigera symbionts, especially the JQ007760 accesssion
+## maybe tomorrow rerun the alignment of all nostocs with this as a reference seq? 
+## meh...need to move on...
+## hang this on a tree and check the other barcodes. Come back if there is time (hah). 
+
+
