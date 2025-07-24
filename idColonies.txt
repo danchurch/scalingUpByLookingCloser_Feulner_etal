@@ -1305,7 +1305,7 @@ muscle -in ${barcode/.fastq/.fasta} -out muscleMSAbarcode10.fa
 ## looks promising. Grab it locally:
 
 rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSAbarcode10.fa \
-  /home/daniel/Documents/projects/mossSymbiosis/alignments4viewing/
+  /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
 
 ## and it's a mess. Hard to identify what is best here. we can do a lot of manual
 ## editing to the alignment to maybe get a consensus sequence. But let's 
@@ -1413,7 +1413,7 @@ seqtk seq -A ${readDir}/${barcode} > ${barcode/.fastq/.fasta}
 muscle -in ${barcode/.fastq/.fasta} -out muscleMSA_barcode10_JQ007760.fa
 
 rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSA_barcode10_JQ007760.fa \
-  /home/daniel/Documents/projects/mossSymbiosis/alignments4viewing/
+  /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
 
 ## actually looks good. Time for some hand editing.
 
@@ -1451,7 +1451,7 @@ muscle -in ${barcode/.fastq/.fasta} -out muscleMSA_barcode10_JQ007760.fa
 
 ## from desktop:
 rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSA_barcode10_JQ007760.fa \
-  /home/daniel/Documents/projects/mossSymbiosis/alignments4viewing/
+  /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
 
 ## following this, some more hand-editing in ugene, removed all gaps that were 90% or more empty.
 ## also removed all gaps that were mostly empty and next to homopolymers, especially if the
@@ -1459,12 +1459,76 @@ rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_Zy
 ## then clipped the first 134 bp from the alignment, there was a lot of noise in the 
 ## early reads and low coverage. Must be the tagmentation issue?
 
-## anyway, here is at least one consensus seq from that effort (barcode 10, from Homalia)
+## anyway, here is at least one consensus seq from that effort (barcode 10, sequences that blast to JQ007760 from Homalia)
 aaggcgtaaggggcatgctgacttgacgtcatccccaccttcctccggtttgtcaccggcagtctctctagagtgcccaacttaatgctggcaactaaaaacgagggttgcgctcgttgcgggacttaacccaacatctcacgacacgagctgacgacagccatgcaccacctgtgttcgcgctcccgaaggcacttgaagctttcactccaattcgcgacatgtcaagccttggtaaggttcttcgcgttgcatcgaattaaaccacatactccaccgcttgtgcgggcccccgtcaattcctttgagtttcaccgttgccggcgtactccccaggcgggatacttaacgcgttagctacggcacggctcgggtcgatacaagccacgcctagtatccatcgtttacggctaggactactggggtatctaatcccattcgctcccctagctttcgtccctcagtgtcagttgcggcctagcagagcgccttcgccaccggtgtttctcctgatctctacgcatttcaccgctacaccaggaattccctctgcccgaacgcactctagcgatgtagtttccactgctctttatctagttgagctagactctttaacagcagacttacatcgccacctgcggacgctttacgcccaatcattccggataacgcttgcatcctccgtattaccgcggctgctggcacggagttagccgatgcttattcctcaggtaccgtcattgtgttcttccctgagaaaagaggtttacgacccaagagccttcctccctcacgcggtattgctccgtcaggctttcgcccattgcggaaaattccccactgctgcctcccgtaggagtctgggccgtgtctcagtcccagtgtggctgatcgtcctctcagaccagctactgatcgtcgccttggtaggctcttactctaccaactagctaatcagacgcgagctcatcttcaggcagttaacctttcaccccgaagggcacatccggtattagccaccgtttccagtggttgtcccagacctgaagccagattctcacgcgttactcacccgtccgccactaaatcccgaaagatttcgttcgacttgcatgtgttaagcataccgccagcgttcatcctgagcca
 
 ## as predicted, still blasts best to peltigera symbionts, especially the JQ007760 accesssion
 ## maybe tomorrow rerun the alignment of all nostocs with this as a reference seq? 
-## meh...need to move on...
-## hang this on a tree and check the other barcodes. Come back if there is time (hah). 
+
+## why not?...following: https://drive5.com/muscle/manual/addtomsa.html
+
+## first, remove the sequences we already have in our alignment to JQ007760 from our larger, aligned-to-nostoc file:
+
+## on nanoComp:
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+
+## sequences we don't need (already in alignment):
+
+wc -l barcode10_nostocJQ007760Matches.csv 
+
+cut -f 1 barcode10_nostocJQ007760Matches.csv -d ,
+
+## we need to modify:
+
+wc -l barcode10_nostocMatches.csv 
+
+## so something like:
+
+cat <(cut -f 1 barcode10_nostocJQ007760Matches.csv -d ,) <(cut -f 1 barcode10_nostocMatches.csv -d ,) | 
+     sort | 
+     uniq -u | 
+     sed '/qseqid/d' > barcode10_nostoc_NOT_JQ007760readNames.txt
+
+     barcode10_nostoc_NOT_JQ007760readNames.txt
+     seqtk sub
+
+
+allReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq
+seqtk subseq $allReads barcode10_nostoc_NOT_JQ007760readNames.txt > barcode10_nostoc_nonJQ007760Matches.fasta
+
+## back to: https://drive5.com/muscle/manual/addtomsa.html
+## run an alignment on these:
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle
+
+readDir=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
+reads=barcode10_nostoc_nonJQ007760Matches.fasta
+
+seqtk seq -A ${readDir}/${reads} > ${reads/.fastq/.fasta}
+
+muscle -in ${reads/.fastq/.fasta} -out muscleMSA_barcode10_notJQ007760.afa
+
+muscle -profile -in1 muscleMSA_barcode10_JQ007760.fa -in2 muscleMSA_barcode10_notJQ007760.afa -out muscleMSA_barcode10_Nostoc_onJQ007760.afa
+
+## did that work? look at it:
+getFile="muscleMSA_barcode10_Nostoc_onJQ007760.afa"
+rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/${getFile} \
+  /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
+
+## interesting, the blast results might be accurate. As in, there may be multiple strains here. I think I see support for
+## at least two. What does it look like if we make a tree on these sequences, as is?
+
+## yes, it's a mess, but looks like perhaps four groups. Not sure about their sequence difference,
+## but it is really hard to distinguish them from noise. 
+## try hand-curating, see if this cleans up the tree.
+
+
+cd /media/vol1/daniel/nostoc/16sTree/round2/barcode10
+alignment="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSA_barcode10_Nostoc_onJQ007760.afa"
+FastTree -gtr -nt < $alignment > barcode10_Nostoc_onJQ007760.nwk
+
+getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode10/barcode10_Nostoc_onJQ007760.nwk"
+rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
 
 
