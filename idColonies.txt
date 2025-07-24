@@ -1663,7 +1663,6 @@ os.getcwd()
 
 os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11')
 nostocMatches = pd.read_csv('barcode11_nostocMatches.csv', index_col='qseqid')
-
 ## all of these have been id'd to nostoc, so get rid of taxonomy
 nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
 
@@ -1682,28 +1681,40 @@ nostocMatches.groupby('sseqid').count()
 ## FR798940 = "concrete-made fountain with stagnant water, black dry crust" 
 ## sounds like another free living bacteria.  
 
-## followed by FR798940.1.1463 (128 matches)
-
 KU219709.1.1734             387
 AB511947.1.1445             171
 FR798940.1.1463             128
 
-
-
-## "Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis"
-## second most common (43) is nephroma cyanobiont HQ591517.1.1534
-## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
+## again, at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
 
 aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
 bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
 
-peltigeraMatches = nostocMatches[nostocMatches['sseqid']=='JQ007760.1.1503']
+boneMatches = nostocMatches[nostocMatches['sseqid']=='KU219709.1.1734']
+ashitsukiMatches = nostocMatches[nostocMatches['sseqid']=='AB511947.1.1445']
+concreteMatches = nostocMatches[nostocMatches['sseqid']=='FR798940.1.1463']
 
-nephromaMatches = nostocMatches[nostocMatches['sseqid']=='HQ591517.1.1534']
 
 pd.set_option('display.max_rows', None)
 
-peltigeraMatches
+boneMatches[['pident', 'length']].mean() ## 95.4%, 574 bp
+ashitsukiMatches[['pident', 'length']].mean() ## 94.5%, 852
+concreteMatches [['pident', 'length']].mean() ## 94.9%, 794
 
-nephromaMatches
+## overall picture:
 
+nostocMatches[['sseqid', 'pident', 'length']].groupby('sseqid').mean()
+
+nostocMatches[['pident', 'length']].mean() ## 94.4%, 577 bp
+
+nephromaMatches[['pident', 'length']].mean() ## on average, 95% match also.
+
+## strategy here would be to extract each, make an alignment and consensus from 
+## each and then compare
+
+## ashitsuki Matches
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+grep "AB511947.1.1445" barcode11_nostocMatches.csv
