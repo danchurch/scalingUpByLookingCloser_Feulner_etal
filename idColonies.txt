@@ -1233,7 +1233,7 @@ nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0
 nostocMatches.head()
 
 nostocMatches.groupby('sseqid').count() 
-## the most common match (117 matches) is JQ007760.1.1503, Peltigera degenii, from Kaasalainen et al. (2012) 
+## the most common match (117 matches) is JQ007760.1.1503, host Peltigera degenii, from Kaasalainen et al. (2012) 
 ## "Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis"
 ## second most common (43) is nephroma cyanobiont HQ591517.1.1534
 ## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
@@ -1519,11 +1519,6 @@ rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_Zy
 ## interesting, the blast results might be accurate. As in, there may be multiple strains here. I think I see support for
 ## at least two. What does it look like if we make a tree on these sequences, as is?
 
-## yes, it's a mess, but looks like perhaps four groups. Not sure about their sequence difference,
-## but it is really hard to distinguish them from noise. 
-## try hand-curating, see if this cleans up the tree.
-
-
 cd /media/vol1/daniel/nostoc/16sTree/round2/barcode10
 alignment="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/muscle/muscleMSA_barcode10_Nostoc_onJQ007760.afa"
 FastTree -gtr -nt < $alignment > barcode10_Nostoc_onJQ007760.nwk
@@ -1531,4 +1526,184 @@ FastTree -gtr -nt < $alignment > barcode10_Nostoc_onJQ007760.nwk
 getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode10/barcode10_Nostoc_onJQ007760.nwk"
 rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
 
+
+## yes, it's a mess, but looks like perhaps four groups. Not sure about their sequence difference,
+## but it is really hard to distinguish them from noise. 
+## for the moment, move on
+
+## accept the above consensus seq. Try the same pipeline for barcode11:
+
+####################### barcode 11 #################################
+
+## barcode 11 should be nostoc from Zygodon:
+
+## reads here:
+cd /media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed
+minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+grep -c  "Nostocaceae" nostoc_16S_barcode11_cyanoMatches.csv ## 1762
+grep -c  "Nostocaceae;Nostoc" nostoc_16S_barcode11_cyanoMatches.csv ## 1121, out of...
+grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq ## 4859 reads
+
+## run a check for bias from db. Run against the entire silva and pull out the nostocaceae and/or nostoc matches
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq"
+## need a fasta
+seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
+nohup blastn -db $blastDB \
+        -query ${readFile/\.fastq/\.fasta} \
+        -num_threads 10 \
+        -num_alignments 1 \
+        -out round2Barcode11-allSilva.csv \
+        -outfmt 10 & ## 120290
+
+## from these, we need only those that match to nostaceae, I think
+
+grep -c "Nostocaceae" round2Barcode11-allSilva.csv ## only 33, out of 4859 reads. 
+
+grep -c ";Nostoc," round2Barcode11-allSilva.csv ## 22 nostocs
+
+## compare this to when we blasted to a cyano-only database:
+
+grep -c "Nostocaceae" nostoc_16S_barcode11_cyanoMatches.csv ## 1762 reads. 
+
+grep -c ";Nostoc," nostoc_16S_barcode11_cyanoMatches.csv ## 1126 reads. so mostly nostocs
+
+## big effect by reference database used. I am only taking the first match, this may be the issue.
+## not sure which to trust.
+
+## maybe check one record that appears a Nostoceae in our cyano-matches, but not as a nostoc our entire-silva db matches 
+## - is it second/third match? So one that didn't make it into our full silva search.
+
+##  
+
+less round2Barcode11-allSilva.csv
+
+cat <(grep "Nostocaceae" round2Barcode11-allSilva.csv | cut -f 1 -d ,) \
+    <(grep "Nostocaceae" nostoc_16S_barcode11_cyanoMatches.csv | cut -f 1 -d ,) | 
+     sort | 
+     uniq -u  | wc -l ## 1721 unique (unrepeated sequences)
+
+cat <(grep "Nostocaceae" round2Barcode11-allSilva.csv | cut -f 1 -d ,) \
+    <(grep "Nostocaceae" nostoc_16S_barcode11_cyanoMatches.csv | cut -f 1 -d ,) | 
+     sort | uniq -u | sed '/qseqid/d' 
+
+
+## do all of these belong in the cyano-db blast results?
+## anyway, most of them do, pick a few and make sure:
+
+cyanoRds=(\
+f9d89649-4261-45df-963c-ac3afa28ae03
+f9f59d68-ba82-4593-b157-f5204c9f7c3f
+f9ffe375-053d-4f4a-97ee-615793363c98
+fa3affd9-65fd-4b3b-9328-ea80d3e6b83a
+fad023b6-dad7-42ac-b08c-5b497e64f0d0
+fad60fdc-feec-406f-bfa5-e0a0a66473ba
+fb012ea3-8221-4acf-beae-0b0f85dd8f25
+fb9925bb-7c5a-49ab-becc-a40c0c2fbd6d
+fbd44391-7037-4773-9f3b-d62a11329ad2
+)
+
+for i in ${cyanoRds[@]}; do
+  grep $i round2Barcode11-allSilva.csv
+done
+## not in the all-silva search
+
+for i in ${cyanoRds[@]}; do
+  grep $i nostoc_16S_barcode11_cyanoMatches.csv
+done
+## yes in the cyano-only DB search
+
+## let's look at nostoc from our cyano-only DB search that doesn't appear in our 
+## full silva search: 
+
+## convert to fasta seq
+nostocSeq="f9ffe375-053d-4f4a-97ee-615793363c98"
+grep -A 1 $nostocSeq ${minionReads}/${readFile} | sed "s/^@/>/"
+
+## when we blast this against the full NCBI database, we get a nostoc or some clost relative
+## so why does our silva db search discard it?
+
+nostocSeq="f9ffe375-053d-4f4a-97ee-615793363c98"
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+## rerun, with multiple matches and verbose format:
+## need a fasta
+blastn -db $blastDB \
+  -query <(grep -A 1 $nostocSeq ${minionReads}/${readFile} | sed "s/^@/>/") \
+  -num_threads 10 \
+  -out dissappearingNostocBlast.txt
+
+## and it is a high confidence match to Nostoc. I am confused. 
+## rerunning the full silva db search above - was there a typo?
+
+grep $nostocSeq round2Barcode11-allSilva.csv 
+
+## ah, it is because the results were still being built. duh.
+
+## anyway, in the meantime, trust the cyanoDB results. 
+
+## as before, extract reads and blast results, see above for notes
+grep "Nostocaceae;Nostoc" nostoc_16S_barcode11_cyanoMatches.csv > barcode11_nostocMatches.csv
+cut -f1 -d, barcode11_nostocMatches.csv > barcode11_nostocReads.txt
+allReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq"
+seqtk subseq $allReads barcode11_nostocReads.txt > barcode11_onlyNostoc.fastq
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode11_nostocMatches.csv
+
+python3 
+
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+
+os.getcwd()
+
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11')
+nostocMatches = pd.read_csv('barcode11_nostocMatches.csv', index_col='qseqid')
+
+## all of these have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+nostocMatches.head()
+
+pd.set_option('display.max_rows', None)
+
+nostocMatches.groupby('sseqid').count() 
+
+## the most common match (387 matches) is KU219709.1.1734 
+## KU219709 = unpublished, Strunecky,O., Raabova,L., Komarek,J. and Elster,J. (2016)
+## reads like a free-living nostoc, isolated from "bone" 
+## next is AB511947.1.1445 (171 matches)
+## AB511947 = wild, uncultured Nostoc verrucosum, an edible 
+## next is FR798940 (128)
+## FR798940 = "concrete-made fountain with stagnant water, black dry crust" 
+## sounds like another free living bacteria.  
+
+## followed by FR798940.1.1463 (128 matches)
+
+KU219709.1.1734             387
+AB511947.1.1445             171
+FR798940.1.1463             128
+
+
+
+## "Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis"
+## second most common (43) is nephroma cyanobiont HQ591517.1.1534
+## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
+
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+
+peltigeraMatches = nostocMatches[nostocMatches['sseqid']=='JQ007760.1.1503']
+
+nephromaMatches = nostocMatches[nostocMatches['sseqid']=='HQ591517.1.1534']
+
+pd.set_option('display.max_rows', None)
+
+peltigeraMatches
+
+nephromaMatches
 
