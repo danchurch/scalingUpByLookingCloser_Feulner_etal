@@ -1135,6 +1135,10 @@ gunzip SILVA_138_SSURef_tax_silva.fasta.gz
 head -n 100 SILVA_138_SSURef_tax_silva.fasta  ## ugh the spaces are going to cause a problem in the headers.
 
 
+## nostoc punctiforme from the PCC:
+grep -A1 "AF027655" silva138_SSU_reformathead.fasta
+
+
 clear
 head -n 1 SILVA_138_SSURef_tax_silva.fasta 
 
@@ -1146,6 +1150,9 @@ sed -r 's/(^>[^ ]*) /\1;/' SILVA_138_SSURef_tax_silva.fasta > silva138_SSU_refor
 
 ## do it without parsing seq ids, because of our very long headers.
 makeblastdb -in silva138_SSU_reformathead.fasta -dbtype nucl 
+
+
+######## barcode 9 ##############
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
 
@@ -1176,7 +1183,6 @@ grep "Nostocaceae" round2Barcode9-allSilva.csv ## 26,
 
 ## anyway, not sure what to do with this barcode. I cannot tell if we actually sequenced the c.f. nostoc colony 
 ## or not. 
-
 
 ## that will run for a while?
 ## and the others?
@@ -1607,17 +1613,31 @@ fb9925bb-7c5a-49ab-becc-a40c0c2fbd6d
 fbd44391-7037-4773-9f3b-d62a11329ad2
 )
 
+## headers are: qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode11_nostocMatches.csv
+
 for i in ${cyanoRds[@]}; do
-  grep $i round2Barcode11-allSilva.csv
+  grep $i round2Barcode11-allSilva.csv | 
+done ## in there, but...
+
+for i in ${cyanoRds[@]}; do
+  grep ${i} round2Barcode11-allSilva.csv | grep "Nostoc,"
 done
-## not in the all-silva search
+## with the all silva database, only 4 out of 9 actually make to nostoc
 
 for i in ${cyanoRds[@]}; do
   grep $i nostoc_16S_barcode11_cyanoMatches.csv
 done
 ## yes in the cyano-only DB search
 
-## let's look at nostoc from our cyano-only DB search that doesn't appear in our 
+for i in ${cyanoRds[@]}; do
+  grep $i nostoc_16S_barcode11_cyanoMatches.csv | grep "Nostoc,"
+done
+## same in the cyanoDB, 4 matches to nostoc
+
+## the difference is that the remaining reads match to other weird 
+## cyanos, with slightly weaker matches. 
+
+## let's look at a few nostoc from our cyano-only DB 
 ## full silva search: 
 
 ## convert to fasta seq
@@ -1636,24 +1656,24 @@ blastn -db $blastDB \
   -num_threads 10 \
   -out dissappearingNostocBlast.txt
 
-## and it is a high confidence match to Nostoc. I am confused. 
-## rerunning the full silva db search above - was there a typo?
-
 grep $nostocSeq round2Barcode11-allSilva.csv 
 
-## ah, it is because the results were still being built. duh.
-
-## anyway, in the meantime, trust the cyanoDB results. 
+## the full silva matches are probably more trustworthy, but 
+## there isn't really a difference when we focus on just 
+## strong nostoc matches
 
 ## as before, extract reads and blast results, see above for notes
-grep "Nostocaceae;Nostoc" nostoc_16S_barcode11_cyanoMatches.csv > barcode11_nostocMatches.csv
+## this time, since we have it, use the full silvaDB blast results
+
+grep "Nostocaceae;Nostoc" round2Barcode11-allSilva.csv > barcode11_nostocMatches.csv ## down to 1023 matches. A little higher with cyanoDB, but trust this more
+wc -l barcode11_nostocMatches.csv ## down to 1023 matches. A little higher with cyanoDB, but trust this more
+
 cut -f1 -d, barcode11_nostocMatches.csv > barcode11_nostocReads.txt
 allReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq"
 seqtk subseq $allReads barcode11_nostocReads.txt > barcode11_onlyNostoc.fastq
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode11_nostocMatches.csv
 
 python3 
-
 import pandas as pd
 from Bio import SeqIO
 import matplotlib.pyplot as plt; plt.ion()
@@ -1662,6 +1682,7 @@ import os
 os.getcwd()
 
 os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11')
+
 nostocMatches = pd.read_csv('barcode11_nostocMatches.csv', index_col='qseqid')
 ## all of these have been id'd to nostoc, so get rid of taxonomy
 nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
@@ -1672,35 +1693,33 @@ pd.set_option('display.max_rows', None)
 
 nostocMatches.groupby('sseqid').count() 
 
-## the most common match (387 matches) is KU219709.1.1734 
-## KU219709 = unpublished, Strunecky,O., Raabova,L., Komarek,J. and Elster,J. (2016)
-## reads like a free-living nostoc, isolated from "bone" 
-## next is AB511947.1.1445 (171 matches)
-## AB511947 = wild, uncultured Nostoc verrucosum, an edible 
-## next is FR798940 (128)
-## FR798940 = "concrete-made fountain with stagnant water, black dry crust" 
-## sounds like another free living bacteria.  
-
-KU219709.1.1734             387
-AB511947.1.1445             171
-FR798940.1.1463             128
-
 ## again, at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
 
 aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
 bb = aa.T.iloc[0,:].sort_values(ascending=False)
 cc = aa.T.iloc[0,:].sort_values(ascending=True)
 
-boneMatches = nostocMatches[nostocMatches['sseqid']=='KU219709.1.1734']
+## AB511947.1.1445 (446 matches)
+## AB511947 = wild, uncultured Nostoc verrucosum, an edible 
+## next is FR798940 (167)
+## FR798940 = "concrete-made fountain with stagnant water, black dry crust" 
+## sounds like another free living bacteria.  
+## KF037277.1.1457 (67 matches) is from tropical soil, China
+
+## AB511947.1.1445             446
+## FR798940.1.1463             167
+## KF037277.1.1457             67
+
 ashitsukiMatches = nostocMatches[nostocMatches['sseqid']=='AB511947.1.1445']
 concreteMatches = nostocMatches[nostocMatches['sseqid']=='FR798940.1.1463']
-
+chinaMatches = nostocMatches[nostocMatches['sseqid']=='KF037277.1.1457']
 
 pd.set_option('display.max_rows', None)
 
-boneMatches[['pident', 'length']].mean() ## 95.4%, 574 bp
-ashitsukiMatches[['pident', 'length']].mean() ## 94.5%, 852
-concreteMatches [['pident', 'length']].mean() ## 94.9%, 794
+
+ashitsukiMatches[['pident', 'length']].mean() ## 94.9%, 687
+concreteMatches [['pident', 'length']].mean() ## 95.0%, 734
+chinaMatches[['pident', 'length']].mean() ## 93.6%, 333
 
 ## overall picture:
 
@@ -1708,13 +1727,150 @@ nostocMatches[['sseqid', 'pident', 'length']].groupby('sseqid').mean()
 
 nostocMatches[['pident', 'length']].mean() ## 94.4%, 577 bp
 
-nephromaMatches[['pident', 'length']].mean() ## on average, 95% match also.
-
 ## strategy here would be to extract each, make an alignment and consensus from 
 ## each and then compare
 
 ## ashitsuki Matches
 
-cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+## let's get a reference sequence, the PCC nostoc punctiforme sequence from NCBI (AF027655):
 
-grep "AB511947.1.1445" barcode11_nostocMatches.csv
+vim nostocPunctRefSeq.fasta
+seqtk seq -l 0 nostocPunctRefSeq.fasta  > nostocPunctRefSeq_noLB.fasta
+#mv nostocPunctRefSeq_noLB.fasta nostocPunctRefSeq.fasta 
+## this might be useful for all alignments, put it somewhere
+#mv nostocPunctRefSeq.fasta  /media/vol1/daniel/nostoc/ourNostocMSA/
+
+refNostoc=/media/vol1/daniel/nostoc/ourNostocMSA/nostocPunctRefSeq.fasta
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
+grep "AB511947.1.1445" barcode11_nostocMatches.csv | cut -d , -f 1 > barcode11_ashitsuki_nostocReadNames.txt
+grep "FR798940.1.1463" barcode11_nostocMatches.csv | cut -d , -f 1 > barcode11_concrete_nostocReadNames.txt
+grep "KF037277.1.1457" barcode11_nostocMatches.csv | cut -d , -f 1 > barcode11_China_nostocReadNames.txt
+## as noted below in alignments, we have a chimeric read in the ashitsuki reads:
+#grep ae9a27e6-1dfe-4513-b39f-997724c75732 barcode11_ashitsuki_nostocReadNames.txt
+sed -i '/ae9a27e6-1dfe-4513-b39f-997724c75732/d' barcode11_ashitsuki_nostocReadNames.txt 
+## and maybe this one, too. It may be cause a big gap in the alignment:
+#grep 53fc4d0f-e611-43ac-b382-2ca69b9c1a67 barcode11_ashitsuki_nostocReadNames.txt
+#sed -i '/ae9a27e6-1dfe-4513-b39f-997724c75732/d' barcode11_ashitsuki_nostocReadNames.txt 
+## get these into a fasta:
+allReads=2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fasta
+seqtk subseq $allReads barcode11_ashitsuki_nostocReadNames.txt > barcode11_nostoc_ashitsuki.fasta
+seqtk subseq $allReads barcode11_concrete_nostocReadNames.txt > barcode11_nostoc_concrete.fasta
+seqtk subseq $allReads barcode11_China_nostocReadNames.txt > barcode11_nostoc_China.fasta
+## and how do we get the blast match that seeded each of these?
+esearch -db "Nucleotide" -query "AB511947.1" | efetch -format "fasta" > AB511947.fasta
+esearch -db "Nucleotide" -query "FR798940.1" | efetch -format "fasta" > FR798940.fasta
+esearch -db "Nucleotide" -query "KF037277.1" | efetch -format "fasta" > KF037277.fasta
+seqtk seq -l 0 AB511947.fasta  > AB511947_noLB.fasta; mv AB511947_noLB.fasta AB511947.fasta 
+seqtk seq -l 0 FR798940.fasta  > FR798940_noLB.fasta; mv FR798940_noLB.fasta FR798940.fasta 
+seqtk seq -l 0 KF037277.fasta  > KF037277_noLB.fasta; mv KF037277_noLB.fasta KF037277.fasta 
+cat AB511947.fasta barcode11_nostoc_ashitsuki.fasta > temp
+mv temp barcode11_nostoc_ashitsuki.fasta 
+cat FR798940.fasta barcode11_nostoc_concrete.fasta > temp
+mv temp barcode11_nostoc_concrete.fasta
+cat KF037277.fasta barcode11_nostoc_China.fasta > temp
+mv temp barcode11_nostoc_China.fasta
+## how do we add in our reference nostoc?
+refNostoc=/media/vol1/daniel/nostoc/ourNostocMSA/nostocPunctRefSeq.fasta
+sed -i -r "s/^>([^ ]*).*/>concrete_\1/" barcode11_nostoc_concrete.fasta
+sed -i -r "s/^>([^ ]*).*/>china_\1/" barcode11_nostoc_China.fasta 
+sed -i -r "s/^>([^ ]*).*/>ashitsuki_\1/" barcode11_nostoc_ashitsuki.fasta
+for i in barcode11*fasta; do
+  cat $refNostoc $i > temp
+  mv temp $i
+done
+
+## for each, do an alignment:
+for i in barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta; do
+  echo $i
+  muscle -in $i -out ${i/.fasta/.afa} &
+done
+
+## and combine them, just to see what this looks like:
+
+#muscle -profile -in1 barcode11_nostoc_ashitsuki.afa -in2 barcode11_nostoc_concrete.afa -out muscleMSA_barcode11_ashitsuki_concrete.afa
+#muscle -profile -in1 muscleMSA_barcode11_ashitsuki_concrete.afa -in2 barcode11_nostoc_China.fasta -out muscleMSA_barcode11_ashitsuki_concrete_China.afa 
+## this fails. Why? Probably the length (columns) of the alignment being different. 
+## maybe try combining the smaller read files (concrete and china) into a single alignment, 
+## then combine:
+
+## to keep things clear, I think we need to relabel, so that all of the
+## reads can be traced to their blast cluster 
+
+#sed -i -r "s/^>([^ ]*).*/>ashitsuki_\1/" barcode11_nostoc_ashitsuki.afa
+
+cat barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_concreteChina.fasta
+muscle -in barcode11_nostoc_concreteChina.fasta -out barcode11_nostoc_concreteChina.afa &&
+muscle -profile -in1 barcode11_nostoc_ashitsuki.afa -in2 barcode11_nostoc_concreteChina.afa -out muscleMSA_barcode11_ashitsuki_concreteChina.afa
+
+
+## keep the individual alignments for each group, and the combined one, delete the rest
+rm barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta barcode11_nostoc_concreteChina.fasta
+rm barcode11_nostoc_concreteChina.afa
+mv *afa /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+## and get this local
+getFile="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/"
+rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+
+/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+## looking at this, the alignment is way too long. 
+## found chimeric read:
+ae9a27e6-1dfe-4513-b39f-997724c75732
+
+## and maybe these ones too:
+grep 53fc4d0f-e611-43ac-b382-2ca69b9c1a67 /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/*
+grep 33c27d17-b529-4e46-9fe9-c82b296ca335 /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/*
+## but hold onto these for a minute
+
+## rerun the above pipeline excluding this read...
+
+## these are cleaner alignments, let's make trees to see if we are seeing what 
+## we think we are seeing.
+
+## try the big multiple alignment:
+
+## need to rename sequences
+
+#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa
+cd /media/vol1/daniel/nostoc/16sTree/round2/barcode11
+alignment="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa"
+FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China.nwk
+
+getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode11/barcode11_Nostoc_ashitsuki_concrete_China.nwk"
+rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+
+## this is interesting, it looks like the "concrete" and "china" strains are pretty much indistinguishable,
+## and separate from the ashitsuki strain.
+
+## and let's try reversing the order and see if we see the same result
+## do this by combining the "china" strain with the ashitsuki strain alignment
+cat barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_ashitsukiChina.fasta
+muscle -in barcode11_nostoc_ashitsukiChina.fasta -out barcode11_nostoc_ashitsukiChina.afa 
+muscle -profile -in1 barcode11_nostoc_ashitsukiChina.afa -in2 barcode11_nostoc_concrete.afa -out muscleMSA_barcode11_ashitsukiChina_concrete.afa
+#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa
+
+cd /media/vol1/daniel/nostoc/16sTree/round2/barcode11
+alignment="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsukiChina_concrete.afa"
+
+FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China_2.nwk
+## extra AF027655.1 sequence, manually change with vim, delete the ".1"
+## no, doesn't work. Fix this on tuesday.
+
+getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode11/barcode11_Nostoc_ashitsuki_concrete_China_2.nwk"
+rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+
+##### nifH #####
+
+## okay, what is the strategy for getting consensus seqs from our nifH consensus sequence into shape?
+
+## I assume the same strategy, blast to a database, group the reads by their tendency to blast to 
+## common matches. 
+
+## but for that we need a database of NifH genes.    
+
+## intriguing: https://doi.org/10.1016/j.soilbio.2023.109261
+## they translated the nifH sequence with framebot, then blastp 
+##  to a curated NifH database
+
