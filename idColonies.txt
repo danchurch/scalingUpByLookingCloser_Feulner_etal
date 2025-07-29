@@ -1705,6 +1705,8 @@ cc = aa.T.iloc[0,:].sort_values(ascending=True)
 ## FR798940 = "concrete-made fountain with stagnant water, black dry crust" 
 ## sounds like another free living bacteria.  
 ## KF037277.1.1457 (67 matches) is from tropical soil, China
+## interesting, the accession doesn't give any taxonomy on this. 
+## I only see the taxonomy in the manual blast reults
 
 ## AB511947.1.1445             446
 ## FR798940.1.1463             167
@@ -1753,38 +1755,59 @@ sed -i '/ae9a27e6-1dfe-4513-b39f-997724c75732/d' barcode11_ashitsuki_nostocReadN
 #grep 53fc4d0f-e611-43ac-b382-2ca69b9c1a67 barcode11_ashitsuki_nostocReadNames.txt
 #sed -i '/ae9a27e6-1dfe-4513-b39f-997724c75732/d' barcode11_ashitsuki_nostocReadNames.txt 
 ## get these into a fasta:
+
 allReads=2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fasta
 seqtk subseq $allReads barcode11_ashitsuki_nostocReadNames.txt > barcode11_nostoc_ashitsuki.fasta
 seqtk subseq $allReads barcode11_concrete_nostocReadNames.txt > barcode11_nostoc_concrete.fasta
 seqtk subseq $allReads barcode11_China_nostocReadNames.txt > barcode11_nostoc_China.fasta
+## get rid of crazy nanopore names
+sed -i -r "s/^>([^ ]*).*/>concrete_\1/" barcode11_nostoc_concrete.fasta
+sed -i -r "s/^>([^ ]*).*/>china_\1/" barcode11_nostoc_China.fasta 
+sed -i -r "s/^>([^ ]*).*/>ashitsuki_\1/" barcode11_nostoc_ashitsuki.fasta
+## keep just the first words:
+for i in barcode*fasta; do
+  sed -i -r "s/^(>[^-]*).*/\1/" $i
+done
 ## and how do we get the blast match that seeded each of these?
-esearch -db "Nucleotide" -query "AB511947.1" | efetch -format "fasta" > AB511947.fasta
-esearch -db "Nucleotide" -query "FR798940.1" | efetch -format "fasta" > FR798940.fasta
-esearch -db "Nucleotide" -query "KF037277.1" | efetch -format "fasta" > KF037277.fasta
-seqtk seq -l 0 AB511947.fasta  > AB511947_noLB.fasta; mv AB511947_noLB.fasta AB511947.fasta 
-seqtk seq -l 0 FR798940.fasta  > FR798940_noLB.fasta; mv FR798940_noLB.fasta FR798940.fasta 
-seqtk seq -l 0 KF037277.fasta  > KF037277_noLB.fasta; mv KF037277_noLB.fasta KF037277.fasta 
+#esearch -db "Nucleotide" -query "AB511947.1" | efetch -format "fasta" > AB511947.fasta
+#esearch -db "Nucleotide" -query "FR798940.1" | efetch -format "fasta" > FR798940.fasta
+#esearch -db "Nucleotide" -query "KF037277.1" | efetch -format "fasta" > KF037277.fasta
+#seqtk seq -l 0 AB511947.fasta  > AB511947_noLB.fasta; mv AB511947_noLB.fasta AB511947.fasta 
+#seqtk seq -l 0 FR798940.fasta  > FR798940_noLB.fasta; mv FR798940_noLB.fasta FR798940.fasta 
+#seqtk seq -l 0 KF037277.fasta  > KF037277_noLB.fasta; mv KF037277_noLB.fasta KF037277.fasta 
 cat AB511947.fasta barcode11_nostoc_ashitsuki.fasta > temp
 mv temp barcode11_nostoc_ashitsuki.fasta 
 cat FR798940.fasta barcode11_nostoc_concrete.fasta > temp
 mv temp barcode11_nostoc_concrete.fasta
 cat KF037277.fasta barcode11_nostoc_China.fasta > temp
 mv temp barcode11_nostoc_China.fasta
+## get rid of long headers:
+sed -i -r "s/(>AB511947.1 Nostoc verrucosum).*/\1/" barcode11_nostoc_ashitsuki.fasta 
+sed -i -r "s/(>FR798940.1 Nostoc).*/\1 from stagnant water and concrete/" barcode11_nostoc_concrete.fasta
+sed -i -r "s/(>KF037277.1).*/\1 Chinese soil bacteria/" barcode11_nostoc_China.fasta 
 ## how do we add in our reference nostoc?
-refNostoc=/media/vol1/daniel/nostoc/ourNostocMSA/nostocPunctRefSeq.fasta
-sed -i -r "s/^>([^ ]*).*/>concrete_\1/" barcode11_nostoc_concrete.fasta
-sed -i -r "s/^>([^ ]*).*/>china_\1/" barcode11_nostoc_China.fasta 
-sed -i -r "s/^>([^ ]*).*/>ashitsuki_\1/" barcode11_nostoc_ashitsuki.fasta
 for i in barcode11*fasta; do
   cat $refNostoc $i > temp
+  sed -i -r "s/(>AF027655.1).*/\1/" temp
   mv temp $i
 done
+
+sed -i -r "s/(>AF027655)\.1.*/\1_ashitsuki/" barcode11_nostoc_ashitsuki.fasta 
+sed -i -r "s/(>AF027655)\.1.*/\1_China/" barcode11_nostoc_China.fasta
+sed -i -r "s/(>AF027655)\.1.*/\1_concrete/" barcode11_nostoc_concrete.fasta
+
+grep "^>" barcode11_nostoc_ashitsuki.fasta | head -5
+grep "^>" barcode11_nostoc_concrete.fasta | head -5
+grep "^>" barcode11_nostoc_China.fasta | head -5
+
 
 ## for each, do an alignment:
 for i in barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta; do
   echo $i
   muscle -in $i -out ${i/.fasta/.afa} &
 done
+
+## stopped here lunch 29.7.25 ## 
 
 ## and combine them, just to see what this looks like:
 
@@ -1794,20 +1817,10 @@ done
 ## maybe try combining the smaller read files (concrete and china) into a single alignment, 
 ## then combine:
 
-## to keep things clear, I think we need to relabel, so that all of the
-## reads can be traced to their blast cluster 
-
-#sed -i -r "s/^>([^ ]*).*/>ashitsuki_\1/" barcode11_nostoc_ashitsuki.afa
-
 cat barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_concreteChina.fasta
 muscle -in barcode11_nostoc_concreteChina.fasta -out barcode11_nostoc_concreteChina.afa &&
 muscle -profile -in1 barcode11_nostoc_ashitsuki.afa -in2 barcode11_nostoc_concreteChina.afa -out muscleMSA_barcode11_ashitsuki_concreteChina.afa
 
-
-## keep the individual alignments for each group, and the combined one, delete the rest
-rm barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta barcode11_nostoc_concreteChina.fasta
-rm barcode11_nostoc_concreteChina.afa
-mv *afa /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
 
 ## and get this local
 getFile="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/"
@@ -1833,7 +1846,8 @@ grep 33c27d17-b529-4e46-9fe9-c82b296ca335 /media/vol1/daniel/nostoc/ourNostocMSA
 
 ## need to rename sequences
 
-#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
+
 cd /media/vol1/daniel/nostoc/16sTree/round2/barcode11
 alignment="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa"
 FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China.nwk
@@ -1846,20 +1860,66 @@ rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossS
 
 ## and let's try reversing the order and see if we see the same result
 ## do this by combining the "china" strain with the ashitsuki strain alignment
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/
+
+#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
+
+## put the ashitsuki reads together with one of the small blast clusters, the chinese soil bacteria
+
+
 cat barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_ashitsukiChina.fasta
+
+## get them all into one alignment
 muscle -in barcode11_nostoc_ashitsukiChina.fasta -out barcode11_nostoc_ashitsukiChina.afa 
 muscle -profile -in1 barcode11_nostoc_ashitsukiChina.afa -in2 barcode11_nostoc_concrete.afa -out muscleMSA_barcode11_ashitsukiChina_concrete.afa
-#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa
+
+grep "AF027655\.1" barcode11_nostoc_concrete.afa  ## 
+grep "AF027655\.1" barcode11_nostoc_ashitsukiChina.afa
+
+
+mv muscleMSA_barcode11_ashitsukiChina_concrete.afa /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+
+## start from here, clean up extra sequence an 
+
+less muscleMSA_barcode11_ashitsukiChina_concrete.afa  ## 
+
+grep "AF027655\.1" muscleMSA_barcode11_ashitsukiChina_concrete.afa  ## 
+
+grep "^>" muscleMSA_barcode11_ashitsuki_concreteChina.afa | sort | less
+
+| uniq -d
+
 
 cd /media/vol1/daniel/nostoc/16sTree/round2/barcode11
-alignment="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsukiChina_concrete.afa"
+
 
 FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China_2.nwk
-## extra AF027655.1 sequence, manually change with vim, delete the ".1"
-## no, doesn't work. Fix this on tuesday.
+
+## error, the multiple AF027655 are causing problems. Even though they have unique labels. Remove?:
+
+## hard to do with multiple lines in sequences. Do they have to be?:
+
+seqtk seq -l 0 
+
+
+## how do we remove the
+
+alignment="muscleMSA_barcode11_ashitsuki_concreteChina_noLB.afa"
+
+
+FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China_2.nwk
 
 getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode11/barcode11_Nostoc_ashitsuki_concrete_China_2.nwk"
 rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+
+## this tree does show two groups, we need to make sure they are 
+## two regions of the 16s...
+
+## relabel so the tree so it's read-able:
 
 ##### nifH #####
 
@@ -1874,3 +1934,4 @@ rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossS
 ## they translated the nifH sequence with framebot, then blastp 
 ##  to a curated NifH database
 
+ 
