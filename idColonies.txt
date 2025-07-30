@@ -1100,10 +1100,7 @@ done
 mv *cyanoMatches.csv /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/
 
 
-## what do we use for NifH blast matches? 
 
-## we need a nifH database and maybe a tree. Maybe a good database here:
-## https://www.jzehrlab.com/nifh  
 
 ## for the moment, let's see if we can make sense of our 16s. Worried about
 ## the Amblystegium, doesn't come out cleanly as a nostoc
@@ -1152,7 +1149,6 @@ sed -r 's/(^>[^ ]*) /\1;/' SILVA_138_SSURef_tax_silva.fasta > silva138_SSU_refor
 makeblastdb -in silva138_SSU_reformathead.fasta -dbtype nucl 
 
 
-######## barcode 9 ##############
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
 
@@ -1200,29 +1196,59 @@ grep -c  "Nostocaceae" nostoc_16S_barcode11_cyanoMatches.csv ## 1762
 grep -c  "Nostocaceae;Nostoc" nostoc_16S_barcode11_cyanoMatches.csv ## 1121, out of...
 grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq ## 4859 reads
 
+################# barcode 9 get consensus seq ############################
+
+## can we get barcode 9 working? though listed first, this is our last 
+## 16s effort of the three from the most recent nanopore sequencing
+## data.
+
+## because at first glance, this was the worst data. Rerun the blast check for nostocs, to be sure
+
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq"
+## need a fasta
+seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
+nohup blastn -db $blastDB \
+        -query ${readFile/\.fastq/\.fasta} \
+        -num_threads 10 \
+        -num_alignments 1 \
+        -out round2Barcode09-allSilva.csv \
+        -outfmt 10 & ## 
+
+grep -c "Nostocaceae;Nostoc" round2Barcode10-allSilva.csv  ## 375
+
+
+
+################# barcode 10 get consensus seq ############################
+
 ## both are more promising. Start with barcode10. 
 
 ## just curious, are there a lot of duplicate reads, as before? 
 ## Could skewing results here.
 readDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
 barcode="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+
 seqtk seq -A ${readDir}/${barcode} | sed -n "/>/p" |  cut -f 1 -d " " | sort | uniq -d ## I see no dups
 
 grep "Nostocaceae;Nostoc" nostoc_16S_barcode10_cyanoMatches.csv > barcode10_nostocMatches.csv
+
 cut -f1 -d, barcode10_nostocMatches.csv > barcode10_nostocReads.txt
 
 ## use seqtk to keep only the matches to nostoc
 allReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
-
 seqtk subseq $allReads barcode10_nostocReads.txt > barcode10_onlyNostoc.fastq
 
+wc -l barcode10_onlyNostoc.fastq
+wc -l barcode10_nostocMatches.csv
+
 ## add headers
+
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode10_nostocMatches.csv
 
 ## check out barcode 10 with python:
 
 python3 
-
 import pandas as pd
 from Bio import SeqIO
 import matplotlib.pyplot as plt; plt.ion()
@@ -1230,7 +1256,7 @@ import os
 
 os.getcwd()
 
-os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium')
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10')
 
 nostocMatches = pd.read_csv('barcode10_nostocMatches.csv', index_col='qseqid')
 ## all of these have been id'd to nostoc, so get rid of taxonomy
@@ -1466,6 +1492,7 @@ rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/ourNostocMSA/round2_Zy
 ## early reads and low coverage. Must be the tagmentation issue?
 
 ## anyway, here is at least one consensus seq from that effort (barcode 10, sequences that blast to JQ007760 from Homalia)
+>Consensus seq for Nostoc from Homalia
 aaggcgtaaggggcatgctgacttgacgtcatccccaccttcctccggtttgtcaccggcagtctctctagagtgcccaacttaatgctggcaactaaaaacgagggttgcgctcgttgcgggacttaacccaacatctcacgacacgagctgacgacagccatgcaccacctgtgttcgcgctcccgaaggcacttgaagctttcactccaattcgcgacatgtcaagccttggtaaggttcttcgcgttgcatcgaattaaaccacatactccaccgcttgtgcgggcccccgtcaattcctttgagtttcaccgttgccggcgtactccccaggcgggatacttaacgcgttagctacggcacggctcgggtcgatacaagccacgcctagtatccatcgtttacggctaggactactggggtatctaatcccattcgctcccctagctttcgtccctcagtgtcagttgcggcctagcagagcgccttcgccaccggtgtttctcctgatctctacgcatttcaccgctacaccaggaattccctctgcccgaacgcactctagcgatgtagtttccactgctctttatctagttgagctagactctttaacagcagacttacatcgccacctgcggacgctttacgcccaatcattccggataacgcttgcatcctccgtattaccgcggctgctggcacggagttagccgatgcttattcctcaggtaccgtcattgtgttcttccctgagaaaagaggtttacgacccaagagccttcctccctcacgcggtattgctccgtcaggctttcgcccattgcggaaaattccccactgctgcctcccgtaggagtctgggccgtgtctcagtcccagtgtggctgatcgtcctctcagaccagctactgatcgtcgccttggtaggctcttactctaccaactagctaatcagacgcgagctcatcttcaggcagttaacctttcaccccgaagggcacatccggtattagccaccgtttccagtggttgtcccagacctgaagccagattctcacgcgttactcacccgtccgccactaaatcccgaaagatttcgttcgacttgcatgtgttaagcataccgccagcgttcatcctgagcca
 
 ## as predicted, still blasts best to peltigera symbionts, especially the JQ007760 accesssion
@@ -1537,7 +1564,124 @@ rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossS
 ## but it is really hard to distinguish them from noise. 
 ## for the moment, move on
 
-## accept the above consensus seq. Try the same pipeline for barcode11:
+## for now accept the above consensus seq. Try the same pipeline for barcode11
+
+## return to this 30.07.2025
+## and this approach really didn't work for barcode11. Too noisy.
+## instead, below we aligned with SINA using a reference alignment
+## from the cyanoseq database, then created a hmm profile from the
+## alignment and generated a consensus sequence from this. 
+## for consistency, let's apply this approach here. We can compare
+## the consensus sequences, to see how consistent the two 
+## approaches are.
+
+## last time, we found some error due to the blast database used.
+## let's make sure we use the entire silva 
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
+
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+## need a fasta
+seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
+nohup blastn -db $blastDB \
+        -query ${readFile/\.fastq/\.fasta} \
+        -num_threads 10 \
+        -num_alignments 1 \
+        -out round2Barcode10-allSilva.csv \
+        -outfmt 10 & ## 
+
+grep -c "Nostocaceae;Nostoc" round2Barcode10-allSilva.csv  ## 375
+
+
+## pull out the nostoc-like things:
+grep "Nostocaceae;Nostoc" round2Barcode10-allSilva.csv > barcode10_nostocMatches.csv
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode10_nostocMatches.csv
+
+####### 
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+
+nostocMatches = pd.read_csv('barcode10_nostocMatches.csv', index_col='qseqid')
+
+## all of these have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+nostocMatches.head()
+nostocMatches.groupby('sseqid').count() 
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+
+## as before, JQ007760.1.1503 is still the most common match
+
+grep JQ007760.1 barcode10_nostocMatches.csv > barcode10_nostocJQ007760Matches.csv
+cut -f1 -d, barcode10_nostocJQ007760Matches.csv > barcode10_JQ007760Reads.txt
+allReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq
+seqtk subseq $allReads barcode10_JQ007760Reads.txt > barcode10_JQ007760.fastq
+
+## so, align these with SINA against the cyanoseq db:
+conda activate sina
+
+cyanoseqARB=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/CyanoSeq_1.2.arb
+
+cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10
+
+less barcode10_JQ007760.fastq
+
+fastq="barcode10_JQ007760.fastq"
+blastoutDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
+#ls -l ${blastoutDir}/${fastq}
+fasta=${fastq/\.fastq/\.fasta}
+seqtk seq -A ${blastoutDir}/${fastq} > $fasta
+cyanoseqARB=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/CyanoSeq_1.2.arb
+
+sina \
+  -i $fasta \
+  -o ${fasta/\.fasta/aligned_cyanoseq.afa} \
+  --db $cyanoseqARB &> log.txt
+
+## as below, lots of errors. But I guess they can be ignored?
+
+ls ${fasta/\.fasta/aligned_cyanoseq.afa} 
+
+
+## how does this look?
+
+getFile="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10/barcode10_JQ007760aligned_cyanoseq.afa"
+rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/
+
+ugene -ui barcode10_JQ007760aligned_cyanoseq.afa ## that is noisier than our barcode11 ashitsuki matches below. 
+
+
+## oh well. Try a consensus seq:
+
+## as before hanging BPs to be manually removed
+##c61c2933-c3be-4865-97eb-98bbcce1d3db
+##2a4ec9cb-e3ae-4238-9ffc-83cc178a78be
+vim ${alignDir}/${alignFile}
+
+alignDir="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode10"
+alignFile="barcode10_JQ007760aligned_cyanoseq.afa"
+hmmbuild barcode10_JQ007760.hmm ${alignDir}/${alignFile}
+
+## and ask for a "plurality" type consensus:
+hmmemit -c -o barcode10_nostoc_JQ007760_16s_consensus.fasta barcode10_JQ007760.hmm
+
+## RNA to DNA
+sed -i '/^[^>]/ y/uU/tT/' barcode10_nostoc_JQ007760_16s_consensus.fasta 
+
+less barcode10_nostoc_JQ007760_16s_consensus.fasta 
+
+
+cd  /media/vol1/daniel/nostoc/consensusSequences/
+
+## yeah, don't think that helped. A quick blast match is basically 
+## nonsense. 
+## weird. keep the above consensus sequence. 
+
 
 ####################### barcode 11 #################################
 
@@ -1935,7 +2079,6 @@ cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
 ## though as mentioned, hanging sequences are causing problems. Also, the reference sequences that I "spiked-in"
 ## removed the hanging base that offended hmmer, and also the reference AB511947 nostoc verrucosa sequence
 
-
 ########## consensus sequence #########
 
 ## as far as getting a consensus sequence, maybe take an HMM approach?
@@ -1973,6 +2116,9 @@ mv barcode11_nostoc_ashitsuki_16s_consensus.fasta  /media/vol1/daniel/nostoc/con
 
 ##### nifH #####
 
+## we need a nifH database and maybe a tree. Maybe a good database here:
+## https://www.jzehrlab.com/nifh  
+
 ## okay, what is the strategy for getting consensus seqs from our nifH consensus sequence into shape?
 
 ## I assume the same strategy, blast to a database, group the reads by their tendency to blast to 
@@ -1981,6 +2127,9 @@ mv barcode11_nostoc_ashitsuki_16s_consensus.fasta  /media/vol1/daniel/nostoc/con
 ## but for that we need a database of NifH genes.    
 
 ## intriguing: https://doi.org/10.1016/j.soilbio.2023.109261
+## (Hu, Wang, et al. 2024)
+## "Biological nitrogen fixation and the role of soil diazotroph 
+##  niche breadth in representative terrestrial ecosystems"
 ## they translated the nifH sequence with framebot, then blastp 
 ##  to a curated NifH database
 
@@ -1994,6 +2143,29 @@ unzip NIFTHool-v1.0.zip
 
 ## we just want:
 mv data_NifH.csv NIFtHool.csv
+
+## I think we need this as a fasta:
+
+python3 
+
+import pandas as pd
+import os
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+from Bio import SeqIO
+
+aa = pd.read_csv("NIFtHool.csv", header=None)
+
+protSeqs = aa.iloc[:,2].apply(Seq).to_list()
+
+listOfNifHrecords = []
+for i,j in enumerate(protSeqs):
+    seqi = SeqRecord(seq=protSeqs[i], id=aa.iloc[i,0], name=aa.iloc[i,1], description=aa.iloc[i,1])
+    listOfNifHrecords.append(seqi)
+
+SeqIO.write(listOfNifHrecords, "NIFtHool.faa", "fasta")
+
+help(SeqIO.write)
 
 ## also there is this Koira & Brözel dataset, 963 NifH genes from culture genomes:
 
@@ -2014,14 +2186,30 @@ from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
 
 aa = pd.read_excel(open('Supplement_Data_S1_Sequences.xlsx', 'rb'), sheet_name='CompleteNif')  
-
 ## can we make a fasta (FAA) out of this?
 ## getting down to the two columns we really need:
-
 nifHdf = aa[['NifH', 'NifHSeq']]
+protSeqs = nifHdf['NifHSeq'].apply(Seq).to_list()
+## to make a big list:
+listOfNifHrecords = []
+for i,j in enumerate(protSeqs):
+    seqi = SeqRecord(seq=protSeqs[i], id=nifHdf.iloc[i,0], description=nifHdf.iloc[i,0])
+    listOfNifHrecords.append(seqi)
 
-## I guess we need to make a large list of seq records,
-## with the "NifH" column as the id
+listOfNifHrecords[0]
+
+## write this out as a fasta?:
+SeqIO.write(listOfNifHrecords, "KoiraBroezel.faa", "fasta")
+
+## this should work. The third source of cyanobacterial reads 
+## given in this database ("Nitrogenase NifH 99.fasta")
+https://bridges.monash.edu/articles/online_resource/Nitrogenase_NifH_99_fasta/13152692?backTo=/collections/_/5230745
+
+## had to download manually, put it on nanoComp:
+rsync -auv '/home/daniel/Downloads/Nitrogenase NifH 99.fasta' test@132.180.112.115:/media/vol1/daniel/nostoc/nifHdatabases/
+
+mv 'Nitrogenase NifH 99.fasta' NitrogenaseNifH99.fasta
+## this formatting seems fine
 
 
 
