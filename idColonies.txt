@@ -1743,6 +1743,7 @@ seqtk seq -l 0 nostocPunctRefSeq.fasta  > nostocPunctRefSeq_noLB.fasta
 #mv nostocPunctRefSeq.fasta  /media/vol1/daniel/nostoc/ourNostocMSA/
 
 refNostoc=/media/vol1/daniel/nostoc/ourNostocMSA/nostocPunctRefSeq.fasta
+
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
 #cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
 grep "AB511947.1.1445" barcode11_nostocMatches.csv | cut -d , -f 1 > barcode11_ashitsuki_nostocReadNames.txt
@@ -1791,7 +1792,6 @@ for i in barcode11*fasta; do
   sed -i -r "s/(>AF027655.1).*/\1/" temp
   mv temp $i
 done
-
 sed -i -r "s/(>AF027655)\.1.*/\1_ashitsuki/" barcode11_nostoc_ashitsuki.fasta 
 sed -i -r "s/(>AF027655)\.1.*/\1_China/" barcode11_nostoc_China.fasta
 sed -i -r "s/(>AF027655)\.1.*/\1_concrete/" barcode11_nostoc_concrete.fasta
@@ -1801,13 +1801,12 @@ grep "^>" barcode11_nostoc_concrete.fasta | head -5
 grep "^>" barcode11_nostoc_China.fasta | head -5
 
 
-## for each, do an alignment:
+## for each, do an alignment, may be useful
 for i in barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta; do
   echo $i
   muscle -in $i -out ${i/.fasta/.afa} &
 done
 
-## stopped here lunch 29.7.25 ## 
 
 ## and combine them, just to see what this looks like:
 
@@ -1817,10 +1816,22 @@ done
 ## maybe try combining the smaller read files (concrete and china) into a single alignment, 
 ## then combine:
 
+## so lumping the concrete and China reads.
 cat barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_concreteChina.fasta
-muscle -in barcode11_nostoc_concreteChina.fasta -out barcode11_nostoc_concreteChina.afa &&
+muscle -in barcode11_nostoc_concreteChina.fasta -out barcode11_nostoc_concreteChina.afa 
 muscle -profile -in1 barcode11_nostoc_ashitsuki.afa -in2 barcode11_nostoc_concreteChina.afa -out muscleMSA_barcode11_ashitsuki_concreteChina.afa
+## and the reverse, let's lump the  ashitsuki and the china reads, to test the effect of order here:
+cat barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_ashitsukiChina.fasta
+muscle -in barcode11_nostoc_ashitsukiChina.fasta -out barcode11_nostoc_ashitsukiChina.afa 
+muscle -profile -in1 barcode11_nostoc_ashitsukiChina.afa -in2 barcode11_nostoc_concrete.afa -out muscleMSA_barcode11_ashitsukiChina_concrete.afa
+## and one big one, of all three blast clusters:
+cat barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_concrete.fasta barcode11_nostoc_China.fasta > \
+  barcode11_nostoc_ashitsukiConcreteChina.fasta
+muscle -in barcode11_nostoc_ashitsukiConcreteChina.fasta -out barcode11_nostoc_ashitsukiConcreteChina.afa
 
+
+## move these and the other alignments, to keep things organized
+mv *afa /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
 
 ## and get this local
 getFile="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/"
@@ -1842,84 +1853,123 @@ grep 33c27d17-b529-4e46-9fe9-c82b296ca335 /media/vol1/daniel/nostoc/ourNostocMSA
 ## these are cleaner alignments, let's make trees to see if we are seeing what 
 ## we think we are seeing.
 
-## try the big multiple alignment:
-
-## need to rename sequences
-
-cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
-
+#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
 cd /media/vol1/daniel/nostoc/16sTree/round2/barcode11
-alignment="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/muscleMSA_barcode11_ashitsuki_concreteChina.afa"
-FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China.nwk
 
-getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode11/barcode11_Nostoc_ashitsuki_concrete_China.nwk"
+alignDir=/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
+alignment=muscleMSA_barcode11_ashitsuki_concreteChina.afa
+FastTree -gtr -nt < ${alignDir}/${alignment} > barcode11_Nostoc_ashitsuki_concreteChina.nwk
+alignment=muscleMSA_barcode11_ashitsukiChina_concrete.afa
+FastTree -gtr -nt < ${alignDir}/${alignment} > muscleMSA_barcode11_ashitsukiChina_concrete.nwk
+alignment=barcode11_nostoc_ashitsukiConcreteChina.afa
+FastTree -gtr -nt < ${alignDir}/${alignment} > muscleMSA_barcode11_ashitsukiChinaconcrete.nwk
+
+getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode11/"
 rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
 
-## this is interesting, it looks like the "concrete" and "china" strains are pretty much indistinguishable,
-## and separate from the ashitsuki strain.
+## they are somehow very different. There is a strong effect, it looks like whichever alignments 
+## are made together tend to stay together. Maybe the "profile" tool in muscle is inappropriate here.
+## I guess the last thing to try to align them all, while we work on getting a nif database,
+## is to let one large align run with all reads, labeled according to their blast cluster. 
 
-## and let's try reversing the order and see if we see the same result
-## do this by combining the "china" strain with the ashitsuki strain alignment
+## oh god, this is a mess.  
 
-cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/
+###############################
 
-#cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
+## try SINA 1.7?
 
-## put the ashitsuki reads together with one of the small blast clusters, the chinese soil bacteria
+apt search SINA ## nope
 
+## here:
+https://github.com/epruesse/SINA
+https://sina.readthedocs.io/en/latest/
 
-cat barcode11_nostoc_ashitsuki.fasta barcode11_nostoc_China.fasta > barcode11_nostoc_ashitsukiChina.fasta
+## let's make a conda environment for this:
 
-## get them all into one alignment
-muscle -in barcode11_nostoc_ashitsukiChina.fasta -out barcode11_nostoc_ashitsukiChina.afa 
-muscle -profile -in1 barcode11_nostoc_ashitsukiChina.afa -in2 barcode11_nostoc_concrete.afa -out muscleMSA_barcode11_ashitsukiChina_concrete.afa
+conda activate sina
 
-grep "AF027655\.1" barcode11_nostoc_concrete.afa  ## 
-grep "AF027655\.1" barcode11_nostoc_ashitsukiChina.afa
+## we need an arb-formatted DB. Can we use the cyanoseq or cydrasil databases for this?
 
+## cyanoseq, v1.2 (v6 doesn't have the alignment on their zenodo?)
 
-mv muscleMSA_barcode11_ashitsukiChina_concrete.afa /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
+cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
+
+## try conversion to arb format:
+sina -i CyanoSeq_1.2.fasta -o CyanoSeq_1.2.arb --prealigned
+
+## try a simple alignment:
+
+## let's try our barcode 11 sequences. First, what happens if we give it 
+## all of our nostoc sequences, not divided up by blast-matches 
+
+## all nostoc matches from barcode11 are here:
 
 cd /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11
 
+fasta="barcode11_nostoc_ashitsuki.fasta"
+blastoutDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11"
+#ls ${blastoutDir}/${fasta}
+#seqtk seq -A $fastq  > $fasta
+sina \
+  -i ${blastoutDir}/$fasta \
+  -o ${fasta/\.fasta/aligned_cyanoseq.afa} \
+  --db CyanoSeq_1.2.arb &> log.txt
 
-## start from here, clean up extra sequence an 
+## tried to use the --overhang= option but appears to be broken. hanging sequences are causing 
+## problems with hmmer below...manually remove them?
 
-less muscleMSA_barcode11_ashitsukiChina_concrete.afa  ## 
+## lots of errors (https://github.com/epruesse/SINA/issues/110). let's see how it worked, anyway.
 
-grep "AF027655\.1" muscleMSA_barcode11_ashitsukiChina_concrete.afa  ## 
+mv ${fasta/\.fasta/aligned_cyanoseq.afa} /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/
 
-grep "^>" muscleMSA_barcode11_ashitsuki_concreteChina.afa | sort | less
-
-| uniq -d
-
-
-cd /media/vol1/daniel/nostoc/16sTree/round2/barcode11
-
-
-FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China_2.nwk
-
-## error, the multiple AF027655 are causing problems. Even though they have unique labels. Remove?:
-
-## hard to do with multiple lines in sequences. Do they have to be?:
-
-seqtk seq -l 0 
-
-
-## how do we remove the
-
-alignment="muscleMSA_barcode11_ashitsuki_concreteChina_noLB.afa"
-
-
-FastTree -gtr -nt < $alignment > barcode11_Nostoc_ashitsuki_concrete_China_2.nwk
-
-getFile="/media/vol1/daniel/nostoc/16sTree/round2/barcode11/barcode11_Nostoc_ashitsuki_concrete_China_2.nwk"
+## on local ##
+#getFile="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/barcode11_onlyNostocaligned_cyanoseq.afa"
+getFile="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/barcode11_nostoc_ashitsukialigned_cyanoseq.afa"
 rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+## ^on local^ ##
 
-## this tree does show two groups, we need to make sure they are 
-## two regions of the 16s...
+## looks promising, let's try it with the blast-clusters, maybe just the most numerous. Modified above.
+## though as mentioned, hanging sequences are causing problems. Also, the reference sequences that I "spiked-in"
+## removed the hanging base that offended hmmer, and also the reference AB511947 nostoc verrucosa sequence
 
-## relabel so the tree so it's read-able:
+
+########## consensus sequence #########
+
+## as far as getting a consensus sequence, maybe take an HMM approach?
+## e.g. https://medium.com/@sepo7/generating-a-consensus-sequence-from-a-profile-hmms-with-hmmer-python-506ed13f26ad
+
+alignDir="/media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11"
+alignFile="barcode11_nostoc_ashitsukialigned_cyanoseq.afa"
+hmmbuild barcode11_ashitsuki.hmm ${alignDir}/${alignFile}
+
+## at first, received an error:
+#Alignment input parse error:
+#   sequence ashitsuki_c259e768 has alen 1461; expected 1460
+#   while reading aligned FASTA file /media/vol1/daniel/nostoc/ourNostocMSA/round2_ZygodonHomaliaAmbylostegium/barcode11/barcode11_nostoc_ashitsukialigned_cyanoseq.afa
+#   at or near line 493
+## manually removed this base as mentioned above
+
+## and ask for a "plurality" type consensus:
+hmmemit -c -o barcode11_nostoc_ashitsuki_16s_consensus.fasta barcode11_ashitsuki.hmm
+
+## RNA to DNA
+sed -i '/^[^>]/ y/uU/tT/' barcode11_nostoc_ashitsuki_16s_consensus.fasta 
+mv barcode11_nostoc_ashitsuki_16s_consensus.fasta  /media/vol1/daniel/nostoc/consensusSequences/OGzygodon_nostoc_16s_consensus.fasta  
+
+## make a special place for these:
+
+
+## and is this our consensus seq?
+## it's our best guess. There may be one or two other strains in their, by the 
+## other "blast clusters", but this may also be noise from the sequencer.
+## hard to say.
+
+## so, repeat the above for our original nostoc, and barcodes 9 (if possible) and 10, 
+## identify with NBC and the cyanoseq reads, hang them 
+## on the cydrasil tree or the cyanoseq tree?
 
 ##### nifH #####
 
@@ -1934,4 +1984,44 @@ rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossS
 ## they translated the nifH sequence with framebot, then blastp 
 ##  to a curated NifH database
 
- 
+## one database they used is from the NifHTool authors:
+
+cd /media/vol1/daniel/nostoc/nifHdatabases
+
+wget https://zenodo.org/records/5913032/files/JefferDSP/NIFTHool-v1.0.zip
+
+unzip NIFTHool-v1.0.zip
+
+## we just want:
+mv data_NifH.csv NIFtHool.csv
+
+## also there is this Koira & Brözel dataset, 963 NifH genes from culture genomes:
+
+wget https://mdpi-res.com/d_attachment/microorganisms/microorganisms-09-01662/article_deploy/microorganisms-09-01662-s001.zip
+
+unzip microorganisms-09-01662-s001.zip
+
+mv 'Archive 2'/'Supplement Data S1 Sequences.xlsx' ./Supplement_Data_S1_Sequences.xlsx
+
+
+## think nifH protein seqs are here:
+
+python3 
+import pandas as pd
+import os
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+from Bio import SeqIO
+
+aa = pd.read_excel(open('Supplement_Data_S1_Sequences.xlsx', 'rb'), sheet_name='CompleteNif')  
+
+## can we make a fasta (FAA) out of this?
+## getting down to the two columns we really need:
+
+nifHdf = aa[['NifH', 'NifHSeq']]
+
+## I guess we need to make a large list of seq records,
+## with the "NifH" column as the id
+
+
+
