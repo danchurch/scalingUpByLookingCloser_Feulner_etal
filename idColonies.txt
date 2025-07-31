@@ -1017,9 +1017,19 @@ dorado basecaller -v --device cuda:all  -o $basecalledDir sup $pod5
 ## is trimming the default? try turning it off. 
 dorado basecaller -v --no-trim --device cuda:all  -o $basecalledDir sup $pod5
 
-
 ## GPU is working hard:
 nvidia-smi -l 5
+
+############ duplex basecalling possible? #############
+
+## is it possible to rerun basecalling, in duplex mode?
+## https://nanoporetech.com/document/kit-14-device-and-informatics#basecalling-kit-14-duplex-data
+## not sure if we missed a step somewhere that would preclude this 
+
+## somthing like this (not run)
+dorado duplex dna_r10.4.1_e8.2_400bps_sup@v4.1.0 pod5s/ > duplex.bam
+###########################################################
+
 
 ## now try demultiplexing...
 dorado demux -v --kit-name SQK-RBK114-24 -o $demuxDir $basecalledDir
@@ -1209,16 +1219,21 @@ minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodon
 readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq"
 ## need a fasta
 seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
-nohup blastn -db $blastDB \
-        -query ${readFile/\.fastq/\.fasta} \
-        -num_threads 10 \
-        -num_alignments 1 \
-        -out round2Barcode09-allSilva.csv \
-        -outfmt 10 & ## 
+#nohup blastn -db $blastDB \
+#        -query ${readFile/\.fastq/\.fasta} \
+#        -num_threads 10 \
+#        -num_alignments 1 \
+#        -out round2Barcode09-allSilva.csv \
+#        -outfmt 10 & ## 
 
-grep -c "Nostocaceae;Nostoc" round2Barcode10-allSilva.csv  ## 375
+grep -c "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  ## 
 
+## while that runs, can we find more barcode9 reads in our unassigned reads file?
+## the unassigned file is here:
 
+unclassyReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_unclassified.bam 
+
+less $unclassyReads
 
 ################# barcode 10 get consensus seq ############################
 
