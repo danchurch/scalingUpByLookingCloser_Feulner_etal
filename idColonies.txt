@@ -1028,6 +1028,8 @@ nvidia-smi -l 5
 
 ## somthing like this (not run)
 dorado duplex dna_r10.4.1_e8.2_400bps_sup@v4.1.0 pod5s/ > duplex.bam
+
+## didn't seem to help much...
 ###########################################################
 
 
@@ -1046,10 +1048,17 @@ grep -c "midstrand" log.txt ## 23810 hits, lots. May be why we have low classifi
 ## is there a way to ignore these mid strand barcodes?
 ## don't see it. 
 
-## maybe let's focus on those that demultiplexed properly, see if they make sense
+## there is mention about this:
+https://github.com/nanoporetech/dorado/issues/1178
+
+## somewhere there is a toml file to change the scoring for midstrand
+## and other issues. 
 
 ## trim primers and adapters?
 ## for now just adapters. We might need the primers to clear things up (nif vs. 16s, etc)
+## coming back to this, realized that the demux step also has an default trim option
+## so this didn't matter. To retain adapters, I guess you have to tell it during demuxing and
+## trimming stages
 
 trimmedDir=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed
 
@@ -1226,14 +1235,56 @@ seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
 #        -out round2Barcode09-allSilva.csv \
 #        -outfmt 10 & ## 
 
-grep -c "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  ## 
+grep -c "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  
 
-## while that runs, can we find more barcode9 reads in our unassigned reads file?
+## 9 reads, and no agreement on the best blast match. Very bad.
+
+## is this because the barcode ligation failed on these? Can this be recovered?
+
+########## try mining unclassified reads ##########
+
+## can we find more barcode9 reads in our unassigned reads file?
 ## the unassigned file is here:
 
 unclassyReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_unclassified.bam 
+## make into fasta 
 
 less $unclassyReads
+
+samtools bam2fq $unclassyReads > unclassyReads.fastq
+
+## the algorithm will have attempted to trim adapters from these
+## but can we also assume it failed, because they are unclassified?
+## I also assume the qualities are horrendous:
+
+fastqc -t 10  unclassyReads.fastq
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/unclassyReads_fastqc.html"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/fastqc"
+rsync -auv test@132.180.112.115:${getFile} $putHere
+
+## yup, abysmal. 
+## we would recover lost reads from this how?
+
+
+## rerun the demultiplexing, with no trimming:
+
+
+less $basecalled
+
+
+demuxDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/demuxedRedo"
+basecalled="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/basecalled/calls_2025-07-21_T12-36-48.bam"
+
+dorado demux -vv --kit-name SQK-RBK114-24 --no-trim -o $demuxDir $basecalled 2> log.txt
+
+
+
+dorado demux --kit-name SQK-RBK114-24  $basecalled
+
+## meh focus on the nifH genes. I assume there is a mess waiting there, also.
+## we can try resequencing this later? Check on the colonies.
+
 
 ################# barcode 10 get consensus seq ############################
 
@@ -2033,8 +2084,6 @@ rsync -auv test@132.180.112.115:${getFile} /home/daniel/Documents/projects/mossS
 
 ## oh god, this is a mess.  
 
-###############################
-
 ## try SINA 1.7?
 
 apt search SINA ## nope
@@ -2226,5 +2275,112 @@ rsync -auv '/home/daniel/Downloads/Nitrogenase NifH 99.fasta' test@132.180.112.1
 mv 'Nitrogenase NifH 99.fasta' NitrogenaseNifH99.fasta
 ## this formatting seems fine
 
+## they (Wang et. al 2022) did translating etc, 
+## but I think we need a reliable consensus sequence,
+## as before. so try the same old bag of tricks.
+
+## we have nucleotide sequences to align against AA, 
+## need blastx. 
+
+cd /media/vol1/daniel/nostoc/nifHdatabases
+
+cat KoiraBroezel.faa NIFtHool.faa NitrogenaseNifH99.fasta > allNifHdbs.faa
+
+makeblastdb -in allNifHdbs.faa -dbtype prot
+
+#### barcode12 NifH OG Hylocomium ####
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12
+
+blastDB=/media/vol1/daniel/nostoc/nifHdatabases/allNifHdbs.faa
+nifH12reads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode12.fastq
+
+seqtk seq -A $nifH12reads > nifH12.fasta
+
+blastx -db $blastDB \
+  -query nifH12.fasta \
+  -num_threads 10 \
+  -num_alignments 5 \
+  -out nifH12reads_blastmatches.txt 
+
+blastx -db $blastDB \
+  -query nifH12.fasta \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode12-nifH.csv \
+  -outfmt 10 & 
+
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode12-nifH.csv
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+pd.set_option('display.max_rows', None)
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12')
+nostocMatches = pd.read_csv('round2Barcode12-nifH.csv', index_col='qseqid')
+nostocMatches.groupby('sseqid').count() 
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+## the most common match is to a reference sequence for Nostoc NifH, WP_069074423
+## 8 matches out of 70, so not great. But we are used to this. 
+
+## most common match
+nostocMatches[nostocMatches.sseqid.str.contains("WP_069074423")]
+
+## second is weird:
+nostocMatches[nostocMatches.sseqid.str.contains("F0RY64")]
+## but scores are all bad. These can be ignored, I think.
+
+## third has some strong matches:
+nostocMatches[nostocMatches.sseqid.str.contains("WP_104908765.1")]
+## this accession is NifH for Lobaria pulmonaria (5183) cyanobiont
+
+## one fairly strong match (37 AAs, bitscore 80.1) to a calothrix nifH
+nostocMatches[nostocMatches.sseqid.str.contains("WP_035154649.1")]
+
+## there are duplications here, 3 of these are listed twice. 
+## the strong matches are far fewer:
+nostocMatches.query('bitscore > 100 & sseqid == "WP_069074423.1"')
+
+## anyway, let's focus on those with high bit scores 
+## subset to just these:
+strongMatches = nostocMatches.query('bitscore > 90')
+
+## how to write these out...
+
+wantedReads=strongMatches.reset_index().qseqid
+
+rawReadsBarcode = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                   "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                   "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode12.fastq")
+
+wantedReads
+
+wantedReads.str.match("95eb4fe6-6ee3-4a5c-9987-9d027b08b61d").any()
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
 
 
+highBits
+
+## write this out as a fasta?:
+SeqIO.write(highBits, "Barcode12_NifH_reads2align.fa", "fasta")
+
+## let's see what happens when we align these with muscle and/or sina:
+
+muscle -in Barcode12_NifH_reads2align.fa -out Barcode12_NifH.afa
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/Barcode12_NifH.afa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/"
+rsync -auv test@132.180.112.115:${getFile} $putHere
+
+## maybe rerun the alignment with the WP_069074423 reference seq 
