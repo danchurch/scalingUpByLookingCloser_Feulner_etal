@@ -1235,56 +1235,78 @@ seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
 #        -out round2Barcode09-allSilva.csv \
 #        -outfmt 10 & ## 
 
-grep -c "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode09-allSilva.csv
 
-## 9 reads, and no agreement on the best blast match. Very bad.
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09
 
-## is this because the barcode ligation failed on these? Can this be recovered?
+wc -l round2Barcode09-allSilva.csv  ## 4030. Lots of reads. Probably pseudomonas.
 
-########## try mining unclassified reads ##########
+grep -c "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  ## 9. Probably not a nostoc. 
 
-## can we find more barcode9 reads in our unassigned reads file?
-## the unassigned file is here:
+grep -c "Cyanobacteriia" round2Barcode09-allSilva.csv  ## more. 
 
-unclassyReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_unclassified.bam 
-## make into fasta 
+grep "Cyanobacteriia" round2Barcode09-allSilva.csv  ## vast majority to unidentified Oxyphotobacteria (=Cyanophycaceae), the parent order of all normal cyanos. Great.
 
-less $unclassyReads
+## any particularly prominent ones?
 
-samtools bam2fq $unclassyReads > unclassyReads.fastq
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
 
-## the algorithm will have attempted to trim adapters from these
-## but can we also assume it failed, because they are unclassified?
-## I also assume the qualities are horrendous:
+os.getcwd()
 
-fastqc -t 10  unclassyReads.fastq
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09')
 
-getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/unclassyReads_fastqc.html"
-putHere="/home/daniel/Documents/projects/mossSymbiosis/fastqc"
-rsync -auv test@132.180.112.115:${getFile} $putHere
+all16sMatches = pd.read_csv('round2Barcode09-allSilva.csv', index_col='qseqid')
 
-## yup, abysmal. 
-## we would recover lost reads from this how?
+## all of these have been id'd to nostoc, so get rid of taxonomy
+all16sMatches['sseqid'] = all16sMatches['sseqid'].str.split(';', expand=True)[[0]]
 
+all16sMatches.head()
 
-## rerun the demultiplexing, with no trimming:
+all16sMatches.groupby('sseqid').count() 
+## the most common match (117 matches) is JQ007760.1.1503, host Peltigera degenii, from Kaasalainen et al. (2012) 
+## "Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis"
+## second most common (43) is nephroma cyanobiont HQ591517.1.1534
+## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
 
+pd.set_option('display.max_rows', None)
 
-less $basecalled
-
-
-demuxDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/demuxedRedo"
-basecalled="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/basecalled/calls_2025-07-21_T12-36-48.bam"
-
-dorado demux -vv --kit-name SQK-RBK114-24 --no-trim -o $demuxDir $basecalled 2> log.txt
+aa = all16sMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True) 
 
 
+## the two most common hits are to completely unknown, uncultured bacteria with 
+## no taxonomic information. One is free living on various outdoor substrates
+## at a park in SW china (KF037401), the other is a human wound-inhabiting bacteria. 
+## great. I want to quit. 
 
-dorado demux --kit-name SQK-RBK114-24  $basecalled
+## subset to just cyanobacteria:
+grep "Cyanobacteriia" round2Barcode09-allSilva.csv > allCyanoMatchesBC09.csv
+#sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' allCyanoMatchesBC09.csv
+
+allcyanoMatches = pd.read_csv('allCyanoMatchesBC09.csv', index_col='qseqid')
+
+allcyanoMatches['sseqid'] = allcyanoMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+allcyanoMatches.head()
+
+aa = allcyanoMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+## the most common taxa is KF037287.1.1456
+## well, weird, this blasts to the same paper as with our all-taxa, 
+## the genbank accession has no taxonomic information, but silva does?
 
 ## meh focus on the nifH genes. I assume there is a mess waiting there, also.
-## we can try resequencing this later? Check on the colonies.
-
+## here it looks like we missed the nostoc and sequenced something else, 
+## a poorly known microbe.
+## we can try resequencing this later? Check on the colonies, sequence 
+## exactly the colony you use for microscopy.
 
 ################# barcode 10 get consensus seq ############################
 
@@ -1358,7 +1380,6 @@ peltigeraMatches[['pident', 'length']].mean() ## on average, 95% match
 
 ## overall picture:
 aa = nostocMatches[['sseqid', 'pident', 'length']].groupby('sseqid')
-
 
 
 nephromaMatches[['pident', 'length']].mean() ## on average, 95% match also.
@@ -2384,3 +2405,9 @@ putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/"
 rsync -auv test@132.180.112.115:${getFile} $putHere
 
 ## maybe rerun the alignment with the WP_069074423 reference seq 
+
+## note - Barcode9 re-scoped, looks like it is a gleocapsa or something messy and coccoid. No wonder the nifh didn't amplify
+## and similar, OG zygodon also didn't really look "nostoc-y", though in this case I am not so confident that
+## it isn't just a broken down Nostoc colony. 
+
+## what a pain in the ass. In the meantime 
