@@ -2195,9 +2195,81 @@ mv barcode11_nostoc_ashitsuki_16s_consensus.fasta  /media/vol1/daniel/nostoc/con
 ## other "blast clusters", but this may also be noise from the sequencer.
 ## hard to say.
 
-## so, repeat the above for our original nostoc, and barcodes 9 (if possible) and 10, 
-## identify with NBC and the cyanoseq reads, hang them 
-## on the cydrasil tree or the cyanoseq tree?
+## perhaps we are not letting the data speak for itself here...maybe back up, 
+## filter to only non-singleton, high-scoring, long matches to any nostoc,
+## then align and make a tree. Make a consensus sequence for any large branch 
+## on the tree, realigning and hmmer.
+
+## so, where to start... 
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os, re
+
+os.getcwd()
+
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11')
+
+nostocMatches = pd.read_csv('barcode11_nostocMatches.csv', index_col='qseqid')
+## all of these have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+nostocMatches.head()
+
+pd.set_option('display.max_rows', None)
+
+
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+## 
+
+nostocMatches.query("bitscore > 600").shape
+
+(nostocMatches.query("bitscore > 600")[['sseqid','evalue']]
+        .groupby('sseqid')
+        .count()
+        .T.iloc[0,:]
+        .sort_values(ascending=True))
+
+## we have three top hits, with 322, 157, and 44 strong matches. Extract just these reads into a fasta: 
+
+
+nostocMatches.query("bitscore > 600 & sseqid == 'AB511947.1.1445'")[['sseqid']]
+
+bestAccessions = re.compile("FR798938|FR798940|AB511947")
+
+nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
+                                        .str.contains(bestAccessions)]
+                                        .query("bitscore > 600"))
+
+## how to get these out?
+
+wantedReads = nostocMatchesBestAccessions.index.to_series()
+rawReadsBarcode11 = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                     "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                     "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq")
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode11, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+highBits
+
+## write this out as a fasta?:
+SeqIO.write(highBits, "Barcode11_strongNostocMatches.fa", "fasta")
+
+## when I'm back on this, align these, make a tree, see if some obvious groupings emerge.  
+## stopping at 15.08.25
 
 ##### nifH #####
 
@@ -2406,8 +2478,5 @@ rsync -auv test@132.180.112.115:${getFile} $putHere
 
 ## maybe rerun the alignment with the WP_069074423 reference seq 
 
-## note - Barcode9 re-scoped, looks like it is a gleocapsa or something messy and coccoid. No wonder the nifh didn't amplify
-## and similar, OG zygodon also didn't really look "nostoc-y", though in this case I am not so confident that
-## it isn't just a broken down Nostoc colony. 
 
-## what a pain in the ass. In the meantime 
+## plan? for 16s - only two are probably actually nostoc. And in 
