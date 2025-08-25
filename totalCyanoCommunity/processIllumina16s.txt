@@ -117,9 +117,13 @@ taxa_names(ps) <- paste0("ASV", seq(ntaxa(ps)))
 
 save(ps, file="../cyanoPS.rda")
 
-load(file="cyanoPS.rda")
+## to start from here:
 
+R
+setwd("/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture")
+load(file="cyanoPS.rda")
 library(phyloseq)
+library(Biostrings)
 
 ## okay, how do they look?
 
@@ -129,29 +133,23 @@ tax_table(ps)["ASV1",]
 
 tax_table(ps)["ASV17",] ## chloroplast from eukaryotic algae
 
+tax_table(ps)["ASV2",]
+
+## lots of stuff in there. Subset to cyanos?:
+ps.cya = subset_taxa(ps, Phylum=="Cyanobacteriota")
+
 head(as.data.frame(refseq(ps.cya)))
 
 as.data.frame(refseq(ps.cya))['ASV17',]
 
-tax_table(ps)["ASV2",]
-
-## lots of stuff in there. Subset to cyanos?:
-
-ps.cya = subset_taxa(ps, Phylum=="Cyanobacteriota")
-
-GP.chl = subset_taxa(GlobalPatterns, Phylum=="Chlamydiae")
-
 barplot(sort(taxa_sums(ps.cya), decreasing=TRUE))
 
-onlyCyanos <- 
+barplot(sort(taxa_sums(ps.cya)[ taxa_sums(ps.cya) > 30], decreasing=TRUE))
 
-barplot(sort(taxa_sums(ps) > 10, decreasing=TRUE))
-
-plot_bar(ps, fill = "Phylum")
 
 plot_bar(ps.cya, fill = "Family")
 
-plot_bar(ps.cya, fill = "Order")
+plot_bar(ps.cya, fill = "Order") ## most of these are chloroplasts
 
 ## still a lot of chloroplasts, probably from the eukaryotic algae
 
@@ -167,5 +165,91 @@ refseq(ps.noCp)
 
 as.data.frame(refseq(ps.noCp))
 
-ps.cya = subset_taxa(ps, Order=="Cyanobacteriales")
+ps.cya.noCp = subset_taxa(ps, Order=="Cyanobacteriales")
+
+plot_bar(ps.cya.noCp, fill="Order")
+## pretty much one ASV for non-chloroplast cyano...
+str(as.character(refseq(ps.cya.noCp)[1]))
+
+## and it is a plastid also, from Klebsormidium, a green alga.
+
+## so literally no cyanos detected? Either they were not present, 
+## or they were swamped out by the abundance of moss plastids and eukaryotic algae plastids.
+## the latter seems likely. 
+
+## can we get identification of eukaryotic alge from these chloroplasts?
+
+## get out our sequences for all of our "cyanobacteria":
+
+ps.cya
+
+refseq(ps.cya)
+
+str(as.character(refseq(ps.cya.noCp)[1]))
+
+refseq(ps.cya.noCp)
+
+writeXStringSet(refseq(ps.cya), "/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/refSeqsChloroplasts.fa")
+
+## while we are at it, export the abundances ("community matrix", though not much of a matrix)
+
+write.csv(otu_table(ps.cya), file="chloroplast_read_abundances_from_mixedCultures.csv")
+
+
+## get this on our local computer (BASH, not R):
+rsync -aux daniel@132.180.113.114:/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/refSeqsChloroplasts.fa \
+     /home/daniel/Documents/projects/mossSymbiosis/nostoc/totalCyanoCommunity/
+
+rsync -aux daniel@132.180.113.114:/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/chloroplast_read_abundances_from_mixedCultures.csv \
+     /home/daniel/Documents/projects/mossSymbiosis/nostoc/totalCyanoCommunity/
+
+## I think for this we need to do some "manual" blast matches, switch to biopython
+
+## following: https://www.tutorialspoint.com/biopython/biopython_overview_of_blast.htm
+
+python3
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+from Bio.Blast import NCBIWWW
+from Bio.Blast import NCBIXML
+
+sequence_data = open('refSeqsChloroplasts.fa').read() 
+
+result_handle = NCBIWWW.qblast("blastn", "nt", sequence_data)
+
+with open('chloroplastBlastResults.xml', 'w') as save_file: 
+  blast_results = result_handle.read() 
+  save_file.write(blast_results)
+
+E_VALUE_THRESH = 1e-20 
+for record in NCBIXML.parse(open("chloroplastBlastResults.xml")): 
+    if record.alignments: 
+       print("\n") 
+       print("query: %s" % record.query[:100]) 
+       for align in record.alignments: 
+          for hsp in align.hsps: 
+             if hsp.expect < E_VALUE_THRESH: 
+                print("match: %s " % align.title[:100])
+
+## to write this to a text file:
+with open('chloroplastBlastResults_highConf.txt', 'w') as save_file:
+  E_VALUE_THRESH = 1e-20 
+  for record in NCBIXML.parse(open("chloroplastBlastResults.xml")): 
+      if record.alignments: 
+         save_file.write("\n") 
+         save_file.write("query: %s" % record.query[:100]) 
+         save_file.write("\n") 
+         for align in record.alignments: 
+            for hsp in align.hsps: 
+               if hsp.expect < E_VALUE_THRESH: 
+                  save_file.write("match: %s \n" % align.title[:100])
+
+## get on office comp:
+rsync -aux daniel@132.180.113.114:/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/chloroplastBlastResults_highConf.txt \
+     /home/daniel/Documents/projects/mossSymbiosis/nostoc/totalCyanoCommunity/
+
+## send Romina the community matrix, the reference sequences fasta, and the blast results. And point her to this script. 
+
 
