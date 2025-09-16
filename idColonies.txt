@@ -2191,7 +2191,7 @@ mv barcode11_nostoc_ashitsuki_16s_consensus.fasta  /media/vol1/daniel/nostoc/con
 
 
 ## and is this our consensus seq?
-## it's our best guess. There may be one or two other strains in their, by the 
+## it's our best guess. There may be one or two other strains in there, by the 
 ## other "blast clusters", but this may also be noise from the sequencer.
 ## hard to say.
 
@@ -2270,6 +2270,101 @@ SeqIO.write(highBits, "Barcode11_strongNostocMatches.fa", "fasta")
 
 ## when I'm back on this, align these, make a tree, see if some obvious groupings emerge.  
 ## stopping at 15.08.25
+
+## back literally a month later, 16.9.2025
+
+## how shall we make a tree with this?
+
+## try the old-fashioned way first, muscle and fast-tree. I don't think
+## an aligner for 16s is appropriate here, given all the errors that 
+## are probably in these. We are trying to find consensus sequences,
+## not yet trying to place on a phylogenetic tree.
+
+muscle -in Barcode11_strongNostocMatches.fa -out Barcode11_strongNostocMatches.afa
+## ~10 min
+
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11"
+alignment="Barcode11_strongNostocMatches.afa"
+FastTree -gtr -nt < ${alignDir}/${alignment} > Barcode11_strongNostocMatches.nwk 2> logFastree.txt
+## 3 min
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/Barcode11_strongNostocMatches.nwk"
+putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11"
+rsync -auv test@132.180.112.115:/$getFile $putItHere
+
+ugene -ui Barcode11_strongNostocMatches.nwk &
+
+## yup, there are two very strong clades here, and some random shit. 
+## how do we extract just these? 
+
+## ugh, can't do it easily, with uGene. Probably best done with ARB. 
+
+## no time. export as svg and extract graphically. Sucks. 
+## file is huge, do it on the optiplex:
+
+## on officeComp
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/Barcode11_strongNostocMatches_tree.svg"
+putItHere="/home/daniel/Documents/projects/mossSymbiosis/consensusSeq/barcode11/"
+rsync -auv $getFile daniel@132.180.113.114:$putItHere
+
+## then cut up the svg into two clades, manageable in size, and bring them back onto the
+## officecomp
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/consensusSeq/barcode11/Barcode11_strongNostocMatches_tree_clade?.svg
+putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/"
+rsync -auv daniel@132.180.113.114:$getFile $putItHere
+
+## can we extract the reads we need?
+
+#grep 'id="text[0-9]*">' Barcode11_strongNostocMatches_tree_clade1.svg
+
+## something like this seems to get them all:
+grep 'id="text[0-9]*">.*-.*-.*</text>' Barcode11_strongNostocMatches_tree_clade1.svg |
+cut -f 2 -d '>' | cut -f 1 -d "<" > Barcode11_strongNostocMatches_clade1_readNames.txt
+
+grep 'id="text[0-9]*">.*-.*-.*</text>' Barcode11_strongNostocMatches_tree_clade2.svg |
+cut -f 2 -d '>' | cut -f 1 -d "<" > Barcode11_strongNostocMatches_clade2_readNames.txt
+
+wc -l Barcode11_strongNostocMatches_clade1_readNames.txt ## 251
+wc -l Barcode11_strongNostocMatches_clade2_readNames.txt ## 220
+
+## put these on the nanocomp. This is getting confusing...
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/Barcode11_strongNostocMatches_clade?_readNames.txt
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## okay. Now what? 
+
+## get fastas for each:
+
+
+## subset to these reads
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+allReads=2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fasta
+seqtk subseq $allReads Barcode11_strongNostocMatches_clade1_readNames.txt > barcode11_clade1_reads.fasta
+seqtk subseq $allReads Barcode11_strongNostocMatches_clade2_readNames.txt > barcode11_clade2_reads.fasta
+
+
+muscle -in barcode11_clade1_reads.fasta -out barcode11_clade1_reads.afa
+
+muscle -in barcode11_clade2_reads.fasta -out barcode11_clade2_reads.afa
+
+ugene -ui barcode11_clade1_reads.afa ## looks much better
+
+ugene -ui barcode11_clade2_reads.afa ## also looks much better
+
+## do some hand curation, deletion of insertions. 
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/Barcode11_strongNostocMatches.nwk"
+putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11"
+rsync -auv test@132.180.112.115:/$getFile $putItHere
+
+## then try to get a consensus seq with HMMER
+
+## not run 16.9.25
+hmmemit -c -o barcode11_nostoc_ashitsuki_16s_consensus.fasta barcode11_ashitsuki.hmm
+sed -i '/^[^>]/ y/uU/tT/' barcode11_nostoc_ashitsuki_16s_consensus.fasta 
 
 ##### nifH #####
 
@@ -2404,6 +2499,7 @@ blastx -db $blastDB \
   -outfmt 10 & 
 
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode12-nifH.csv
+
 
 python3 
 import pandas as pd
