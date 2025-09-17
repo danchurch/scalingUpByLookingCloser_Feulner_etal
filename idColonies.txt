@@ -2356,15 +2356,58 @@ ugene -ui barcode11_clade2_reads.afa ## also looks much better
 
 ## do some hand curation, deletion of insertions. 
 
-getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/Barcode11_strongNostocMatches.nwk"
-putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11"
-rsync -auv test@132.180.112.115:/$getFile $putItHere
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/barcode11_clade?_reads.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+## do edits on officeComp
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/barcode11_clade?_handEdited.afa
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/
+rsync -auv $getFile test@132.180.112.115:$putItHere
+## put back on nanoComp
 
 ## then try to get a consensus seq with HMMER
 
-## not run 16.9.25
-hmmemit -c -o barcode11_nostoc_ashitsuki_16s_consensus.fasta barcode11_ashitsuki.hmm
-sed -i '/^[^>]/ y/uU/tT/' barcode11_nostoc_ashitsuki_16s_consensus.fasta 
+## check line 1753
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/"
+alignFile="barcode11_clade1_handEdited.afa"
+hmmbuild barcode11_clade1.hmm ${alignDir}/${alignFile}
+hmmemit -c -o barcode11_clade1.fasta barcode11_clade1.hmm
+## best result is the campactonostoc (Cai et al. 2019). Other matches are nostocs, one undescribed and the N. verrucosum again.
+
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/"
+alignFile="barcode11_clade2_handEdited.afa"
+hmmbuild barcode11_clade2.hmm ${alignDir}/${alignFile}
+hmmemit -c -o barcode11_clade2.fasta barcode11_clade2.hmm
+
+## get them local:
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/barcode11_clade?.fasta
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## how different are these?
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11
+
+cat barcode11_clade1.fasta barcode11_clade2.fasta > barcode11_clades_1and2.fasta
+
+
+muscle -align -in barcode11_clades_1and2.fasta -out pairwiseAlignBC11clades.afa
+
+## gotta get aliview on nanoComp:
+#wget --recursive --no-parent https://ormbunkar.se/aliview/downloads/linux/linux-version-1.30/
+
+
+
+muscle -in <(cat barcode11_clade1.fasta barcode11_clade2.fasta) -out pairwiseAlignBC11clades.afa
+
+aliview pairwiseAlignBC11clades.afa 
+## weird, they don't align that well. But they blast with high confidence to same things. Ugh. 
+
+## oh well, these are our consensus sequences. Store them. 
+cp barcode11_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa
+
+less /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa
 
 ##### nifH #####
 
@@ -2573,6 +2616,5 @@ putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/"
 rsync -auv test@132.180.112.115:${getFile} $putHere
 
 ## maybe rerun the alignment with the WP_069074423 reference seq 
-
 
 ## plan? for 16s - only two are probably actually nostoc. And in 
