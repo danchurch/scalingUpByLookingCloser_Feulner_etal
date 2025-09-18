@@ -947,8 +947,46 @@ nohup muscle -align ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMat
 ## but maybe we need this
 #nohup muscle -in ogHylo_strongNostocMatches.fa -out ogHylo_strongNostocMatches.afa -maxiters 2 -diags1 -sv &
 
-## stop here 19.9.25
 
+## then we need to build a tree
+## visualize on ARB, get clades out, if any.
+
+## then we need to build a tree: 
+
+echo "echo TTTEEEST > new_file_test" | at now +1 minutes
+
+sudo ls /var/spool/cron/atjobs
+atq
+
+
+
+## let's make a shell script and try to execute with at
+## script:
+
+########################### scheduleTree.sh #######################################
+#!/bin/bash
+echo "starting"
+cd="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
+alignDir="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
+alignment="ogHylo_strongNostocMatches.afa"
+FastTree -gtr -nt < ${alignDir}/${alignment} > ogHylo_strongNostocMatches.nwk 2> logFastree.txt
+echo "finish"
+###################################################################################
+
+chmod +x scheduleTree.sh
+
+./scheduleTree.sh ## okay, seems to work 
+
+at now + 8 hours < /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/scheduleTree.sh
+
+atq ## 8 
+
+#at -r 7
+
+sudo ls /var/spool/cron/atjobs
+#a0000801bf24b5
+
+## stop here ## 19.9.25
 
 ############## cydrasil tree, try 2 ###############
 
