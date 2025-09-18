@@ -1026,7 +1026,7 @@ nvidia-smi -l 5
 ## https://nanoporetech.com/document/kit-14-device-and-informatics#basecalling-kit-14-duplex-data
 ## not sure if we missed a step somewhere that would preclude this 
 
-## somthing like this (not run)
+## somthing like this 
 dorado duplex dna_r10.4.1_e8.2_400bps_sup@v4.1.0 pod5s/ > duplex.bam
 
 ## didn't seem to help much...
@@ -1171,7 +1171,7 @@ makeblastdb -in silva138_SSU_reformathead.fasta -dbtype nucl
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium
 
-blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+
 minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
 readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq"
 
@@ -1312,12 +1312,34 @@ cc = aa.T.iloc[0,:].sort_values(ascending=True)
 
 ## both are more promising. Start with barcode10. 
 
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
+
 ## just curious, are there a lot of duplicate reads, as before? 
-## Could skewing results here.
+## Could be skewing results here.
 readDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
 barcode="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
 
+ls $readDir/$barcode
+
 seqtk seq -A ${readDir}/${barcode} | sed -n "/>/p" |  cut -f 1 -d " " | sort | uniq -d ## I see no dups
+
+## run the blast 
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
+readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
+
+ls $minionReads/$readFile
+
+## need a fasta
+seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
+
+blastn -db $blastDB \
+  -query ${readFile/\.fastq/\.fasta} \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode10-allSilva.csv \
+  -outfmt 10 
+
 
 grep "Nostocaceae;Nostoc" nostoc_16S_barcode10_cyanoMatches.csv > barcode10_nostocMatches.csv
 
@@ -1327,12 +1349,20 @@ cut -f1 -d, barcode10_nostocMatches.csv > barcode10_nostocReads.txt
 allReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq"
 seqtk subseq $allReads barcode10_nostocReads.txt > barcode10_onlyNostoc.fastq
 
+grep -c "Nostocaceae;Nostoc" nostoc_16S_barcode10_cyanoMatches.csv 
+
+wc -l round2Barcode10-allSilva.csv
+
 wc -l barcode10_onlyNostoc.fastq
+
 wc -l barcode10_nostocMatches.csv
 
 ## add headers
 
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode10_nostocMatches.csv
+
+less barcode10_nostocMatches.csv
+
 
 ## check out barcode 10 with python:
 
@@ -1347,6 +1377,7 @@ os.getcwd()
 os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10')
 
 nostocMatches = pd.read_csv('barcode10_nostocMatches.csv', index_col='qseqid')
+
 ## all of these have been id'd to nostoc, so get rid of taxonomy
 nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
 
@@ -1383,6 +1414,13 @@ aa = nostocMatches[['sseqid', 'pident', 'length']].groupby('sseqid')
 
 
 nephromaMatches[['pident', 'length']].mean() ## on average, 95% match also.
+
+################## note 18.9.25 ###########################
+## to make things even more confusing, optimization of 
+## the consensus sequence pipeline has changed yet again. 
+## see the end of this barcode 10 section to see most current
+## effort, line 1806 below  
+###########################################################
 
 ## so halfway between two cyanobionts. Kind of like last time. 
 
@@ -1767,7 +1805,181 @@ cd  /media/vol1/daniel/nostoc/consensusSequences/
 
 ## yeah, don't think that helped. A quick blast match is basically 
 ## nonsense. 
-## weird. keep the above consensus sequence. 
+## weird. 
+
+###### 18.9.2025 #####
+## coming back to this yet again. I think I have 
+## found a tidy pipeline for get consensus sequences
+## it appears that these colonies sometimes have 
+## different strains in them, which is weird 
+## in addition to the chaos caused by low-quality
+## nanopore data and tagmentation in the kit. 
+## anyway, as explained below at end of  BC11, 
+## pipeline is as follows:
+
+## 1 - pull out all sequences with very high bit-score 
+##     to some kind of nostoc
+## 2 - align them with muscle
+## 3 - build a tree with fasttree, unrooted
+## 4 - plot the tree, take the obvious groupings as individual strains, 
+## 5 - align these clades each individually with muscle
+## 6 - hand-edit this alignment, get rid of vertical gaps > 70% or so
+## 7 - build an HMM  for each
+## 8 - predict a consensus sequence from each HMM
+
+## so start yet again, and see if we get the same results.
+## reusing the barcode 10 blast results from above, around line 1350
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os, re
+#pd.set_option('display.max_rows', None)
+
+os.getcwd()
+
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10')
+
+
+nostocMatches = pd.read_csv('barcode10_nostocMatches.csv', index_col='qseqid')
+
+## all of these have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+nostocMatches.head()
+
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+## and if we want to filter bitscores?
+
+minBitscore = 600
+dd = (nostocMatches.query(f"bitscore > {minBitscore}")[['sseqid','evalue']]
+            .groupby('sseqid')
+            .count()
+            .T.iloc[0,:]
+            .sort_values(ascending=True))
+
+## here let's take the top 4:
+nAccesions = 4
+bestAccessions = dd.iloc[-nAccesions:].index.to_list()
+bestAccessionsRegex = re.compile("|".join(bestAccessions))
+
+
+nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
+                                        .str.contains(bestAccessionsRegex)])
+
+nostocMatchesBestAccessions.bitscore.to_list()
+
+## how to get these out?
+
+wantedReads = nostocMatchesBestAccessions.index.to_series()
+
+rawReadsBarcode10 = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                     "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                     "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq")
+
+os.path.exists(rawReadsBarcode10)
+
+highBits=[] ## called this high bits before, just keeping it here
+for rec in SeqIO.parse(rawReadsBarcode10, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+highBits
+
+## write this out as a fasta?:
+SeqIO.write(highBits, "Barcode10_strongNostocMatches.fa", "fasta")
+
+## out of python...
+muscle -in Barcode10_strongNostocMatches.fa -out Barcode10_strongNostocMatches.afa
+
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
+alignment="Barcode10_strongNostocMatches.afa"
+FastTree -gtr -nt < ${alignDir}/${alignment} > Barcode10_strongNostocMatches.nwk 2> logFastree.txt
+## 3 min
+
+## look at it locally:
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/Barcode10_strongNostocMatches.nwk"
+putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10"
+rsync -auv test@132.180.112.115:/$getFile $putItHere
+
+ugene -ui Barcode10_strongNostocMatches.nwk & 
+## as barcode11 below, this has two strong "clades".
+
+## Dimitri just showed me how to extract this with ARB, better than 
+## my method of making an SVG an using the labels on the SVG.
+
+## some notes on ARB:
+
+## - middle wheel button on mouse is important, is the "paste" function
+##   in text box. also the "grab" function for moving around tree view 
+
+## - for our purposes, we need the "fasta_wgap.ift", under the "Import selected format"
+##   in the start "ARB import menu" 
+
+## - import accompanying tree with "tree" --> "tree admin" --> "Import"
+
+## - after marking the clade of interest, can export these sequences:
+##   File --> Export --> Export to external format --> etc. 
+##    - can export raw fasta ("Compress" --> all gaps), or maintain integrity of the
+##      the alignment. We don't want the alignment info in this case, just need the name of the 
+##      sequences in each of these clades. We will rerun the alignments and curate.
+##    - export format, for us "F_fasta_wide.eft"?
+
+## any, save these as:
+barcode10_clade1_reads.fasta
+barcode10_clade2_reads.fasta
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
+
+## run alignments on these again
+muscle -in barcode10_clade1_reads.fasta -out barcode10_clade1_reads.afa
+
+muscle -in barcode10_clade2_reads.fasta -out barcode10_clade2_reads.afa
+
+## curate them manually, locally:
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/barcode10_clade?_reads.afa"
+putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10"
+rsync -auv test@132.180.112.115:/$getFile $putItHere
+
+cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10
+
+ugene -ui barcode10_clade1_reads.afa ## removed gaps > 70%, some hand edits of likely insertions
+
+ugene -ui barcode10_clade2_reads.afa ## removed gaps > 70%, some hand edits of likely insertions
+
+mv barcode10_clade1_reads.afa barcode10_clade1_handEdited.afa 
+mv barcode10_clade2_reads.afa barcode10_clade2_handEdited.afa 
+
+## put them back:
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/barcode10_clade1_handEdited.afa"
+putItHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+##  build hmm
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
+
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
+alignFile="barcode10_clade1_handEdited.afa"
+hmmbuild barcode10_clade1.hmm ${alignDir}/${alignFile}
+hmmemit -c -o barcode10_clade1.fasta barcode10_clade1.hmm
+
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
+alignFile="barcode10_clade2_handEdited.afa"
+
+ls ${alignDir}/${alignFile}
+
+hmmbuild barcode10_clade2.hmm ${alignDir}/${alignFile}
+hmmemit -c -o barcode10_clade2.fasta barcode10_clade2.hmm
+
 
 
 ####################### barcode 11 #################################
@@ -2398,7 +2610,6 @@ muscle -align -in barcode11_clades_1and2.fasta -out pairwiseAlignBC11clades.afa
 #wget --recursive --no-parent https://ormbunkar.se/aliview/downloads/linux/linux-version-1.30/
 
 
-
 muscle -in <(cat barcode11_clade1.fasta barcode11_clade2.fasta) -out pairwiseAlignBC11clades.afa
 
 aliview pairwiseAlignBC11clades.afa 
@@ -2408,6 +2619,20 @@ aliview pairwiseAlignBC11clades.afa
 cp barcode11_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa
 
 less /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa
+
+## that seems like the best pipeline. To review:
+
+## 1 - pull out all sequences with very high bit-score blasts
+##     to some kind of nostoc
+## 2 - align them with muscle
+## 3 - build a tree with fasttree, unrooted
+## 4 - plot the tree, take the obvious groupings as individual strains, 
+## 5 - align these clades each individually with muscle
+## 6 - build an HMM  for each
+## 7 - predict a consensus sequence from each HMM
+
+## let's go back and apply this to our other barcodes, and maybe our original 
+## nostoc data, see how it looks. 
 
 ##### nifH #####
 
