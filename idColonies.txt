@@ -819,6 +819,140 @@ cat leptoNostoc_draftConsensus.fasta
 
 ## we can try putting both on a 16s tree of cyanobacteria
 
+
+##### repeat consensus seq pipeline from 2025 #####
+
+## timemachine, it's now 2025. I developed a pipeline
+## for getting consensus sequences from other nostocs
+## from tagmented, multiplexed barcoded nanopore 
+## data. It may be useful here, let's see if we can
+## repeat it here and see if it gives us the same 
+## results.
+## refer to line 1827 or so below
+
+## where should we start? Need the sequence data,
+## hopefully without the adapters, linkers, primers
+## etc.:
+
+## if we believe our scripts from 3 years ago,
+## the nostoc-like sequences with nanopore adapters
+## and 16s primers removed, and deduplicated, should be here:
+
+ls /media/vol1/daniel/nostoc/minionReadsNostoc/onlyNostTrimmed_dedup.fasta
+
+less /media/vol1/daniel/nostoc/minionReadsNostoc/onlyNostTrimmed_dedup.fasta
+
+grep -c ">" /media/vol1/daniel/nostoc/minionReadsNostoc/onlyNostTrimmed_dedup.fasta
+
+## this is much bigger data than before, 9,000 seqs
+## compared to hundreds. These have already been shown
+## to blast to nostoc. Does that mean we should be able
+## to skip to the alignment?
+
+## basically following from line 1878 below
+
+## new directory for this work, to make things more 
+## confusing:
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo
+
+## our blast results for these reads, not de-dupped, are here:
+
+less /media/vol1/daniel/nostoc/blastout/round1_Hylocomium/nostocMatches.csv
+
+## go into python to get high-scoring matches:
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os, re
+#pd.set_option('display.max_rows', None)
+#pd.set_option('display.max_rows', 20)
+
+os.getcwd()
+
+nostocMatches = pd.read_csv('/media/vol1/daniel/nostoc/blastout/round1_Hylocomium/nostocMatches.csv', index_col='qseqid')
+
+## just checking, are the duplicates detectable in the read names?:
+nostocMatches.index.duplicated().any()
+help(nostocMatches.index.duplicated) ## yup, read names re-used. Not sure. This 
+dups = nostocMatches.index.duplicated(keep=False)
+nostocMatches[dups] ## seems like every dup has a good and a poor match. Not sure why. Anyway, makes it easier to pick.
+
+## all of these should have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+cc.tail(20)
+
+minBitscore = 600
+dd = (nostocMatches.query(f"bitscore > {minBitscore}")[['sseqid','evalue']]
+            .groupby('sseqid')
+            .count()
+            .T.iloc[0,:]
+            .sort_values(ascending=True))
+
+## we lose some matches, but not a lot.
+nAccesions = 4
+bestAccessions = dd.iloc[-nAccesions:].index.to_list()
+bestAccessionsRegex = re.compile("|".join(bestAccessions))
+
+nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
+                                        .str.contains(bestAccessionsRegex)]
+                                        .query(f"bitscore > {minBitscore}"))
+
+
+wantedReads = nostocMatchesBestAccessions.index.to_series()
+rawReads = "/media/vol1/daniel/nostoc/minionReadsNostoc/onlyNostTrimmed_dedup.fasta"
+os.path.exists(rawReads)
+
+highBits=[] 
+for rec in SeqIO.parse(rawReads, "fasta"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+highBits
+
+SeqIO.write(highBits, "ogHylo_strongNostocMatches.fa", "fasta")
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo
+
+## get this local, 
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/ogHylo_strongNostocMatches.fa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv test@132.180.112.115:${getFile} $putHere
+
+##then onto optiplex:
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylo_strongNostocMatches.fa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
+rsync -auv $getFile daniel@132.180.113.114:$putHere
+
+
+## now, run the alignment. Very large, so reuse tricks from above (line ~590),
+## and run on the optiplex
+
+optiplex
+
+cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
+
+## first try this:
+nohup muscle -align ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa & 
+
+## but maybe we need this
+#nohup muscle -in ogHylo_strongNostocMatches.fa -out ogHylo_strongNostocMatches.afa -maxiters 2 -diags1 -sv &
+
+## stop here 19.9.25
+
+
+############## cydrasil tree, try 2 ###############
+
+
 ## then hang it on a tree. How do we do that?
 
 ## pipeline here:
@@ -1960,27 +2094,45 @@ mv barcode10_clade1_reads.afa barcode10_clade1_handEdited.afa
 mv barcode10_clade2_reads.afa barcode10_clade2_handEdited.afa 
 
 ## put them back:
-getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/barcode10_clade1_handEdited.afa"
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/barcode10_clade?_handEdited.afa"
 putItHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
 rsync -auv $getFile test@132.180.112.115:$putItHere
 
 ##  build hmm
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
 
-alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
 alignFile="barcode10_clade1_handEdited.afa"
 hmmbuild barcode10_clade1.hmm ${alignDir}/${alignFile}
 hmmemit -c -o barcode10_clade1.fasta barcode10_clade1.hmm
 
-alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
+alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
 alignFile="barcode10_clade2_handEdited.afa"
-
-ls ${alignDir}/${alignFile}
-
 hmmbuild barcode10_clade2.hmm ${alignDir}/${alignFile}
 hmmemit -c -o barcode10_clade2.fasta barcode10_clade2.hmm
 
+cat barcode10_clade1.fasta barcode10_clade2.fasta > barcode10_clades_1and2.fasta
 
+## and now, what do these blast to?
+## online ncbi blastn is down. Try a local to the silva database:
+
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+## need a fasta
+nohup blastn -db $blastDB \
+        -query barcode10_clades_1and2.fasta \
+        -num_threads 10 \
+        -num_alignments 5 \
+        -out consensusSeqsBarcode10-allSilva.txt
+
+## they blast to Nostoc pruniforma, Lichen symbionts (same as before), and
+## a lot of uncultered nostocs. 
+
+## and now? try bc9, though that I think we didn't get the nostoc in that one... 
+## should we try to apply this method to our OG hylocomium nostoc?
+
+
+
+## then make a tree with the three sequences we have
 
 ####################### barcode 11 #################################
 
@@ -2843,3 +2995,4 @@ rsync -auv test@132.180.112.115:${getFile} $putHere
 ## maybe rerun the alignment with the WP_069074423 reference seq 
 
 ## plan? for 16s - only two are probably actually nostoc. And in 
+
