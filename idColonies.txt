@@ -941,6 +941,11 @@ optiplex
 
 cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
 
+## gotta get muscle updated:
+wget https://github.com/rcedgar/muscle/releases/download/v5.3/muscle-linux-x86.v5.3
+sudo mv muscle-linux-x86.v5.3 /opt/
+sudo ln -s /opt/muscle-linux-x86.v5.3 /usr/local/bin/muscle
+
 ## first try this:
 nohup muscle -align ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa & 
 
@@ -966,7 +971,7 @@ atq
 ########################### scheduleTree.sh #######################################
 #!/bin/bash
 echo "starting"
-cd="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
+cd  /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
 alignDir="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
 alignment="ogHylo_strongNostocMatches.afa"
 FastTree -gtr -nt < ${alignDir}/${alignment} > ogHylo_strongNostocMatches.nwk 2> logFastree.txt
@@ -986,7 +991,27 @@ atq ## 8
 sudo ls /var/spool/cron/atjobs
 #a0000801bf24b5
 
-## stop here ## 19.9.25
+## and didn't work. Looks like muscle ran out of memory. 
+## let's try again, with the more efficient, less accurate 
+## command:
+
+## first try this:
+
+## but maybe we need this
+
+#nohup muscle -align ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa -maxiters 2 -diags1 -sv &
+## this is not working. Updated documentation on drive5, a new algorithm, try it:
+
+nohup muscle -super5 ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa &
+## started 19.09.2025, 8:40 am
+
+## let that run. In the meantime, run through bc9, see if anything can be 
+## salvaged there.  
+
+## if neither works (OG hylo or BC 9), move on with old consensus seq and
+## build new phylogeny
+
+
 
 ############## cydrasil tree, try 2 ###############
 
@@ -1032,10 +1057,10 @@ ssu-mask -s $mask ssuAl/
 ## convert back to fasta:
 ssu-esl-reformat -o ssuAl/ssuAl.bacteria.mask.afa afa ssuAl/ssuAl.bacteria.mask.stk
 
-## this should now be generally aligned with SSU reads from the rest of the
-## world, ready for placement:
-
+## this should now be generally aligned with SSU reads from the rest of the world, ready for placement:
 queryAligned=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/placeConsensusSeqOnCydrasil/ssuAl/ssuAl.bacteria.mask.afa
+
+less /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/placeConsensusSeqOnCydrasil/ssuAl/ssuAl.bacteria.mask.afa
 
 ## placement on tree
 
@@ -1395,9 +1420,12 @@ grep -c "bps_sup@v5.0.0" ${minionReads}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK
 
 ## because at first glance, this was the worst data. Rerun the blast check for nostocs, to be sure
 
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09
+
 blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
 minionReads="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed"
 readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq"
+
 ## need a fasta
 seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
 #nohup blastn -db $blastDB \
@@ -1409,11 +1437,18 @@ seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
 
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode09-allSilva.csv
 
+less round2Barcode09-allSilva.csv
+
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09
 
 wc -l round2Barcode09-allSilva.csv  ## 4030. Lots of reads. Probably pseudomonas.
 
 grep -c "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  ## 9. Probably not a nostoc. 
+
+grep "Nostocaceae;Nostoc" round2Barcode09-allSilva.csv  >  round2Barcode09nostoc-allSilva.csv
+
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode09nostoc-allSilva.csv
+
 
 grep -c "Cyanobacteriia" round2Barcode09-allSilva.csv  ## more. 
 
@@ -1429,27 +1464,62 @@ import os
 
 os.getcwd()
 
-os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09')
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/')
 
 all16sMatches = pd.read_csv('round2Barcode09-allSilva.csv', index_col='qseqid')
+nostoc16sMatches = pd.read_csv('round2Barcode09nostoc-allSilva.csv', index_col='qseqid')
 
-## all of these have been id'd to nostoc, so get rid of taxonomy
+## get rid of taxonomy
+
 all16sMatches['sseqid'] = all16sMatches['sseqid'].str.split(';', expand=True)[[0]]
+nostoc16sMatches['sseqid'] = nostoc16sMatches['sseqid'].str.split(';', expand=True)[[0]]
 
 all16sMatches.head()
 
-all16sMatches.groupby('sseqid').count() 
-## the most common match (117 matches) is JQ007760.1.1503, host Peltigera degenii, from Kaasalainen et al. (2012) 
-## "Cyanobacteria produce a high variety of hepatotoxic peptides in lichen symbiosis"
-## second most common (43) is nephroma cyanobiont HQ591517.1.1534
-## at some point, we need to compare with our Hylocomium symbiont. Where is our consensus sequence for this?
+nostoc16sMatches.head()
 
+nostoc16sMatches
+
+all16sMatches.groupby('sseqid').count() 
 pd.set_option('display.max_rows', None)
 
 aa = all16sMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
 bb = aa.T.iloc[0,:].sort_values(ascending=False)
 cc = aa.T.iloc[0,:].sort_values(ascending=True) 
 
+## we have only two good nostoc matches, both to DQ185249, a Peltigera symbiont:
+c029ef09-a3d9-497b-bdf5-9ff2ca132b48
+4c493455-23f3-4147-8995-431dbcc7554d
+## maybe there are more matches in our unclassified reads?
+## search them:
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09
+
+echo c029ef09-a3d9-497b-bdf5-9ff2ca132b48 > peltigeraNostocBC9.txt
+echo 4c493455-23f3-4147-8995-431dbcc7554d >> peltigeraNostocBC9.txt
+less peltigeraNostocBC9.txt
+
+unclassyReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_unclassified.fastq
+ls $unclassyReads
+allReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq
+
+## tried first with minimap2, but never mind, brain is not in mm2 right now:
+#minimap2 -ax map-ont $unclassyReads peltigeraNostocBC9.fastq > anyothers.paf
+#minimap2 ref.fa query.fq > approx-mapping.paf
+
+seqtk subseq $allReads peltigeraNostocBC9.txt | seqtk seq -A > peltigeraNostocBC9.fa
+seqtk seq -A $unclassyReads > unclassyReads.fa
+makeblastdb -in unclassyReads.fa -dbtype nucl 
+
+blastn -db unclassyReads.fa \
+       -query peltigeraNostocBC9.fa \
+       -num_threads 10 \
+       -num_alignments 5 \
+       -out lookClassyPeltigeraNostocBC9.txt 
+
+## meh, not much there. Nothing I can add without any doubt, at best 95% matches 
+
+## maybe report the longer one, or at least include in the graphic of the tree
 
 ## the two most common hits are to completely unknown, uncultured bacteria with 
 ## no taxonomic information. One is free living on various outdoor substrates
@@ -1473,6 +1543,8 @@ cc = aa.T.iloc[0,:].sort_values(ascending=True)
 ## the most common taxa is KF037287.1.1456
 ## well, weird, this blasts to the same paper as with our all-taxa, 
 ## the genbank accession has no taxonomic information, but silva does?
+
+## anyway, we will report the one non-singleton match as a "consensus seq"
 
 ## meh focus on the nifH genes. I assume there is a mess waiting there, also.
 ## here it looks like we missed the nostoc and sequenced something else, 
@@ -2824,7 +2896,129 @@ less /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusS
 ## let's go back and apply this to our other barcodes, and maybe our original 
 ## nostoc data, see how it looks. 
 
-##### nifH #####
+################# 16s tree #####################
+
+## cydrasil is getting out of date...
+## I think we have a tree we can use from cyanoseq here:
+
+wget https://zenodo.org/records/13910424/files/Nostocales.fasta
+
+wget https://zenodo.org/records/13910424/files/Nostocales.txt
+
+## arb accepts these. Even though the fasta is unaligned. 
+wget https://zenodo.org/records/13910424/files/CyanoSeqV1.3_GSRDB_sequences.fasta
+## also not aligned. Ugh. 
+
+## maybe we have to download the whole database to get alignments?:
+wget https://zenodo.org/records/13910424/files/CyanoSeqV1.3_sequences.fasta
+## but these don't appear aligned, either.
+
+
+## another would be to use silva. Nostoc is pretty non-controversial, I guess?
+wget https://www.arb-silva.de/fileadmin/silva_databases/release_138_2/ARB_files/SILVA_138.2_SSURef_NR99_03_07_24_opt.arb.gz
+## works, but complex. 
+
+## nostocs hanging all over the place, nostocaceae paraphyletic. 
+## I'm not qualified to evaluate...
+
+## okay, as noted above, maybe we can use the previous version of 
+## cyanoseq for hanging sequences:
+
+## alignment:
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
+
+## tree is here:
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
+
+## this looks promising. Now to hang some of our sequences on it...
+
+## try following this tutorial for epa-ng:
+https://github.com/pierrebarbera/epa-ng/wiki/Full-Stack-Example
+
+conda create -n epa-ng
+conda activate epa-ng
+conda install bioconda::epa-ng
+
+## they recommend PaPaRa for aligning our reads to the tree:
+wget https://cme.h-its.org/exelixis/resource/download/software/papara_nt-2.5-static_x86_64.tar.gz
+tar -xvf papara_nt-2.5-static_x86_64.tar.gz
+sudo mv papara_static_x86_64 /opt
+sudo ln -s /opt/papara_static_x86_64 /usr/local/bin/papara
+
+rm papara_log.some_name
+TREE="CyanoSeq_1.2_newick.txt"
+REF_MSA="CyanoSeq_1.2.phy"
+#QRY="/media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa"
+QRY="OGzygodonNostoc_16s_consensusSeq_1.fa"
+papara -t $TREE -s $REF_MSA -q $QRY -r -n some_name
+## fails, segmentation fault, core dump
+
+## maybe because the alignment is in afa (fasta), should be in phylip 
+## (https://www.garcia-pichellab.com/cydrasil/, https://github.com/sim82/papara_nt)
+
+## try the converstion with biopython:
+
+cp 'CyanoSeq_1.2.fasta' 
+
+python3
+from Bio import AlignIO
+from pathlib import Path
+from Bio.AlignIO.PhylipIO import SequentialPhylipWriter
+import re
+
+file = 'CyanoSeq_1.2.fasta'
+pathway = '/media/vol1/daniel/nostoc/16sTree/round2/'
+alignment = AlignIO.read(Path(pathway, file), 'fasta')
+# write out in relaxed phylip
+fileoutphy = re.sub('fasta', 'phy', file)
+with open(Path(pathway, fileoutphy), 'w') as output_handle:        
+    SequentialPhylipWriter(output_handle).write_alignment(alignment, id_width=50)
+
+## working here 19.09.25
+
+## maybe try hmmalign. 
+## assuming we need our hmms for these sequences, where are these...
+
+## for example, BC 10:
+bc10Clade1Hmm="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/barcode10_clade1.hmm"
+REF_MSA="CyanoSeq_1.2.fasta"
+
+## actually, I guess we need a profile of the MSA, then add onto with the consensus sequences?
+## I can't believe that will be easy. 
+
+## try it:
+hmmbuild CyanoSeq_1.2.hmm CyanoSeq_1.2.fasta 
+## actually that was easy.
+
+## add our sequences to it, for instance the consensus seqs from zygodon:
+
+QRY="/media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa"
+hmmalign \
+    --outformat "afa" \
+    -o "testing1.afa" \
+    CyanoSeq_1.2.hmm \
+    OGzygodonNostoc_16s_consensusSeq_1.fa 
+
+## fails, different alignment widths. What's going on?
+## ugh, why is nothing working...
+
+## we need evolutionary model info
+
+TREE="CyanoSeq_1.2_newick.txt"
+REF_MSA="CyanoSeq_1.2.fasta"
+QRY="testing.afa"
+INFO="GTR{0.7/1.8/1.2/0.6/3.0/1.0}+FU{0.25/0.23/0.30/0.22}+G4{0.47}"
+OUT="."
+epa-ng \
+  --tree $TREE \
+  --ref-msa $REF_MSA \
+  --query $QRY \
+  --out-dir $OUT \
+  --redo \
+  --model $INFO
+
+
+################# nifH #########################
 
 ## we need a nifH database and maybe a tree. Maybe a good database here:
 ## https://www.jzehrlab.com/nifh  
