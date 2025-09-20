@@ -3021,6 +3021,26 @@ epa-ng \
 ## the cyanoseq folks used ModelTest-NG
 ## https://github.com/ddarriba/modeltest
 
+## install ModelTest-NG:
+wget https://github.com/ddarriba/modeltest/files/3790700/modeltest-ng-0.1.6-static-linux64.tar.gz 
+tar -xvf modeltest-ng-0.1.6-static-linux64.tar.gz 
+sudo mv modeltest-ng-static /opt
+sudo ln -s /opt/modeltest-ng-static /usr/local/bin/modeltest-ng
+
+modeltest-ng
+
+## to test this out:
+modeltest-ng -i tiny.fas -h uigf -f ef
+wget https://github.com/ddarriba/modeltest/raw/refs/heads/master/example-data/dna/tiny.fas
+
+nohup \
+modeltest-ng \
+  -i CyanoSeq_1.2.fasta \
+  --utree CyanoSeq_1.2_tree_noNHX.nw \
+  -h uigf \
+  -f ef &
+
+## to check on our data:
 
 ################# nifH #########################
 
