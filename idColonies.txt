@@ -1470,7 +1470,6 @@ all16sMatches = pd.read_csv('round2Barcode09-allSilva.csv', index_col='qseqid')
 nostoc16sMatches = pd.read_csv('round2Barcode09nostoc-allSilva.csv', index_col='qseqid')
 
 ## get rid of taxonomy
-
 all16sMatches['sseqid'] = all16sMatches['sseqid'].str.split(';', expand=True)[[0]]
 nostoc16sMatches['sseqid'] = nostoc16sMatches['sseqid'].str.split(';', expand=True)[[0]]
 
@@ -1480,8 +1479,9 @@ nostoc16sMatches.head()
 
 nostoc16sMatches
 
-all16sMatches.groupby('sseqid').count() 
 pd.set_option('display.max_rows', None)
+
+all16sMatches.groupby('sseqid').count() 
 
 aa = all16sMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
 bb = aa.T.iloc[0,:].sort_values(ascending=False)
@@ -1498,6 +1498,22 @@ cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode
 echo c029ef09-a3d9-497b-bdf5-9ff2ca132b48 > peltigeraNostocBC9.txt
 echo 4c493455-23f3-4147-8995-431dbcc7554d >> peltigeraNostocBC9.txt
 less peltigeraNostocBC9.txt
+
+## they don't align well. But I think that is because they are +/- and
+## coming in from opposites sides, not a lot of overlap
+
+## meh, let's just grab them all in case we need them:
+
+002514a6-cb78-48fd-9f02-43fcf928e1ac
+4c493455-23f3-4147-8995-431dbcc7554d
+6d9981eb-77c5-4ecc-872d-aef7ba461e89
+23a77472-5eef-4678-8069-ec1b1bd1549b
+1bf36659-e0af-475b-8f13-f87d32b204df
+45dee099-f7b4-4d84-b679-29fbee90a094
+0835ea80-5f12-4339-b2ff-f2ce165ea355
+cfd7eaa9-9ab1-4a51-a154-0a7f78d14389
+c029ef09-a3d9-497b-bdf5-9ff2ca132b48
+## = allNostocThings_BC9_seqNames.txt
 
 unclassyReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_unclassified.fastq
 ls $unclassyReads
@@ -1517,23 +1533,87 @@ blastn -db unclassyReads.fa \
        -num_alignments 5 \
        -out lookClassyPeltigeraNostocBC9.txt 
 
-## meh, not much there. Nothing I can add without any doubt, at best 95% matches 
+## meh, not much new there. Nothing I can add without any doubt, at best 95% matches 
 
+## on NCBI, the two seqences with high scores both blast very well 
+## to the peltigera symbionts from the Lutzoni 2005 paper
 ## maybe report the longer one, or at least include in the graphic of the tree
 
+## let's grab some of these and do an alignment. First with all the nostoc reads 
+## from this barcode
+
+## DQ185255.1 = Sammlung von Algenkulturen, Universitaet Goettingen, Germany, From Thomas Friedl
+## = Nostoc punctiforme associated with Blasia pusilla, sequenced by the Lutzoni project
+## the others are peltigera symbionts from the same paper:
+
+DQ185239.1
+DQ185249.1
+DQ185255.1
+
+for i in DQ185239.1 DQ185249.1 DQ185255.1; do
+  echo $i
+  esearch -db "Nucleotide" -query $i | 
+  efetch -format "fasta"  |
+  seqtk seq -l 0 > ${i}.fasta 
+done
+
+
+allReads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq
+seqtk subseq $allReads allNostocThings_BC9_seqNames.txt | seqtk seq -A > allNostocThings_BC9.fa
+
+## clean up the headers, manually, get down to just read names, with vim
+## spike in some of the lutzoni sequences, see how well they all align:
+
+cat DQ185239.1.fasta DQ185249.1.fasta DQ185255.1.fasta allNostocThings_BC9.fa > allNostocThings_BC9_andRefSeqs.fa
+
+muscle5 -align allNostocThings_BC9_andRefSeqs.fa -output allNostocThings_BC9_andRefSeqs.afa
+
+## and that is not useful. and if we just focus on the quality peltigera matches:
+
+vim peltigeraNostocBC9_andRefSeqs.fa
+
+vim peltigeraNostocBC9.fa
+
+cat DQ185239.1.fasta DQ185249.1.fasta DQ185255.1.fasta peltigeraNostocBC9.fa > peltigeraNostocBC9_andRefSeqs.fa
+less peltigeraNostocBC9_andRefSeqs.fa
+
+muscle5 -align peltigeraNostocBC9_andRefSeqs.fa -output peltigeraNostocBC9_andRefSeqs.afa
+
+#getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/allNostocThings_BC9_andRefSeqs.afa"
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/peltigeraNostocBC9_andRefSeqs.afa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode09"
+rsync -auv test@132.180.112.115:$getFile $putHere
+
+ugene -ui allNostocThings_BC9_andRefSeqs.afa
+
+ugene -ui peltigeraNostocBC9_andRefSeqs.afa ## vastly better. 
+## It looks like a real high-quality match, especially the first read, 
+## 4c493455-23f3-4147-8995-431dbcc7554d
+
+## rerun the above alignment with just this read...
+
+## yup. That is useable data. I see one possible homo-polymer, the rest seems real.
+
+## so let's keep that one as our representative sequence:
+/media/vol1/daniel/nostoc/consensusSequences/Ambylostegium_nostoc_BC9.fa
+
+
+Hopefully it didn't 
+## bleed over from another barcode somehow. We can confirm downstreem on the tree
+## placements
+
+## concerning the larger, total pool of sequences in bc9, not just nostoc-like things,
 ## the two most common hits are to completely unknown, uncultured bacteria with 
 ## no taxonomic information. One is free living on various outdoor substrates
 ## at a park in SW china (KF037401), the other is a human wound-inhabiting bacteria. 
 ## great. I want to quit. 
 
-## subset to just cyanobacteria:
+## look again, subset to just cyanobacteria:
 grep "Cyanobacteriia" round2Barcode09-allSilva.csv > allCyanoMatchesBC09.csv
 #sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' allCyanoMatchesBC09.csv
 
 allcyanoMatches = pd.read_csv('allCyanoMatchesBC09.csv', index_col='qseqid')
-
 allcyanoMatches['sseqid'] = allcyanoMatches['sseqid'].str.split(';', expand=True)[[0]]
-
 allcyanoMatches.head()
 
 aa = allcyanoMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
@@ -1544,13 +1624,10 @@ cc = aa.T.iloc[0,:].sort_values(ascending=True)
 ## well, weird, this blasts to the same paper as with our all-taxa, 
 ## the genbank accession has no taxonomic information, but silva does?
 
-## anyway, we will report the one non-singleton match as a "consensus seq"
+## anyway, we will report the one non-singleton match as a possible "consensus seq"
 
-## meh focus on the nifH genes. I assume there is a mess waiting there, also.
-## here it looks like we missed the nostoc and sequenced something else, 
-## a poorly known microbe.
-## we can try resequencing this later? Check on the colonies, sequence 
-## exactly the colony you use for microscopy.
+## and report that the culture was lost, this hit as a possible remnant
+## of the nostoc that we photographed from this
 
 ################# barcode 10 get consensus seq ############################
 
@@ -2223,6 +2300,8 @@ hmmemit -c -o barcode10_clade2.fasta barcode10_clade2.hmm
 
 cat barcode10_clade1.fasta barcode10_clade2.fasta > barcode10_clades_1and2.fasta
 
+cp barcode10_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/Homalia_nostoc_BC10.fa
+
 ## and now, what do these blast to?
 ## online ncbi blastn is down. Try a local to the silva database:
 
@@ -2878,9 +2957,10 @@ aliview pairwiseAlignBC11clades.afa
 ## weird, they don't align that well. But they blast with high confidence to same things. Ugh. 
 
 ## oh well, these are our consensus sequences. Store them. 
-cp barcode11_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa
 
-less /media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa
+cp barcode11_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/Zygodon_Nostoc_BC11.fa
+
+less /media/vol1/daniel/nostoc/consensusSequences/Zygodon_Nostoc_BC11.fa
 
 ## that seems like the best pipeline. To review:
 
@@ -2998,6 +3078,7 @@ epa-ng --redo --split $REF_MSA papara_alignment.Cyanoseq_with_OGzygodonNostocs
 ## (https://github.com/pierrebarbera/epa-ng/issues/42)
 
 sed -e 's/\[[^][]*\]//g' CyanoSeq_1.2_newick.txt > CyanoSeq_1.2_tree_noNHX.nw
+
 #TREE="CyanoSeq_1.2_newick.txt"
 TREE="CyanoSeq_1.2_tree_noNHX.nw"
 REF_MSA="reference.fasta"
@@ -3033,6 +3114,7 @@ modeltest-ng
 modeltest-ng -i tiny.fas -h uigf -f ef
 wget https://github.com/ddarriba/modeltest/raw/refs/heads/master/example-data/dna/tiny.fas
 
+## so for our data?
 nohup \
 modeltest-ng \
   -i CyanoSeq_1.2.fasta \
@@ -3040,9 +3122,33 @@ modeltest-ng \
   -h uigf \
   -f ef &
 
-## to check on our data:
+## we need something that looks like this:
+INFO="GTR{0.7/1.8/1.2/0.6/3.0/1.0}+FU{0.25/0.23/0.30/0.22}+G4{0.47}"
 
-################# nifH #########################
+cd /media/vol1/daniel/nostoc/16sTree/round2
+
+## and where are all of our consensus sequences stored?
+## here:
+
+consppFolder=/media/vol1/daniel/nostoc/consensusSequences
+
+cat $consppFolder/* > ./conSeqs.fa
+
+seqtk seq -l 0 Ambylostegium_nostoc_BC9.fa > Ambylostegium_nostoc_BC9.fa_nolb
+seqtk seq -l 0 Homalia_nostoc_BC10.fa > Homalia_nostoc_BC10.fa_nolb
+seqtk seq -l 0 Zygodon_Nostoc_BC11.fa > Zygodon_Nostoc_BC11.fa_nolb
+
+mv Ambylostegium_nostoc_BC9.fa_nolb Ambylostegium_nostoc_BC9.fa
+mv Homalia_nostoc_BC10.fa_nolb Homalia_nostoc_BC10.fa
+mv Zygodon_Nostoc_BC11.fa_nolb Zygodon_Nostoc_BC11.fa
+
+## going to move these to a git-protected folder, they're precious
+
+## new folder for consensus seqs on nanoComp:
+cd /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSequences
+
+
+################# nifH ########################
 
 ## we need a nifH database and maybe a tree. Maybe a good database here:
 ## https://www.jzehrlab.com/nifh  
