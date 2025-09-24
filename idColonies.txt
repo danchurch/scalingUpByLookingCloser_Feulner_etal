@@ -3124,6 +3124,7 @@ modeltest-ng \
 
 ## we need something that looks like this:
 INFO="GTR{0.7/1.8/1.2/0.6/3.0/1.0}+FU{0.25/0.23/0.30/0.22}+G4{0.47}"
+## though, the paper for cyanseq just reports GTR+I+G4
 
 cd /media/vol1/daniel/nostoc/16sTree/round2
 
@@ -3131,7 +3132,6 @@ cd /media/vol1/daniel/nostoc/16sTree/round2
 ## here:
 
 consppFolder=/media/vol1/daniel/nostoc/consensusSequences
-
 cat $consppFolder/* > ./conSeqs.fa
 
 seqtk seq -l 0 Ambylostegium_nostoc_BC9.fa > Ambylostegium_nostoc_BC9.fa_nolb
@@ -3145,8 +3145,52 @@ mv Zygodon_Nostoc_BC11.fa_nolb Zygodon_Nostoc_BC11.fa
 ## going to move these to a git-protected folder, they're precious
 
 ## new folder for consensus seqs on nanoComp:
+
 cd /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSequences
 
+## let's try combining all the consensus seqs we have, both the original hylocomium one from 2 years 
+## ago, and the ones we just created:
+consppFolder=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSequences
+ogHyloConSeq=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/ogHylocomiumConsensusSeq/leptoNostoc_withN.fa
+putComboConsHere=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSeqSingleFasta
+cat <(seqtk seq -l 0 $ogHyloConSeq) $consppFolder/*  > ${putComboConsHere}/consensusSeqs_combined_22.10.2025.fa 
+
+## okay, 
+## question, can papara handle "N"s? it is a finicky old program...
+## let's see. Use this combo fasta, repeat above pipeline:
+
+cd /media/vol1/daniel/nostoc/16sTree/round2
+
+TREE="CyanoSeq_1.2_tree_noNHX.nw"
+REF_MSA="CyanoSeq_1.2.phy"
+QRY="/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSeqSingleFasta/consensusSeqs_combined_22.10.2025.fa"
+papara -t $TREE -s $REF_MSA -q $QRY -r -n "Cyanoseq_with_ourMossNostocs"
+
+conda activate
+epa-ng --redo --split $REF_MSA papara_alignment.Cyanoseq_with_ourMossNostocs
+
+TREE="CyanoSeq_1.2_tree_noNHX.nw"
+REF_MSA="reference.fasta"
+QRY="query.fasta"
+INFO="GTR+I+G4"
+OUT="."
+epa-ng \
+  --tree $TREE \
+  --ref-msa $REF_MSA \
+  --query $QRY \
+  --out-dir $OUT \
+  --redo \
+  --model $INFO
+
+## funny name, rename:
+
+mv epa_result.jplace mossNostocs_16sConsensusSeqs_onCyanoseqTree.22.09.2025.jplace
+
+## ok, how to visualize this? The cydrasil folks use iTOL, as we did above:
+
+getFile=/media/vol1/daniel/nostoc/16sTree/round2/epa_result.jplace
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol
+rsync -auv test@132.180.112.115:$getFile $putItHere
 
 ################# nifH ########################
 
@@ -3356,5 +3400,199 @@ rsync -auv test@132.180.112.115:${getFile} $putHere
 
 ## maybe rerun the alignment with the WP_069074423 reference seq 
 
-## plan? for 16s - only two are probably actually nostoc. And in 
+
+
+
+###### construction of tree ######
+
+## I can't find a curate nifH tree in the literature
+## centered on nostoc (aceae...ales...)
+## so let's try to recreate the Ininbergs/Kumota trees
+
+## Ininbergs has the following accessions:
+
+## what is an elegant way to do this... I wonder if we can 
+## query genbank by studies 
+
+cd /media/vol1/daniel/nostoc/nifHtree
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+from Bio import Entrez
+import matplotlib.pyplot as plt; plt.ion()
+import os,re
+Entrez.email = "daniel_thomas@uni-bayreuth.de"  
+
+## we want nifH sequence data from 2 studies:
+ininbergTitle = "Composition and diversity of nifH genes of nitrogen-fixing cyanobacteria associated with boreal forest feather mosses"
+kubotaTitle = "Nitrogen fixation and nifH gene diversity in cyanobacteria living on feather mosses in a subalpine forest of Mt. Fuji"
+ininberg_pmid = "21714790"
+kubota_pmid = "36808304"
+
+stream = Entrez.elink(
+    dbfrom='pubmed',
+    db="nucleotide", 
+    id=ininberg_pmid, 
+    idtype="acc"
+)
+record = Entrez.read(stream)
+stream.close()
+
+record
+
+## to get one accession out of this:
+record[0]['LinkSetDb'][0]['Link'][0]
+
+## to get them all?:
+accessionsIninberg = [ i['Id'] for i in record[0]['LinkSetDb'][0]['Link'] ]
+
+len(accessionsIninberg)
+
+## to fetch these?
+
+## to get one:
+handle = Entrez.efetch(db="nucleotide", id=accessionsIninberg[0], rettype="fasta", retmode="text")
+seq_record = SeqIO.read(handle, "fasta")
+
+## to get them all:
+def getSequence(accID):
+    handle = Entrez.efetch(db="nucleotide", id=accID, rettype="fasta", retmode="text")
+    seq_i = SeqIO.read(handle, "fasta")
+    handle.close()
+    return(seq_i)
+
+seqsIninberg = [ getSequence(i) for i in accessionsIninberg ]
+
+## repeat for Kubota reads:
+
+stream = Entrez.elink(
+    dbfrom='pubmed',
+    db="nucleotide", 
+    id=kubota_pmid, 
+    idtype="acc"
+)
+record = Entrez.read(stream)
+stream.close()
+accessionsKubota = [ i['Id'] for i in record[0]['LinkSetDb'][0]['Link'] ]
+
+
+
+seqsKubota = [ getSequence(i) for i in accessionsKubota ]
+
+seqsIninberg + seqsKubota 
+
+## what other sequences do we need, to rebuild their trees?
+
+## kubota used Trichodesmium erythraeum (Accession number L00689) as their outgroup:
+handle = Entrez.efetch(db="nucleotide", id="L00689.1", rettype="fasta", retmode="text")
+Trichodesmium_seq = [SeqIO.read(handle, "fasta")]
+handle.close()
+
+## and I see the following sequences on their figures:
+
+chekSeq="UB89346"
+pd.Series(accessionsIninberg)[pd.Series(accessionsIninberg).str.contains(chekSeq)]
+pd.Series(accessionsKubota)[pd.Series(accessionsKubota).str.contains(chekSeq)]
+
+## these look like the reference sequences they both used:
+Nostoc sp. PCC 7120 (637231238)
+Tolypothrix sp. PCC 7101 (AY221817)
+Mastigocladus laminosus CCMEE 5268 (EF570567)
+Fischerella UTEX 1931 (U49514)
+Richelia sp. SC01 clone 5325A45 (DQ225763)
+Nostoc sp. PCC 7120 (637231821)
+Anabaena variabilis ATCC 29413 (U89346)
+Anabaena oscillarioides (M63686)
+Cylindrospermopsis raciborskii CS-505 (647107234)
+Aphanizomenon aphanizomenoides UADFA13 (FJ895145)
+Anabaena sp. LG2 clone 7104A02 (EU381369)
+Anabaena variabilis ATCC 29413 (646569746)
+Trichodesmium erythraeum IMS101 (638109037)
+Nostoc punctiforme PCC 73102 (642599733)
+Nostoc commune UTEX 584 (L23514)
+Nostoc sp. 'J.Gallon' (L15551)
+Nodularia sp. KAC 13 (AY271821)
+Nostoc punctiforme PCC 73102 642600311
+Scytonema hofmanni UTEX 2349 DQ531684
+Nostoc muscorum UTEX 1933 U04054
+Cylindorospermum sp. SU01 JF827724
+Fischerella UTEX 1931 (U49515)
+Calothrix desertica PCC 7102 (U73129)
+Nostoc punctiforme PCC 73102 642604820
+Anabaena variabilis ATCC 29413 646569556
+
+
+refAccDict={'descrip' : [ "Nostoc sp. PCC 7120", "Tolypothrix sp. PCC 7101", "Mastigocladus laminosus CCMEE 5268", "Fischerella UTEX 1931", "Richelia sp. SC01 clone 5325A45", "Nostoc sp. PCC 7120", "Anabaena variabilis ATCC 29413", "Anabaena oscillarioides", "Cylindrospermopsis raciborskii CS-505", "Aphanizomenon aphanizomenoides UADFA13", "Anabaena sp. LG2 clone 7104A02", "Anabaena variabilis ATCC 29413", "Trichodesmium erythraeum IMS101", "Nostoc punctiforme PCC 73102", "Nostoc commune UTEX 584", "Nostoc sp. 'J.Gallon", "Nodularia sp. KAC 13", "Nostoc punctiforme PCC 73102", "Scytonema hofmanni UTEX 2349", "Nostoc muscorum UTEX 1933", "Fischerella UTEX 1931", "Calothrix desertica PCC 7102", "Nostoc punctiforme PCC 73102", "Anabaena variabilis ATCC 29413" ],
+'accNum' : ["637231238", "AY221817", "EF570567", "U49514", "DQ225763", "637231821", "U89346", "M63686", "647107234", "FJ895145", "EU381369", "646569746", "638109037", "642599733", "L23514", "L15551", "AY271821", "642600311", "DQ531684", "U04054", "U49515", "U73129", "642604820", "646569556"]}
+
+pd.set_option('display.max_rows', None)
+
+refAccDF = pd.DataFrame(refAccDict)
+del(refAccDict)
+
+refAccDF
+
+refAccDF.head()
+
+numbers= re.compile("^[0-9]")
+
+## a lot of these are not ncbi formated accession numbers. What are they?
+onlyNums = refAccDF['accNum'].str.contains(numbers)
+refAccDF[onlyNums]
+
+## what are these numbers?
+                    Nostoc sp. PCC 7120  637231238
+                    Nostoc sp. PCC 7120  637231821
+           Nostoc punctiforme PCC 73102  642599733
+           Nostoc punctiforme PCC 73102  642600311
+           Nostoc punctiforme PCC 73102  642604820
+  Cylindrospermopsis raciborskii CS-505  647107234
+
+         Anabaena variabilis ATCC 29413  646569746 ## = U89346?, also now called Trichormus variabilis
+         Anabaena variabilis ATCC 29413  646569556 
+        Trichodesmium erythraeum IMS101  638109037 ## already have above
+
+## we'll also want to put in some of the lutzoni 
+## sequences.
+
+## let's look at one of these, Nostoc punctiforme PCC 73102 (NC_010628.1)
+## three copies in the genome, looks like:
+WP_012412139.1 
+WP_012407784.1 
+WP_012407220.1 
+
+## let's assume these are the 3 N. punctiforme reference seqs they used.
+## but to get the ntide sequence, had to use the sequence view of NC_010628.1,
+## switch to Graphics view, then search for NifH, then manually select the range
+## given by the searchs, and download the fasta
+
+## Nostoc sp. PCC 7120
+
+## the only assembly of this organism that was available at the time of 
+## ininbergs 2011 was:
+GCF_000009705.1
+## chromosome here:
+
+NC_003272.1
+
+## this was called Anabaena in the ininberg paper,
+## has been renamed to a nostoc by the time of Kubota 2023. Okay, fine. 
+
+Anabaena variabilis ATCC 29413  
+## = U89346?, also now called Trichormus variabilis
+## = assembly GCF_000204075.1? But this is too new. 
+## it looks like there is one annotation of the molybdenum nif, = U89346
+## the other two Anabaena variabilises, not sure where they dug
+## these out of, back in 2011...
+
+## put these files somewhere in the github repo, they are also precious
+
+## I dug out the normal molybdenum dependent NifH and another (Fe-dependent?)
+## from older genomes. There is also this Vanadium dependent 
+## NifH:
+DQ315787.1
+
+esearch -db "Nucleotide" -query "DQ315787.1" | 
+efetch -format "fasta" > /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/DQ315787.1.fasta
 
