@@ -3539,6 +3539,33 @@ numbers= re.compile("^[0-9]")
 
 ## a lot of these are not ncbi formated accession numbers. What are they?
 onlyNums = refAccDF['accNum'].str.contains(numbers)
+
+refAccDF[onlyNums]
+
+## these look like I will need to go hunting manually...
+## but the rest, I think we can get...
+
+oldNamesRefAccs = refAccDF[~onlyNums]['accNum'].to_list()
+newNamesRefAccs = [ i+".1" for i in oldNamesRefAccs ]
+refSeqsPart = [ getSequence(i) for i in newNamesRefAccs ]
+
+## also the extra nifH from Anabaena variabilis from 1995 that they used:
+handle = Entrez.efetch(db="nucleotide", id="U89346.1", rettype="fasta", retmode="text")
+oldAnaNifH_seq = [SeqIO.read(handle, "fasta")]
+handle.close()
+
+## before I do that, write out everything else that we do have accession info for into a fasta
+## what do we have?
+
+
+kubotaTreeSeqsPart = seqsIninberg + seqsKubota + Trichodesmium_seq + oldAnaNifH_seq + refSeqsPart 
+len(kubotaTreeSeqsPart) ## 105
+
+## now write this out:
+SeqIO.write(kubotaTreeSeqsPart, "kubotaTreeSeqsPart.fa", "fasta")
+
+## now hunt the other sequences they probably used...
+
 refAccDF[onlyNums]
 
 ## what are these numbers?
@@ -3548,7 +3575,6 @@ refAccDF[onlyNums]
            Nostoc punctiforme PCC 73102  642600311
            Nostoc punctiforme PCC 73102  642604820
   Cylindrospermopsis raciborskii CS-505  647107234
-
          Anabaena variabilis ATCC 29413  646569746 ## = U89346?, also now called Trichormus variabilis
          Anabaena variabilis ATCC 29413  646569556 
         Trichodesmium erythraeum IMS101  638109037 ## already have above
@@ -3592,7 +3618,16 @@ Anabaena variabilis ATCC 29413
 ## from older genomes. There is also this Vanadium dependent 
 ## NifH:
 DQ315787.1
-
 esearch -db "Nucleotide" -query "DQ315787.1" | 
 efetch -format "fasta" > /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/DQ315787.1.fasta
+
+
+## okay, so what files need to be combined?
+
+cp /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/extraRefSeqs/* /media/vol1/daniel/nostoc/nifHtree/
+
+cd /media/vol1/daniel/nostoc/nifHtree
+
+cat *.fa > kubotaIninbergs.fa
+
 
