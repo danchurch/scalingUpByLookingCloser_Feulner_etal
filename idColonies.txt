@@ -3302,14 +3302,19 @@ cat KoiraBroezel.faa NIFtHool.faa NitrogenaseNifH99.fasta > allNifHdbs.faa
 
 makeblastdb -in allNifHdbs.faa -dbtype prot
 
-#### barcode12 NifH OG Hylocomium ####
+####### barcode12 NifH OG Hylocomium ##########
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12
 
 blastDB=/media/vol1/daniel/nostoc/nifHdatabases/allNifHdbs.faa
+
 nifH12reads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode12.fastq
 
+
+
 seqtk seq -A $nifH12reads > nifH12.fasta
+
+grep -c "^>" nifH12.fasta ## only 75 reads. Let's see how they look
 
 blastx -db $blastDB \
   -query nifH12.fasta \
@@ -3324,8 +3329,8 @@ blastx -db $blastDB \
   -out round2Barcode12-nifH.csv \
   -outfmt 10 & 
 
+## 64 matches, out of 75 reads
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode12-nifH.csv
-
 
 python3 
 import pandas as pd
@@ -3334,6 +3339,7 @@ import matplotlib.pyplot as plt; plt.ion()
 import os
 pd.set_option('display.max_rows', None)
 os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12')
+
 nostocMatches = pd.read_csv('round2Barcode12-nifH.csv', index_col='qseqid')
 nostocMatches.groupby('sseqid').count() 
 aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
@@ -3384,23 +3390,194 @@ for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
       print("yes!: " + rec.id)
       highBits.append(rec)
 
-
 highBits
 
 ## write this out as a fasta?:
 SeqIO.write(highBits, "Barcode12_NifH_reads2align.fa", "fasta")
 
-## let's see what happens when we align these with muscle and/or sina:
+## let's see what happens when we align these with muscle and/or sina
 
-muscle -in Barcode12_NifH_reads2align.fa -out Barcode12_NifH.afa
+## first we need to make sure they are all 5'-3'. Assuming our databases
+## are also, use this to align our reads?
+## problem - the databases we scraped are all AA. 
+## below, in the tree building process for NifH we made a fasta 
+## of all the reads from the Kubota/Ininberg papers. 
+## excluding our "homemade" ones that were manual downloads from
+## ncbi.
 
-getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/Barcode12_NifH.afa"
-putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/"
-rsync -auv test@132.180.112.115:${getFile} $putHere
+## pipeline notes on 2965, btw
 
-## maybe rerun the alignment with the WP_069074423 reference seq 
+## looks like our install of vsearch doesn't have the orient function,
+## and we have the latest version from apt. Update with binaries.
 
 
+#sudo apt purge vsearch
+wget https://github.com/torognes/vsearch/releases/download/v2.30.0/vsearch-2.30.0-linux-x86_64.tar.gz
+tar -xvf vsearch-2.30.0-linux-x86_64.tar.gz
+mv vsearch-2.30.0-linux-x86_64  ~/.vsearch-2.30.0
+chmod 777 ~/.vsearch-2.30.0/bin/vsearch
+sudo ln -s /home/test/.vsearch-2.30.0/bin/vsearch /usr/bin/vsearch
+
+/usr/bin/vsearch
+
+grep -c ">" nifH12.fasta
+
+vsearch \
+   --orient Barcode12_NifH_reads2align.fa \
+   --db /media/vol1/daniel/nostoc/nifHtree/kubotaTreeSeqsPart.fa \
+   --fastaout  Barcode12_NifH_reads2align_oriented.fa \
+   --notmatched Barcode12_NifH_reads2align_NotOriented.fa 
+
+## in the end of this, just nine reads of any quality
+
+## align them, maybe with one or two "nice" NifH ref seqs...
+
+## where to get the refseqs...
+## we would expect a "normal" (molybdenum-enabled) from the 
+## nostoc commune/punctiforme group 
+## maybe let's use the three copies of NifH detected in Nostoc punctiforme PCC 73102 (NC_010628.1)
+## WP_012412139.1,WP_012407784.1,WP_012407220.1 
+## these are here:
+
+extraRefSeqDir="/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/nifHtree/extraRefSeqs"
+ls ${extraRefSeqDir}/Nostoc_punct_PCC73102_NifH?_NC_010628.1_WP_0124?????.1.fa
+
+## reorient them:
+vsearch \
+   --orient <(cat ${extraRefSeqDir}/Nostoc_punct_PCC73102_NifH?_NC_010628.1_WP_0124?????.1.fa) \
+   --db /media/vol1/daniel/nostoc/nifHtree/kubotaTreeSeqsPart.fa \
+   --fastaout  NifH_NcommuneRefSeqs_oriented.fa \
+   --notmatched NifH_NcommuneRefSeqs_NotOriented.fa 
+
+## try an alignment with these:
+cat Barcode12_NifH_reads2align_oriented.fa NifH_NcommuneRefSeqs_oriented.fa |
+seqtk seq -l 40 > BC12_andrefSeqs_2align.fa
+
+## for comparison:
+
+muscle5 -align Barcode12_NifH_reads2align_oriented.fa -output BC12_noRefSeqs.afa
+muscle5 -align BC12_andrefSeqs_2align.fa -output BC12_andrefSeqs.afa
+
+## hand curation of the alignments with ugene...
+## do edits locally
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/BC12*afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+ugene -ui *afa ## the usual, remove +/- vertical gaps, cut off where we have <3 reads 
+
+#getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/noRefBC12_handedits.fa
+#getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/withRefBC12_handedits_refsRemoved.fa
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode12/withRefBC12_handedits.fa
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## curious if the reference sequences make a difference in this process:
+
+less withRefBC12_handedits.afa
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12
+
+grep NC_010628 withRefBC12_handedits.afa
+
+cp withRefBC12_handedits.afa withRefBC12_handedits.afa.bk
+sed -i "/ref/ s/|:/_/" withRefBC12_handedits.afa
+
+#alignment="noRefBC12_handedits.afa"
+alignment="withRefBC12_handedits.afa"
+#alignment="withRefBC12_handedits_refsRemoved.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk} 
+
+ugene -ui *nwk
+## actually, makes no difference to tree topology whether refs were included
+## and the ref seqs are distributed throughout the reads, in different clades
+## etc. So I think we can't distinguish if we have paralogs in here, 
+## just try to get hmm 
+
+alignFile="withRefBC12_handedits_refsRemoved.afa"
+hmmbuild barcode12.hmm ${alignFile}
+hmmemit -c -o Hylocomium_nostoc_BC12_nifH.fa barcode12.hmm
+
+cp Hylocomium_nostoc_BC12_nifH.fa /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/Hylocomium_nostoc_BC12_nifH.fa
+
+## not sure how confident I am in this, only 9 reads. Blasts to nifHs, including the peltigera-symbiont, at least.
+
+########## barcode 13 NifH OG Zygodon #####################
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13
+
+blastDB=/media/vol1/daniel/nostoc/nifHdatabases/allNifHdbs.faa
+
+nifH13reads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode13.fastq
+
+seqtk seq -A $nifH13reads > nifH13.fasta
+
+grep -c "^>" nifH13.fasta ## 1018 reads. That's more like it. Let's see how they look
+
+blastx -db $blastDB \
+  -query nifH13.fasta \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode13-nifH.csv \
+  -outfmt 10 & 
+
+## 1426 matches, out of 1018 reads? What happened...
+## whenever it finds two matches to the same subject
+## by a read, it reports them both, even though we 
+## asked for one alignment only. 
+
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode13-nifH.csv
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+pd.set_option('display.max_rows', None)
+
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13')
+
+nifhMatches = pd.read_csv('round2Barcode13-nifH.csv', index_col='qseqid')
+aa = nifhMatches[['sseqid','pident']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+nifhMatches.head()
+
+nifhMatches[['bitscore']]
+
+strongMatches = nifhMatches.query('bitscore > 90')
+
+wantedReads=strongMatches.reset_index().qseqid
+
+rawReadsBarcode = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                   "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                   "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode13.fastq")
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+highBits ## 547 strong matches
+
+## write this out as a fasta?:
+SeqIO.write(highBits, "Barcode13_NifH_reads2align.fa", "fasta")
+
+grep -c ">" Barcode13_NifH_reads2align.fa
+
+vsearch \
+   --orient Barcode13_NifH_reads2align.fa \
+   --db /media/vol1/daniel/nostoc/nifHtree/kubotaTreeSeqsPart.fa \
+   --fastaout  Barcode12_NifH_reads2align_oriented.fa \
+   --notmatched Barcode12_NifH_reads2align_NotOriented.fa
+
+## all reoriented.
+
+## reoriented references maybe handy here?
+reorientedRefs=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/NifH_NcommuneRefSeqs_oriented.fa
 
 
 ###### construction of tree ######
@@ -3630,4 +3807,15 @@ cd /media/vol1/daniel/nostoc/nifHtree
 
 cat *.fa > kubotaIninbergs.fa
 
+## looks promising. But we still need consensus seqs for our nifH... back up to these...
 
+
+
+#### make a notebook #####
+
+## these may be useful:
+https://dmnfarrell.github.io/bioinformatics/bokeh-sequence-aligner
+https://plotly.com/python/alignment-chart/
+https://etetoolkit.org/ipython_notebook/
+https://github.com/etetoolkit/ete
+## the last one, ete, looks like the best option, at first glance.
