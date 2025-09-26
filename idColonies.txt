@@ -4064,8 +4064,8 @@ refAccDF[onlyNums]
          Anabaena variabilis ATCC 29413  646569556 
         Trichodesmium erythraeum IMS101  638109037 ## already have above
 
-## we'll also want to put in some of the lutzoni 
-## sequences.
+## we may also want to put in some of the lutzoni sequences.
+## let's first see if we can just recreate their tree
 
 ## let's look at one of these, Nostoc punctiforme PCC 73102 (NC_010628.1)
 ## three copies in the genome, looks like:
@@ -4121,10 +4121,74 @@ cat *.fa > kubotaIninbergs.fa
 
 ## looks promising. now, add in our consensus sequences and run an alignment
 
-cat kubotaIninbergs.fa 
+cat kubotaIninbergs.fa <(cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/*) | seqtk seq -l 60 > thomasKubotaIninbergs.fa
 
-cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/*
+## run alignment:
+muscle5 -align thomasKubotaIninbergs.fa -output thomasKubotaIninbergs.afa
+## takes 4 minutes or so
 
+## looking at it locally...
+getFile=/media/vol1/daniel/nostoc/nifHtree/thomasKubotaIninbergs.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## shoot, looks like the Nostoc nifH sequences I put in (ref|NC_003272.1|:xxxxxxx-xxxxxxx Nostoc sp. PCC 7120 = FACHB-418) 
+## are causing big problems. 
+
+## probably we have introns and they just kept coding regions. 
+
+## also looks like we have a duplicate label, I think we manually downloaded this 
+## when we already had it:
+
+grep U89346.1 *
+
+
+vim thomasKubotaIninbergs.afa
+## changed one of these to say ">U89346.1_2" in the alignment.
+
+## and clean up the ref seqs
+sed -i "/ref/ s/|:/_/" thomasKubotaIninbergs.afa
+
+## run the tree without manual edits, see what happens:
+
+alignment="thomasKubotaIninbergs.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 secs
+
+## look at in arb
+
+## yeah, that's weird. 
+
+## try again with a curated alignment:
+
+## taking out the massing introns in the ref seqs I included
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/thomasKubotaIninbergs_handEdited.afa
+putItHere=/media/vol1/daniel/nostoc/nifHtree
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+grep U89346.1 thomasKubotaIninbergs_handEdited.afa
+grep ref thomasKubotaIninbergs_handEdited.afa
+
+alignment="thomasKubotaIninbergs_handEdited.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk} 
+
+arb
+
+## okay, alignment/tree sort of agrees with the other papers. 
+## I would much rather hang my sequences on their trees, 
+## but they did not supply and data and don't respond to emails.
+
+## so here we are. where do our sequences fall?
+## we have 7 consensus sequences.
+cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/* > consensusSeqs.fa
+
+Homalia_cyanobacteria_BC14_nifH_clade1 --> nifH2, non-Fiji
+Homalia_cyanobacteria_BC14_nifH_clade2 --> Nostoc2, next to LC716862.1
+Homalia_cyanobacteria_BC14_nifH_clade3 --> Nostoc1/Stigonema, near LC716873 
+Hylocomium_cyanobacteria_BC12_nifH     --> Nostoc2, next to JF827746 
+Zygodon_cyanobacteria_BC13_nifH_clade1 --> NifH2, next to LC716821/JF827751
+Zygodon_cyanobacteria_BC13_nifH_clade2 --> Nostoc2, next to Nostoc muscorum
+Zygodon_cyanobacteria_BC13_nifH_clade3 --> Nostoc1
 
 #### make a notebook #####
 
