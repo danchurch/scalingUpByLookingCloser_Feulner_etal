@@ -867,6 +867,9 @@ import pandas as pd
 from Bio import SeqIO
 import matplotlib.pyplot as plt; plt.ion()
 import os, re
+import numpy as np
+import pickle
+
 #pd.set_option('display.max_rows', None)
 #pd.set_option('display.max_rows', 20)
 
@@ -880,8 +883,16 @@ help(nostocMatches.index.duplicated) ## yup, read names re-used. Not sure. This
 dups = nostocMatches.index.duplicated(keep=False)
 nostocMatches[dups] ## seems like every dup has a good and a poor match. Not sure why. Anyway, makes it easier to pick.
 
-## all of these should have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'].to_list()
+
+## all of these should have been id'd to nostoc, let's check:
+nostocMatches['sseqid'].str.split(';', expand=True)[[6]] == "Nostoc"
+
+(nostocMatches['sseqid'].str.split(';', expand=True)[[6]] == "Nostoc").all() ## yup
+
+## so get rid of taxonomy
 nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
 
 aa = nostocMatches[['sseqid','pident','evalue']].groupby('sseqid').count()
 bb = aa.T.iloc[0,:].sort_values(ascending=False)
@@ -897,16 +908,66 @@ dd = (nostocMatches.query(f"bitscore > {minBitscore}")[['sseqid','evalue']]
             .sort_values(ascending=True))
 
 ## we lose some matches, but not a lot.
-nAccesions = 4
-bestAccessions = dd.iloc[-nAccesions:].index.to_list()
-bestAccessionsRegex = re.compile("|".join(bestAccessions))
+## our previous approach was to select reads by 
+## taking the most common blast matches:
+#nAccesions = 4
+#bestAccessions = dd.iloc[-nAccesions:].index.to_list()
+#bestAccessionsRegex = re.compile("|".join(bestAccessions))
+#nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
+#                                        .str.contains(bestAccessionsRegex)]
+#                                        .query(f"bitscore > {minBitscore}"))
+#
+## but maybe it is better to just enforce a bitscore minimum:
 
-nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
-                                        .str.contains(bestAccessionsRegex)]
-                                        .query(f"bitscore > {minBitscore}"))
+nostocMatches.query(f"bitscore > {minBitscore}")
+
+plt.hist(np.histogram( nostocMatches['bitscore'].to_numpy(), bins=20))
+## this always fails. not sure why. Try it locally:
+
+pklFile = open('ogHyloNostoc16sBitscores.pkl', 'ab')
+pickle.dump(nostocMatches['bitscore'], pklFile)
+pklFile.close()
+
+
+
+## local:
+getFile='/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/ogHyloNostoc16sBitscores.pkl'
+putItHere='/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/'
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+python3
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt; plt.ion()
+import os, pickle
+
+pklfile = open('ogHyloNostoc16sBitscores.pkl', 'rb')    
+bitscores = pickle.load(pklfile)
+
+bitscores.plot
+
+bitscores.plot.hist()
+
+## this shows a bimodal distribution, a body of low 
+## quality matches centered around 400, and much
+## larger set of matches centered around 1600. 
+## I'm betting this a function of read length,
+## basically.
+## 1000 seems to be a good cutoff to keep the "cream"
+## let's start with that.
+
+## back on nanoComp:
+
+minBitscore = 600
+nostocMatches.query(f"bitscore > {minBitscore}").shape ## we still have 8000+ reads, enough to keep us busy.
+nostocMatchesBestAccessions = nostocMatches.query(f"bitscore > {minBitscore}")
+
+nostocMatchesBestAccessions['bitscore'].mean() ## mean 1549
 
 
 wantedReads = nostocMatchesBestAccessions.index.to_series()
+
 rawReads = "/media/vol1/daniel/nostoc/minionReadsNostoc/onlyNostTrimmed_dedup.fasta"
 os.path.exists(rawReads)
 
@@ -917,7 +978,7 @@ for rec in SeqIO.parse(rawReads, "fasta"):
       print("yes!: " + rec.id)
       highBits.append(rec)
 
-highBits
+len(highBits)
 
 SeqIO.write(highBits, "ogHylo_strongNostocMatches.fa", "fasta")
 
@@ -933,35 +994,34 @@ getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHy
 putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
 rsync -auv $getFile daniel@132.180.113.114:$putHere
 
-
-## now, run the alignment. Very large, so reuse tricks from above (line ~590),
-## and run on the optiplex
-
 optiplex
 
 cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
 
-## gotta get muscle updated:
-wget https://github.com/rcedgar/muscle/releases/download/v5.3/muscle-linux-x86.v5.3
-sudo mv muscle-linux-x86.v5.3 /opt/
-sudo ln -s /opt/muscle-linux-x86.v5.3 /usr/local/bin/muscle
+## we also need some sort of database, is silva somewhere?
+
+silvaDB=/home/daniel/Documents/databases/silva/silva_nr99_v138.2_toGenus_trainset.fa
+
+## now, run the alignment. Very large, so reuse tricks from above (line ~590),
+## and run on the optiplex
+
+## do we have vsearch on the optiplex?
+
+silvaDB=/home/daniel/Documents/databases/silva/silva_nr99_v138.2_toGenus_trainset.fa
+vsearch \
+   --orient ogHylo_strongNostocMatches.fa \
+   --db $silvaDB \
+   --fastaout  ogHylo_strongNostocMatches_oriented.fa \
+   --notmatched ogHylo_strongNostocMatches_NotOriented.fa 
 
 ## first try this:
-nohup muscle -align ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa & 
+nohup muscle -align ogHylo_strongNostocMatches_oriented.fa -output ogHylo_strongNostocMatches.afa & 
+## 8250 reads, lost 249 reads, about 40% reversed reads corrected.
+grep -c "^>" ogHylo_strongNostocMatches_oriented.fa 
 
-## but maybe we need this
-#nohup muscle -in ogHylo_strongNostocMatches.fa -out ogHylo_strongNostocMatches.afa -maxiters 2 -diags1 -sv &
-
-
-## then we need to build a tree
-## visualize on ARB, get clades out, if any.
-
-## then we need to build a tree: 
-
-echo "echo TTTEEEST > new_file_test" | at now +1 minutes
-
-sudo ls /var/spool/cron/atjobs
-atq
+## muscle alignment
+nohup muscle -super5 ogHylo_strongNostocMatches_oriented.fa -output ogHylo_strongNostocMatches_oriented.afa &
+## started 10am Sept 26, PID = 1599960
 
 
 
@@ -991,19 +1051,8 @@ atq ## 8
 sudo ls /var/spool/cron/atjobs
 #a0000801bf24b5
 
-## and didn't work. Looks like muscle ran out of memory. 
-## let's try again, with the more efficient, less accurate 
-## command:
-
-## first try this:
-
-## but maybe we need this
-
-#nohup muscle -align ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa -maxiters 2 -diags1 -sv &
-## this is not working. Updated documentation on drive5, a new algorithm, try it:
-
-nohup muscle -super5 ogHylo_strongNostocMatches.fa -output ogHylo_strongNostocMatches.afa &
-## started 19.09.2025, 8:40 am
+## anyway, it apparently takes several days for muscle to do this alignment
+## so just wait for the tree building.
 
 ## let that run. In the meantime, run through bc9, see if anything can be 
 ## salvaged there.  
@@ -3571,14 +3620,273 @@ grep -c ">" Barcode13_NifH_reads2align.fa
 vsearch \
    --orient Barcode13_NifH_reads2align.fa \
    --db /media/vol1/daniel/nostoc/nifHtree/kubotaTreeSeqsPart.fa \
-   --fastaout  Barcode12_NifH_reads2align_oriented.fa \
-   --notmatched Barcode12_NifH_reads2align_NotOriented.fa
+   --fastaout  Barcode13_NifH_reads2align_oriented.fa \
+   --notmatched Barcode13_NifH_reads2align_NotOriented.fa
 
 ## all reoriented.
 
 ## reoriented references maybe handy here?
 reorientedRefs=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/NifH_NcommuneRefSeqs_oriented.fa
 
+grep -c ">" Barcode13_NifH_reads2align_oriented.fa
+
+cat Barcode13_NifH_reads2align_oriented.fa  $reorientedRefs |
+seqtk seq -l 40 > BC13_andrefSeqs_2align.fa
+
+muscle5 -align Barcode13_NifH_reads2align_oriented.fa -output BC13_noRefSeqs.afa ## takes ~10 min
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13
+
+muscle5 -align BC13_andrefSeqs_2align.fa -output BC13_andrefSeqs.afa
+
+## get local, curate:
+#getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13/BC13_noRefSeqs.afa
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13/BC13_andrefSeqs.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode13
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+ugene -ui *afa ## the usual, remove +/- vertical gaps, etc.
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode13/BC13_andrefSeqs_handEdits.fa
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## we have a lot of sequences, so make a tree, see if distinct clusters emerge:
+ 
+sed -i "/ref/ s/|:/_/" BC13_andrefSeqs_handEdits.afa
+
+alignment="BC13_andrefSeqs_handEdits.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
+
+## looks like maybe three groups. Look again in ARB:
+
+## yeah, three clades, save as:
+
+barcode13_clade1.fa
+barcode13_clade2.fa
+barcode13_clade3.fa
+
+## run alignments on these again
+muscle5 -align barcode13_clade1.fa -output barcode13_clade1.afa
+muscle5 -align barcode13_clade2.fa -output barcode13_clade2.afa
+muscle5 -align barcode13_clade3.fa -output barcode13_clade3.afa
+
+## curate them locally, the usual
+
+## get local, curate:
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13/barcode13_clade?.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode13
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## put back
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode13/barcode13_clade?_handEdited.afa
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## are the reference seqs still in there?:
+grep "ref" barcode13_clade?_handEdited.afa
+
+## one of them didn't cluster at all.
+## and then Clade 1 and Clade 3 each have one. Makes sense. Looks like this organism
+## has two NifH copies. We could probably investigate if one is molybdenum dependent, and one vanadium or iron
+## or maybe it is two cyanobacteria. Maybe look into this later.
+
+## for the record:
+## BC13 clade1 has >ref|NC_010628.1_7297077-7298042
+## BC13 clade3 has >ref|NC_010628.1_512909-513802
+## these are NifH sequences we took from a Nostoc punctiforme genome
+## and remove them:
+
+grep -n -A2 "ref" barcode13_clade?_handEdited.afa ## 329, 363
+sed -i '/ref/,+1d' barcode13_clade1_handEdited.afa 
+sed -i '/ref/,+1d' barcode13_clade3_handEdited.afa 
+
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13
+
+##  build hmms
+
+#alignFile="barcode13_clade1_handEdited.afa"
+#alignFile="barcode13_clade2_handEdited.afa"
+#alignFile="barcode13_clade3_handEdited.afa"
+hmmbuild ${alignFile/\.afa/\.hmm} ${alignFile}
+hmmemit -c -o ${alignFile/_handEdited.afa/_consensus.fasta} ${alignFile/\.afa/\.hmm}
+
+## clade3 best match from an identified organism is the nif from a compactonostoc,
+## fits our 15s match. 
+## clade2 doesn't really blast to much, but closest id'd org is from Scytonenataceae, "Brasilonema" sp. Funny. Kind of like 16s from Zygodon and Homalia
+##   also therefore makes sense that our reference sequences didn't align at all to this one
+## clade1 - 2 out of 3 (1rst and 3rd) are to the cyanobacteria from the Kubota paper! still not perfect matches (96% match or so)
+
+cat barcode13_clade?_consensus.fasta > barcode13_consensuses.fasta 
+
+cp barcode13_consensuses.fasta /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/Zygodon_nostoc_BC13_nifH.fa
+## may need to edit the id lines, for the tree
+
+
+########## barcode 14 NifH Homalia #####################
+
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14
+
+blastDB=/media/vol1/daniel/nostoc/nifHdatabases/allNifHdbs.faa
+
+nifH14reads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode14.fastq
+
+seqtk seq -A $nifH14reads > nifH14.fasta
+
+grep -c "^>" nifH14.fasta ## 118 reads. Not great. Let's see what we can do.
+
+blastx -db $blastDB \
+  -query nifH14.fasta \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode14-nifH.csv \
+  -outfmt 10 & 
+
+
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode14-nifH.csv
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+import matplotlib.pyplot as plt; plt.ion()
+import os
+pd.set_option('display.max_rows', None)
+
+os.chdir('/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14')
+
+nifhMatches = pd.read_csv('round2Barcode14-nifH.csv', index_col='qseqid')
+aa = nifhMatches[['sseqid','pident']].groupby('sseqid').count()
+bb = aa.T.iloc[0,:].sort_values(ascending=False)
+cc = aa.T.iloc[0,:].sort_values(ascending=True)
+
+nifhMatches.head()
+
+nifhMatches[['bitscore']]
+
+minBitscore = 60 ## with these AA/nt blast matches, the bitscores are much lower.
+
+nifhMatches.query(f"bitscore > {minBitscore}")[['sseqid','evalue']]
+
+nifhMatches.query(f"bitscore > {minBitscore}").shape ## 43 seqs, let's try this
+
+strongMatches = nifhMatches.query(f'bitscore > {minBitscore}')
+
+wantedReads=strongMatches.reset_index().qseqid
+
+rawReadsBarcode = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                   "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                   "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode14.fastq")
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+len(highBits) ## 40 strong matches, we lost a couple, must have been dups
+
+SeqIO.write(highBits, "Barcode14_NifH_reads2align.fa", "fasta")
+
+grep -c ">" Barcode14_NifH_reads2align.fa
+
+vsearch \
+   --orient Barcode14_NifH_reads2align.fa \
+   --db /media/vol1/daniel/nostoc/nifHtree/kubotaTreeSeqsPart.fa \
+   --fastaout  Barcode14_NifH_reads2align_oriented.fa \
+   --notmatched Barcode14_NifH_reads2align_NotOriented.fa
+
+reorientedRefs=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/NifH_NcommuneRefSeqs_oriented.fa
+
+grep -c ">" Barcode14_NifH_reads2align_oriented.fa
+
+cat Barcode14_NifH_reads2align_oriented.fa  $reorientedRefs |
+seqtk seq -l 40 > BC14_andrefSeqs_2align.fa
+
+muscle5 -align Barcode14_NifH_reads2align_oriented.fa -output BC14_noRefSeqs.afa 
+
+muscle5 -align BC14_andrefSeqs_2align.fa -output BC14_andrefSeqs.afa
+
+#getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14/BC14_noRefSeqs.afa
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14/BC14_andrefSeqs.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode14
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+ugene -ui BC14_andrefSeqs.afa ## the usual, remove +/- vertical gaps, etc.
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode14/BC14_andrefSeqs_handEdited.afa
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## we have a lot of sequences, so make a tree, see if distinct clusters emerge:
+sed -i "/ref/ s/|:/_/" BC14_andrefSeqs_handEdited.afa
+
+less BC14_andrefSeqs_handEdited.afa
+
+alignment="BC14_andrefSeqs_handEdited.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
+
+arb
+
+## looks again like three groups. 
+
+## clade1  contained ref7927 = WP_012412139.1 (  NC_010628.1 (7,297,077..7,298,042)  )
+## clade2  contained ref1229 = WP_012407784.1 (  NC_010628.1 (1,229,540..1,230,433)  )
+## clade3 contained no reference sequence, technically,
+## but it was closest to ref5129 WP_012407220.1 ( NC_010628.1 (512,909..513,802)  ), which fell into no clade
+
+## run alignments on these again
+muscle5 -align barcode14_clade1.fa -output barcode14_clade1.afa
+muscle5 -align barcode14_clade2.fa -output barcode14_clade2.afa
+muscle5 -align barcode14_clade3.fa -output barcode14_clade3.afa
+
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14/barcode14_clade?.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode14
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## manually curate...
+
+## put back
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode14/barcode14_clade?_handEdited.afa
+putItHere=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## remove the reference seqs
+
+grep "ref" barcode14_clade?_handEdited.afa
+
+grep -n -A2 "ref" barcode14_clade?_handEdited.afa 
+sed -i '/ref/,+1d' barcode14_clade1_handEdited.afa 
+sed -i '/ref/,+1d' barcode14_clade2_handEdited.afa 
+
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode14
+
+##  build hmms
+
+#alignFile="barcode14_clade1_handEdited.afa"
+#alignFile="barcode14_clade2_handEdited.afa"
+#alignFile="barcode14_clade3_handEdited.afa"
+hmmbuild ${alignFile/\.afa/\.hmm} ${alignFile}
+hmmemit -c -o ${alignFile/_handEdited.afa/_consensus.fasta} ${alignFile/\.afa/\.hmm}
+
+## clade1 is the shortest sequence, top blast match to another of Kubota's cyanobacterium. Cool.
+## clade2 blasts to lichen symbionts CP026692 Lobaria symbiont, and CP026681 Peltigera symbiont
+## clade3 also blasts strongly to Lobaria symbiont, CP026692.1, from same study as clade2 blast matches. 
+## (iceland lichen symbiont genome sequencing project, unpublished)
+
+cat barcode14_clade?_consensus.fasta > barcode14_consensuses.fasta 
+
+cp barcode14_consensuses.fasta /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/Homalia_nostoc_BC14_nifH.fa
+
+ls /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/
+
+
+## so this should be all of our nifH consensus sequences. 
+## time to hang them on a tree:
 
 ###### construction of tree ######
 
@@ -3761,6 +4069,10 @@ refAccDF[onlyNums]
 
 ## let's look at one of these, Nostoc punctiforme PCC 73102 (NC_010628.1)
 ## three copies in the genome, looks like:
+  nifH, at 512909-513802 --> WP_012407220.1 (  NC_010628.1 (512,909..513,802)      )
+nifH, at 1229540-1230433 --> WP_012407784.1 (  NC_010628.1 (1,229,540..1,230,433)  )
+nifH, at 7297077-7298042 --> WP_012412139.1 (  NC_010628.1 (7,297,077..7,298,042)  )
+
 WP_012412139.1 
 WP_012407784.1 
 WP_012407220.1 
@@ -3807,8 +4119,11 @@ cd /media/vol1/daniel/nostoc/nifHtree
 
 cat *.fa > kubotaIninbergs.fa
 
-## looks promising. But we still need consensus seqs for our nifH... back up to these...
+## looks promising. now, add in our consensus sequences and run an alignment
 
+cat kubotaIninbergs.fa 
+
+cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/*
 
 
 #### make a notebook #####
@@ -3819,3 +4134,4 @@ https://plotly.com/python/alignment-chart/
 https://etetoolkit.org/ipython_notebook/
 https://github.com/etetoolkit/ete
 ## the last one, ete, looks like the best option, at first glance.
+
