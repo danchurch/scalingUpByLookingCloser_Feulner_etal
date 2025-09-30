@@ -1486,6 +1486,7 @@ seqtk seq -A ${minionReads}/${readFile} > ${readFile/\.fastq/\.fasta}
 
 sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode09-allSilva.csv
 
+
 less round2Barcode09-allSilva.csv
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09
@@ -1615,41 +1616,98 @@ seqtk subseq $allReads allNostocThings_BC9_seqNames.txt | seqtk seq -A > allNost
 
 cat DQ185239.1.fasta DQ185249.1.fasta DQ185255.1.fasta allNostocThings_BC9.fa > allNostocThings_BC9_andRefSeqs.fa
 
-muscle5 -align allNostocThings_BC9_andRefSeqs.fa -output allNostocThings_BC9_andRefSeqs.afa
+## reorient them: 
 
-## and that is not useful. and if we just focus on the quality peltigera matches:
+grep -c ">" allNostocThings_BC9_andRefSeqs.fa
 
-vim peltigeraNostocBC9_andRefSeqs.fa
+grep ">" allNostocThings_BC9_andRefSeqs.fa
 
-vim peltigeraNostocBC9.fa
 
-cat DQ185239.1.fasta DQ185249.1.fasta DQ185255.1.fasta peltigeraNostocBC9.fa > peltigeraNostocBC9_andRefSeqs.fa
-less peltigeraNostocBC9_andRefSeqs.fa
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09
 
-muscle5 -align peltigeraNostocBC9_andRefSeqs.fa -output peltigeraNostocBC9_andRefSeqs.afa
 
-#getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/allNostocThings_BC9_andRefSeqs.afa"
-getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/peltigeraNostocBC9_andRefSeqs.afa"
+#cp allNostocThings_BC9_andRefSeqs.afa allNostocThings_BC9_andRefSeqs_notOriented.afa
+
+silvaDB=/media/vol1/daniel/databases/silva/dada2silva/silva_nr99_v138.2_toGenus_trainset.fa
+vsearch \
+   --orient allNostocThings_BC9_andRefSeqs.fa \
+   --db $silvaDB \
+   --fastaout  allNostocThings_BC9_andRefSeqs_oriented.fa \
+   --notmatched allNostocThings_BC9_andRefSeqs_NotOriented.fa 
+
+## 7 forward, 5 reversed
+
+## let's remove the leptolyngbya read (see below):
+
+seqtk subseq allNostocThings_BC9_andRefSeqs_oriented.fa <(grep ">" allNostocThings_BC9_andRefSeqs_oriented.fa | 
+grep -v "002514a6-cb78-48fd-9f02-43fcf928e1ac" | cut -d ">" -f 2 ) |
+seqtk seq -l 60 > almostAllNostocThings_BC9_andRefSeqs_oriented.fa
+
+muscle5 -align almostAllNostocThings_BC9_andRefSeqs_oriented.fa -output allNostocThings_BC9_andRefSeqs.afa
+
+less allNostocThings_BC9_andRefSeqs.afa
+
+## actually, this looks pretty good, even though we just have a handful of reads. 
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/allNostocThings_BC9_andRefSeqs.afa"
 putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode09"
 rsync -auv test@132.180.112.115:$getFile $putHere
 
 ugene -ui allNostocThings_BC9_andRefSeqs.afa
 
-ugene -ui peltigeraNostocBC9_andRefSeqs.afa ## vastly better. 
+## some hand edits, put back:
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode09/allNostocThings_BC9_andRefSeqs_handEdited.afa"
+putHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/"
+rsync -auv $getFile test@132.180.112.115:$putHere
+
+FastTree -gtr -nt < allNostocThings_BC9_andRefSeqs.afa > uneditedBC9tree.nwk
+
+ allNostocThings_BC9_andRefSeqs.afa
+
 ## It looks like a real high-quality match, especially the first read, 
 ## 4c493455-23f3-4147-8995-431dbcc7554d
 
+## removing 002514a6-cb78-48fd-9f02-43fcf928e1ac, it doesn't align well at all. 
+## yeah, all blast matches to leptolyngbia
+
 ## rerun the above alignment with just this read...
 
-## yup. That is useable data. I see one possible homo-polymer, the rest seems real.
+## yup. That is useable data. Aligned them as best as possible. 
+## one large gap in coverage. 
+
+
+alignFile="allNostocThings_BC9_andRefSeqs_handEdited.afa"
+hmmbuild Ambylostegium_nostoc_BC9_16s.hmm ${alignFile}
+hmmemit -c -o Ambylostegium_nostoc_BC9_16s.fa Ambylostegium_nostoc_BC9_16s.hmm
+sed -i '/^>/ s/.*/>Ambylostegium_nostoc_BC9_16s/' Ambylostegium_nostoc_BC9_16s.fa
+
+## there are no gaps or Ns in this. I don't understand that. Let's check an alignment:
+
+muscle5 -align <(cat almostAllNostocThings_BC9_andRefSeqs_oriented.fa Ambylostegium_nostoc_BC9_16s.fa) -output howisourconsensus.afa
+
+less howisourconsensus.afa
+
+ugene -ui howisourconsensus.afa &
+
+## oh weird. Instead of N at the gap, or "-", hmmer put "T". I have no idea why. There was no information
+## for these sites, just "N" on the MSA in one sequence. I fixed again manually, replacing with Ns. 
+
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/howisourconsensus.afa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode09"
+rsync -auv test@132.180.112.115:$getFile $putHere
+
+## get rid of linebreaks, hand edit the sequence in vim
+seqtk seq -l 0 Ambylostegium_nostoc_BC9_16s.fa > 2Ambylostegium_nostoc_BC9_16s.fa
+mv 2Ambylostegium_nostoc_BC9_16s.fa Ambylostegium_nostoc_BC9_16s.fa
+vim Ambylostegium_nostoc_BC9_16s.fa
+
+## added back in the intro bps that hmmer didn't trust (they match other 
+## nostoc 16s exactly, so why not), and insert a long set of N's where
+## I have no read data but other nostoc 16s has nucleotides.
 
 ## so let's keep that one as our representative sequence:
-/media/vol1/daniel/nostoc/consensusSequences/Ambylostegium_nostoc_BC9.fa
+cp Ambylostegium_nostoc_BC9_16s.fa  /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/Ambylostegium_nostoc_BC9_16s.fa
 
-
-Hopefully it didn't 
-## bleed over from another barcode somehow. We can confirm downstreem on the tree
-## placements
 
 ## concerning the larger, total pool of sequences in bc9, not just nostoc-like things,
 ## the two most common hits are to completely unknown, uncultured bacteria with 
@@ -1673,7 +1731,7 @@ cc = aa.T.iloc[0,:].sort_values(ascending=True)
 ## well, weird, this blasts to the same paper as with our all-taxa, 
 ## the genbank accession has no taxonomic information, but silva does?
 
-## anyway, we will report the one non-singleton match as a possible "consensus seq"
+## anyway, we will report the above 16s as a consensus seq, see if it is useful.
 
 ## and report that the culture was lost, this hit as a possible remnant
 ## of the nostoc that we photographed from this
@@ -2234,45 +2292,59 @@ dd = (nostocMatches.query(f"bitscore > {minBitscore}")[['sseqid','evalue']]
             .T.iloc[0,:]
             .sort_values(ascending=True))
 
+#########################################################
+## last time, we did this: 
+
 ## here let's take the top 4:
-nAccesions = 4
-bestAccessions = dd.iloc[-nAccesions:].index.to_list()
-bestAccessionsRegex = re.compile("|".join(bestAccessions))
+#nAccesions = 4
+#bestAccessions = dd.iloc[-nAccesions:].index.to_list()
+#bestAccessionsRegex = re.compile("|".join(bestAccessions))
+#nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
+#                                        .str.contains(bestAccessionsRegex)])
 
+#########################################################
 
-nostocMatchesBestAccessions = (nostocMatches[nostocMatches['sseqid']
-                                        .str.contains(bestAccessionsRegex)])
+## but update yet again, on 30.09.2025
+## revise to use all high-scoring matches, rather than 
+## taking the top accessions:
 
-nostocMatchesBestAccessions.bitscore.to_list()
+minBitscore = 900 ## with these AA/nt blast matches, the bitscores are much lower.
 
-## how to get these out?
+nostocMatches.query(f"bitscore > {minBitscore}")[['sseqid','evalue']]
 
-wantedReads = nostocMatchesBestAccessions.index.to_series()
+nostocMatches.query(f"bitscore > {minBitscore}").shape ## 171 seqs, let's try this
 
-rawReadsBarcode10 = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
-                     "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
-                     "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq")
+strongMatches = nostocMatches.query(f'bitscore > {minBitscore}')
 
-os.path.exists(rawReadsBarcode10)
+wantedReads=strongMatches.reset_index().qseqid
 
-highBits=[] ## called this high bits before, just keeping it here
-for rec in SeqIO.parse(rawReadsBarcode10, "fastq"):
+rawReadsBarcode = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                   "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                   "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq")
+
+os.path.exists(rawReadsBarcode)
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
     print(rec.id)
     if wantedReads.str.match(rec.id).any():
       print("yes!: " + rec.id)
       highBits.append(rec)
 
-highBits
+len(highBits) ## 171, makes sense
+
+#### return to previous pipeline
 
 ## write this out as a fasta?:
 SeqIO.write(highBits, "Barcode10_strongNostocMatches.fa", "fasta")
 
 ## out of python...
-muscle -in Barcode10_strongNostocMatches.fa -out Barcode10_strongNostocMatches.afa
+muscle5 -align Barcode10_strongNostocMatches.fa -output Barcode10_strongNostocMatches.afa 
+## this takes a few minutes
 
-alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
 alignment="Barcode10_strongNostocMatches.afa"
-FastTree -gtr -nt < ${alignDir}/${alignment} > Barcode10_strongNostocMatches.nwk 2> logFastree.txt
+FastTree -gtr -nt < ${alignment} > Barcode10_strongNostocMatches.nwk 
+
 ## 3 min
 
 ## look at it locally:
@@ -2302,6 +2374,9 @@ ugene -ui Barcode10_strongNostocMatches.nwk &
 ##      the alignment. We don't want the alignment info in this case, just need the name of the 
 ##      sequences in each of these clades. We will rerun the alignments and curate.
 ##    - export format, for us "F_fasta_wide.eft"?
+
+
+## not run ##
 
 ## any, save these as:
 barcode10_clade1_reads.fasta
@@ -4189,6 +4264,59 @@ Hylocomium_cyanobacteria_BC12_nifH     --> Nostoc2, next to JF827746
 Zygodon_cyanobacteria_BC13_nifH_clade1 --> NifH2, next to LC716821/JF827751
 Zygodon_cyanobacteria_BC13_nifH_clade2 --> Nostoc2, next to Nostoc muscorum
 Zygodon_cyanobacteria_BC13_nifH_clade3 --> Nostoc1
+
+Homalia_cyanobacteria_clade1
+Homalia_cyanobacteria_clade2
+Homalia_cyanobacteria_clade3
+Hylocomium_cyanobacteria    
+Zygodon_cyanobacteria_clade1
+Zygodon_cyanobacteria_clade2
+Zygodon_cyanobacteria_clade3
+
+## we'll get rid of some of these less confident branch values
+## using Tree --> Modify Branches --> Multifurcate --> set thresholds, multifurcate branch supports < 50%
+## they call it multifurcation (I guess I called these polytomies)
+
+## report these, with nearest blast results. 
+
+## interesting, there is an entire clade of Kubota sequences that do not appear 
+## in their paper, as far as I can see. The highest published sequence I
+## see in their tree is LC716884. This extra clade starts with LC716885, to LC716899
+## They cluster together and branch early. 
+
+cut -f 1 export.nds | sort > extraKubotaSeqs.txt
+
+## let's do our alignment and tree without these?
+## or just cut them out of the tree, since they cluster so
+## tightly.
+
+## if kubota ever gets back to me I will ask him/her about this.
+
+## for publication revise accesion IDs of our sequences
+## and manually scraped reference seqs (e.g. N. punctiforme PCC 73102 NifH seqs)
+## with easier-to-understand labels, for for easily repeated alignment/tree pipeline 
+## rerun alignment without Kubota mystery clade
+
+## zombie sequences, where did these come from?:
+
+grep CP000117 *
+
+## today, get out a graphic with some notes for Ulla to have for her thesis
+
+cd /media/vol1/daniel/nostoc/nifHtree
+
+mv thomasKubotaIninbergs_handEditednwk.tree thomasKubotaIninbergs_firstDraft.nwk
+
+## get local
+#getFile=/media/vol1/daniel/nostoc/nifHtree/thomasKubotaIninbergs_firstDraft.nwk
+getFile=/media/vol1/daniel/nostoc/nifHtree/thomasKubotaIninbergs_handEditednwk.xml
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## this arb xml file seems like it isn't the standard phyoxml, and iTol can't import it
+## but group info seems lost on the standard nwk...hm...
+
+## actually, there it is, just fine.
 
 #### make a notebook #####
 
