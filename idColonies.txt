@@ -2376,24 +2376,24 @@ ugene -ui Barcode10_strongNostocMatches.nwk &
 ##    - export format, for us "F_fasta_wide.eft"?
 
 
-## not run ##
 
 ## any, save these as:
-barcode10_clade1_reads.fasta
-barcode10_clade2_reads.fasta
+barcode10_clade1_reads.fasta ## this is the "paraphyletic" group. clade2 seems to come out of it. 
+barcode10_clade2_reads.fasta ## this one seems "monophyletic"
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
 
 ## run alignments on these again
-muscle -in barcode10_clade1_reads.fasta -out barcode10_clade1_reads.afa
+muscle5 -align barcode10_clade1_reads.fasta -output barcode10_clade1_reads.afa
 
-muscle -in barcode10_clade2_reads.fasta -out barcode10_clade2_reads.afa
+muscle5 -align barcode10_clade2_reads.fasta -output barcode10_clade2_reads.afa
 
 ## curate them manually, locally:
 
 getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/barcode10_clade?_reads.afa"
 putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10"
 rsync -auv test@132.180.112.115:/$getFile $putItHere
+
 
 cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10
 
@@ -2404,18 +2404,26 @@ ugene -ui barcode10_clade2_reads.afa ## removed gaps > 70%, some hand edits of l
 mv barcode10_clade1_reads.afa barcode10_clade1_handEdited.afa 
 mv barcode10_clade2_reads.afa barcode10_clade2_handEdited.afa 
 
+
 ## put them back:
-getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/barcode10_clade?_handEdited.afa"
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/barcode10_clade?_reads_handEdited.afa"
 putItHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
 rsync -auv $getFile test@132.180.112.115:$putItHere
 
+ls barcode10_clade?_handEdited.afa -ltrh
+
+
+
 ##  build hmm
+
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
 
 alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
-alignFile="barcode10_clade1_handEdited.afa"
+alignFile="barcode10_clade1_reads_handEdited.afa"
 hmmbuild barcode10_clade1.hmm ${alignDir}/${alignFile}
 hmmemit -c -o barcode10_clade1.fasta barcode10_clade1.hmm
+
+## not run ##
 
 alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
 alignFile="barcode10_clade2_handEdited.afa"
