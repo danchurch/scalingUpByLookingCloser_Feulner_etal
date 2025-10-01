@@ -2339,8 +2339,24 @@ len(highBits) ## 171, makes sense
 SeqIO.write(highBits, "Barcode10_strongNostocMatches.fa", "fasta")
 
 ## out of python...
-muscle5 -align Barcode10_strongNostocMatches.fa -output Barcode10_strongNostocMatches.afa 
+
+
+## let's reorient these:
+
+silvaDB=/media/vol1/daniel/databases/silva/dada2silva/silva_nr99_v138.2_toGenus_trainset.fa
+vsearch \
+   --orient Barcode10_strongNostocMatches.fa \
+   --db $silvaDB \
+   --fastaout  Barcode10_strongNostocMatches_oriented.fa \
+   --notmatched Barcode10_strongNostocMatches_NotOriented.fa 
+
+
+
+muscle5 -align Barcode10_strongNostocMatches_oriented.fa -output Barcode10_strongNostocMatches.afa 
 ## this takes a few minutes
+
+## not run ##
+## stopped here 1 Oct, need to rerun the rest of barcode10
 
 alignment="Barcode10_strongNostocMatches.afa"
 FastTree -gtr -nt < ${alignment} > Barcode10_strongNostocMatches.nwk 
@@ -2422,17 +2438,32 @@ alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/
 alignFile="barcode10_clade1_reads_handEdited.afa"
 hmmbuild barcode10_clade1.hmm ${alignDir}/${alignFile}
 hmmemit -c -o barcode10_clade1.fasta barcode10_clade1.hmm
+sed -i '/>/ s/>barcode10_clade1_reads_handEdited-consensus/>Homalia_nostoc_BC10_clade1/' barcode10_clade1.fasta
+seqtk seq -l 0 barcode10_clade1.fasta > barcode10_clade1.fasta.tmp
+mv barcode10_clade1.fasta.tmp barcode10_clade1.fasta 
 
-## not run ##
+cat barcode10_clade1.fasta
 
 alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
-alignFile="barcode10_clade2_handEdited.afa"
+alignFile="barcode10_clade2_reads_handEdited.afa"
 hmmbuild barcode10_clade2.hmm ${alignDir}/${alignFile}
 hmmemit -c -o barcode10_clade2.fasta barcode10_clade2.hmm
+sed -i '/>/ s/>barcode10_clade2_reads_handEdited-consensus/>Homalia_nostoc_BC10_clade2/' barcode10_clade2.fasta
+seqtk seq -l 0 barcode10_clade2.fasta > barcode10_clade2.fasta.tmp
+mv barcode10_clade2.fasta.tmp barcode10_clade2.fasta 
 
 cat barcode10_clade1.fasta barcode10_clade2.fasta > barcode10_clades_1and2.fasta
 
-cp barcode10_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/Homalia_nostoc_BC10.fa
+cat barcode10_clades_1and2.fasta
+
+## adding in the re-orientation of the reads improved the quality of 
+## the blast matches (bitscore) by 50-100 points, but didn't really
+## change the closest matches very much, a semi-random re-ordering 
+## of the top 4 matches, it seems. Clade two bitscores are more improved 
+## than clade 1
+
+## anyway, an improvement. Replace the sequences in the repo:
+cp barcode10_clades_1and2.fasta /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/
 
 ## and now, what do these blast to?
 ## online ncbi blastn is down. Try a local to the silva database:
