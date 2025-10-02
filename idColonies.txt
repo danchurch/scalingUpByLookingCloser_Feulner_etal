@@ -2355,20 +2355,13 @@ vsearch \
 muscle5 -align Barcode10_strongNostocMatches_oriented.fa -output Barcode10_strongNostocMatches.afa 
 ## this takes a few minutes
 
-## not run ##
-## stopped here 1 Oct, need to rerun the rest of barcode10
 
 alignment="Barcode10_strongNostocMatches.afa"
 FastTree -gtr -nt < ${alignment} > Barcode10_strongNostocMatches.nwk 
 
 ## 3 min
 
-## look at it locally:
-getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/Barcode10_strongNostocMatches.nwk"
-putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10"
-rsync -auv test@132.180.112.115:/$getFile $putItHere
 
-ugene -ui Barcode10_strongNostocMatches.nwk & 
 ## as barcode11 below, this has two strong "clades".
 
 ## Dimitri just showed me how to extract this with ARB, better than 
@@ -2392,99 +2385,42 @@ ugene -ui Barcode10_strongNostocMatches.nwk &
 ##    - export format, for us "F_fasta_wide.eft"?
 
 
+## unlike before, I don't see any obvious extra clades. I guess it was just a relic 
+## of not re-orienting the reads....
 
-## any, save these as:
-barcode10_clade1_reads.fasta ## this is the "paraphyletic" group. clade2 seems to come out of it. 
-barcode10_clade2_reads.fasta ## this one seems "monophyletic"
-
-cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
-
-## run alignments on these again
-muscle5 -align barcode10_clade1_reads.fasta -output barcode10_clade1_reads.afa
-
-muscle5 -align barcode10_clade2_reads.fasta -output barcode10_clade2_reads.afa
-
-## curate them manually, locally:
-
-getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/barcode10_clade?_reads.afa"
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/Barcode10_strongNostocMatches.afa"
 putItHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10"
 rsync -auv test@132.180.112.115:/$getFile $putItHere
 
-
-cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10
-
-ugene -ui barcode10_clade1_reads.afa ## removed gaps > 70%, some hand edits of likely insertions
-
-ugene -ui barcode10_clade2_reads.afa ## removed gaps > 70%, some hand edits of likely insertions
-
-mv barcode10_clade1_reads.afa barcode10_clade1_handEdited.afa 
-mv barcode10_clade2_reads.afa barcode10_clade2_handEdited.afa 
-
-
-## put them back:
-getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/barcode10_clade?_reads_handEdited.afa"
+## handedited, the usual, remove all vertical gaps 70% or more in this case, weird edges dropped. Kept all reads.
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode10/Barcode10_strongNostocMatches_handEdited.afa"
 putItHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10/"
 rsync -auv $getFile test@132.180.112.115:$putItHere
-
-ls barcode10_clade?_handEdited.afa -ltrh
-
-
 
 ##  build hmm
 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10
 
-alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
-alignFile="barcode10_clade1_reads_handEdited.afa"
-hmmbuild barcode10_clade1.hmm ${alignDir}/${alignFile}
-hmmemit -c -o barcode10_clade1.fasta barcode10_clade1.hmm
-sed -i '/>/ s/>barcode10_clade1_reads_handEdited-consensus/>Homalia_nostoc_BC10_clade1/' barcode10_clade1.fasta
-seqtk seq -l 0 barcode10_clade1.fasta > barcode10_clade1.fasta.tmp
-mv barcode10_clade1.fasta.tmp barcode10_clade1.fasta 
-
-cat barcode10_clade1.fasta
-
-alignDir="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode10"
-alignFile="barcode10_clade2_reads_handEdited.afa"
-hmmbuild barcode10_clade2.hmm ${alignDir}/${alignFile}
-hmmemit -c -o barcode10_clade2.fasta barcode10_clade2.hmm
-sed -i '/>/ s/>barcode10_clade2_reads_handEdited-consensus/>Homalia_nostoc_BC10_clade2/' barcode10_clade2.fasta
-seqtk seq -l 0 barcode10_clade2.fasta > barcode10_clade2.fasta.tmp
-mv barcode10_clade2.fasta.tmp barcode10_clade2.fasta 
-
-cat barcode10_clade1.fasta barcode10_clade2.fasta > barcode10_clades_1and2.fasta
-
-cat barcode10_clades_1and2.fasta
+alignFile="Barcode10_strongNostocMatches_handEdited.afa"
+finalFileName="Homalia_nostoc_BC10_16s.fa"
+hmmbuild ${alignFile/_handEdited\.afa/\.hmm} ${alignFile}
+hmmemit -c -o $finalFileName ${alignFile/_handEdited\.afa/\.hmm}
+sed -i "/>/ s/>.*/>${finalFileName%\.fa}/" ${finalFileName}
+seqtk seq -l 0 ${finalFileName} > ${finalFileName}.tmp
+mv ${finalFileName}.tmp ${finalFileName}
 
 ## adding in the re-orientation of the reads improved the quality of 
-## the blast matches (bitscore) by 50-100 points, but didn't really
+## the blast matches (bitscore) by 50-200 points, but didn't really
 ## change the closest matches very much, a semi-random re-ordering 
-## of the top 4 matches, it seems. Clade two bitscores are more improved 
-## than clade 1
+## of the top 4 matches, it seems.
 
-## anyway, an improvement. Replace the sequences in the repo:
-cp barcode10_clades_1and2.fasta /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/
+cp Homalia_nostoc_BC10_16s.fa /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/
 
 ## and now, what do these blast to?
-## online ncbi blastn is down. Try a local to the silva database:
-
-blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
-## need a fasta
-nohup blastn -db $blastDB \
-        -query barcode10_clades_1and2.fasta \
-        -num_threads 10 \
-        -num_alignments 5 \
-        -out consensusSeqsBarcode10-allSilva.txt
 
 ## they blast to Nostoc pruniforma, Lichen symbionts (same as before), and
 ## a lot of uncultered nostocs. 
 
-## and now? try bc9, though that I think we didn't get the nostoc in that one... 
-## should we try to apply this method to our OG hylocomium nostoc?
-
-
-
-## then make a tree with the three sequences we have
 
 ####################### barcode 11 #################################
 
