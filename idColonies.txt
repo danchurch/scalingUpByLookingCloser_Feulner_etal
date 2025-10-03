@@ -2971,22 +2971,47 @@ cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
 ## when I left, ugene was stuck getting rid of vertical gaps
 ## maybe find a more efficient way to do this. 
 
-getFile="~/Documents/projects/mossSymbiosis/alignmentsBarcode11/barcode11_strongNostocMatches_handEdited.afa"
+## try installing cialign:
+conda create -n cialign -c bioconda cialign
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/
+
+cp barcode11_strongNostocMatches.afa barcode11_strongNostocMatches.afa.bk
+
+conda activate cialign
+
+CIAlign --infile barcode11_strongNostocMatches.afa \
+        --outfile_stem barcode11_strongNostocMatches_msaEdits \
+        --insertion_min_perc 0.7 \
+        --insertion_min_flank 1 \
+        --insertion_min_size 1 \
+        --insertion_max_size 400 \
+        --remove_insertions 
+
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/barcode11_strongNostocMatches_msaEdits_cleaned.fasta"
+putItHere="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/alignmentsBC11/"
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## do some trimming etc with ugene 
+
+getFile="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/alignmentsBC11/barcode11_strongNostocMatches_msaEdits_cleaned_handEdited.afa"
 putItHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode11/"
 rsync -auv $getFile test@132.180.112.115:$putItHere
 
-alignFile="Barcode10_strongNostocMatches_handEdited.afa"
-finalFileName="Homalia_nostoc_BC10_16s.fa"
+## get consensus out:
+mv barcode11_strongNostocMatches_msaEdits_cleaned_handEdited.afa Barcode11_strongNostocMatches_handEdited.afa
+
+alignFile="Barcode11_strongNostocMatches_handEdited.afa"
+finalFileName="Zygodon_Nostoc_BC11_16s.fa"
 hmmbuild ${alignFile/_handEdited\.afa/\.hmm} ${alignFile}
 hmmemit -c -o $finalFileName ${alignFile/_handEdited\.afa/\.hmm}
 sed -i "/>/ s/>.*/>${finalFileName%\.fa}/" ${finalFileName}
 seqtk seq -l 0 ${finalFileName} > ${finalFileName}.tmp
 mv ${finalFileName}.tmp ${finalFileName}
 
+cp Zygodon_Nostoc_BC11_16s.fa /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/
 
-cp barcode11_clades_1and2.fasta /media/vol1/daniel/nostoc/consensusSequences/Zygodon_Nostoc_BC11.fa
-
-less /media/vol1/daniel/nostoc/consensusSequences/Zygodon_Nostoc_BC11.fa
 
 ## that seems like the best pipeline. To review:
 
@@ -3154,32 +3179,17 @@ INFO="GTR{0.7/1.8/1.2/0.6/3.0/1.0}+FU{0.25/0.23/0.30/0.22}+G4{0.47}"
 
 cd /media/vol1/daniel/nostoc/16sTree/round2
 
-## and where are all of our consensus sequences stored?
-## here:
 
-consppFolder=/media/vol1/daniel/nostoc/consensusSequences
-cat $consppFolder/* > ./conSeqs.fa
-
-seqtk seq -l 0 Ambylostegium_nostoc_BC9.fa > Ambylostegium_nostoc_BC9.fa_nolb
-seqtk seq -l 0 Homalia_nostoc_BC10.fa > Homalia_nostoc_BC10.fa_nolb
-seqtk seq -l 0 Zygodon_Nostoc_BC11.fa > Zygodon_Nostoc_BC11.fa_nolb
-
-mv Ambylostegium_nostoc_BC9.fa_nolb Ambylostegium_nostoc_BC9.fa
-mv Homalia_nostoc_BC10.fa_nolb Homalia_nostoc_BC10.fa
-mv Zygodon_Nostoc_BC11.fa_nolb Zygodon_Nostoc_BC11.fa
-
-## going to move these to a git-protected folder, they're precious
-
-## new folder for consensus seqs on nanoComp:
-
-cd /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSequences
 
 ## let's try combining all the consensus seqs we have, both the original hylocomium one from 2 years 
 ## ago, and the ones we just created:
-consppFolder=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSequences
-ogHyloConSeq=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/ogHylocomiumConsensusSeq/leptoNostoc_withN.fa
-putComboConsHere=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSeqSingleFasta
-cat <(seqtk seq -l 0 $ogHyloConSeq) $consppFolder/*  > ${putComboConsHere}/consensusSeqs_combined_22.10.2025.fa 
+
+consppFolder=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences
+ogHyloConSeq=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/ogHylocomiumConsensusSeq/leptoNostoc_withN.fa
+
+cat <(seqtk seq -l 0 $ogHyloConSeq) $consppFolder/*  > consensusSeqs_combined.fa 
+
+less consensusSeqs_combined.fa 
 
 ## okay, 
 ## question, can papara handle "N"s? it is a finicky old program...
@@ -3189,10 +3199,11 @@ cd /media/vol1/daniel/nostoc/16sTree/round2
 
 TREE="CyanoSeq_1.2_tree_noNHX.nw"
 REF_MSA="CyanoSeq_1.2.phy"
-QRY="/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/consensusSeqSingleFasta/consensusSeqs_combined_22.10.2025.fa"
+QRY="consensusSeqs_combined.fa"
 papara -t $TREE -s $REF_MSA -q $QRY -r -n "Cyanoseq_with_ourMossNostocs"
 
 conda activate
+
 epa-ng --redo --split $REF_MSA papara_alignment.Cyanoseq_with_ourMossNostocs
 
 TREE="CyanoSeq_1.2_tree_noNHX.nw"
@@ -3208,15 +3219,16 @@ epa-ng \
   --redo \
   --model $INFO
 
-## funny name, rename:
 
-mv epa_result.jplace mossNostocs_16sConsensusSeqs_onCyanoseqTree.22.09.2025.jplace
+mv epa_info.log cyanoseqWithNostocConsensusPlacements.jplace
 
 ## ok, how to visualize this? The cydrasil folks use iTOL, as we did above:
 
-getFile=/media/vol1/daniel/nostoc/16sTree/round2/epa_result.jplace
-putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol
+getFile=/media/vol1/daniel/nostoc/16sTree/round2/cyanoseqWithNostocConsensusPlacements.jplace
+putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/16sTreeDrafts/
 rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## update itol account with this
 
 ################# nifH ########################
 
@@ -4247,5 +4259,4 @@ https://plotly.com/python/alignment-chart/
 https://etetoolkit.org/ipython_notebook/
 https://github.com/etetoolkit/ete
 ## the last one, ete, looks like the best option, at first glance.
-
 
