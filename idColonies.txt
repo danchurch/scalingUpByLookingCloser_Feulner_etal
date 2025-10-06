@@ -1022,44 +1022,142 @@ grep -c "^>" ogHylo_strongNostocMatches_oriented.fa
 ## muscle alignment
 nohup muscle -super5 ogHylo_strongNostocMatches_oriented.fa -output ogHylo_strongNostocMatches_oriented.afa &
 ## started 10am Sept 26, PID = 1599960
+## done eight days later. Jeez. But didn't core dump. Bravo muscle5. 
+
+## it's too big for git, but back it up locally
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylo_strongNostocMatches_oriented.afa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv daniel@132.180.113.114:$getFile $putHere
 
 
+## back on optiplex:
 
-## let's make a shell script and try to execute with at
-## script:
+cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
 
-########################### scheduleTree.sh #######################################
-#!/bin/bash
-echo "starting"
-cd  /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
-alignDir="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
-alignment="ogHylo_strongNostocMatches.afa"
-FastTree -gtr -nt < ${alignDir}/${alignment} > ogHylo_strongNostocMatches.nwk 2> logFastree.txt
-echo "finish"
-###################################################################################
+## too big to view?
+ugene -ui ogHylo_strongNostocMatches_oriented.afa & ## yup
 
-chmod +x scheduleTree.sh
+## use lighter weight viewer on the optiplex
+jalview ogHylo_strongNostocMatches_oriented.afa
+## there are some massive "insertions". The total alignment is 23,000 bp long
 
-./scheduleTree.sh ## okay, seems to work 
+## try CIAlign again, on the optiplex
 
-at now + 8 hours < /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/scheduleTree.sh
+conda create -n cialign -c bioconda cialign
 
-atq ## 8 
 
-#at -r 7
+conda activate cialign
 
-sudo ls /var/spool/cron/atjobs
-#a0000801bf24b5
+CIAlign --infile ogHylo_strongNostocMatches_oriented.afa \
+        --outfile_stem ogHylo_strongNostocMatches_oriented_msaEdits \
+        --insertion_min_perc 0.2 \
+        --insertion_min_flank 1 \
+        --insertion_min_size 1 \
+        --insertion_max_size 600 \
+        --remove_insertions 
 
-## anyway, it apparently takes several days for muscle to do this alignment
-## so just wait for the tree building.
+## this one is causing a large insertion in the first half of the alignment:
+grep -A1 "18adeac" ogHylo_strongNostocMatches_oriented_msaEdits_cleaned.fasta
 
-## let that run. In the meantime, run through bc9, see if anything can be 
-## salvaged there.  
+## and this one is driving the rest of the MSA downstream, doesn't really
+grep -A2 "55c5bbb" ogHylo_strongNostocMatches_oriented_msaEdits_cleaned.fasta
 
-## if neither works (OG hylo or BC 9), move on with old consensus seq and
-## build new phylogeny
+## remove these?
+## may cause problems manually changing things, but let's see
 
+sed '/>18adeac/,+1d' ogHylo_strongNostocMatches_oriented_msaEdits_cleaned.fasta  | 
+sed '/>55c5bbb/,+1d' > ogHylo_strongNostocMatches_oriented_msaEdits_cleaned_divRemoved.fasta  
+
+## search these using the reads before and after:
+234d1347-0d78-46ca-96dd-d160c540e6ab
+886dfb2b-d738-4bf6-b374-2f7da7ecdfe3
+
+e1a4e9c0-510f-419a-9db1-5a639fc98817
+9e0feb88-78d6-4c13-bbfa-a4c11d780dc8
+
+less ogHylo_strongNostocMatches_oriented_msaEdits_cleaned_divRemoved.fasta  
+less ogHylo_strongNostocMatches_oriented_msaEdits_cleaned.fasta
+
+## looks fine. can CIalign repair the alignment, get rid of what should 
+## now be a lot of empty columns?:
+
+CIAlign --infile ogHylo_strongNostocMatches_oriented_msaEdits_cleaned_divRemoved.fasta \
+        --outfile_stem ogHylo_strongNostocMatches_oriented_msaEdits_divRemoved_repair 
+
+## works
+
+## also did some hand editing with jalviewer, for removing ends, a
+## stubborn insertion that for some reason CIAlign couldn't
+## pick up.
+
+## can we build a tree with this? 
+
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylocomium16sAlignment_handEdits.fa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv daniel@132.180.113.114:$getFile $putHere
+
+## put on the nanoComp:
+
+mv ogHylocomium16sAlignment_handEdits.fa ogHylocomium16sAlignment_handEdits.afa
+
+#getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylo_strongNostocMatches_oriented.afa"
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylocomium16sAlignment_handEdits.afa"
+putHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/"
+rsync -auv ${getFile} test@132.180.112.115:$putHere
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/
+
+## make a tree, see if there are obvious, non-random groups: 
+
+alignment="ogHylocomium16sAlignment_handEdits.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk} 
+## ~7 minutes
+
+## look at it all with arb:
+
+arb 
+
+## mostly one clade, but ~500 reads that appear to 
+## form a second clade:
+
+cut -d"/" -f1  OGhylo_clade1.nds > OGhylo_clade1_reads.txt
+cut -d"/" -f1  OGhylo_clade2.nds > OGhylo_clade2_reads.txt
+
+## get the alignment running on this, it will probably at least have to 
+## run overnight for clade1:
+
+#getReads="OGhylo_clade1_reads.txt"
+getReads="OGhylo_clade2_reads.txt"
+allReads="ogHylo_strongNostocMatches.fa"
+## use seqtk to keep only the matches to nostoc
+seqtk subseq $allReads $getReads > ${getReads/_reads\.txt/\.fa}
+
+## and run new alignments on these.
+## the big one (clade1) we run on optiplex:
+
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade?.fa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv test@132.180.112.115:$getFile $putHere
+
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/OGhylo_clade?.fa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo"
+rsync -auv $getFile daniel@132.180.113.114:$putHere
+
+cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
+
+## on optiplex:
+fasta="OGhylo_clade1.fa"
+nohup muscle -super5 $fasta -output ${fasta/\.fa/\.afa} &
+## start oct6 14:00, PID 3912172
+
+## the smaller can probably run on the nanoComp: 
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/
+
+fasta="OGhylo_clade2.fa"
+muscle5 -align $fasta -output ${fasta/\.fa/\.afa}
+## started 14:06, and looks like it will run for a long time. 
+
+## give it a break, work on the poster and proposal
 
 
 ############## cydrasil tree, try 2 ###############
