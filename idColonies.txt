@@ -1029,6 +1029,14 @@ getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHy
 putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
 rsync -auv daniel@132.180.113.114:$getFile $putHere
 
+## also need the oriented reads everywhere, btw:
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylo_strongNostocMatches_oriented.fa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv daniel@132.180.113.114:$getFile $putHere
+
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/ogHylo_strongNostocMatches_oriented.fa"
+putHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/"
+rsync -auv $getFile test@132.180.112.115:$putHere
 
 ## back on optiplex:
 
@@ -1128,7 +1136,7 @@ cut -d"/" -f1  OGhylo_clade2.nds > OGhylo_clade2_reads.txt
 
 #getReads="OGhylo_clade1_reads.txt"
 getReads="OGhylo_clade2_reads.txt"
-allReads="ogHylo_strongNostocMatches.fa"
+allReads="ogHylo_strongNostocMatches_oriented.fa"
 ## use seqtk to keep only the matches to nostoc
 seqtk subseq $allReads $getReads > ${getReads/_reads\.txt/\.fa}
 
@@ -1155,9 +1163,11 @@ cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGh
 
 fasta="OGhylo_clade2.fa"
 muscle5 -align $fasta -output ${fasta/\.fa/\.afa}
-## started 14:06, and looks like it will run for a long time. 
+## started 9:29, and looks like it will run for a long time. 
 
-## give it a break, work on the poster and proposal
+## the larger alignment is still running, as expected 
+
+## stopping here 07.10.25
 
 
 ############## cydrasil tree, try 2 ###############
@@ -3020,7 +3030,6 @@ len(highBits) ## 449 reads, makes sense
 SeqIO.write(highBits, "Barcode11_strongNostocMatches.fa", "fasta")
 
 ## when I'm back on this, align these, make a tree, see if some obvious groupings emerge.  
-## stopping at 15.08.25
 
 ## back literally a month later, 16.9.2025
 
@@ -4267,6 +4276,7 @@ arb
 
 ## so here we are. where do our sequences fall?
 ## we have 7 consensus sequences.
+
 cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/nifH/consensusSequences/* > consensusSeqs.fa
 
 Homalia_cyanobacteria_BC14_nifH_clade1 --> nifH2, non-Fiji
@@ -4345,9 +4355,252 @@ seqtk seq -l 0 reference_Ininbergs.fa
 
 ## this looks like it includes the ininbergs sequences. 
 ## how do we confirm that this has everything we need?
-## he/she mentioned that anything that 
+## he/she mentioned that there may be missing sequences,
+## how can we find them?
 
 ## stopped here oct2 2025
+
+## problem is we can expect neither our sequences nor 
+## accessions names to exactly match the names and 
+## sequences in their fasta, so automated comparison
+## is probably not possible. 
+## I think the only way is to get all the names from this
+## new fasta and manually compare to names in the paper 
+## and in our list.
+
+grep ">" thomasKubotaIninbergs.fa | sort > seqList_thomasKubotaIninbergs.txt
+grep ">" reference_Ininbergs.fa | sort > seqList_fromKubota.txt
+
+grep -c ">" reference_Ininbergs.fa
+
+## actually, there is a perfect one-to-one match between these. 
+## The only difference would be presumably between the sequences 
+## they pulled from genomes (ATCC 29413, PCC 73102, etc)
+## it even looks like they have all the Ininbergs sequences. 
+
+## JF827722 was lost. where?
+grep "JF827722" seqList_fromKubota.txt ## y
+
+grep "JF827722" nifHseqs2align.fa ## no... why not? 
+
+grep "JF827722" nifHseqs2align_handEdited.afa
+grep "JF827722" nifHseqs2align_handEdited.nwk
+
+
+## so use their fasta, plus the automated NCBI pulls for Kubota seqs, minus the 
+## extra non-cyano kubota clade, + our consensus seqs:
+
+python3 
+import pandas as pd
+from Bio import SeqIO
+from Bio import Entrez
+import matplotlib.pyplot as plt; plt.ion()
+import os,re
+Entrez.email = "daniel_thomas@uni-bayreuth.de"  
+
+kubotaTitle = "Nitrogen fixation and nifH gene diversity in cyanobacteria living on feather mosses in a subalpine forest of Mt. Fuji"
+kubota_pmid = "36808304"
+
+stream = Entrez.elink(
+    dbfrom='pubmed',
+    db="nucleotide", 
+    id=kubota_pmid, 
+    idtype="acc"
+)
+record = Entrez.read(stream)
+
+stream.close()
+
+accessionsKubota = [ i['Id'] for i in record[0]['LinkSetDb'][0]['Link'] ]
+
+## which of these are NOT in the extra clade from kubota of non-cyanos?
+
+
+with open ("extraKubotaSeqs.txt", "r") as file:
+    nonCyanoKubotas = file.read().splitlines()
+
+cyanoKubotas = [ i for i in accessionsKubota if i not in nonCyanoKubotas ]
+
+## then get these:
+
+def getSequence(accID):
+    handle = Entrez.efetch(db="nucleotide", id=accID, rettype="fasta", retmode="text")
+    seq_i = SeqIO.read(handle, "fasta")
+    handle.close()
+    return(seq_i)
+
+seqsCyanoKubotas = [ getSequence(i) for i in cyanoKubotas ]
+
+
+## the fasta file of other reads (inenberg, etc):
+
+
+reference_Ininbergs = list(SeqIO.parse("reference_Ininbergs.fa", "fasta"))
+
+## for some reason, this is not importing the first sequence
+
+## weird. for reasons I cannot understand, biopython always dropped
+## that first sequence. I traded sequences around, etc. 
+## Whatever was first was dropped. 
+
+## I "ironed it out" with good old seqtk:
+seqtk seq -l 0 reference_Ininbergs.fa > reference_Ininbergs.fa.tmp
+mv reference_Ininbergs.fa.tmp reference_Ininbergs.fa
+
+NifHconsensusSeqs = list(SeqIO.parse("consensusSeqs.fa", "fasta"))
+
+
+nifHseqs2align = reference_Ininbergs + seqsCyanoKubotas + NifHconsensusSeqs
+
+nifHseqs2align
+
+len(nifHseqs2align) ## 104 seqs, ~right.
+
+
+SeqIO.write(nifHseqs2align, "nifHseqs2align.fa", "fasta")
+
+## run the alignment
+muscle5 -align nifHseqs2align.fa -output nifHseqs2align.afa 
+
+## edit manually, locally
+getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.afa
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHseqs2align_handEdited.afa
+putItHere=/media/vol1/daniel/nostoc/nifHtree/
+rsync -auv $getFile test@132.180.112.115:$putItHere
+
+## make tree
+
+#alignment="nifHseqs2align_handEdited.afa"
+alignment="nifHseqs2align.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
+
+arb &
+
+## and the tree is weird, very different from the results of 
+## the other authors, and different than my previous tree. Ugh. 
+
+## we did three things differently than the other authors:
+## 1. used muscle aligner instead of mafft
+## 2. trimmed the alignment before building the tree
+## 3. used fasttree instead of IQ-TREE 
+
+## the easy first check is to see if our manual curations
+## had an effect on the tree, repeated above
+
+## it helps a bit to use the full length sequences
+## but I still get a different topology than 
+## the other authors. 
+
+## anyway, I think I will make two trees, a rooted tree with all reads
+## to put in supp material, and an unrooted one showing the clades.
+
+## done in arb. 
+
+## these can serve as the basis for the figures. 
+
+
+## to prettify the labels..
+## this will be extremely intensive manually,
+## but maybe we can keep track of what we do 
+## so that it can be automatically repeated
+## make a panda series of names on tree, and what we would like to 
+## see instead. 
+
+## names are exported to "nds" (csv) with arb
+
+mv nifHtreeNames.nds nifHtreeNames.csv
+
+## plan for rooted:
+## - pretty labels, including groups
+## - highlight placement of all of our sequences
+## - highlight placement of root
+## - label "mixed clade"
+
+python3
+import pandas as pd
+import matplotlib.pyplot as plt; plt.ion()
+import os,re
+
+pd.set_option('display.max_rows', None)
+
+with open ("nifHtreeNames.csv", "r") as file:
+    treeNames = file.read().splitlines()
+
+treeNames = pd.Series(treeNames)
+
+ininbergPat = re.compile("(JF[0-9]*)")
+kubotaPat = re.compile("(LC[0-9]*)")
+pubLabels = (treeNames
+  .str.split("|").str.get(0)
+  .str.replace("\.1","",regex=True)
+  .str.replace("_"," ")
+  .str.replace("BC..", "", regex=True)
+  .str.replace("cyanobacteria", "-associated Nostoc-like colony")
+  .str.replace(" -", "-")
+  .str.replace("  ", " ")
+  .str.replace(ininbergPat, r"\1 Ininbergs et al. (2011)", regex=True)
+  .str.replace(kubotaPat, r"\1 Kubota et al. (2023)", regex=True)
+  .str.replace("(JF827722).*", r"\1 Stigonema ocellatum",regex=True)
+  .str.replace("(L23514).*", r"\1 Nostoc commune UTEX 584",regex=True)
+  .str.replace("(U49514).*", r"\1 Fischerella UTEX 1931",regex=True)
+  .str.replace("(U04054).*", r"\1 Nostoc muscorum UTEX 1933",regex=True)
+  .str.replace("(AY271821).*", r"\1 Nodularia sp. KAC 13",regex=True)
+  .str.replace("(DQ531684).*", r"\1 Scytonema hofmanni UTEX 2349",regex=True)
+  .str.replace("(638109037).*", r"\1 Trichodesmium erythraeum: NC_008312",regex=True)
+  .str.replace("(U73129).*", r"\1 Calothrix sp.",regex=True)
+  .str.replace("(647107234).*", r"\1 Cylindrospermopsis raciborskii CS-505",regex=True)
+  .str.replace("(646569556).*", r"\1 Anabaena variabilis ATCC 29413",regex=True)
+  .str.replace("(EU381369).*", r"\1 Anabaena sp. LG2",regex=True)
+  .str.replace("(U89346).*", r"\1 ",regex=True)
+  .str.replace("(U89346).*", r"\1 Anabaena variabilis",regex=True)
+  .str.replace("(646569746).*", r"\1 Anabaena variabilis ATCC 29413 NC_007413",regex=True)
+  .str.replace("(DQ225763).*", r"\1 Richelia sp. SC01",regex=True)
+  .str.replace("(AY221817).*", r"\1 Tolypothrix sp. PCC 7101",regex=True)
+  .str.replace("(642604820).*", r"\1 Nostoc punctiforme PCC 73102: NC_010628",regex=True)
+  .str.replace("(M63686).*", r"\1 Anabaena oscillarioides",regex=True)
+  .str.replace("(L15551).*", r"\1 Nostoc sp. 'J. Gallon'",regex=True)
+  .str.replace("(U49515).*", r"\1 Fischerella UTEX1931 alternative (nifH2)",regex=True)
+  .str.replace("(642599733).*", r"\1 Nostoc punctiforme PCC 73102: NC_010628",regex=True)
+  .str.replace("(642600311).*", r"\1 Nostoc punctiforme PCC 73102: NC_010628",regex=True)
+  .str.replace("(EF570567).*", r"\1 Mastigocladus laminosus CCMEE 5268",regex=True)
+  .str.replace("(FJ895145).*", r"\1 Aphanizomenon aphanizomenoides UADFA13",regex=True)
+  .str.replace("(637231821).*", r"\1 Nostoc sp. PCC 7120: NC_003272",regex=True)
+  .str.replace("(637231238).*", r"\1 Nostoc sp. PCC 7120: NC_003272",regex=True)
+)
+pubLabels
+
+
+cleanupTreeLabs = pd.DataFrame({'treeNames':treeNames, 'pubLabels':pubLabels})
+
+## can we use this to quickly change the labels in our svg?
+
+with open ("nifHtree_fullTree.svg", "r") as file:
+    newText = file.read()
+    for i,j in enumerate(cleanupTreeLabs['treeNames']):
+        print(i)
+        print(cleanupTreeLabs['treeNames'][i])
+        print(cleanupTreeLabs['pubLabels'][i])
+        newText = newText.replace(cleanupTreeLabs['treeNames'][i], cleanupTreeLabs['pubLabels'][i])
+    with open ("nifHtree_fullTree_editedLabels.svg","w") as newFile:
+        newFile.write(newText)
+
+getFile=/media/vol1/daniel/nostoc/nifHtree/nifHtree*.svg
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## some errors, but seems harmless, works.
+
+## plan for unrooted:
+## - prettify labels
+## - prettify groups (fatter, fill in with color)
+## - highlight placement of all of our sequences
+## - highlight placement of root
+## - label "mixed clade"
+
+## get new consensus seeks from ogHylo, place on tree again, reduce to nostocaceae, approximately, same as above
 
 #### make a notebook #####
 
