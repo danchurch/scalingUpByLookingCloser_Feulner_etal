@@ -29,9 +29,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="2.462156"
-     inkscape:cx="1173.1588"
-     inkscape:cy="557.03213"
+     inkscape:zoom="0.8705036"
+     inkscape:cx="1096.4917"
+     inkscape:cy="571.50826"
      inkscape:window-width="1204"
      inkscape:window-height="656"
      inkscape:window-x="76"
@@ -71,41 +71,11 @@
      stroke-linecap="round"
      id="polyline28"
      style="fill:none;stroke:#000000;stroke-opacity:1" />
-  <polyline
-     points=" 22215,6420 13013,6420"
-     stroke="#ffe560"
-     stroke-width="8px"
-     stroke-linecap="round"
-     id="polyline36"
-     style="fill:none;stroke:#000000;stroke-opacity:1" />
-  <polyline
-     points=" 13013,6420 13013,6810"
-     stroke="#ffe560"
-     stroke-width="8px"
-     stroke-linecap="round"
-     id="polyline38"
-     style="fill:none;stroke:#000000;stroke-opacity:1" />
-  <polyline
-     points=" 13013,6810 13415,6810"
-     stroke="#ffe560"
-     stroke-width="8px"
-     stroke-linecap="round"
-     id="polyline40"
-     style="fill:none;stroke:#000000;stroke-opacity:1" />
-  <polyline
-     points=" 13415,6810 22215,6420"
-     stroke="#ffe560"
-     stroke-width="8px"
-     stroke-linecap="round"
-     id="polyline42"
-     style="fill:none;stroke:#000000;stroke-opacity:1" />
-  <polygon
-     points="13013,6420 13013,6810 13415,6810 22215,6420 "
-     fill="#fff9df"
-     stroke="#ffe560"
-     stroke-width="8px"
+  <path
      id="polygon44"
-     style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:8.00054676;stroke-miterlimit:4;stroke-dasharray:none" />
+     style="fill:#cccccc;stroke:#000000;stroke-width:8.00055"
+     d="M 13013,5967.5881 V 6810 h 997.279 l 4155.597,-842.4119 z"
+     sodipodi:nodetypes="ccccc" />
   <polyline
      points=" 9911,6615 13013,6615"
      stroke="#ffe560"
@@ -761,19 +731,8 @@
      style="fill:#000000;fill-opacity:1">Nostoc cluster II</text>
   <text
      xml:space="preserve"
-     x="17265"
-     y="6778"
-     fill="#ffffff"
-     font-family="Helvetica"
-     font-style="normal"
-     font-weight="normal"
-     font-size="144px"
-     text-anchor="start"
-     id="text434">nifH2 cluster</text>
-  <text
-     xml:space="preserve"
-     x="17365.834"
-     y="6822.4517"
+     x="17115.436"
+     y="5826.062"
      fill="#ffe560"
      font-family="Helvetica"
      font-style="normal"
@@ -1155,7 +1114,7 @@
      style="fill:#000000;fill-opacity:1" />
   <g
      id="g10101"
-     transform="translate(-5195.0627,-744.59308)">
+     transform="translate(-5398.9481,-792.21538)">
     <rect
        style="fill:#00ff00;fill-opacity:0.973784;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
        id="rect17035-7-6"
@@ -1174,11 +1133,11 @@
        font-size="144.056px"
        text-anchor="start"
        id="text972"
-       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Zygodon-associated Nostoc-like colony nifH clade3</text>
+       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Zygodon-associated Nostoc-like colony clade3</text>
   </g>
   <g
      id="g10017"
-     transform="translate(-3472.0088,-55.133908)">
+     transform="translate(-4091.0995,-55.133908)">
     <rect
        style="fill:#00ff00;fill-opacity:0.973784;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
        id="rect17035-7-6-9"
@@ -1197,11 +1156,11 @@
        font-size="144.056px"
        text-anchor="start"
        id="text908"
-       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Homalia-associated Nostoc-like colony nifH clade3</text>
+       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Homalia-associated Nostoc-like colony clade3</text>
   </g>
   <g
      id="g10105"
-     transform="translate(-856.3602,-147.75868)">
+     transform="translate(-975.41595,-147.75868)">
     <rect
        style="fill:#00ff00;fill-opacity:1;stroke:#00aa00;stroke-width:21.1631;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
        id="rect17035-7-0"
@@ -1220,7 +1179,7 @@
        font-size="144.056px"
        text-anchor="start"
        id="text1048"
-       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Hylocomium-associated Nostoc-like colony nifH</text>
+       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Hylocomium-associated Nostoc-like colony </text>
   </g>
   <g
      id="g10109"
@@ -1243,46 +1202,54 @@
        font-size="144.056px"
        text-anchor="start"
        id="text1062"
-       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Homalia-associated Nostoc-like colony nifH clade2</text>
+       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Homalia-associated Nostoc-like colony clade2</text>
   </g>
-  <rect
-     style="fill:#00ff00;fill-opacity:0.97378421;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
-     id="rect17035-7-3"
-     width="3347.656"
-     height="200.65849"
-     x="18964.605"
-     y="6608.0352" />
-  <text
-     xml:space="preserve"
-     x="18992.65"
-     y="6753.1523"
-     fill="#5d5d5d"
-     font-family="Helvetica"
-     font-style="normal"
-     font-weight="normal"
-     font-size="144.056px"
-     text-anchor="start"
-     id="text1118"
-     style="stroke-width:1.00039;fill:#000000;fill-opacity:1">Zygodon-associated Nostoc-like colony nifH clade1</text>
-  <rect
-     style="fill:#00ff00;fill-opacity:0.97378421;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
-     id="rect17035-7-06"
-     width="3347.656"
-     height="200.65849"
-     x="19510.16"
-     y="6810.9951" />
-  <text
-     xml:space="preserve"
-     x="19562.869"
-     y="6948.2275"
-     fill="#5d5d5d"
-     font-family="Helvetica"
-     font-style="normal"
-     font-weight="normal"
-     font-size="144.056px"
-     text-anchor="start"
-     id="text1120"
-     style="stroke-width:1.00039;fill:#000000;fill-opacity:1">Homalia-associated Nostoc-like colony nifH clade1</text>
+  <g
+     id="g16832"
+     transform="translate(-5749.3064,-554.84732)">
+    <rect
+       style="fill:#00ff00;fill-opacity:0.973784;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+       id="rect17035-7-3"
+       width="3029.3013"
+       height="211.47554"
+       x="18964.605"
+       y="6608.0352" />
+    <text
+       xml:space="preserve"
+       x="18992.65"
+       y="6753.1523"
+       fill="#5d5d5d"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144.056px"
+       text-anchor="start"
+       id="text1118"
+       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Zygodon-associated Nostoc-like colony clade1</text>
+  </g>
+  <g
+     id="g16828"
+     transform="translate(-6313.2146,-1027.845)">
+    <rect
+       style="fill:#00ff00;fill-opacity:0.973784;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+       id="rect17035-7-06"
+       width="3067.8359"
+       height="200.65869"
+       x="19528.514"
+       y="7364.1558" />
+    <text
+       xml:space="preserve"
+       x="19587.145"
+       y="7514.2456"
+       fill="#5d5d5d"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144.056px"
+       text-anchor="start"
+       id="text1120"
+       style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Homalia-associated Nostoc-like colony clade1</text>
+  </g>
   <rect
      style="fill:#00ff00;fill-opacity:0.97378421;stroke:#00aa00;stroke-width:21.7413;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
      id="rect17035-7-6-2"
@@ -1301,5 +1268,5 @@
      font-size="144.056px"
      text-anchor="start"
      id="text1168"
-     style="stroke-width:1.00039;fill:#000000;fill-opacity:1">Zygodon-associated Nostoc-like colony nifH clade2</text>
+     style="fill:#000000;fill-opacity:1;stroke-width:1.00039">Zygodon-associated Nostoc-like colony clade2</text>
 </svg>

@@ -4477,6 +4477,7 @@ rsync -auv $getFile test@132.180.112.115:$putItHere
 alignment="nifHseqs2align.afa"
 FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
 
+find . -name nifHseqs2align.nwk
 arb &
 
 ## and the tree is weird, very different from the results of 
@@ -4614,9 +4615,13 @@ Homalia-associated Nostoc-like colony nifH clade3
 ## - label "mixed clade"
 
 
+## get tree file onto laptop
+getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.nwk
+putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
+rsync -auv test@132.180.112.115:$getFile $putItHere
 
-
-
+## try figtree
+figtree -graphic PDF nifHseqs2align.nwk nifHseqs2align_figtree.pdf
 
 #### make a notebook #####
 
