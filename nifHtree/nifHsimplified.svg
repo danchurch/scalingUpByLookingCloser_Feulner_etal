@@ -1,0 +1,1199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.7a -->
+
+<!-- CreationDate: 2025-10-08 12:02:04 -->
+
+<!-- Magnification: 1.05 -->
+
+<svg
+   width="1684pt"
+   height="834pt"
+   viewBox="-12 -12 26724 13239"
+   version="1.1"
+   id="svg504"
+   sodipodi:docname="nifHsimplified.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs508" />
+  <sodipodi:namedview
+     id="namedview506"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="0.8705036"
+     inkscape:cx="849.50826"
+     inkscape:cy="765.64876"
+     inkscape:window-width="1204"
+     inkscape:window-height="656"
+     inkscape:window-x="76"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg504" />
+  <polyline
+     points=" 0,0"
+     stroke="#ffffff"
+     stroke-width="8px"
+     id="polyline2"
+     style="fill:none" />
+  <polyline
+     points=" 26700,13215"
+     stroke="#ffffff"
+     stroke-width="8px"
+     id="polyline4"
+     style="fill:none" />
+  <polygon
+     points="10246,5445 10246,5835 10613,5835 15721,5445 "
+     fill="#fff9df"
+     stroke="#ffe560"
+     stroke-width="8px"
+     id="polygon24"
+     style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 12150,6030 9413,6030"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline26"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9413,6030 9413,6225"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline28"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9413,6225 10017,6225"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline30"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 10017,6225 12150,6030"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline32"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polygon
+     points="9413,6030 9413,6225 10017,6225 12150,6030 "
+     fill="#fff9df"
+     stroke="#ffe560"
+     stroke-width="8px"
+     id="polygon34"
+     style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 22215,6420 13013,6420"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline36"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 13013,6420 13013,6810"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline38"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 13013,6810 13415,6810"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline40"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 13415,6810 22215,6420"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline42"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polygon
+     points="13013,6420 13013,6810 13415,6810 22215,6420 "
+     fill="#fff9df"
+     stroke="#ffe560"
+     stroke-width="8px"
+     id="polygon44"
+     style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:8.00054676;stroke-miterlimit:4;stroke-dasharray:none" />
+  <polyline
+     points=" 9911,6615 13013,6615"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline66"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,6908 9911,6615"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline68"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,7005 11481,7005"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline70"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,6908 9911,7005"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline72"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 10445,7200 11877,7200"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline94"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 10445,7298 10445,7200"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline96"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 10445,7395 11475,7395"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline98"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 10445,7298 10445,7395"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline100"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,6908"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline102"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,7103 9911,6908"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline104"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,7298 10445,7298"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline106"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9911,7103 9911,7298"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline108"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9413,6128"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline110"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9413,6323 9413,6128"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline112"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9413,7103 9911,7103"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline114"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 9413,6323 9413,7103"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline116"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,6323 9413,6323"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline128"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,7493 8745,6323"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline130"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,7590 9192,7590"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline132"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,7493 8745,7590"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline134"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,5640 10246,5640"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline136"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,5933 8745,5640"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline138"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,7493"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline140"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8745,5933 8745,7493"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline142"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 7462,5933 8745,5933"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline154"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 7462,7688 7462,5933"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline156"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 7462,7785 8513,7785"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline158"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 7462,7688 7462,7785"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline160"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 6630,7688 7462,7688"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline172"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 6630,7883 6630,7688"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline174"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 6630,7980 8715,7980"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline176"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 6630,7883 6630,7980"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline178"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 21072,8610 21072,8520"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline200"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 21072,8520 21162,8520"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline202"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 21162,8520 21162,8610"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline204"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 21162,8610 21072,8610"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline206"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8370 11401,8370"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline210"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8468 11379,8370"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline212"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8565 21117,8565"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline214"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8468 11379,8565"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline216"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8468"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline228"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8663 11379,8468"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline230"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8760 11734,8760"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline232"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8663 11379,8760"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline234"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8663"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline246"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8858 11379,8663"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline248"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8955 11395,8955"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline250"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 11379,8858 11379,8955"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline252"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8406,8175 9536,8175"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline254"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8406,8273 8406,8175"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline256"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8406,8858 11379,8858"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline258"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8406,8273 8406,8858"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline260"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,7883 6630,7883"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline262"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,8078 4178,7883"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline264"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,8273 8406,8273"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline266"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,8078 4178,8273"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline268"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8132,9150 13097,9150"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline290"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8132,9248 8132,9150"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline292"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8132,9345 9295,9345"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline294"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 8132,9248 8132,9345"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline296"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9248 8132,9248"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline308"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9443 4178,9248"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline310"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9540 7194,9540"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline312"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9443 4178,9540"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline314"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 5171,9735 7417,9735"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline336"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 5171,9833 5171,9735"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline338"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 5171,9930 6112,9930"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline340"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 5171,9833 5171,9930"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline342"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9443"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline344"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9638 4178,9443"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline346"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9833 5171,9833"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline348"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9638 4178,9833"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline350"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9638"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline362"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,10028 4178,9638"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline364"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,10125 5997,10125"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline366"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,10028 4178,10125"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline368"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,8078"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline370"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9053 4178,8078"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline372"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,10028"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline374"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 4178,9053 4178,10028"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline376"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,9053 4178,9053"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline388"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10223 3333,9053"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline390"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10320 6105,10320"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline392"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10223 3333,10320"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline394"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10223"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline406"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10418 3333,10223"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline408"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10515 8801,10515"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline410"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 3333,10418 3333,10515"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline412"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 150,5250 3333,5250"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline414"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 150,5348 150,5250"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline416"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 150,10418 3333,10418"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline418"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 150,5348 150,10418"
+     stroke="#ffe560"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline420"
+     style="fill:none;stroke:#000000;stroke-opacity:1" />
+  <polyline
+     points=" 150,11100 2981,11100"
+     stroke="#ffffff"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline422"
+     style="fill:none" />
+  <text
+     xml:space="preserve"
+     x="3435"
+     y="5325"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text424"
+     style="fill:#000000;fill-opacity:1">638109037, 638109037 Mo-nitrogenase iron , 638109037 Mo-nitroge</text>
+  <text
+     xml:space="preserve"
+     x="12885"
+     y="5803"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text426"
+     style="fill:#000000;fill-opacity:1">Nostoc cluster I</text>
+  <text
+     xml:space="preserve"
+     x="11670"
+     y="6218"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text430"
+     style="fill:#000000;fill-opacity:1">Nostoc cluster II</text>
+  <text
+     xml:space="preserve"
+     x="17265"
+     y="6778"
+     fill="#ffffff"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text434">nifH2 cluster</text>
+  <text
+     xml:space="preserve"
+     x="11580"
+     y="7080"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text438"
+     style="fill:#000000;fill-opacity:1">Zygodon_cyan, Zygodon_cyanobacteria_BC13_nif, Zygodon_cyanobacteri</text>
+  <text
+     xml:space="preserve"
+     x="11970"
+     y="7275"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text440"
+     style="fill:#000000;fill-opacity:1">JF827724|JF8, JF827724, JF827724|JF827724.1 </text>
+  <text
+     xml:space="preserve"
+     x="11565"
+     y="7470"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text442"
+     style="fill:#000000;fill-opacity:1">DQ531684|DQ5, DQ531684, DQ531684|DQ531684.1 </text>
+  <text
+     xml:space="preserve"
+     x="10170"
+     y="7478"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text444">84%</text>
+  <text
+     xml:space="preserve"
+     x="9645"
+     y="7283"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text446">85%</text>
+  <text
+     xml:space="preserve"
+     x="9285"
+     y="7665"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text448"
+     style="fill:#000000;fill-opacity:1">LC716863.1, LC716863.1 Uncultured cyanobac, LC716863.1 Unculture</text>
+  <text
+     xml:space="preserve"
+     x="9150"
+     y="6308"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text450">94%</text>
+  <text
+     xml:space="preserve"
+     x="9975"
+     y="5625"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text452">97%</text>
+  <text
+     xml:space="preserve"
+     x="8610"
+     y="7860"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text454"
+     style="fill:#000000;fill-opacity:1">JF827723|JF8, JF827723, JF827723|JF827723.1 </text>
+  <text
+     xml:space="preserve"
+     x="8475"
+     y="5918"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text456">93%</text>
+  <text
+     xml:space="preserve"
+     x="8805"
+     y="8055"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text458"
+     style="fill:#000000;fill-opacity:1">637231238, 637231238 Mo-nitrogenase iron , 637231238 Mo-nitroge</text>
+  <text
+     xml:space="preserve"
+     x="7185"
+     y="7673"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text460">85%</text>
+  <text
+     xml:space="preserve"
+     x="9630"
+     y="8250"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text462"
+     style="fill:#000000;fill-opacity:1">M63686|M6368, M63686, M63686|M63686.1 Anab</text>
+  <text
+     xml:space="preserve"
+     x="11505"
+     y="8445"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text464"
+     style="fill:#000000;fill-opacity:1">FJ895145|FJ8, FJ895145, FJ895145|FJ895145.1 </text>
+  <text
+     xml:space="preserve"
+     x="21210"
+     y="8640"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text466"
+     style="fill:#000000;fill-opacity:1">EF570567|EF5, EF570567, EF570567|EF570567.1 </text>
+  <text
+     xml:space="preserve"
+     x="11835"
+     y="8835"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text468"
+     style="fill:#000000;fill-opacity:1">JF827744|JF8, JF827744, JF827744|JF827744.1 </text>
+  <text
+     xml:space="preserve"
+     x="11490"
+     y="9030"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text470"
+     style="fill:#000000;fill-opacity:1">EU381369|EU3, EU381369, EU381369|EU381369.1 </text>
+  <text
+     xml:space="preserve"
+     x="11115"
+     y="9038"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text472">99%</text>
+  <text
+     xml:space="preserve"
+     x="6360"
+     y="7868"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text474">92%</text>
+  <text
+     xml:space="preserve"
+     x="8130"
+     y="8453"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text476">98%</text>
+  <text
+     xml:space="preserve"
+     x="13200"
+     y="9225"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text478"
+     style="fill:#000000;fill-opacity:1">U49514|U4951, U49514, U49514|U49514.1 Fisc</text>
+  <text
+     xml:space="preserve"
+     x="9390"
+     y="9420"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text480"
+     style="fill:#000000;fill-opacity:1">DQ225763|DQ2, DQ225763, DQ225763|DQ225763.1 </text>
+  <text
+     xml:space="preserve"
+     x="7290"
+     y="9615"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text482"
+     style="fill:#000000;fill-opacity:1">647107234, 647107234 Mo-nitrogenase iron , 647107234 Mo-nitroge</text>
+  <text
+     xml:space="preserve"
+     x="7860"
+     y="9233"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text484">95%</text>
+  <text
+     xml:space="preserve"
+     x="7515"
+     y="9810"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text486"
+     style="fill:#000000;fill-opacity:1">U89346|U8934, U89346, U89346|U89346.1 Anab</text>
+  <text
+     xml:space="preserve"
+     x="6210"
+     y="10005"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text488"
+     style="fill:#000000;fill-opacity:1">637231821, 637231821 Mo-nitrogenase iron , 637231821 Mo-nitroge</text>
+  <text
+     xml:space="preserve"
+     x="4905"
+     y="10013"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text490">86%</text>
+  <text
+     xml:space="preserve"
+     x="6090"
+     y="10200"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text492"
+     style="fill:#000000;fill-opacity:1">JF827725|JF8, JF827725, JF827725|JF827725.1 </text>
+  <text
+     xml:space="preserve"
+     x="6210"
+     y="10395"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text494"
+     style="fill:#000000;fill-opacity:1">AY221817|AY2, AY221817, AY221817|AY221817.1 </text>
+  <text
+     xml:space="preserve"
+     x="3915"
+     y="9038"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text496">82%</text>
+  <text
+     xml:space="preserve"
+     x="8895"
+     y="10590"
+     fill="#ffe560"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text498"
+     style="fill:#000000;fill-opacity:1">646569746, 646569746 Mo-nitrogenase iron , 646569746 Mo-nitroge</text>
+  <text
+     xml:space="preserve"
+     x="1380"
+     y="11100"
+     fill="#ffffff"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text500">0.10</text>
+</svg>

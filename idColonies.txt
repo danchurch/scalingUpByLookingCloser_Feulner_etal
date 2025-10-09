@@ -4566,7 +4566,6 @@ pubLabels = (treeNames
 )
 pubLabels
 
-
 cleanupTreeLabs = pd.DataFrame({'treeNames':treeNames, 'pubLabels':pubLabels})
 
 ## can we use this to quickly change the labels in our svg?
@@ -4591,7 +4590,6 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHtree*.svg
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
 rsync -auv daniel@132.180.112.24:$getFile $putItHere
-
 
 ## some errors, but seems harmless, works.
 
