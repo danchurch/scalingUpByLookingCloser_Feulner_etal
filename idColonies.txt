@@ -4513,12 +4513,6 @@ arb &
 
 mv nifHtreeNames.nds nifHtreeNames.csv
 
-## plan for rooted:
-## - pretty labels, including groups
-## - highlight placement of all of our sequences
-## - highlight placement of root
-## - label "mixed clade"
-
 python3
 import pandas as pd
 import matplotlib.pyplot as plt; plt.ion()
@@ -4590,6 +4584,14 @@ with open ("nifHtree_fullTree.svg", "r") as file:
 getFile=/media/vol1/daniel/nostoc/nifHtree/nifHtree*.svg
 putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/
 rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## I think we need to get these onto the github repo, everything is getting confusing..
+## working on laptop
+
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHtree*.svg
+putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
+rsync -auv daniel@132.180.112.24:$getFile $putItHere
+
 
 ## some errors, but seems harmless, works.
 
