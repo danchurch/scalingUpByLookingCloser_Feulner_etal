@@ -37,16 +37,24 @@
      fit-margin-top="10"
      fit-margin-right="10"
      fit-margin-bottom="10"
-     inkscape:zoom="0.27688787"
-     inkscape:cx="9.0289256"
-     inkscape:cy="745.78926"
+     inkscape:zoom="0.19578929"
+     inkscape:cx="717.6082"
+     inkscape:cy="748.25339"
      inkscape:window-width="1204"
      inkscape:window-height="656"
      inkscape:window-x="76"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1234"
-     showguides="false" />
+     showguides="false"
+     inkscape:lockguides="true" />
+  <rect
+     style="fill:#ffffff;stroke-width:7.99746;stroke-dashoffset:1.676;stop-color:#000000;stroke:none"
+     id="rect1469"
+     width="25269.771"
+     height="21269.436"
+     x="3.596848"
+     y="-62.85606" />
   <polyline
      points=" 0,0"
      stroke="#ffffff"
