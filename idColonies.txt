@@ -4513,6 +4513,9 @@ arb &
 
 mv nifHtreeNames.nds nifHtreeNames.csv
 
+cd /home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
+#grep ".*</text>" nifHsimplified.svg > simplifiedTreeLabels.txt
+
 python3
 import pandas as pd
 import matplotlib.pyplot as plt; plt.ion()
@@ -4520,13 +4523,15 @@ import os,re
 
 pd.set_option('display.max_rows', None)
 
-with open ("nifHtreeNames.csv", "r") as file:
+with open ("simplifiedTreeLabels.txt", "r") as file:
     treeNames = file.read().splitlines()
 
 treeNames = pd.Series(treeNames)
 
+treeNames[4]
+
 ininbergPat = re.compile("(JF[0-9]*)")
-kubotaPat = re.compile("(LC[0-9]*)")
+kubotaPat = re.compile("(LC[0-9]+).*")
 pubLabels = (treeNames
   .str.split("|").str.get(0)
   .str.replace("\.1","",regex=True)
@@ -4537,29 +4542,29 @@ pubLabels = (treeNames
   .str.replace("  ", " ")
   .str.replace(ininbergPat, r"\1 Ininbergs et al. (2011)", regex=True)
   .str.replace(kubotaPat, r"\1 Kubota et al. (2023)", regex=True)
+  .str.replace("(M63686).*", r"\1 Anabaena oscillarioides",regex=True)
+  .str.replace("(DQ531684).*", r"\1 Scytonema hofmanni UTEX 2349",regex=True)
+  .str.replace("(FJ895145).*", r"\1 Aphanizomenon aphanizomenoides UADFA13",regex=True)
+  .str.replace("(EF570567).*", r"\1 Mastigocladus laminosus CCMEE 5268",regex=True)
+  .str.replace("(EU381369).*", r"\1 Anabaena sp. LG2",regex=True)
+  .str.replace("(U49514).*", r"\1 Fischerella UTEX 1931",regex=True)
+  .str.replace("(DQ225763).*", r"\1 Richelia sp. SC01",regex=True)
+  .str.replace("(U89346).*", r"\1 Anabaena variabilis",regex=True)
   .str.replace("(JF827722).*", r"\1 Stigonema ocellatum",regex=True)
   .str.replace("(L23514).*", r"\1 Nostoc commune UTEX 584",regex=True)
-  .str.replace("(U49514).*", r"\1 Fischerella UTEX 1931",regex=True)
   .str.replace("(U04054).*", r"\1 Nostoc muscorum UTEX 1933",regex=True)
   .str.replace("(AY271821).*", r"\1 Nodularia sp. KAC 13",regex=True)
-  .str.replace("(DQ531684).*", r"\1 Scytonema hofmanni UTEX 2349",regex=True)
   .str.replace("(638109037).*", r"\1 Trichodesmium erythraeum: NC_008312",regex=True)
   .str.replace("(U73129).*", r"\1 Calothrix sp.",regex=True)
   .str.replace("(647107234).*", r"\1 Cylindrospermopsis raciborskii CS-505",regex=True)
   .str.replace("(646569556).*", r"\1 Anabaena variabilis ATCC 29413",regex=True)
-  .str.replace("(EU381369).*", r"\1 Anabaena sp. LG2",regex=True)
-  .str.replace("(U89346).*", r"\1 ",regex=True)
-  .str.replace("(U89346).*", r"\1 Anabaena variabilis",regex=True)
   .str.replace("(646569746).*", r"\1 Anabaena variabilis ATCC 29413 NC_007413",regex=True)
-  .str.replace("(DQ225763).*", r"\1 Richelia sp. SC01",regex=True)
   .str.replace("(AY221817).*", r"\1 Tolypothrix sp. PCC 7101",regex=True)
   .str.replace("(642604820).*", r"\1 Nostoc punctiforme PCC 73102: NC_010628",regex=True)
-  .str.replace("(M63686).*", r"\1 Anabaena oscillarioides",regex=True)
   .str.replace("(L15551).*", r"\1 Nostoc sp. 'J. Gallon'",regex=True)
   .str.replace("(U49515).*", r"\1 Fischerella UTEX1931 alternative (nifH2)",regex=True)
   .str.replace("(642599733).*", r"\1 Nostoc punctiforme PCC 73102: NC_010628",regex=True)
   .str.replace("(642600311).*", r"\1 Nostoc punctiforme PCC 73102: NC_010628",regex=True)
-  .str.replace("(EF570567).*", r"\1 Mastigocladus laminosus CCMEE 5268",regex=True)
   .str.replace("(FJ895145).*", r"\1 Aphanizomenon aphanizomenoides UADFA13",regex=True)
   .str.replace("(637231821).*", r"\1 Nostoc sp. PCC 7120: NC_003272",regex=True)
   .str.replace("(637231238).*", r"\1 Nostoc sp. PCC 7120: NC_003272",regex=True)
@@ -4570,14 +4575,16 @@ cleanupTreeLabs = pd.DataFrame({'treeNames':treeNames, 'pubLabels':pubLabels})
 
 ## can we use this to quickly change the labels in our svg?
 
-with open ("nifHtree_fullTree.svg", "r") as file:
+#with open ("nifHtree_fullTree.svg", "r") as file:
+with open ("nifHsimplified.svg", "r") as file:
     newText = file.read()
     for i,j in enumerate(cleanupTreeLabs['treeNames']):
         print(i)
         print(cleanupTreeLabs['treeNames'][i])
         print(cleanupTreeLabs['pubLabels'][i])
         newText = newText.replace(cleanupTreeLabs['treeNames'][i], cleanupTreeLabs['pubLabels'][i])
-    with open ("nifHtree_fullTree_editedLabels.svg","w") as newFile:
+#    with open ("nifHtree_fullTree_editedLabels.svg","w") as newFile:
+    with open ("nifHsimplified_editedLabels.svg","w") as newFile:
         newFile.write(newText)
 
 getFile=/media/vol1/daniel/nostoc/nifHtree/nifHtree*.svg
@@ -4587,20 +4594,29 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 ## I think we need to get these onto the github repo, everything is getting confusing..
 ## working on laptop
 
-getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHtree*.svg
+#getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHtree*.svg
+getFile=/media/vol1/daniel/nostoc/nifHtree/testNifH.svg
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
-rsync -auv daniel@132.180.112.24:$getFile $putItHere
+rsync -auv test@132.180.112.115:$getFile $putItHere
+#rsync -auv daniel@132.180.112.24:$getFile $putItHere
 
 ## some errors, but seems harmless, works.
 
 ## plan for unrooted:
-## - prettify labels
-## - prettify groups (fatter, fill in with color)
-## - highlight placement of all of our sequences
-## - highlight placement of root
+## - highlight placement of all of our sequences:
+Hylocomium-associated Nostoc-like colony nifH
+Zygodon-associated Nostoc-like colony nifH clade1
+Zygodon-associated Nostoc-like colony nifH clade2
+Zygodon-associated Nostoc-like colony nifH clade3
+Homalia-associated Nostoc-like colony nifH clade1
+Homalia-associated Nostoc-like colony nifH clade2
+Homalia-associated Nostoc-like colony nifH clade3
 ## - label "mixed clade"
 
-## get new consensus seeks from ogHylo, place on tree again, reduce to nostocaceae, approximately, same as above
+
+
+
+
 
 #### make a notebook #####
 
