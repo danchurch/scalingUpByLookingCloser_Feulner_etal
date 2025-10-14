@@ -1140,6 +1140,7 @@ allReads="ogHylo_strongNostocMatches_oriented.fa"
 ## use seqtk to keep only the matches to nostoc
 seqtk subseq $allReads $getReads > ${getReads/_reads\.txt/\.fa}
 
+
 ## and run new alignments on these.
 ## the big one (clade1) we run on optiplex:
 
@@ -1168,6 +1169,23 @@ muscle5 -align $fasta -output ${fasta/\.fa/\.afa}
 ## the larger alignment is still running, as expected 
 
 ## stopping here 07.10.25
+
+## revisiting for a few minutes 14.10.2025
+
+## let's start on the framework for updating this 
+## incredibly, the first clade is still  being aligned.
+
+## clade2 was many fewer reads, start with that:
+
+## the file is here on the nanoComp
+/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa
+
+getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa
+putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/16sTree/alignments/OGhylo/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## stopped here 14.10.25 ##
+## don't forget there is an updated consensus seq for zygodon on nanocomp ##
 
 
 ############## cydrasil tree, try 2 ###############
@@ -3074,7 +3092,6 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 
 cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode11/
 
-## not run ##
 ## when I left, ugene was stuck getting rid of vertical gaps
 ## maybe find a more efficient way to do this. 
 
@@ -4603,7 +4620,6 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 
 ## some errors, but seems harmless, works.
 
-## plan for unrooted:
 ## - highlight placement of all of our sequences:
 Hylocomium-associated Nostoc-like colony nifH
 Zygodon-associated Nostoc-like colony nifH clade1
@@ -4614,14 +4630,11 @@ Homalia-associated Nostoc-like colony nifH clade2
 Homalia-associated Nostoc-like colony nifH clade3
 ## - label "mixed clade"
 
-
 ## get tree file onto laptop
 getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.nwk
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
 rsync -auv test@132.180.112.115:$getFile $putItHere
 
-## try figtree
-figtree -graphic PDF nifHseqs2align.nwk nifHseqs2align_figtree.pdf
 
 #### make a notebook #####
 
