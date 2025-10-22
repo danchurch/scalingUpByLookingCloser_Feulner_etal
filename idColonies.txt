@@ -1159,6 +1159,18 @@ fasta="OGhylo_clade1.fa"
 nohup muscle -super5 $fasta -output ${fasta/\.fa/\.afa} &
 ## start oct6 14:00, PID 3912172
 
+## that ran for forever, nine days or so. 
+
+## On optiplex it is here:
+ls /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/OGhylo_clade1.afa
+## backed up on desktop here:
+
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/OGhylo_clade1.afa"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv daniel@132.180.113.114:$getFile $putHere
+
+ls /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
+
 ## the smaller can probably run on the nanoComp: 
 cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/
 
@@ -1168,24 +1180,95 @@ muscle5 -align $fasta -output ${fasta/\.fa/\.afa}
 
 ## the larger alignment is still running, as expected 
 
-## stopping here 07.10.25
-
-## revisiting for a few minutes 14.10.2025
-
 ## let's start on the framework for updating this 
 ## incredibly, the first clade is still  being aligned.
 
 ## clade2 was many fewer reads, start with that:
 
 ## the file is here on the nanoComp
-/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa
 
-getFile=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa
-putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/16sTree/alignments/OGhylo/
-rsync -auv test@132.180.112.115:$getFile $putItHere
+ls /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa
 
-## stopped here 14.10.25 ##
-## don't forget there is an updated consensus seq for zygodon on nanocomp ##
+
+## backed up?
+
+find . -type f -name OGhylo_clade2.afa -exec ls -hl {} \; ## yes esprimo, no on optiplex, two copies on nanoComp
+
+## are they the same?
+diff -s ./nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa ./nostoc/nanoporeNostoc16sAlignments_repo/16sTree/alignments/OGhylo/OGhylo_clade2.afa 
+## yup
+
+## btw, clade1...
+
+find . -type f -name OGhylo_clade1.afa  ## not on nanoComp, yes on optiplex, yes on esprimo
+
+## we need a consensus seq for both OGhylo clade1 and 2. 
+
+## get clade1.afa backed up onto nanoComp:
+
+##  move esprimo copy to nanocomp:
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/OGhylo_clade1.afa"
+putHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/"
+rsync -auv $getFile test@132.180.112.115:$putHere
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/
+
+## so now what? need to curate these. Start with the big one. 
+
+## back on optiplex:
+
+cd /home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo
+
+conda activate cialign
+
+CIAlign --infile OGhylo_clade1.afa \
+        --outfile_stem OGhylo_clade1.afa_msaEdits \
+        --insertion_min_perc 0.2 \
+        --insertion_min_flank 1 \
+        --insertion_min_size 1 \
+        --insertion_max_size 600 \
+        --remove_insertions 
+
+## did that help?
+## yes, plus some manual edits with jalviewer
+## distribute:
+
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/OGhylo_clade1.afa_msaEdits_cleaned.fasta"
+putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/"
+rsync -auv daniel@132.180.113.114:$getFile $putHere
+
+## onto nanoComp
+getFile="/home/daniel/Documents/projects/mossSymbiosis/alignmentsOGhyloRedo/OGhylo_clade1.afa_msaEdits_cleaned.fasta"
+putHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/"
+rsync -auv $getFile test@132.180.112.115:$putHere
+
+## make our consensus seq:
+
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/
+
+## name got mangled...
+mv OGhylo_clade1.afa_msaEdits_cleaned.fasta OGhylo_clade1_msaEdits_cleaned.afa
+
+alignFile="OGhylo_clade1_msaEdits_cleaned.afa"
+finalFileName="Hylocomium_nostoc_OGredo_16s.fa"
+hmmbuild ${alignFile/_msaEdits_cleaned\.afa/\.hmm} ${alignFile}
+hmmemit -c -o $finalFileName ${alignFile/_msaEdits_cleaned\.afa/\.hmm}
+sed -i "/>/ s/>.*/>${finalFileName%\.fa}/" ${finalFileName}
+seqtk seq -l 0 ${finalFileName} > ${finalFileName}.tmp
+mv ${finalFileName}.tmp ${finalFileName}
+
+## oops! redo to reflect the fact that there will be two clades!!
+
+## stopping here 22 October
+
+## not run ##
+
+
+## and for clade 2, the smaller one?
+
+## on nanoComp:
+
+
 
 
 ############## cydrasil tree, try 2 ###############
