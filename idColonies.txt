@@ -1257,11 +1257,60 @@ sed -i "/>/ s/>.*/>${finalFileName%\.fa}/" ${finalFileName}
 seqtk seq -l 0 ${finalFileName} > ${finalFileName}.tmp
 mv ${finalFileName}.tmp ${finalFileName}
 
-## oops! redo to reflect the fact that there will be two clades!!
+## now we add the other clade to this...
 
-## stopping here 22 October
+ls /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa
 
-## not run ##
+cd /media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo
+
+## let's look at this alignment on the laptop:
+#getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2.afa"
+getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/OGhylo_clade2_msaEdits_cleaned.fasta"
+putHere="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/alignmentsOGHyloRedo/"
+rsync -auv test@132.180.112.115:$getFile $putHere
+
+conda activate cialign
+
+CIAlign --infile OGhylo_clade2.afa \
+        --outfile_stem OGhylo_clade2_msaEdits \
+        --insertion_min_perc 0.2 \
+        --insertion_min_flank 1 \
+        --insertion_min_size 1 \
+        --insertion_max_size 600 \
+        --remove_insertions 
+
+## downloaded above
+
+mv OGhylo_clade2_msaEdits_cleaned_handEdited.fasta OGhylo_clade2_msaEdits_cleaned_handEdited.afa
+
+alignFile="OGhylo_clade2_msaEdits_cleaned_handEdited.afa"
+finalFileName="Hylocomium_nostoc_OGredo_16s_clade2.fa"
+hmmbuild ${alignFile/_msaEdits_cleaned\.afa/\.hmm} ${alignFile}
+hmmemit -c -o $finalFileName ${alignFile/_msaEdits_cleaned\.afa/\.hmm}
+seqtk seq -l 0 ${finalFileName} > ${finalFileName}.tmp
+mv ${finalFileName}.tmp ${finalFileName}
+
+## and blasting that...
+## yeah, that it is trash, some kind of pseudomonas, maybe. 
+
+## just ignore it, keep the other, Nostoc-like thing.
+
+## store this consensus seq with the other new ones:
+cp Hylocomium_nostoc_OGredo_16s.fa  /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/
+
+## update and synch up
+
+
+## stopping here 23 October
+
+
+
+
+
+getFile="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/alignmentsOGHyloRedo/OGhylo_clade2_msaEdits_cleaned_handEdited.fasta"
+putHere="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/redoOGhylo/"
+rsync -auv $getFile test@132.180.112.115:$putHere
+
 
 
 ## and for clade 2, the smaller one?
