@@ -1,5 +1,0 @@
-#                                                     best-matching model                  second-best model 
-#                                      -------------------------------------------------  -------------------
-#     idx  sequence name               model name   beg   end    CM sc   struct   HMM sc  model name   HMM sc  HMMdiff
-# -------  --------------------------  ----------  ----  ----  -------  -------  -------  ----------  -------  -------
-        1  leptoNostoc_draftConsensus  bacteria       1  1395  1396.77   300.85  1259.56  archaea      302.24   957.32

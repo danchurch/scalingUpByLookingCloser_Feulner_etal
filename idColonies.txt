@@ -3319,6 +3319,10 @@ wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
 
 ## this looks promising. Now to hang some of our sequences on it...
 
+## we need a concatenated fasta of all of our 16s consensus sequences
+
+cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*fa > all16sConsensusSeqs.fa
+
 ## try following this tutorial for epa-ng:
 https://github.com/pierrebarbera/epa-ng/wiki/Full-Stack-Example
 
@@ -3337,15 +3341,8 @@ cd /media/vol1/daniel/nostoc/16sTree/round2
 
 cp CyanoSeq_1.2.fasta CyanoSeq_1.2_accessionsEdited.fa
 
-rm papara_log.some_name
-TREE="CyanoSeq_1.2_newick.txt"
-REF_MSA="CyanoSeq_1.2.phy"
-#QRY="/media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa"
-QRY="OGzygodonNostoc_16s_consensusSeq_1.fa"
-papara -t $TREE -s $REF_MSA -q $QRY -r -n some_name
-## fails, segmentation fault, core dump
 
-## maybe because the alignment is in afa (fasta), should be in phylip 
+##  because the alignment is in afa (fasta), should be in phylip 
 ## (https://www.garcia-pichellab.com/cydrasil/, https://github.com/sim82/papara_nt)
 
 ## try the conversion with biopython 
@@ -3353,6 +3350,9 @@ papara -t $TREE -s $REF_MSA -q $QRY -r -n some_name
 
 wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
 
+
+
+cd /media/vol1/daniel/nostoc/16sTree/round2/
 
 python3
 from Bio import AlignIO
@@ -3367,10 +3367,13 @@ fileoutphy = re.sub('fasta', 'phy', file)
 with open(Path(pathway, fileoutphy), 'w') as output_handle:        
     SequentialPhylipWriter(output_handle).write_alignment(alignment, id_width=120)
 
+
 ## need a long id_width, they made some serious ids in cyanoseq
+
 
 TREE="CyanoSeq_1.2_newick.txt"
 REF_MSA="CyanoSeq_1.2.phy"
+QRY="all16sConsensusSeqs.fa"
 QRY="/media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa"
 #QRY="OGzygodonNostoc_16s_consensusSeq_1.fa"
 papara -t $TREE -s $REF_MSA -q $QRY -r -n "Cyanoseq_with_OGzygodonNostocs"
@@ -3485,6 +3488,8 @@ putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/16sT
 rsync -auv test@132.180.112.115:$getFile $putItHere
 
 ## update itol account with this
+
+
 
 ################# nifH ########################
 
@@ -4651,7 +4656,6 @@ arb &
 
 ## these can serve as the basis for the figures. 
 
-
 ## to prettify the labels..
 ## this will be extremely intensive manually,
 ## but maybe we can keep track of what we do 
@@ -4766,6 +4770,7 @@ Homalia-associated Nostoc-like colony nifH clade3
 getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.nwk
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
 rsync -auv test@132.180.112.115:$getFile $putItHere
+
 
 
 #### make a notebook #####
