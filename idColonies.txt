@@ -3326,8 +3326,12 @@ cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq
 ## try following this tutorial for epa-ng:
 https://github.com/pierrebarbera/epa-ng/wiki/Full-Stack-Example
 
+conda remove -n epa-ng --all
+
 conda create -n epa-ng
+
 conda activate epa-ng
+
 conda install bioconda::epa-ng
 
 
@@ -3371,25 +3375,21 @@ with open(Path(pathway, fileoutphy), 'w') as output_handle:
 ## need a long id_width, they made some serious ids in cyanoseq
 
 
-TREE="CyanoSeq_1.2_newick.txt"
+TREE="CyanoSeq_1.2_tree_noNHX.nw"
 REF_MSA="CyanoSeq_1.2.phy"
 QRY="all16sConsensusSeqs.fa"
-QRY="/media/vol1/daniel/nostoc/consensusSequences/OGzygodonNostoc_16s_consensusSeqs.fa"
-#QRY="OGzygodonNostoc_16s_consensusSeq_1.fa"
 papara -t $TREE -s $REF_MSA -q $QRY -r -n "Cyanoseq_with_OGzygodonNostocs"
-
-conda activate
-
-epa-ng --redo --split $REF_MSA papara_alignment.Cyanoseq_with_OGzygodonNostocs
-
-## we need evolutionary model info, waiting on this.
 
 ## first epa-ng attempt below gives a tree parsing error. Try some editing?
 ## (https://github.com/pierrebarbera/epa-ng/issues/42)
 
 sed -e 's/\[[^][]*\]//g' CyanoSeq_1.2_newick.txt > CyanoSeq_1.2_tree_noNHX.nw
 
-#TREE="CyanoSeq_1.2_newick.txt"
+conda activate epa-ng
+
+epa-ng --redo --split $REF_MSA papara_alignment.Cyanoseq_with_OGzygodonNostocs
+
+
 TREE="CyanoSeq_1.2_tree_noNHX.nw"
 REF_MSA="reference.fasta"
 QRY="query.fasta"
@@ -3440,25 +3440,14 @@ cd /media/vol1/daniel/nostoc/16sTree/round2
 
 
 
-## let's try combining all the consensus seqs we have, both the original hylocomium one from 2 years 
-## ago, and the ones we just created:
-
-consppFolder=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences
-ogHyloConSeq=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/ogHylocomiumConsensusSeq/leptoNostoc_withN.fa
-
-cat <(seqtk seq -l 0 $ogHyloConSeq) $consppFolder/*  > consensusSeqs_combined.fa 
-
-less consensusSeqs_combined.fa 
-
 ## okay, 
-## question, can papara handle "N"s? it is a finicky old program...
 ## let's see. Use this combo fasta, repeat above pipeline:
 
 cd /media/vol1/daniel/nostoc/16sTree/round2
 
 TREE="CyanoSeq_1.2_tree_noNHX.nw"
 REF_MSA="CyanoSeq_1.2.phy"
-QRY="consensusSeqs_combined.fa"
+QRY="all16sConsensusSeqs.fa"
 papara -t $TREE -s $REF_MSA -q $QRY -r -n "Cyanoseq_with_ourMossNostocs"
 
 conda activate
@@ -3478,8 +3467,11 @@ epa-ng \
   --redo \
   --model $INFO
 
+mv epa_result.jplace cyanoseqWithNostocConsensusPlacements.jplace
 
-mv epa_info.log cyanoseqWithNostocConsensusPlacements.jplace
+cd /media/vol1/daniel/nostoc/16sTree/round2
+
+cp cyanoseqWithNostocConsensusPlacements.jplace /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cyanseqTree_placements/ 
 
 ## ok, how to visualize this? The cydrasil folks use iTOL, as we did above:
 
@@ -3487,9 +3479,90 @@ getFile=/media/vol1/daniel/nostoc/16sTree/round2/cyanoseqWithNostocConsensusPlac
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/16sTreeDrafts/
 rsync -auv test@132.180.112.115:$getFile $putItHere
 
-## update itol account with this
+## placements are the same, but the confidences of the placements are higher
+
+## arb? or itol?
+## use iTOL to find the placements, use arb to generate the tree graphic.
+
+## we have two subtrees from cyanoseq, rooted and unrooted. 
+## they will probably be edited, but for now keep them in the repo:
+
+cp nostocaceaeCyanseq_rooted.svg /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cyanseqTree_placements/
+cp nostocaceaeCyanseq_unrooted.svg /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cyanseqTree_placements/
+
+## looking at this, I see very few nostocs. Maybe cyanoseq wasn't the way to go here?
+## It looks there are only two confirmed Nostocs. Ugh. Should have checked this 
+## months ago. 
+
+## how does this compare to cydrasil3?
 
 
+## cydrasil has 41 nostocs
+
+## on the other hand, they do not have compactonostoc, 
+## which is the most likely home of our zygodon nostoc
+
+## how do we resolve this? How about both? Subset to Nostocaceae in both,
+## show placements in both. 
+
+## so can we 1 - repeat the above placements onto the cydrasil tree
+## and       2 - export subtrees of nostocaceae using ARB?
+
+## placements on cydrasil tree:
+
+
+## get an evolutionary model for the cydrasil tree:
+
+modeltest-ng --help
+
+cd /media/vol1/daniel/nostoc/16sTree/cydrasil_tree
+
+cydrasilAlignment=/media/vol1/daniel/nostoc/16sTree/cydrasil_repo/Cydrasil-v3-reference-alignment.afa
+cydrasilTree=/media/vol1/daniel/nostoc/16sTree/cydrasil_repo/cydrasil-v3-reference-tree.nwk
+modeltest-ng \
+  -i $cydrasilAlignment \
+  --utree $cydrasilTree \
+  -h uigf \
+  -f ef
+
+## standard GTR+I+G4 seems to work
+
+
+cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*fa > all16sConsensusSeqs.fa
+
+## oops, need phylip for papara
+cydrasilAlignmentPhylip=/media/vol1/daniel/nostoc/16sTree/cydrasil_repo/Cydrasil-v3-reference-alignment.phy
+papara -t $cydrasilTree -s $cydrasilAlignmentPhylip -q all16sConsensusSeqs.fa -r -n "Cydrasil_with_ourMossNostocs"
+
+## not run ##
+## just set up ##
+
+conda activate epa-ng
+
+epa-ng --redo --split $cydrasilAlignment papara_alignment.Cydrasil_with_ourMossNostocs
+
+TREE=$cydrasilTree
+REF_MSA="reference.fasta"
+QRY="query.fasta"
+INFO="GTR+I+G4"
+OUT="."
+epa-ng \
+  --tree $TREE \
+  --ref-msa $REF_MSA \
+  --query $QRY \
+  --out-dir $OUT \
+  --redo \
+  --model $INFO
+
+mv epa_result.jplace cydrasilWithNostocConsensusPlacements.jplace
+cp cydrasilWithNostocConsensusPlacements.jplace /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cydrasilTree_placements 
+
+getFile=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cydrasilTree_placements/cydrasilWithNostocConsensusPlacements.jplace
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## okay, there is more precision with that. Hopefully there is time for pretty 
+## graphic making on monday
 
 ################# nifH ########################
 
