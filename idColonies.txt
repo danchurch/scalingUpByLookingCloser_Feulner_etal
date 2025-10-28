@@ -3534,8 +3534,6 @@ cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq
 cydrasilAlignmentPhylip=/media/vol1/daniel/nostoc/16sTree/cydrasil_repo/Cydrasil-v3-reference-alignment.phy
 papara -t $cydrasilTree -s $cydrasilAlignmentPhylip -q all16sConsensusSeqs.fa -r -n "Cydrasil_with_ourMossNostocs"
 
-## not run ##
-## just set up ##
 
 conda activate epa-ng
 
@@ -3563,6 +3561,12 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 
 ## okay, there is more precision with that. Hopefully there is time for pretty 
 ## graphic making on monday
+
+## but as I feared, compactonostoc isn't in there. Cydrasil is out of date. 
+## we have a bunch of new sequences from the cyanoseq folks. We can try 
+## to make a tree with these. 
+
+## best to use a ssu-aware aligner. It's here:  
 
 ################# nifH ########################
 
@@ -4843,7 +4847,6 @@ Homalia-associated Nostoc-like colony nifH clade3
 getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.nwk
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
 rsync -auv test@132.180.112.115:$getFile $putItHere
-
 
 
 #### make a notebook #####
