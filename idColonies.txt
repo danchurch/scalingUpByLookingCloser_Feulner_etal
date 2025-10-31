@@ -3707,8 +3707,6 @@ epa-ng --redo --split $REF_MSA papara_alignment.CyanoseqNostocPlus_our16s
 
 ## works. Now, hang our query sequences on the cyanoseqnostocPlus:
 
-## not run ##
-
 INFO="GTR+I+G4"
 OUT="."
 epa-ng \
@@ -3801,7 +3799,101 @@ sina \
 
 cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
 
-## 
+## okay. Last resort, we align denovo
+
+## 1. the existing nostacaceae sequences from cyanoseq, 
+## 2. the new nostoc sequences from the cyanoseq fellows:
+## 3. our consensus sequences. 
+
+## 1. the existing nostacaceae sequences from cyanoseq...
+## cyanoseq 1.2 tree is here:
+
+ls /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+## question - are existing nostacaceae sequences from cyanoseq also in the
+## the "additional sequences" that were given to me?:
+
+grep -c MH598843 CyanoSeq_1.2* ## in there
+grep MH598843 NOSTOC_fromCyanoseqFolks.fasta ## not in there
+
+## so these are likely completely new sequences
+
+## we need an alignment and tree because we can't really estimate the 
+## bounds of nostocaceae otherwise
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
+
+arb ## select what I think is nostocaceae (also includes nodulariaceae??)
+
+## exports as RNA (formatted the original arb db as RNA, mistake)
+## sed??
+sed "/^[^>]/ s/U/T/g" nostocaceae_maybe.fasta |
+sed "/^[^>]/ s/ //g" | sed "/>/ s/ .*//g" |
+seqtk seq -l 0 > nostocaceae_maybe_cleaned.fa
+
+## this is saved here:
+cyanoseqNostocaceae=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/nostocaceae_maybe_cleaned.fa
+## 2. the new nostoc sequences from the cyanoseq fellows:
+extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
+## 3. our consensus sequences. They're in here: 
+ourSeqs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa
+
+## do the work here:
+cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
+
+cat $cyanoseqNostocaceae $extraNostocs $ourSeqs |
+seqtk seq -l 0 > seqs2alignNostocaceae.fa
+
+
+## looks like a gap "-" or two somehow made it into my consensus
+## sequence for ambylostegium nostoc 16S
+## removed it with sed:
+
+sed -i "/^[^>]/ s/-//g" seqs2alignNostocaceae.fa
+
+## also there is some weirdness in the nostoc file from the cyanoseq boys, 
+## removing it here:
+grep -A 1 MT514711.1 seqs2alignNostocaceae.fa | grep "MT.NSTCS.CCC.S.*"
+sed -i "s/MT\.NSTCS\.CCC.S.*//g" seqs2alignNostocaceae.fa
+
+## and in this sequence also:
+grep -A 1 KF718455 seqs2alignNostocaceae.fa | grep K\.NSTCS\.TGRAS\.DCYANB
+## removing it here
+sed -i "s/K\.NSTCS\.TGRAS\.DCYANB.*//g" seqs2alignNostocaceae.fa
+
+## and here
+grep -A 1 JQ776451 seqs2alignNostocaceae.fa | grep \.NCTRDCYANBACT
+## removing it here
+sed -i "s/\.NCTRDCYANBACT.*//g" seqs2alignNostocaceae.fa
+
+## and here
+grep -A 1 JF810611 seqs2alignNostocaceae.fa | grep .NSTCS.M.SSRBSMARNAGNAR
+sed -i "s/\.NSTCS\.M\.SSRBSMARNAGNAR.*//g" seqs2alignNostocaceae.fa
+
+## align with SSU-aligner
+conda activate ssu-align 
+
+nohup ssu-align -n bacteria seqs2alignNostocaceae.fa nostocaceaeCyanoseqPlusOurSeqs_ali &
+ssu-mask --pf 0.9999 --pt 0.9999 nostocaceaeCyanoseqPlusOurSeqs_ali
+ssu-mask --stk2afa nostocaceaeCyanoseqPlusOurSeqs_ali
+
+## okay make a tree:
+
+nostocAlignment=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
+
+FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
+
+## get local for iTOL:
+
+getFile=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeTree.nwk
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## and look at in arb
+
 
 ################# nifH ########################
 
@@ -4823,8 +4915,6 @@ seqtk seq -l 0 reference_Ininbergs.fa
 ## how do we confirm that this has everything we need?
 ## he/she mentioned that there may be missing sequences,
 ## how can we find them?
-
-## stopped here oct2 2025
 
 ## problem is we can expect neither our sequences nor 
 ## accessions names to exactly match the names and 
