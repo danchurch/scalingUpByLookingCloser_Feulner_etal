@@ -3036,6 +3036,7 @@ cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
 
 wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
 
+
 ## try conversion to arb format:
 sina -i CyanoSeq_1.2.fasta -o CyanoSeq_1.2.arb --prealigned
 
@@ -3566,7 +3567,333 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 ## we have a bunch of new sequences from the cyanoseq folks. We can try 
 ## to make a tree with these. 
 
-## best to use a ssu-aware aligner. It's here:  
+########### new nostoc sequences from cyanoseq folks ###########
+
+## best to use a ssu-aware aligner. 
+## additional, curated sequences from cyanoseq, given to me 
+## because I complained they don't have enough Nostoc.
+## It's here:  
+ls /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases
+
+## question - better to place them on the existing cyanoseq tree, or 
+##            to do denovo tree?
+
+## my instinct is to hang them on the existing tree provided by
+## cyanoseq.
+## if it looks funny, then try a denovo tree. 
+
+## how to do this? 
+
+## add our consensus 16s seqs to their extra nostocs:
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoseq_plus
+
+## they're here:
+ls /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
+
+ls /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences
+
+cat \
+ /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta \
+ /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa |
+ seqtk seq -l 0 > cyanoseqExtraNostocs_ours.fa
+
+rm papara_log.Cyanoseq_with_ourMossNostocs
+TREE="/media/vol1/daniel/nostoc/16sTree/round2/CyanoSeq_1.2_tree_noNHX.nw"
+REF_MSA="/media/vol1/daniel/nostoc/16sTree/round2/CyanoSeq_1.2.phy"
+QRY="cyanoseqExtraNostocs_ours.fa"
+nohup papara -t $TREE -s $REF_MSA -q $QRY -r -n "Cyanoseq_with_ourMossNostocs" &
+
+## this gives us a phylip file with a new alignment:
+less papara_alignment.Cyanoseq_with_ourMossNostocs
+
+conda activate
+
+epa-ng --redo --split $REF_MSA papara_alignment.Cyanoseq_with_ourMossNostocs
+
+REF_MSA="reference.fasta"
+QRY="query.fasta"
+INFO="GTR+I+G4"
+OUT="."
+epa-ng \
+  --tree $TREE \
+  --ref-msa $REF_MSA \
+  --query $QRY \
+  --out-dir $OUT \
+  --redo \
+  --model $INFO
+
+mv epa_result.jplace cyanoseqPlusWithNostocConsensusPlacements.jplace
+
+## put in the repo:
+cp cyanoseqPlusWithNostocConsensusPlacements.jplace /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cyanseqTree_placements/ 
+
+## looking at the in iTol, it's not that useful. We need to incorporate the
+## extra reference sequences first, then use that as a new tree to 
+## hang our consensus seqs. 
+
+## redo the above, without the consensus seqs:
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoseq_plus
+
+conda activate epa-ng
+
+## make the new alignment with the extra nostoc sequences:
+
+TREE="/media/vol1/daniel/nostoc/16sTree/round2/CyanoSeq_1.2_tree_noNHX.nw"
+REF_MSA="/media/vol1/daniel/nostoc/16sTree/round2/CyanoSeq_1.2.phy"
+QRY=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
+nohup papara -t $TREE -s $REF_MSA -q $QRY -r -n "CyanoseqNostocPlus" &
+
+## make the new tree with the extra nostoc sequences:
+epa-ng --redo --split $REF_MSA papara_alignment.CyanoseqNostocPlus
+
+REF_MSA="reference.fasta"
+QRY="query.fasta"
+INFO="GTR+I+G4"
+OUT="."
+epa-ng \
+  --tree $TREE \
+  --ref-msa $REF_MSA \
+  --query $QRY \
+  --out-dir $OUT \
+  --redo \
+  --model $INFO
+
+mv epa_result.jplace cyanoseqPlus.jplace
+
+
+## we want to accept the placements and use this as a new tree. 
+## looks like we want gappa tools to do the conversion
+https://github.com/lczech/gappa/wiki/Subcommand:-graft
+
+#conda create -n gappa bioconda::gappa
+
+conda activate gappa
+
+gappa examine graft \
+  --jplace-path cyanoseqPlus.jplace \
+  --fully-resolve \
+  --log-file "gappaLog.txt" \
+  --threads 10
+
+## that worked, but to play around in arb we may need a fasta version
+## of the Phylip. 
+
+## formatting issues - dots in the phylip. Not sure what do...
+## leave it for the moment
+
+
+## for now can we use this and the papara phylip file for 
+## another cycles of placements, this time just our consensus seqs?:
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoseq_plus
+
+cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa |
+ seqtk seq -l 0 > our16SconsensusSeqs.fa
+
+## make alignment that includes our consensus sequences
+rm papara_log.CyanoseqNostocPlus_our16s
+TREE="cyanoseqPlus.newick"
+
+
+QRY="our16SconsensusSeqs.fa"
+papara -t $TREE -s $REF_MSA -q $QRY -r -n "CyanoseqNostocPlus_our16s" 
+
+conda activate epa-ng
+
+REF_MSA="papara_alignment.CyanoseqNostocPlus"
+epa-ng --redo --split $REF_MSA papara_alignment.CyanoseqNostocPlus_our16s
+
+## works. Now, hang our query sequences on the cyanoseqnostocPlus:
+
+INFO="GTR+I+G4"
+OUT="."
+epa-ng \
+  --tree $TREE \
+  --ref-msa "reference.fasta" \
+  --query "query.fasta" \
+  --out-dir $OUT \
+  --redo \
+  --model $INFO
+
+mv epa_result.jplace cyanoseqPlus_our16s.jplace
+
+cp cyanoseqPlus_our16s.jplace /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cyanseqTree_placements/ 
+
+cd /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/cyanseqTree_placements/ 
+
+## and that works, but looks really weird. I think trying to sneak two rounds of 
+## secondary placements didn't really work. 
+
+## so plan B was build a nostaceae / nostoc tree, include our 16s in it. 
+## but there is a middle ground we can try, SINA uses existing alignments
+## and isn't a "placement" program, it claims to produce rigorous 
+## 16s-sensitive new alignments that combine the old and new seqs. 
+
+## so try this with sina:
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoseq_plus
+
+## a long time ago above around line 3050, created an arb database from cyanseq
+## this is here:
+ls -l /media/vol1/daniel/nostoc/16sTree/cyanoSeq/CyanoSeq_1.2.arb
+
+
+## remake a combo fasta of the new cyanoseqNostocs and our consensus seqs:
+cat \
+ /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta \
+ /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa |
+ seqtk seq -l 0 > cyanoseqExtraNostocs_ours.fa
+
+## for testing, just our consensus seqs alone:
+cat \
+ /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa |
+ seqtk seq -l 0 > our16s.fa
+
+conda activate sina
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+sina \
+  -i /media/vol1/daniel/nostoc/16sTree/cyanoseq_plus/cyanoseqExtraNostocs_ours.fa \
+  -o cyanoseqExtraNostocsOur16S.afa \
+  --db CyanoSeq_1.2.arb &> log.txt
+
+## not working. Pertinent: https://github.com/epruesse/SINA/issues/110
+## what if we just use our seqs:
+
+sina \
+  -i  our16s.fa \
+  -o testOur16S.afa \
+  --db CyanoSeq_1.2.arb 
+
+## also basically a fail
+
+## might be a length issue. The cyanoseq alignment is 1460 bp per line
+## our seqs
+
+vim -M /media/vol1/daniel/nostoc/16sTree/cyanoseq_plus/cyanoseqExtraNostocs_ours.fa 
+## there are many (most?) that are longer. Perhaps this is the problem?
+
+
+grep WY1KK1_clone_4_EU586733.1
+
+grep WY1KK1_clone_4_EU586733.1 /media/vol1/daniel/nostoc/16sTree/cyanoSeq/CyanoSeq_1.2.fasta
+
+less /media/vol1/daniel/nostoc/16sTree/cyanoSeq/CyanoSeq_1.2.ARF
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq/
+
+## doesn't work, arb can't find sequences
+## ugh, nothing works.
+## what now?
+
+## can sina handle denovo alignments?
+
+sina \
+  -i cyanoseqExtraNostocs_ours.fa \
+  -o cyanoseqExtraNostocsOur16S.afa
+
+## nope.
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+## okay. Last resort, we align denovo
+
+## 1. the existing nostacaceae sequences from cyanoseq, 
+## 2. the new nostoc sequences from the cyanoseq fellows:
+## 3. our consensus sequences. 
+
+## 1. the existing nostacaceae sequences from cyanoseq...
+## cyanoseq 1.2 tree is here:
+
+ls /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+## question - are existing nostacaceae sequences from cyanoseq also in the
+## the "additional sequences" that were given to me?:
+
+grep -c MH598843 CyanoSeq_1.2* ## in there
+grep MH598843 NOSTOC_fromCyanoseqFolks.fasta ## not in there
+
+## so these are likely completely new sequences
+
+## we need an alignment and tree because we can't really estimate the 
+## bounds of nostocaceae otherwise
+
+cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
+
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
+
+arb ## select what I think is nostocaceae (also includes nodulariaceae??)
+
+## exports as RNA (formatted the original arb db as RNA, mistake)
+## sed??
+sed "/^[^>]/ s/U/T/g" nostocaceae_maybe.fasta |
+sed "/^[^>]/ s/ //g" | sed "/>/ s/ .*//g" |
+seqtk seq -l 0 > nostocaceae_maybe_cleaned.fa
+
+## this is saved here:
+cyanoseqNostocaceae=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/nostocaceae_maybe_cleaned.fa
+## 2. the new nostoc sequences from the cyanoseq fellows:
+extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
+## 3. our consensus sequences. They're in here: 
+ourSeqs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa
+
+## do the work here:
+cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
+
+cat $cyanoseqNostocaceae $extraNostocs $ourSeqs |
+seqtk seq -l 0 > seqs2alignNostocaceae.fa
+
+
+## looks like a gap "-" or two somehow made it into my consensus
+## sequence for ambylostegium nostoc 16S
+## removed it with sed:
+
+sed -i "/^[^>]/ s/-//g" seqs2alignNostocaceae.fa
+
+## also there is some weirdness in the nostoc file from the cyanoseq boys, 
+## removing it here:
+grep -A 1 MT514711.1 seqs2alignNostocaceae.fa | grep "MT.NSTCS.CCC.S.*"
+sed -i "s/MT\.NSTCS\.CCC.S.*//g" seqs2alignNostocaceae.fa
+
+## and in this sequence also:
+grep -A 1 KF718455 seqs2alignNostocaceae.fa | grep K\.NSTCS\.TGRAS\.DCYANB
+## removing it here
+sed -i "s/K\.NSTCS\.TGRAS\.DCYANB.*//g" seqs2alignNostocaceae.fa
+
+## and here
+grep -A 1 JQ776451 seqs2alignNostocaceae.fa | grep \.NCTRDCYANBACT
+## removing it here
+sed -i "s/\.NCTRDCYANBACT.*//g" seqs2alignNostocaceae.fa
+
+## and here
+grep -A 1 JF810611 seqs2alignNostocaceae.fa | grep .NSTCS.M.SSRBSMARNAGNAR
+sed -i "s/\.NSTCS\.M\.SSRBSMARNAGNAR.*//g" seqs2alignNostocaceae.fa
+
+## align with SSU-aligner
+conda activate ssu-align 
+
+nohup ssu-align -n bacteria seqs2alignNostocaceae.fa nostocaceaeCyanoseqPlusOurSeqs_ali &
+ssu-mask --pf 0.9999 --pt 0.9999 nostocaceaeCyanoseqPlusOurSeqs_ali
+ssu-mask --stk2afa nostocaceaeCyanoseqPlusOurSeqs_ali
+
+## okay make a tree:
+
+nostocAlignment=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
+
+FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
+
+## get local for iTOL:
+
+getFile=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeTree.nwk
+putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol/
+rsync -auv test@132.180.112.115:$getFile $putItHere
+
+## and look at in arb
+
 
 ################# nifH ########################
 
@@ -4588,8 +4915,6 @@ seqtk seq -l 0 reference_Ininbergs.fa
 ## how do we confirm that this has everything we need?
 ## he/she mentioned that there may be missing sequences,
 ## how can we find them?
-
-## stopped here oct2 2025
 
 ## problem is we can expect neither our sequences nor 
 ## accessions names to exactly match the names and 
