@@ -101,9 +101,10 @@ rownames(seqtab.nochim) <- c("S45","S46","S47")
 ## now we have OTUs (ASVs) and an otu table
 ## let's get taxonomic assignments:
 
+## for silva:
 path2silvaDB <- "/home/daniel/Documents/databases/silva/silva_nr99_v138.2_toGenus_trainset.fa"
-
 taxa <- assignTaxonomy(seqtab.nochim, path2silvaDB, multithread=TRUE)
+
 
 ps <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE), tax_table(taxa))
 
@@ -117,9 +118,12 @@ taxa_names(ps) <- paste0("ASV", seq(ntaxa(ps)))
 
 save(ps, file="../cyanoPS.rda")
 
+
+
 ## to start from here:
 
 R
+
 setwd("/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture")
 load(file="cyanoPS.rda")
 library(phyloseq)
@@ -250,6 +254,114 @@ with open('chloroplastBlastResults_highConf.txt', 'w') as save_file:
 rsync -aux daniel@132.180.113.114:/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/chloroplastBlastResults_highConf.txt \
      /home/daniel/Documents/projects/mossSymbiosis/nostoc/totalCyanoCommunity/
 
+
 ## send Romina the community matrix, the reference sequences fasta, and the blast results. And point her to this script. 
 
 
+############### note from 7.11.25 #########################
+## Romina has found an interesting database, PhytoRef (http://phytoref.sb-roscoff.fr/).
+## It hasn't been maintained in a while, but let's see it can also be used for identification
+## of these reads, since the vast majority of them are chloroplasts from eukaryotic algae. 
+## their github site was never finished and doesn't have the files it promises, but they have 
+## the above old-fashioned website with the fasta files
+
+## back on optiplex:
+cd /home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture
+
+## the closest thing they have to a dada2-formatted file for the assignTaxonmy function:
+wget http://phytoref.sb-roscoff.fr/static/downloads/PhytoRef_with_taxonomy.fasta
+
+## following https://benjjneb.github.io/dada2/training.html, we need to reformat a bit
+## we need to drop the unique ID numbers, trade the pipes for semicolons, and add a semicolon
+## at the end:
+
+sed "/^>/ s/[0-9].*Eukaryota/Eukaryota/" PhytoRef_with_taxonomy.fasta | sed "/^>/ s/|/;/g" | sed "/^>/ s/$/;/" > PhytoRef_dada2.fa
+
+## in R, we need to purge the old ps taxonomy assignments and replace assignments
+## resulting from this database...
+
+## moving over to R:
+
+## to reuse this ps object for phytoRef (see script above):
+library(Biostrings)
+library(phyloseq)
+library(dada2)
+
+load(file="cyanoPS.rda")
+
+otu_table
+
+ps 
+
+phytoRefTaxLevels <- c("Domain","Super-group","Phylum","Class","Subclass","Order","Suborder","Family","Genus","Species")
+phytoRefAssignments <- assignTaxonomy(refseq(ps),"PhytoRef_dada2.fa", taxLevels = phytoRefTaxLevels)
+
+taxa_names(ps)
+
+## just checking...order ok?
+names(phytoRefAssignments[1:2,1])
+refseq(ps)[1:2]
+names(phytoRefAssignments[595:596,1])
+refseq(ps)[595:596]
+
+## clean up rownames:
+rownames(phytoRefAssignments) <- names(rownames(phytoRefAssignments))
+
+## slide this in as our new taxa table:
+tax_table(ps) <- phytoRefAssignments
+
+## rename and save out
+psPhyto <- ps
+
+#save(psPhyto, file="phytoRefPS.rda")
+
+
+load(file="phytoRefPS.rda") ## our phytoref ps
+load(file="cyanoPS.rda") ## our silva identified ps
+
+## now Romina will need a "community matrix" and a taxonomy table, I think:
+
+
+rank_names(ps)
+rank_names(psPhyto)
+
+tax_table(ps)["ASV1",]
+tax_table(psPhyto)["ASV1",]
+
+## from this we see the problem that this will identify
+## things as chloroplasts that are not, because all non-chloroplast
+## 16s are not available in the phytoref database, and RDP
+## just finds the closest thing. Should have set a more stringent 
+## bootstrap? Not sure if this will help.
+
+## to be safe, let's remove everything that didn't originally 
+## id to cyanobacteria under silva:
+
+ps.cya <- subset_taxa(ps, Phylum=="Cyanobacteriota")
+
+psPhyto <- prune_taxa(taxa_names(ps.cya), psPhyto)
+
+## update:
+#save(psPhyto, file="phytoRefPS.rda")
+
+tax_table(ps.cya)["ASV17",] ## unidentified cyano with silva
+tax_table(psPhyto)["ASV17",] ## Klebsormidium flaccidum with phytoRef
+
+barplot(sort(taxa_sums(psPhyto), decreasing=TRUE))
+
+dev.new()
+
+plot_bar(psPhyto, fill = "Order") ## this is much more informational than above.
+
+
+## anyway, this is Romina's data...
+writeXStringSet(refseq(psPhyto), "/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/refSeqsChloroplasts.fa")
+write.csv(otu_table(psPhyto), file="chloroplast_read_abundances_from_mixedCultures_phytoRef.csv")
+write.csv(tax_table(psPhyto), file="taxAssignments_chloroplast_mixedCultures_phytoRef.csv")
+
+#getFile="refSeqsChloroplasts.fa"
+#getFile="chloroplast_read_abundances_from_mixedCultures_phytoRef.csv"
+getFile="taxAssignments_chloroplast_mixedCultures_phytoRef.csv"
+getDir=/home/daniel/Documents/projects/mossSymbiosis/cyanoMixedCulture/
+putHere=/home/daniel/Documents/projects/mossSymbiosis/nostoc/totalCyanoCommunity/
+rsync -aux daniel@132.180.113.114:${getDir}${getFile} $putHere
