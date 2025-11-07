@@ -3826,6 +3826,8 @@ cd /media/vol1/daniel/nostoc/16sTree/cyanoSeq
 wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2.fasta
 wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
 
+wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
+
 arb ## select what I think is nostocaceae (also includes nodulariaceae??)
 
 ## exports as RNA (formatted the original arb db as RNA, mistake)
@@ -3841,12 +3843,18 @@ extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatab
 ## 3. our consensus sequences. They're in here: 
 ourSeqs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa
 
+
 ## do the work here:
 cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 
 cat $cyanoseqNostocaceae $extraNostocs $ourSeqs |
 seqtk seq -l 0 > seqs2alignNostocaceae.fa
 
+## to find the source of a particular sequnce:
+iseq="172697"
+grep $iseq seqs2alignNostocaceae.fa
+grep $iseq $cyanoseqNostocaceae
+grep $iseq $extraNostocs
 
 ## looks like a gap "-" or two somehow made it into my consensus
 ## sequence for ambylostegium nostoc 16S
@@ -3873,26 +3881,96 @@ sed -i "s/\.NCTRDCYANBACT.*//g" seqs2alignNostocaceae.fa
 grep -A 1 JF810611 seqs2alignNostocaceae.fa | grep .NSTCS.M.SSRBSMARNAGNAR
 sed -i "s/\.NSTCS\.M\.SSRBSMARNAGNAR.*//g" seqs2alignNostocaceae.fa
 
+/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/
+## we need an outgroup... how about Scytonemataceae: e.g. - MH260366 Scytonema pachmarhiense
+
+## pull it out of their alignment:
+cyanseqs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/CyanoSeq_1.2.fasta
+grep -A25 MH260366 $cyanseqs | seqtk seq -l 0 | sed "/[^>]/ s/-//g" >> seqs2alignNostocaceae.fa
+
+## let's try spiking in some of the sequences vouched for by Friedl 
+## (https://sagdb.uni-goettingen.de/showstrains.php?allfields=&strain_number=&prev_name=&genus=Nostoc&division=&species=&class=&search=Show+strains)
+
+## here is a list of useful acessions from friedl:
+Nostoc caeruleum    52.79  KM019936
+Nostoc calcicola    1453-1 KM019926
+Nostoc insulare     54.79  KM019927
+Nostoc microscopicum 40.87 GQ287653
+Nostoc muscoru    1453-12b KM019938
+Nostoc parmelioides  58.79 KM019942
+Nostoc pruniforme   62.79  KM019941
+Nostoc punctiforme  65.79  DQ185255
+
+## most of these are already in our tree. Only KM019926 and KM019927 are not.
+## let's add these in, rerun the tree, keep these plus other interesting sequences 
+
+for i in KM019926 KM019927; do
+  echo $i 
+  esearch -db "Nucleotide" -query $i | 
+  efetch -format "fasta" | seqtk seq -l 0 >> seqs2alignNostocaceae.fa 
+done
+
+
+vim seqs2alignNostocaceae.fa
+
 ## align with SSU-aligner
 conda activate ssu-align 
 
-nohup ssu-align -n bacteria seqs2alignNostocaceae.fa nostocaceaeCyanoseqPlusOurSeqs_ali &
+ssu-align -n bacteria seqs2alignNostocaceae.fa nostocaceaeCyanoseqPlusOurSeqs_ali 
 ssu-mask --pf 0.9999 --pt 0.9999 nostocaceaeCyanoseqPlusOurSeqs_ali
 ssu-mask --stk2afa nostocaceaeCyanoseqPlusOurSeqs_ali
 
+
 ## okay make a tree:
+
+cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 
 nostocAlignment=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
 
 FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 
+ln -s $nostocAlignment nostocaceaeTree.afa
+
 ## get local for iTOL:
 
-getFile=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeTree.nwk
+getFile=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeTree.nwk
 putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol/
 rsync -auv test@132.180.112.115:$getFile $putItHere
 
 ## and look at in arb
+
+## good search term for finding ours: *nostoc_BC* and *Hylocom*
+
+## and it is now a mystery how to simplify this massive tree into something
+## useful. 
+
+## basically, we need a list of species we want to keep:
+## reads from Friedl
+## consensus seqs
+## Nostoc punctiform PCC 73102 or whatever its called
+## root: MH260366
+
+
+Nostoc caeruleum    52.79  KM019936
+Nostoc calcicola    1453-1 KM019926
+Nostoc insulare     54.79  KM019927
+Nostoc microscopicum 40.87 GQ287653
+Nostoc muscoru    1453-12b KM019938
+Nostoc parmelioides  58.79 KM019942
+Nostoc pruniforme   62.79  KM019941
+Nostoc punctiforme  65.79  DQ185255
+
+
+## there are large groups of cyanobacteria that do not contain our sequences
+## collapse them into polygons and find a theme for them?
+
+## multifurcate, using defaults of boostrap < 50
+## may increase this boostrap cutoff, let's see.
+
+## ugh, can't do much with this tree. 
+## let's try spiking in some of the sequences vouched for by Friedl 
+## (https://sagdb.uni-goettingen.de/showstrains.php?allfields=&strain_number=&prev_name=&genus=Nostoc&division=&species=&class=&search=Show+strains)
+
 
 
 ################# nifH ########################
