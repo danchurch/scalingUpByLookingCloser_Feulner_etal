@@ -3843,6 +3843,56 @@ extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatab
 ## 3. our consensus sequences. They're in here: 
 ourSeqs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa
 
+## there are two other interesting sequences I'd like to add, the 
+## 16s from 
+## 1 - the geosiphon endosymbiont
+## 2 - nostoc azollae (NC_014248.1)
+## but these are full genomes, we just want 16s. 
+## the 16s isn't annotated on the ncbi ref genomes. Try barrnap.
+## (https://github.com/tseemann/barrnap), using script from
+## https://github.com/Proelmocan23/pyriformis-metagenome/blob/main/Phylogenetic%20analysis/barrnap.sh
+
+### get 16s out geosiphon (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_037619055.1/)
+## can't seem to get the entrez commands working. Just do it point and click, and put 
+## here from my desktop:
+
+getFile=/home/daniel/Desktop/ncbi_dataset/data/GCF_037619055.1/GCF_037619055.1_ASM3761905v1_genomic.fna
+putHere=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
+rsync -auv $getFile test@132.180.112.115:$putHere
+
+conda create -n barrnap bioconda::barrnap
+conda activate barrnap 
+
+organism="geosiphonNostoc"
+genome=GCF_037619055.1_ASM3761905v1_genomic.fna
+barrnap  -k bac -o temp_16s.fa  < $genome 
+grep -A1 "^>16S_" temp_16s.fa > ${organism}_16s.fa && rm temp_16s.fa
+
+## I see three copies of 16s. Not sure which they used...two look almost 
+## identical, one is different. But all are probably nostoc...
+
+muscle5 -align geosiphonNostoc_16s.fa -output geosiphonNostoc_16s.afa 
+aliview geosiphonNostoc_16s.afa &
+
+## these are only 400 bp or so. 
+## Too messy, too short. Not useful for me. 
+## anyway, they authors mention that these sequences are pretty much identical to 
+## the PCC73102 cycad N. punctiforme strain, anyway
+
+## try same for  nostoc azollae 
+## (https://www.ncbi.nlm.nih.gov/nuccore/298489614)
+## (10.1371/journal.pone.0011486)
+
+esearch -db "Nucleotide" -query "NC_014248.1" | efetch -format "fasta" > NC_014248.fa
+
+organism="nostocAzollae"
+genome=NC_014248.fa
+barrnap  -k bac -o temp_16s.fa  < $genome 
+grep -A1 "^>16S_" temp_16s.fa > ${organism}_16s.fa && rm temp_16s.fa
+muscle5 -align ${organism}_16s.fa -output ${organism}_16s.afa 
+aliview ${organism}_16s.afa &
+## much better. 3 copies, all identical, all full length. 
+## add this to the alignment, also
 
 ## do the work here:
 cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
@@ -3910,16 +3960,31 @@ for i in KM019926 KM019927; do
   efetch -format "fasta" | seqtk seq -l 0 >> seqs2alignNostocaceae.fa 
 done
 
+grep -m1 -A1 "^>" nostocAzollae_16s.fa | sed "/^>/ s|>16S.*|>Nostoc_azollae_16s_NC_014248.1|" >> seqs2alignNostocaceae.fa 
 
-vim seqs2alignNostocaceae.fa
+## just to review, we included:
+## 1. cyanoseq basic tree v1.2, pruned to +/- nostocaceae
+## 2. new curated full 16s sequences from NCBI, provided to me by cyanoseq authors
+## 3. our consensus sequences of Nostoc from our mosses
+## 4. outgroup from full cyanoseq Tree - MH260366 Scytonema pachmarhiense
+## 5. two additional sequences of named, vetted Nostoc strains from Friedl's list that we didn't already have: KM019926 KM019927
+## 6. Nostoc azollae extracted from the recent genome sequencing effort
+
+vim seqs2alignNostocaceae.fa ## looks okay. Move it into the repo, this was a lot of work:
+
+cp seqs2alignNostocaceae.fa /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/seqs2align
+
+## work from that from now on:
+seqs2align=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/seqs2align/seqs2alignNostocaceae.fa
+
+
 
 ## align with SSU-aligner
 conda activate ssu-align 
 
-ssu-align -n bacteria seqs2alignNostocaceae.fa nostocaceaeCyanoseqPlusOurSeqs_ali 
+ssu-align -n bacteria $seqs2align nostocaceaeCyanoseqPlusOurSeqs_ali 
 ssu-mask --pf 0.9999 --pt 0.9999 nostocaceaeCyanoseqPlusOurSeqs_ali
 ssu-mask --stk2afa nostocaceaeCyanoseqPlusOurSeqs_ali
-
 
 ## okay make a tree:
 
@@ -3927,15 +3992,28 @@ cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 
 nostocAlignment=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
 
+less $nostocAlignment
+
 FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
+
+## hmm, turns out there are a lot of funny characters in our fasta to align. 
+## why?
+
+cyanoseqNostocaceae=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/nostocaceae_maybe_cleaned.fa
+extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
+ourSeqs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*.fa
+
+grep "S" $seqs2align ## one or two in there, in the sequence. 
+grep "Y" $cyanoseqNostocaceae ## cyanoseq base has some
+grep "Y" $extraNostocs ## yup, their extra 16s seqs too.
+grep "Y" $ourSeqs ## no
+
+## I'm not going to worry about it, they are not common and I think
+## fast tree is going to treat them as gaps or missing data. Fine.
 
 ln -s $nostocAlignment nostocaceaeTree.afa
 
 ## get local for iTOL:
-
-getFile=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeTree.nwk
-putItHere=/home/daniel/Documents/projects/mossSymbiosis/trees4itol/
-rsync -auv test@132.180.112.115:$getFile $putItHere
 
 ## and look at in arb
 
@@ -3944,32 +4022,63 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 ## and it is now a mystery how to simplify this massive tree into something
 ## useful. 
 
-## basically, we need a list of species we want to keep:
-## reads from Friedl
+## basically, we need a list of species we want to label:
+## reads from Friedl:
+##   Nostoc caeruleum    52.79  KM019936
+##   Nostoc calcicola    1453-1 KM019926
+##   Nostoc insulare     54.79  KM019927
+##   Nostoc microscopicum 40.87 GQ287653
+##   Nostoc muscoru    1453-12b KM019938
+##   Nostoc parmelioides  58.79 KM019942
+##   Nostoc pruniforme   62.79  KM019941
+##   Nostoc punctiforme  65.79  DQ185255
 ## consensus seqs
 ## Nostoc punctiform PCC 73102 or whatever its called
 ## root: MH260366
+## nostoc azollae: Nostoc_azollae_16s_NC_014248.1
 
-
-Nostoc caeruleum    52.79  KM019936
-Nostoc calcicola    1453-1 KM019926
-Nostoc insulare     54.79  KM019927
-Nostoc microscopicum 40.87 GQ287653
-Nostoc muscoru    1453-12b KM019938
-Nostoc parmelioides  58.79 KM019942
-Nostoc pruniforme   62.79  KM019941
-Nostoc punctiforme  65.79  DQ185255
-
+## multifurcate, using defaults of boostrap < 50 (may increase this boostrap cutoff, let's see)
 
 ## there are large groups of cyanobacteria that do not contain our sequences
-## collapse them into polygons and find a theme for them?
+## we will not label them, give them a color label based on symbiosis
 
-## multifurcate, using defaults of boostrap < 50
-## may increase this boostrap cutoff, let's see.
+## right now the unrooted tree has a nice aesthetic. 
+## I'd like to color by symbiosis (lichen, bryophyte? (only ours?), other plant, free-living)
 
-## ugh, can't do much with this tree. 
-## let's try spiking in some of the sequences vouched for by Friedl 
-## (https://sagdb.uni-goettingen.de/showstrains.php?allfields=&strain_number=&prev_name=&genus=Nostoc&division=&species=&class=&search=Show+strains)
+grep "^>" nostocaceaeTree.afa | sed "s|^>||" > symbiosis_temp.csv
+
+## edit this to make a list of accessions:
+
+vim symbiosis_temp.csv
+
+vim listAccessionNus.txt
+
+paste -d, listAccessionNus.txt symbiosis_temp.csv > symbiosis.csv
+
+rm symbiosis_temp.csv
+
+
+## to save some time, can we find the titles of the articles for these?:
+
+i="FM161350"
+
+esearch -db "Nucleotide" -query $i | efetch -format "abstract" | grep -m1 -A3 "TITLE"
+
+## do this for all of our sequences? This may be two ambitious. 
+## just "fade" the tips/branches not of interest. 
+
+## provide a full tree in supplementary materials that no one will ever
+## use. 
+
+## back to arb:
+## multifurcate with defaults
+## export one fully labeled and one clean, no bootstraps or labels:
+
+
+
+
+
+
 
 
 
@@ -5260,4 +5369,12 @@ https://plotly.com/python/alignment-chart/
 https://etetoolkit.org/ipython_notebook/
 https://github.com/etetoolkit/ete
 ## the last one, ete, looks like the best option, at first glance.
+
+
+
+abstract 
+bioc     
+medline  
+native   
+native   
 
