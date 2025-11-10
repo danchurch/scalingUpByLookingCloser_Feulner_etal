@@ -4032,7 +4032,10 @@ ln -s $nostocAlignment nostocaceaeTree.afa
 ##   Nostoc parmelioides  58.79 KM019942
 ##   Nostoc pruniforme   62.79  KM019941
 ##   Nostoc punctiforme  65.79  DQ185255
+
+## stopping here 10.11.25
 ## consensus seqs
+
 ## Nostoc punctiform PCC 73102 or whatever its called
 ## root: MH260366
 ## nostoc azollae: Nostoc_azollae_16s_NC_014248.1
@@ -4045,6 +4048,7 @@ ln -s $nostocAlignment nostocaceaeTree.afa
 ## right now the unrooted tree has a nice aesthetic. 
 ## I'd like to color by symbiosis (lichen, bryophyte? (only ours?), other plant, free-living)
 
+cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 grep "^>" nostocaceaeTree.afa | sed "s|^>||" > symbiosis_temp.csv
 
 ## edit this to make a list of accessions:
@@ -4074,8 +4078,15 @@ esearch -db "Nucleotide" -query $i | efetch -format "abstract" | grep -m1 -A3 "T
 ## multifurcate with defaults
 ## export one fully labeled and one clean, no bootstraps or labels:
 
+getFile=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceae_*Labels.svg
+putHere=/home/daniel/Documents/projects/mossSymbiosis/16sGraphic
+rsync -auv test@132.180.112.115:$getFile $putHere
 
+## find all the above sequences. place labels on these
 
+## find nearest neighbors of our consensus sequences
+
+## 
 
 
 
