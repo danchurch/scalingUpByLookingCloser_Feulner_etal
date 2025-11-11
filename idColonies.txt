@@ -4121,8 +4121,22 @@ rsync -auv test@132.180.112.115:$getFile $putHere
 
 ## 
 
+cyanoseqNostocaceae=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/nostocaceae_maybe_cleaned.fa
+extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
+#seq="MT174380"
+seq="Desmonostoc"
+grep $seq $cyanoseqNostocaceae
 
+grep $seq $extraNostocs
 
+## just realized we have a problem with desmonostoc. 
+## I don't want to try to fix it. I cannot enter into this
+## argument with the experts, I'm not qualified.
+##  I will remove all mentions of it in our pretty tree
+## tomorrow:
+## label "northern" clade, as mixed or something
+## find a way to characterize the home clade of the compactonostoc/zygodon and 
+## etc, etc. Label every clade that is clearly a nostoc.  
 
 
 
