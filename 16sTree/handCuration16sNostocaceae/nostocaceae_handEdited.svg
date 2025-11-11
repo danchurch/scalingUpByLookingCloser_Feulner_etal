@@ -29,15 +29,24 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
-     inkscape:zoom="3.5914489"
-     inkscape:cx="1112.9213"
-     inkscape:cy="179.1756"
+     inkscape:zoom="1.7957245"
+     inkscape:cx="1079.2302"
+     inkscape:cy="314.91468"
      inkscape:window-width="1280"
      inkscape:window-height="987"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1718" />
+  <path
+     style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#9999d1;fill-opacity:1;stroke:none;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+     d="m 14606.497,5834.9454 1923.41,1806.2186 1211.26,1432.2265 9.829,103.3502 -974.497,-844.7646 30.674,169.8089 831.962,1461.7035 245.617,514.8825 -163.959,-70.095 -1064.62,-1274.2733 z"
+     id="path1778"
+     sodipodi:nodetypes="ccccccccccc" />
+  <path
+     style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#9999d1;fill-opacity:1;stroke:none;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+     d="m 14445,5744.0003 840.755,2086.262 325.243,569.2775 790.133,1086.5287 1.591,-155.7031 -875.386,-1801.7386 -689.697,-1204.9761 z"
+     id="path1777" />
   <polyline
      points=" 0,0"
      stroke="#ffffff"
@@ -1919,102 +1928,123 @@
      id="polyline469"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 13243,4281 233,1709" />
+  <g
+     id="g1773"
+     inkscape:transform-center-x="65.285753"
+     inkscape:transform-center-y="289.60364"
+     transform="rotate(18.212857,13476,5990)">
+    <path
+       id="polyline471"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 13522,6463 3,31" />
+    <g
+       id="g1772">
+      <path
+         id="polyline470"
+         style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+         d="m 13476,5990 46,473" />
+      <path
+         id="polyline472"
+         style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+         d="m 13522,6463 11,118" />
+    </g>
+  </g>
   <path
-     id="polyline470"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13476,5990 46,473" />
-  <path
-     id="polyline471"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13522,6463 3,31" />
-  <path
-     id="polyline472"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13522,6463 11,118" />
+     style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#9999d1;fill-opacity:1;stroke:none;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+     d="m 13489.912,6037.2733 141.076,710.1891 96.4,71.6001 24.556,-148.3707 z"
+     id="path1775" />
   <path
      id="polyline473"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13476,5990 75,517" />
-  <path
-     id="polyline474"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13551,6507 4,34" />
+     d="m 13476,5990 147.487,501.1604" />
   <path
      id="polyline475"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 13551,6507" />
+     d="M 13623.487,6491.1604" />
   <path
      id="polyline476"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13551,6507 4,34" />
+     d="m 13623.487,6491.1604 -20.087,27.7217"
+     inkscape:transform-center-x="8.3245"
+     inkscape:transform-center-y="14.9566" />
   <path
      id="polyline477"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13551,6507 5,33" />
-  <path
-     id="polyline478"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13556,6540 4,32" />
+     d="m 13623.487,6491.1604 31.106,12.1"
+     inkscape:transform-center-x="-16.162"
+     inkscape:transform-center-y="4.1581" />
   <path
      id="polyline479"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13556,6540 5,32" />
-  <path
-     id="polyline480"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13561,6572 4,32" />
+     d="m 13632.508,6523.0521 -16.373,28.9152"
+     inkscape:transform-center-x="5.617875"
+     inkscape:transform-center-y="14.911117"
+     sodipodi:nodetypes="cc" />
   <path
      id="polyline481"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13561,6572 5,32" />
+     d="m 13641.453,6552.0653 -14.716,28.8516"
+     inkscape:transform-center-x="5.591"
+     inkscape:transform-center-y="15.1983" />
   <path
      id="polyline482"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13566,6604 4,31" />
+     inkscape:transform-center-x="-5.937"
+     inkscape:transform-center-y="14.45705"
+     d="m 13623.487,6491.1604 9.2,32.5244 9.413,30.4741 9.482,30.9688 8.847,30.0499 14.152,42.4228"
+     sodipodi:nodetypes="cccccc" />
   <path
      id="polyline483"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13566,6604 5,31" />
+     d="m 13651.517,6584.9038 -10.177,29.7058"
+     inkscape:transform-center-x="3.287"
+     inkscape:transform-center-y="15.35255" />
   <path
      id="polyline484"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13571,6635 5,32" />
-  <path
-     id="polyline485"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13571,6635 7,44" />
+     d="m 13661.283,6617.7379 -12.839,29.7344"
+     inkscape:transform-center-x="4.6065"
+     inkscape:transform-center-y="15.52495" />
   <path
      id="polyline486"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 13578,6679" />
+     d="M 13674.581,6657.6004" />
   <path
      id="polyline487"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13578,6679 7,45" />
+     d="m 13674.581,6657.6004 13.306,43.5545" />
   <path
      id="polyline488"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13578,6679 8,44" />
+     d="m 13674.581,6657.6004 14.153,42.4228" />
   <path
      id="polyline489"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13586,6723 5,32" />
+     d="m 13687.887,6701.1549 -6.717,31.6845"
+     inkscape:transform-center-x="3.3585"
+     inkscape:transform-center-y="15.84225" />
   <path
      id="polyline490"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13586,6723 5,32" />
+     d="m 13690.401,6698.5136 29.225,13.9619"
+     inkscape:transform-center-x="-18.0075"
+     inkscape:transform-center-y="6.024663" />
   <path
      id="polyline491"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 13578,6679" />
+     d="M 13674.581,6657.6004" />
   <path
      id="polyline492"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13578,6679 8,44" />
+     d="m 13675.895,6656.4317 41.297,17.1605"
+     inkscape:transform-center-x="-23.550093"
+     inkscape:transform-center-y="6.684486" />
   <path
      id="polyline493"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13578,6679 8,44" />
+     d="m 13674.581,6657.6004 -17.069,41.3358"
+     inkscape:transform-center-x="6.017"
+     inkscape:transform-center-y="21.53595" />
   <path
      id="polyline494"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -2750,6 +2780,10 @@
      id="polyline675"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 14390,5443 287,216" />
+  <path
+     style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#9999d1;fill-opacity:1;stroke:none;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
+     d="m 15019.5,5909.5003 1989.608,1676.8971 107.926,30.4728 18.37,-106.8133 -153.261,-142.6283 19.735,-145.7746 -414.121,-307.6216 z"
+     id="path1776" />
   <path
      id="polyline676"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -7545,4 +7579,48 @@
        style="font-style:normal;font-size:63.4964px;stroke-width:11.9056"
        x="10632.109"
        y="3061.8308">(Macrolichen symbiont)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="13613.062"
+     y="6909.3848"
+     id="text1775"><tspan
+       sodipodi:role="line"
+       id="tspan1775"
+       style="stroke-width:11.9056"
+       x="13613.062"
+       y="6909.3848">Anabaena</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="17098.74"
+     y="7426.0303"
+     id="text1719-93-2-9-3-7"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6-6"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="17098.74"
+       y="7426.0303">Tolypothrichaceae</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16391.889"
+     y="9544.9834"
+     id="text1719-93-2-9-3-7-5"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6-6-6"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16391.889"
+       y="9544.9834">Nodulariaceae</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="17558.486"
+     y="8650.0605"
+     id="text1719-93-2-9-3-7-9"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6-6-3"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="17558.486"
+       y="8650.0605">Aphanizomenonaceae</tspan></text>
 </svg>
