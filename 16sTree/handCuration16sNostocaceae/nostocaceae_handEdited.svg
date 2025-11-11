@@ -29,9 +29,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
-     inkscape:zoom="7.1828978"
-     inkscape:cx="957.27381"
-     inkscape:cy="237.16055"
+     inkscape:zoom="3.5914489"
+     inkscape:cx="1112.9213"
+     inkscape:cy="179.1756"
      inkscape:window-width="1280"
      inkscape:window-height="987"
      inkscape:window-x="0"
@@ -219,14 +219,6 @@
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 11139,2943 -103,15" />
   <path
-     id="polyline49"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11640,2892 -174,28" />
-  <path
-     id="polyline50"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11466,2920 -32,5" />
-  <path
      id="polyline51"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 11434,2925" />
@@ -234,10 +226,27 @@
      id="polyline52"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 11434,2925" />
-  <path
-     id="polyline53"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11466,2920 -78,13" />
+  <g
+     id="g1770"
+     inkscape:transform-center-x="96.805301"
+     inkscape:transform-center-y="72.467886"
+     transform="rotate(-15.404105,11640,2892)">
+    <path
+       id="polyline49"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11640,2892 -174,28" />
+    <path
+       id="polyline50"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11466,2920 -32.227,1.1526"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="polyline53"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11466,2920 -51.154,60.3013"
+       inkscape:transform-center-x="25.577"
+       inkscape:transform-center-y="30.15065" />
+  </g>
   <path
      id="polyline54"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -246,218 +255,224 @@
      id="polyline55"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 11858,2907" />
-  <path
-     id="polyline56"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11858,2907 -196,54" />
-  <path
-     id="polyline57"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11662,2961 -183,50" />
-  <path
-     id="polyline58"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11479,3011 -31,7" />
-  <path
-     id="polyline59"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11448,3018 -31,6" />
-  <path
-     id="polyline60"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11448,3018 -85,22" />
-  <path
-     id="polyline61"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11363,3040 -191,41" />
-  <path
-     id="polyline62"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11172,3081 -31,6" />
-  <path
-     id="polyline63"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11172,3081 -137,30" />
-  <path
-     id="polyline64"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11035,3111 -31,6" />
-  <path
-     id="polyline65"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11004,3117" />
-  <path
-     id="polyline66"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11004,3117" />
-  <path
-     id="polyline67"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11004,3117" />
-  <path
-     id="polyline68"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11004,3117" />
-  <path
-     id="polyline69"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11004,3117" />
-  <path
-     id="polyline70"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11004,3117" />
-  <path
-     id="polyline71"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11035,3111 -246,57" />
-  <path
-     id="polyline72"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10789,3168 -34,7" />
-  <path
-     id="polyline73"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 10755,3175" />
-  <path
-     id="polyline74"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 10755,3175" />
-  <path
-     id="polyline75"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 10789,3168" />
-  <path
-     id="polyline76"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10789,3168 -81,19" />
-  <path
-     id="polyline77"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10789,3168 -46,11" />
-  <path
-     id="polyline78"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11363,3040 -149,44" />
-  <path
-     id="polyline79"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11214,3084" />
-  <path
-     id="polyline80"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11214,3084 -64,18" />
-  <path
-     id="polyline81"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11150,3102 -221,61" />
-  <path
-     id="polyline82"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10929,3163 -187,47" />
-  <path
-     id="polyline83"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10929,3163 -38,11" />
-  <path
-     id="polyline84"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10891,3174 -30,8" />
-  <path
-     id="polyline85"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10861,3182 -111,30" />
-  <path
-     id="polyline86"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10750,3212 -174,46" />
-  <path
-     id="polyline87"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10576,3258 -42,11" />
-  <path
-     id="polyline88"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10576,3258 -31,8" />
-  <path
-     id="polyline89"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10750,3212 -46,13" />
-  <path
-     id="polyline90"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10704,3225 -31,8" />
-  <path
-     id="polyline91"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10704,3225 -31,9" />
-  <path
-     id="polyline92"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10861,3182 -33,10" />
-  <path
-     id="polyline93"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 10891,3174 -374,111" />
-  <path
-     id="polyline94"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11150,3102 -29,10" />
-  <path
-     id="polyline95"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11121,3112 -152,46" />
-  <path
-     id="polyline96"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11121,3112 -376,118" />
-  <path
-     id="polyline97"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11214,3084 -191,63" />
-  <path
-     id="polyline98"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11023,3147" />
-  <path
-     id="polyline99"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 11023,3147" />
-  <path
-     id="polyline100"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11214,3084 -153,52" />
-  <path
-     id="polyline101"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11479,3011 -157,56" />
-  <path
-     id="polyline102"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11322,3067 -30,10" />
-  <path
-     id="polyline103"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11322,3067 -78,28" />
-  <path
-     id="polyline104"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11244,3095 -30,11" />
-  <path
-     id="polyline105"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11244,3095 -239,88" />
-  <path
-     id="polyline106"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11005,3183 -30,11" />
-  <path
-     id="polyline107"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11005,3183 -30,11" />
-  <path
-     id="polyline108"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11662,2961 -30,11" />
+  <g
+     id="g1729"
+     inkscape:transform-center-x="523.03348"
+     inkscape:transform-center-y="460.13827"
+     transform="rotate(-25.597637,11858,2907)">
+    <path
+       id="polyline56"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11858,2907 -196,54" />
+    <path
+       id="polyline57"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11662,2961 -183,50" />
+    <path
+       id="polyline58"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11479,3011 -31,7" />
+    <path
+       id="polyline59"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11448,3018 -31,6" />
+    <path
+       id="polyline60"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11448,3018 -85,22" />
+    <path
+       id="polyline61"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11363,3040 -191,41" />
+    <path
+       id="polyline62"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11172,3081 -31,6" />
+    <path
+       id="polyline63"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11172,3081 -137,30" />
+    <path
+       id="polyline64"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11035,3111 -31,6" />
+    <path
+       id="polyline65"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11004,3117" />
+    <path
+       id="polyline66"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11004,3117" />
+    <path
+       id="polyline67"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11004,3117" />
+    <path
+       id="polyline68"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11004,3117" />
+    <path
+       id="polyline69"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11004,3117" />
+    <path
+       id="polyline70"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11004,3117" />
+    <path
+       id="polyline71"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11035,3111 -246,57" />
+    <path
+       id="polyline72"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10789,3168 -34,7" />
+    <path
+       id="polyline73"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 10755,3175" />
+    <path
+       id="polyline74"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 10755,3175" />
+    <path
+       id="polyline75"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 10789,3168" />
+    <path
+       id="polyline76"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10789,3168 -81,19" />
+    <path
+       id="polyline77"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10789,3168 -46,11" />
+    <path
+       id="polyline78"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11363,3040 -149,44" />
+    <path
+       id="polyline79"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11214,3084" />
+    <path
+       id="polyline80"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11214,3084 -64,18" />
+    <path
+       id="polyline81"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11150,3102 -221,61" />
+    <path
+       id="polyline82"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10929,3163 -187,47" />
+    <path
+       id="polyline83"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10929,3163 -38,11" />
+    <path
+       id="polyline84"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10891,3174 -30,8" />
+    <path
+       id="polyline85"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10861,3182 -111,30" />
+    <path
+       id="polyline86"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10750,3212 -174,46" />
+    <path
+       id="polyline87"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10576,3258 -42,11" />
+    <path
+       id="polyline88"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10576,3258 -31,8" />
+    <path
+       id="polyline89"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10750,3212 -46,13" />
+    <path
+       id="polyline90"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10704,3225 -31,8" />
+    <path
+       id="polyline91"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10704,3225 -31,9" />
+    <path
+       id="polyline92"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10861,3182 -33,10" />
+    <path
+       id="polyline93"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 10891,3174 -374,111" />
+    <path
+       id="polyline94"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11150,3102 -29,10" />
+    <path
+       id="polyline95"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11121,3112 -152,46" />
+    <path
+       id="polyline96"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11121,3112 -376,118" />
+    <path
+       id="polyline97"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11214,3084 -191,63" />
+    <path
+       id="polyline98"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11023,3147" />
+    <path
+       id="polyline99"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 11023,3147" />
+    <path
+       id="polyline100"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11214,3084 -153,52" />
+    <path
+       id="polyline101"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11479,3011 -157,56" />
+    <path
+       id="polyline102"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11322,3067 -30,10" />
+    <path
+       id="polyline103"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11322,3067 -78,28" />
+    <path
+       id="polyline104"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11244,3095 -30,11" />
+    <path
+       id="polyline105"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11244,3095 -239,88" />
+    <path
+       id="polyline106"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11005,3183 -30,11" />
+    <path
+       id="polyline107"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11005,3183 -30,11" />
+    <path
+       id="polyline108"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 11662,2961 -30,11" />
+  </g>
   <path
      id="polyline109"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -2548,11 +2563,13 @@
   <path
      id="polyline629"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15688,7310 580,742" />
+     d="m 15688,7310 690.666,641.8845"
+     sodipodi:nodetypes="cc" />
   <path
      id="polyline630"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15688,7310 134,169" />
+     d="m 15688,7310 124.531,135.6168"
+     sodipodi:nodetypes="cc" />
   <path
      id="polyline631"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -2913,58 +2930,64 @@
      id="polyline720"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 14385,5193 275,149" />
-  <path
-     id="polyline721"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14660,5342 232,139" />
-  <path
-     id="polyline722"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14892,5481 355,219" />
-  <path
-     id="polyline723"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15247,5700 391,247" />
-  <path
-     id="polyline724"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15247,5700 363,223" />
-  <path
-     id="polyline725"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15610,5923 1267,784" />
-  <path
-     id="polyline726"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15610,5923 249,152" />
-  <path
-     id="polyline727"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14892,5481 69,40" />
-  <path
-     id="polyline728"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14961,5521 131,78" />
-  <path
-     id="polyline729"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15092,5599 413,247" />
-  <path
-     id="polyline730"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15092,5599 1111,654" />
-  <path
-     id="polyline731"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14961,5521 92,53" />
-  <path
-     id="polyline732"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15053,5574 247,143" />
-  <path
-     id="polyline733"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15053,5574 679,386" />
+  <g
+     id="g1730"
+     inkscape:transform-center-x="-1035.9831"
+     inkscape:transform-center-y="788.2369"
+     transform="rotate(5.6455338,14660,5342)">
+    <path
+       id="polyline721"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14660,5342 232,139" />
+    <path
+       id="polyline722"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14892,5481 355,219" />
+    <path
+       id="polyline723"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15247,5700 391,247" />
+    <path
+       id="polyline724"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15247,5700 363,223" />
+    <path
+       id="polyline725"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15610,5923 1267,784" />
+    <path
+       id="polyline726"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15610,5923 249,152" />
+    <path
+       id="polyline727"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14892,5481 69,40" />
+    <path
+       id="polyline728"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14961,5521 131,78" />
+    <path
+       id="polyline729"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15092,5599 413,247" />
+    <path
+       id="polyline730"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15092,5599 1111,654" />
+    <path
+       id="polyline731"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14961,5521 92,53" />
+    <path
+       id="polyline732"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15053,5574 247,143" />
+    <path
+       id="polyline733"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15053,5574 679,386" />
+  </g>
   <path
      id="polyline734"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -2988,47 +3011,75 @@
   <path
      id="polyline739"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15963,6038 504,282" />
-  <path
-     id="polyline740"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15963,6038 81,44" />
-  <path
-     id="polyline741"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 16044,6082 125,69" />
-  <path
-     id="polyline742"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 16044,6082 88,48" />
+     d="m 15963,6038 442.191,335.4238"
+     sodipodi:nodetypes="cc" />
+  <g
+     id="g1736"
+     inkscape:transform-center-x="-111.68184"
+     inkscape:transform-center-y="27.632862"
+     transform="rotate(-16.939066,15963,6038)">
+    <path
+       id="polyline740"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15963,6038 81,44" />
+    <path
+       id="polyline741"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 16044,6082 113.747,83.2187"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="polyline742"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 16044,6082 100.234,1.0653"
+       inkscape:transform-center-x="-50.117"
+       inkscape:transform-center-y="0.53265" />
+  </g>
   <path
      id="polyline743"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15550,5811 1290,685" />
+     d="m 15550.642,5810.2323 1420.857,338.3674"
+     inkscape:transform-center-x="-710.42804"
+     inkscape:transform-center-y="169.18373" />
   <path
      id="polyline744"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15385,5721 403,208" />
-  <path
-     id="polyline745"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15788,5929 29,15" />
-  <path
-     id="polyline746"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15788,5929 29,15" />
-  <path
-     id="polyline747"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15211,5627 587,293" />
-  <path
-     id="polyline748"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15798,5920 28,14" />
-  <path
-     id="polyline749"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15798,5920 39,19" />
+     d="m 15385,5721 441.358,104.287"
+     inkscape:transform-center-x="-220.679"
+     inkscape:transform-center-y="52.1435" />
+  <g
+     id="g1735"
+     transform="translate(38.358,-103.713)">
+    <path
+       id="polyline745"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15788,5929 29,15" />
+    <path
+       id="polyline746"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15787.943,5929.2215 32.639,0.8211"
+       inkscape:transform-center-x="-15.809375"
+       inkscape:transform-center-y="0.397675" />
+  </g>
+  <g
+     id="g1734"
+     inkscape:transform-center-x="-342.74408"
+     inkscape:transform-center-y="66.438654"
+     transform="rotate(-15.381562,15211,5627)">
+    <path
+       id="polyline747"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15211,5627 587,293" />
+    <path
+       id="polyline748"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15798,5920 28,14" />
+    <path
+       id="polyline749"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 15798,5920 43.382,-0.1173"
+       inkscape:transform-center-x="-21.691"
+       inkscape:transform-center-y="-0.05865" />
+  </g>
   <path
      id="polyline750"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -3036,87 +3087,111 @@
   <path
      id="polyline751"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15026,5523 602,291" />
+     d="m 15026,5523 665.389,65.8928"
+     inkscape:transform-center-x="-332.6945"
+     inkscape:transform-center-y="32.9464" />
   <path
      id="polyline752"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15026,5523 479,223" />
+     d="m 15026,5523 520.806,89.057" />
   <path
      id="polyline753"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15505,5746 847,403" />
+     d="m 15546.806,5612.057 923.208,165.847" />
   <path
      id="polyline754"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15505,5746 314,146" />
+     d="m 15546.806,5612.057 341.357,58.2025" />
   <path
      id="polyline755"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15819,5892 40,18" />
+     d="m 15888.163,5670.2595 36.688,24.0403"
+     inkscape:transform-center-x="-18.344"
+     inkscape:transform-center-y="12.02015" />
   <path
      id="polyline756"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 15819,5892 72,32" />
-  <path
-     id="polyline757"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14385,5193 261,113" />
-  <path
-     id="polyline758"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14646,5306 344,151" />
-  <path
-     id="polyline759"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14990,5457 897,403" />
-  <path
-     id="polyline760"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14990,5457 1702,742" />
-  <path
-     id="polyline761"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 16692,6199 929,409" />
-  <path
-     id="polyline762"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 16692,6199 467,202" />
-  <path
-     id="polyline763"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14646,5306 234,98" />
-  <path
-     id="polyline764"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14880,5404 416,176" />
-  <path
-     id="polyline765"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14880,5404 864,358" />
-  <path
-     id="polyline766"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14028,5009 122,49" />
-  <path
-     id="polyline767"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14150,5058 87,35" />
-  <path
-     id="polyline768"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 14150,5058 273,108" />
-  <path
-     id="polyline769"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13534,4541 181,70" />
-  <path
-     id="polyline770"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13715,4611 2327,904" />
-  <path
-     id="polyline771"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13715,4611 1243,472" />
+     d="m 15888.163,5670.2595 76.833,-17.4553"
+     inkscape:transform-center-x="-38.4165"
+     inkscape:transform-center-y="-8.72765" />
+  <g
+     id="g1731"
+     inkscape:transform-center-x="-1748.7944"
+     inkscape:transform-center-y="245.35346"
+     transform="rotate(-15.63184,14385,5193)">
+    <path
+       id="polyline757"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14385,5193 261,113" />
+    <path
+       id="polyline758"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14646,5306 344,151" />
+    <path
+       id="polyline759"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14990,5457 897,403" />
+    <path
+       id="polyline760"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14990,5457 1702,742" />
+    <path
+       id="polyline761"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 16692,6199 929,409" />
+    <path
+       id="polyline762"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 16692,6199 467,202" />
+    <path
+       id="polyline763"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14646,5306 234,98" />
+    <path
+       id="polyline764"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14880,5404 416,176" />
+    <path
+       id="polyline765"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14880,5404 864,358" />
+  </g>
+  <g
+     id="g1732"
+     inkscape:transform-center-x="-212.46835"
+     inkscape:transform-center-y="5.0696473"
+     transform="rotate(-20.309396,14028,5009)">
+    <path
+       id="polyline766"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14028,5009 122,49" />
+    <path
+       id="polyline767"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14150,5058 87,35" />
+    <path
+       id="polyline768"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 14150,5058 273,108" />
+  </g>
+  <g
+     id="g1733"
+     inkscape:transform-center-x="-1318.1881"
+     inkscape:transform-center-y="268.44951"
+     transform="rotate(-9.7131443,13534,4541)">
+    <path
+       id="polyline769"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 13534,4541 181,70" />
+    <path
+       id="polyline770"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 13715,4611 2327,904" />
+    <path
+       id="polyline771"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 13715,4611 1243,472" />
+  </g>
   <path
      id="polyline772"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -3461,8 +3536,10 @@
   <path
      id="polyline857"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13965.692,3682.7787 28.541,10.8519"
-     sodipodi:nodetypes="cc" />
+     d="m 13965.692,3682.7787 15.547,26.28"
+     sodipodi:nodetypes="cc"
+     inkscape:transform-center-x="-7.7735"
+     inkscape:transform-center-y="13.14" />
   <path
      id="polyline858"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -4358,349 +4435,415 @@
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 11858,2907" />
   <path
-     id="polyline1081"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11858,2907 87,-89" />
-  <path
-     id="polyline1082"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11858,2907 151,-215" />
-  <path
-     id="polyline1083"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12009,2692 55,-58" />
-  <path
-     id="polyline1084"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12064,2634 107,-112" />
-  <path
-     id="polyline1085"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12064,2634 21,-23" />
-  <path
-     id="polyline1086"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12085,2611 353,-371" />
-  <path
-     id="polyline1087"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12085,2611 242,-260" />
-  <path
-     id="polyline1088"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12327,2351 22,-24" />
-  <path
-     id="polyline1089"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12327,2351 22,-24" />
-  <path
      id="polyline1090"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12009,2692" />
-  <path
-     id="polyline1091"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12009,2692 412,-514" />
-  <path
-     id="polyline1092"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12421,2178 21,-24" />
-  <path
-     id="polyline1093"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12442,2154 299,-328" />
-  <path
-     id="polyline1094"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12442,2154 21,-23" />
-  <path
-     id="polyline1095"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12463,2131 21,-24" />
-  <path
-     id="polyline1096"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12463,2131 21,-24" />
-  <path
-     id="polyline1097"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12421,2178 221,-283" />
-  <path
-     id="polyline1098"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12642,1895 93,-108" />
-  <path
-     id="polyline1099"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12735,1787 20,-23" />
-  <path
-     id="polyline1100"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12735,1787 114,-134" />
-  <path
-     id="polyline1101"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12849,1653 31,-36" />
-  <path
-     id="polyline1102"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12849,1653 20,-24" />
-  <path
-     id="polyline1103"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12642,1895 46,-60" />
-  <path
-     id="polyline1104"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12688,1835 153,-188" />
-  <path
-     id="polyline1105"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12841,1647 78,-95" />
-  <path
-     id="polyline1106"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12919,1552 21,-24" />
-  <path
-     id="polyline1107"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12919,1552 20,-24" />
-  <path
-     id="polyline1108"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12841,1647 238,-297" />
-  <path
-     id="polyline1109"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13079,1350 20,-25" />
-  <path
-     id="polyline1110"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13079,1350 19,-24" />
-  <path
-     id="polyline1111"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12688,1835 26,-34" />
-  <path
-     id="polyline1112"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12714,1801 110,-141" />
-  <path
-     id="polyline1113"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12714,1801 128,-175" />
-  <path
-     id="polyline1114"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12842,1626 273,-356" />
-  <path
-     id="polyline1115"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13115,1270 313,-406" />
-  <path
-     id="polyline1116"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 13115,1270 290,-382" />
-  <path
-     id="polyline1117"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12842,1626" />
-  <path
-     id="polyline1118"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12842,1626 115,-154" />
-  <path
-     id="polyline1119"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12842,1626" />
-  <path
-     id="polyline1120"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12842,1626" />
-  <path
-     id="polyline1121"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12842,1626 80,-109" />
-  <path
-     id="polyline1122"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12922,1517 26,-35" />
-  <path
-     id="polyline1123"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12922,1517 19,-26" />
-  <path
-     id="polyline1124"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12842,1626 21,-29" />
-  <path
-     id="polyline1125"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12842,1626 21,-29" />
-  <path
-     id="polyline1126"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12009,2692 21,-35" />
-  <path
-     id="polyline1127"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12030,2657 151,-220" />
-  <path
-     id="polyline1128"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12181,2437 18,-26" />
-  <path
-     id="polyline1129"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12181,2437 18,-26" />
-  <path
-     id="polyline1130"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12030,2657 81,-140" />
-  <path
-     id="polyline1131"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12111,2517 41,-65" />
-  <path
-     id="polyline1132"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12152,2452 68,-102" />
-  <path
-     id="polyline1133"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12152,2452 140,-223" />
-  <path
-     id="polyline1134"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12292,2229 102,-155" />
-  <path
-     id="polyline1135"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12292,2229 73,-117" />
-  <path
-     id="polyline1136"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12365,2112 170,-261" />
-  <path
-     id="polyline1137"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12365,2112 145,-235" />
-  <path
-     id="polyline1138"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12510,1877 28,-43" />
   <path
      id="polyline1139"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12510,1877" />
   <path
-     id="polyline1140"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12510,1877 21,-32" />
-  <path
      id="polyline1141"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12510,1877" />
-  <path
-     id="polyline1142"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12510,1877 28,-44" />
   <path
      id="polyline1143"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12510,1877" />
   <path
-     id="polyline1144"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12510,1877 20,-32" />
-  <path
-     id="polyline1145"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12510,1877 49,-81" />
-  <path
-     id="polyline1146"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12111,2517 36,-67" />
-  <path
-     id="polyline1147"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12147,2450 30,-53" />
-  <path
-     id="polyline1148"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12177,2397 60,-107" />
-  <path
-     id="polyline1149"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12237,2290 45,-76" />
-  <path
-     id="polyline1150"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12282,2214 271,-462" />
-  <path
-     id="polyline1151"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12282,2214 143,-248" />
-  <path
-     id="polyline1152"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12237,2290 29,-52" />
-  <path
-     id="polyline1153"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12266,2238 16,-28" />
-  <path
-     id="polyline1154"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12266,2238 14,-26" />
-  <path
-     id="polyline1155"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12280,2212 54,-97" />
-  <path
-     id="polyline1156"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12280,2212 23,-42" />
-  <path
-     id="polyline1157"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12303,2170 190,-345" />
-  <path
-     id="polyline1158"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12303,2170 103,-190" />
-  <path
-     id="polyline1159"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12177,2397 183,-345" />
-  <path
      id="polyline1160"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12147,2450" />
-  <path
-     id="polyline1161"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12147,2450 28,-55" />
-  <path
-     id="polyline1162"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12175,2395 22,-42" />
-  <path
-     id="polyline1163"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12197,2353 239,-459" />
-  <path
-     id="polyline1164"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12197,2353 14,-28" />
-  <path
-     id="polyline1165"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12175,2395 156,-310" />
-  <path
-     id="polyline1166"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12147,2450 277,-561" />
+  <g
+     id="g1759"
+     inkscape:transform-center-x="-1053.207"
+     inkscape:transform-center-y="-741.91802"
+     transform="rotate(17.296239,11858,2907)">
+    <path
+       id="polyline1138"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12510,1877 28,-43" />
+    <g
+       id="g1758">
+      <path
+         id="polyline1140"
+         style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+         d="m 12510,1877 21,-32" />
+      <g
+         id="g1757">
+        <path
+           id="polyline1156"
+           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+           d="m 12280,2212 23,-42" />
+      </g>
+      <g
+         id="g1756">
+        <path
+           id="polyline1142"
+           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+           d="m 12510,1877 28,-44" />
+        <path
+           id="polyline1149"
+           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+           d="m 12237,2290 45,-76" />
+        <path
+           id="polyline1151"
+           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+           d="m 12282,2214 143,-248" />
+        <path
+           id="polyline1153"
+           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+           d="m 12266,2238 16,-28" />
+        <path
+           id="polyline1155"
+           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+           d="m 12280,2212 54,-97" />
+        <g
+           id="g1755">
+          <path
+             id="polyline1144"
+             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+             d="m 12510,1877 20,-32" />
+          <path
+             id="polyline1148"
+             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+             d="m 12177,2397 60,-107" />
+          <path
+             id="polyline1150"
+             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+             d="m 12282,2214 271,-462" />
+          <path
+             id="polyline1152"
+             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+             d="m 12237,2290 29,-52" />
+          <path
+             id="polyline1154"
+             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+             d="m 12266,2238 14,-26" />
+          <g
+             id="g1754">
+            <path
+               id="polyline1136"
+               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+               d="m 12365,2112 170,-261" />
+            <path
+               id="polyline1147"
+               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+               d="m 12147,2450 30,-53" />
+            <path
+               id="polyline1157"
+               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+               d="m 12303,2170 190,-345" />
+            <path
+               id="polyline1159"
+               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+               d="m 12177,2397 183,-345" />
+            <g
+               id="g1753">
+              <path
+                 id="polyline1132"
+                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                 d="m 12152,2452 68,-102" />
+              <path
+                 id="polyline1134"
+                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                 d="m 12292,2229 102,-155" />
+              <path
+                 id="polyline1137"
+                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                 d="m 12365,2112 145,-235" />
+              <path
+                 id="polyline1145"
+                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                 d="m 12510,1877 49,-81" />
+              <path
+                 id="polyline1163"
+                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                 d="m 12197,2353 239,-459" />
+              <path
+                 id="polyline1164"
+                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                 d="m 12197,2353 14,-28" />
+              <g
+                 id="g1752">
+                <path
+                   id="polyline1131"
+                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                   d="m 12111,2517 41,-65" />
+                <path
+                   id="polyline1133"
+                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                   d="m 12152,2452 140,-223" />
+                <path
+                   id="polyline1135"
+                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                   d="m 12292,2229 73,-117" />
+                <path
+                   id="polyline1158"
+                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                   d="m 12303,2170 103,-190" />
+                <path
+                   id="polyline1161"
+                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                   d="m 12147,2450 28,-55" />
+                <path
+                   id="polyline1162"
+                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                   d="m 12175,2395 22,-42" />
+                <g
+                   id="g1751">
+                  <path
+                     id="polyline1126"
+                     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                     d="m 12009,2692 21,-35" />
+                  <g
+                     id="g1750">
+                    <path
+                       id="polyline1081"
+                       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                       d="m 11858,2907 87,-89" />
+                    <path
+                       id="polyline1082"
+                       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                       d="m 11858,2907 151,-215" />
+                    <g
+                       id="g1749">
+                      <path
+                         id="polyline1128"
+                         style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                         d="m 12181,2437 18,-26" />
+                      <g
+                         id="g1748">
+                        <path
+                           id="polyline1083"
+                           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                           d="m 12009,2692 55,-58" />
+                        <g
+                           id="g1747">
+                          <path
+                             id="polyline1084"
+                             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                             d="m 12064,2634 107,-112" />
+                          <path
+                             id="polyline1085"
+                             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                             d="m 12064,2634 21,-23" />
+                          <path
+                             id="polyline1088"
+                             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                             d="m 12327,2351 22,-24" />
+                          <g
+                             id="g1746">
+                            <path
+                               id="polyline1087"
+                               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                               d="m 12085,2611 242,-260" />
+                            <path
+                               id="polyline1089"
+                               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                               d="m 12327,2351 22,-24" />
+                            <path
+                               id="polyline1092"
+                               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                               d="m 12421,2178 21,-24" />
+                            <path
+                               id="polyline1094"
+                               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                               d="m 12442,2154 21,-23" />
+                            <path
+                               id="polyline1095"
+                               style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                               d="m 12463,2131 21,-24" />
+                            <g
+                               id="g1745">
+                              <path
+                                 id="polyline1086"
+                                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                 d="m 12085,2611 353,-371" />
+                              <path
+                                 id="polyline1091"
+                                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                 d="m 12009,2692 412,-514" />
+                              <path
+                                 id="polyline1096"
+                                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                 d="m 12463,2131 21,-24" />
+                              <path
+                                 id="polyline1097"
+                                 style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                 d="m 12421,2178 221,-283" />
+                              <g
+                                 id="g1744">
+                                <path
+                                   id="polyline1093"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12442,2154 299,-328" />
+                                <path
+                                   id="polyline1098"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12642,1895 93,-108" />
+                                <path
+                                   id="polyline1099"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12735,1787 20,-23" />
+                                <path
+                                   id="polyline1103"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12642,1895 46,-60" />
+                                <path
+                                   id="polyline1111"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12688,1835 26,-34" />
+                                <g
+                                   id="g1743">
+                                <path
+                                   id="polyline1100"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12735,1787 114,-134" />
+                                <path
+                                   id="polyline1101"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12849,1653 31,-36" />
+                                <path
+                                   id="polyline1104"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12688,1835 153,-188" />
+                                <path
+                                   id="polyline1112"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12714,1801 110,-141" />
+                                <g
+                                   id="g1742">
+                                <g
+                                   id="g1740">
+                                <path
+                                   id="polyline1102"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12849,1653 20,-24" />
+                                <path
+                                   id="polyline1105"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12841,1647 78,-95" />
+                                <path
+                                   id="polyline1107"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12919,1552 20,-24" />
+                                <path
+                                   id="polyline1113"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12714,1801 128,-175" />
+                                <g
+                                   id="g1739">
+                                <path
+                                   id="polyline1108"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12841,1647 238,-297" />
+                                <path
+                                   id="polyline1109"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 13079,1350 20,-25" />
+                                <path
+                                   id="polyline1110"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 13079,1350 19,-24" />
+                                <path
+                                   id="polyline1114"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12842,1626 273,-356" />
+                                <path
+                                   id="polyline1115"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 13115,1270 313,-406" />
+                                <path
+                                   id="polyline1116"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 13115,1270 290,-382" />
+                                </g>
+                                <path
+                                   id="polyline1121"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12842,1626 80,-109" />
+                                </g>
+                                <g
+                                   id="g1741">
+                                <path
+                                   id="polyline1106"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12919,1552 21,-24" />
+                                <path
+                                   id="polyline1117"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="M 12842,1626" />
+                                <path
+                                   id="polyline1118"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12842,1626 115,-154" />
+                                <path
+                                   id="polyline1119"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="M 12842,1626" />
+                                <path
+                                   id="polyline1120"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="M 12842,1626" />
+                                <path
+                                   id="polyline1122"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12922,1517 26,-35" />
+                                <path
+                                   id="polyline1123"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12922,1517 19,-26" />
+                                <path
+                                   id="polyline1124"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12842,1626 21,-29" />
+                                <path
+                                   id="polyline1125"
+                                   style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                                   d="m 12842,1626 21,-29" />
+                                </g>
+                                </g>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <path
+                             id="polyline1127"
+                             style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                             d="m 12030,2657 151,-220" />
+                        </g>
+                        <path
+                           id="polyline1129"
+                           style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                           d="m 12181,2437 18,-26" />
+                      </g>
+                    </g>
+                  </g>
+                  <path
+                     id="polyline1130"
+                     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                     d="m 12030,2657 81,-140" />
+                  <path
+                     id="polyline1146"
+                     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                     d="m 12111,2517 36,-67" />
+                  <path
+                     id="polyline1165"
+                     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                     d="m 12175,2395 156,-310" />
+                  <path
+                     id="polyline1166"
+                     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+                     d="m 12147,2450 277,-561" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
   <path
      id="polyline1167"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -4710,49 +4853,9 @@
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 11815,2845 -40,-78" />
   <path
-     id="polyline1169"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11775,2767 13,-37" />
-  <path
-     id="polyline1170"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11788,2730 172,-416" />
-  <path
-     id="polyline1171"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11960,2314 77,-159" />
-  <path
-     id="polyline1172"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11960,2314 51,-123" />
-  <path
-     id="polyline1173"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12011,2191 72,-169" />
-  <path
      id="polyline1174"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12083,2022" />
-  <path
-     id="polyline1175"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12083,2022 12804,507" />
-  <path
-     id="polyline1176"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12083,2022 12957,150" />
-  <path
-     id="polyline1177"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12083,2022 53,-127" />
-  <path
-     id="polyline1178"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12136,1895 13,-29" />
-  <path
-     id="polyline1179"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12149,1866 178,-392" />
   <path
      id="polyline1180"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -4762,18 +4865,6 @@
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12327,1474" />
   <path
-     id="polyline1182"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12149,1866 16,-38" />
-  <path
-     id="polyline1183"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12165,1828 23,-51" />
-  <path
-     id="polyline1184"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12165,1828 42,-98" />
-  <path
      id="polyline1185"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 12207,1730 13,-28" />
@@ -4782,117 +4873,9 @@
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 12207,1730 12,-28" />
   <path
-     id="polyline1187"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12136,1895 262,-658" />
-  <path
-     id="polyline1188"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12398,1237 48,-117" />
-  <path
-     id="polyline1189"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12398,1237" />
-  <path
-     id="polyline1190"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12398,1237" />
-  <path
-     id="polyline1191"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12398,1237 13,-33" />
-  <path
-     id="polyline1192"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12398,1237 31,-78" />
-  <path
-     id="polyline1193"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="M 12398,1237" />
-  <path
-     id="polyline1194"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12398,1237 17,-44" />
-  <path
-     id="polyline1195"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12398,1237 30,-79" />
-  <path
-     id="polyline1196"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12011,2191 145,-404" />
-  <path
-     id="polyline1197"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12156,1787 247,-664" />
-  <path
-     id="polyline1198"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12156,1787 89,-250" />
-  <path
-     id="polyline1199"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12245,1537 14,-39" />
-  <path
-     id="polyline1200"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12245,1537 234,-667" />
-  <path
-     id="polyline1201"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12479,870 11,-30" />
-  <path
-     id="polyline1202"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12479,870 11,-30" />
-  <path
-     id="polyline1203"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11788,2730 70,-248" />
-  <path
-     id="polyline1204"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11858,2482 88,-258" />
-  <path
      id="polyline1205"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 11858,2482" />
-  <path
-     id="polyline1206"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11858,2482 189,-571" />
-  <path
-     id="polyline1207"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11858,2482 30,-108" />
-  <path
-     id="polyline1208"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11888,2374 150,-464" />
-  <path
-     id="polyline1209"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11888,2374 8,-30" />
-  <path
-     id="polyline1210"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11896,2344 82,-265" />
-  <path
-     id="polyline1211"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11978,2079 27,-84" />
-  <path
-     id="polyline1212"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11978,2079 111,-362" />
-  <path
-     id="polyline1213"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11896,2344 24,-91" />
-  <path
-     id="polyline1214"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11920,2253 21,-72" />
   <path
      id="polyline1215"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -4902,65 +4885,9 @@
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 11941,2181" />
   <path
-     id="polyline1217"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11941,2181 11,-37" />
-  <path
-     id="polyline1218"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11941,2181 10,-37" />
-  <path
-     id="polyline1219"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11920,2253 49,-195" />
-  <path
-     id="polyline1220"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11969,2058 8,-30" />
-  <path
-     id="polyline1221"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11969,2058 11,-46" />
-  <path
-     id="polyline1222"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11980,2012 94,-351" />
-  <path
-     id="polyline1223"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11980,2012 29,-117" />
-  <path
      id="polyline1224"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="M 12009,1895" />
-  <path
-     id="polyline1225"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12009,1895 9,-36" />
-  <path
-     id="polyline1226"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12018,1859 19,-74" />
-  <path
-     id="polyline1227"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12037,1785 8,-31" />
-  <path
-     id="polyline1228"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12037,1785 7,-31" />
-  <path
-     id="polyline1229"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12018,1859 46,-192" />
-  <path
-     id="polyline1230"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12009,1895 81,-344" />
-  <path
-     id="polyline1231"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 12009,1895 56,-246" />
   <path
      id="polyline1232"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -4969,11 +4896,6 @@
      id="polyline1233"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
      d="m 11750,2727 v -81" />
-  <path
-     id="polyline1234"
-     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
-     d="m 11750,2646 12.949,-20.362"
-     sodipodi:nodetypes="cc" />
   <path
      id="polyline1235"
      style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
@@ -6958,7 +6880,7 @@
        id="tspan1718"
        style="font-size:63.4964px;stroke-width:11.9056"
        x="11931.808"
-       y="1730.191">KM019936.1 Nostoc caeruleum SAG 52.79</tspan></text>
+       y="1730.191">KM019936.1 Nostoc caeruleum SAG 52.79 (free-living, sandy wet soil)</tspan></text>
   <circle
      style="fill:#ff0000;stroke:#000000;stroke-width:6.34964001;stroke-linecap:square;stroke-linejoin:round;font-variation-settings:normal;opacity:1;vector-effect:none;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
      id="path1719"
@@ -7034,7 +6956,7 @@
        id="tspan1718-6"
        style="font-size:63.4964px;stroke-width:11.9056"
        x="12404.667"
-       y="5018.4253">KM019942.1 Nostoc parmelioides SAG 58.79</tspan></text>
+       y="5018.4253">KM019942.1 Nostoc parmelioides SAG 58.79 (freshwater, free-living)</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -7045,7 +6967,7 @@
        id="tspan1718-6-6"
        style="font-size:63.4964px;stroke-width:11.9056"
        x="12349.317"
-       y="5111.9434">GQ287653.1 Nostoc microscopicum SAG 40.87</tspan></text>
+       y="5111.9434">GQ287653.1 Nostoc microscopicum SAG 40.87 (wet rock, free-living)</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -7056,7 +6978,7 @@
        id="tspan1718-6-61"
        style="font-size:63.4964px;stroke-width:11.9056"
        x="13863.135"
-       y="3610.7141">KM019941.1 Nostoc pruniforme SAG 62.79</tspan></text>
+       y="3610.7141">KM019941.1 Nostoc pruniforme SAG 62.79 (freshwater free-living)</tspan></text>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
      id="path1719-27-0-8"
@@ -7101,4 +7023,526 @@
        style="font-size:63.4964px;stroke-width:11.9056"
        x="10037.36"
        y="2603.5479">DQ185255.1 Nostoc punctiforme SAG 65.79</tspan></text>
+  <circle
+     style="fill:#783400;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1"
+     id="path1720-7"
+     cx="15269.988"
+     cy="9561.791"
+     r="27.538151" />
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="14622.335"
+     y="9668.9258"
+     id="text1721"><tspan
+       sodipodi:role="line"
+       id="tspan1721"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="14622.335"
+       y="9668.9258">MH260366.1 Scytonema pachmarhiense 10A1 PS </tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:126.993px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="15304.377"
+     y="10326.363"
+     id="text1722"><tspan
+       sodipodi:role="line"
+       style="stroke-width:11.9056"
+       id="tspan1723"
+       x="15304.377"
+       y="10326.363" /></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="15304.528"
+     y="9753.625"
+     id="text1724"><tspan
+       sodipodi:role="line"
+       id="tspan1724"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="15304.528"
+       y="9753.625">(Root)</tspan></text>
+  <circle
+     style="fill:#ff0000;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none"
+     id="path1720-5"
+     cx="16404.756"
+     cy="7970.0796"
+     r="27.538151" />
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16310.163"
+     y="8067.8555"
+     id="text1725"><tspan
+       sodipodi:role="line"
+       id="tspan1725"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16310.163"
+       y="8067.8555">NC_014248.1 Nostoc azollae</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="13535.65"
+     y="681.43286"
+     id="text1726"><tspan
+       sodipodi:role="line"
+       id="tspan1726"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="13535.65"
+       y="681.43286">Ambylostegium Nostoc</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="13535.794"
+     y="1084.4716"
+     id="text1728"><tspan
+       sodipodi:role="line"
+       id="tspan1728"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="13535.794"
+       y="1084.4716">AB275347.1 Unidentified cyanobacterium Ni1-C1</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="13686.933"
+     y="1145.8251"
+     id="text1728-2"><tspan
+       sodipodi:role="line"
+       id="tspan1728-8"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="13686.933"
+       y="1145.8251">(Macrolichen symbiont, Japan)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="10830.008"
+     y="3182.427"
+     id="text1729"><tspan
+       sodipodi:role="line"
+       id="tspan1729"
+       style="font-style:normal;font-size:63.4964px;stroke-width:11.9056"
+       x="10830.008"
+       y="3182.427">Hylocomium Nostoc</tspan></text>
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-27-0-8-7-9-9"
+     cx="11428.417"
+     cy="3072.3193"
+     r="50.098942"
+     inkscape:transform-center-x="19.10144"
+     inkscape:transform-center-y="51.511808" />
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-27-0-8-7-7"
+     cx="16437.633"
+     cy="6379.6792"
+     r="50.098942"
+     inkscape:transform-center-x="19.10144"
+     inkscape:transform-center-y="51.511808" />
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16488.055"
+     y="6472.2915"
+     id="text1719-93-2-9-3"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16488.055"
+       y="6472.2915">Zygodon Nostoc</tspan></text>
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-2-2-1"
+     cx="16158.002"
+     cy="6021.8237"
+     r="18.195576" />
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-2-2-1-2"
+     cx="16201.45"
+     cy="6113.6821"
+     r="18.195576" />
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16255.178"
+     y="6143.6104"
+     id="text1719-93-2-9-3-9"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6-3"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16255.178"
+       y="6143.6104">Compactonostoc shennongjiaensis</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16417.779"
+     y="6241.4551"
+     id="text1719-93-2-9-3-9-4"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6-3-7"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16417.779"
+       y="6241.4551">(Free-living on rocks)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16206.12"
+     y="6033.4878"
+     id="text1719-93-2-9-3-9-1"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-6-3-9"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16206.12"
+       y="6033.4878">Compactonostoc sp.</tspan></text>
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-2-2-1-8"
+     cx="14014.256"
+     cy="3679.3701"
+     r="18.195576" />
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-2-2-1-8-6"
+     cx="13988.21"
+     cy="3726.3491"
+     r="18.195576" />
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="14039.976"
+     y="3709.1812"
+     id="text1719-93-2-9-4"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-5"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="14039.976"
+       y="3709.1812">KU951876 Cyanobacteria on tidepool rock surface (free-living)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="13715.444"
+     y="3811.4568"
+     id="text1719-93-2-9-4-0"><tspan
+       sodipodi:role="line"
+       id="tspan1718-6-61-2-5-3"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="13715.444"
+       y="3811.4568">HQ832907 Intertidal cyanobacteria, Portugal (free living)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="16383.995"
+     y="8140.1201"
+     id="text1725-1"><tspan
+       sodipodi:role="line"
+       id="tspan1725-0"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="16383.995"
+       y="8140.1201">(Vascular plant symbiont)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="12451.613"
+     y="1939.6324"
+     id="text1728-3"><tspan
+       sodipodi:role="line"
+       id="tspan1728-2"
+       style="font-size:63.4964px;stroke-width:11.9056"
+       x="12451.613"
+       y="1939.6324">KF142669 Gunnera symbiont (vascular plant symbiont)</tspan></text>
+  <path
+     id="polyline1234"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11750,2646 12.949,-20.362"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline1201"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12683.666,964.87998 -1.727,-32.4561"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline1207"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11910.508,2502.8948 49.924,-100.3572" />
+  <path
+     id="polyline1209"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11960.432,2402.5376 13.541,-27.9402" />
+  <path
+     id="polyline1217"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12049.049,2223.0796 17.812,-34.2448" />
+  <path
+     id="polyline1227"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12218.358,1852.4498 13.73,-28.9221" />
+  <path
+     id="polyline1169"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11775,2767 19.777,-33.8657" />
+  <path
+     id="polyline1171"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12042.498,2357.2701 105.738,-141.5257" />
+  <path
+     id="polyline1203"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11794.777,2733.1343 115.731,-230.2395" />
+  <path
+     id="polyline1204"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11910.508,2502.8948 135.301,-236.6469" />
+  <path
+     id="polyline1213"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11973.973,2374.5974 40.811,-84.8025" />
+  <path
+     id="polyline1214"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12014.784,2289.7949 34.265,-66.7153" />
+  <path
+     id="polyline1218"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12049.049,2223.0796 16.83,-34.4343" />
+  <path
+     id="polyline1170"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11794.777,2733.1343 247.721,-375.8642" />
+  <path
+     id="polyline1172"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12042.498,2357.2701 73.387,-111.1055" />
+  <path
+     id="polyline1173"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12115.885,2246.1646 102.723,-152.2921" />
+  <path
+     id="polyline1182"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12312.977,1953.2077 22.912,-34.279" />
+  <path
+     id="polyline1210"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11973.973,2374.5974 130.736,-244.6572" />
+  <path
+     id="polyline1219"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12014.784,2289.7949 85.068,-182.1797" />
+  <path
+     id="polyline1226"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12185.678,1921.5079 32.68,-69.0581" />
+  <path
+     id="polyline1228"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12218.358,1852.4498 12.748,-29.1116" />
+  <path
+     id="polyline1178"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12294.717,1979.2185 18.26,-26.0108" />
+  <path
+     id="polyline1206"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11910.508,2502.8948 293.789,-524.8333" />
+  <path
+     id="polyline1208"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="M 11960.432,2402.5376 12195.65,1975.374" />
+  <path
+     id="polyline1211"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12104.709,2129.9402 42.43,-77.3607" />
+  <path
+     id="polyline1220"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12099.852,2107.6152 13.54,-27.9402" />
+  <path
+     id="polyline1222"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12119.37,2064.5335 158.817,-326.8244" />
+  <path
+     id="polyline1225"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12170.018,1955.1498 15.66,-33.6419" />
+  <path
+     id="polyline1229"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12185.678,1921.5079 81.553,-179.8027" />
+  <path
+     id="polyline1177"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12218.608,2093.8725 76.109,-114.654" />
+  <path
+     id="polyline1196"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12115.885,2246.1646 175.51,-391.7105" />
+  <path
+     id="polyline1198"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12291.395,1854.4541 107.882,-242.451" />
+  <path
+     id="polyline1199"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12399.277,1612.0031 16.945,-37.8135" />
+  <path
+     id="polyline1212"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12104.709,2129.9402 177.593,-334.4032" />
+  <path
+     id="polyline1221"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12099.852,2107.6152 19.518,-43.0817" />
+  <path
+     id="polyline1223"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12119.37,2064.5335 50.648,-109.3837" />
+  <path
+     id="polyline1230"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12170.018,1955.1498 144.726,-322.415" />
+  <path
+     id="polyline1231"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12170.018,1955.1498 101.606,-230.9289" />
+  <path
+     id="polyline1179"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12313.172,1953.5332 273.187,-332.7415"
+     inkscape:transform-center-x="-106.71984"
+     inkscape:transform-center-y="-192.69391" />
+  <path
+     id="polyline1183"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12335.889,1918.9287 54.687,-11.801"
+     inkscape:transform-center-x="-25.73"
+     inkscape:transform-center-y="-10.97565" />
+  <path
+     id="polyline1184"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 12335.889,1918.9287 59.811,-88.2643" />
+  <g
+     id="g1738"
+     inkscape:transform-center-x="-119.51044"
+     inkscape:transform-center-y="-400.56152"
+     transform="rotate(5.4297792,11327.339,3610.6543)">
+    <path
+       id="polyline1187"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12136,1895 262,-658" />
+    <path
+       id="polyline1188"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12398,1237 48,-117" />
+    <path
+       id="polyline1189"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 12398,1237" />
+    <path
+       id="polyline1190"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 12398,1237" />
+    <path
+       id="polyline1191"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12398,1237 13,-33" />
+    <path
+       id="polyline1192"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12398,1237 46.815,-56.0577"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="polyline1193"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 12398,1237" />
+    <path
+       id="polyline1194"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12398,1237 33.091,-14.9606"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="polyline1195"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="m 12398,1237 11.802,-80.1785"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <path
+     id="polyline1197"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="M 12290.01,1853.7847 12609.317,1221.37"
+     inkscape:transform-center-x="-84.74368"
+     inkscape:transform-center-y="-298.19354" />
+  <path
+     id="polyline1202"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="M 12399.277,1612.0031 12696.93,935.8103"
+     sodipodi:nodetypes="cc" />
+  <g
+     id="g1760"
+     transform="rotate(10.924594,11775,2767)">
+    <path
+       id="polyline1175"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 12083,2022 13228.885,820.21173"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="polyline1176"
+       style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+       d="M 12083,2022 13399.519,429.98739"
+       inkscape:transform-center-x="-529.6124"
+       inkscape:transform-center-y="-893.33733"
+       sodipodi:nodetypes="cc" />
+    <circle
+       style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       id="path1719-27-0-8-7-9"
+       cx="13309.892"
+       cy="-1681.8096"
+       r="50.098942"
+       inkscape:transform-center-x="19.10144"
+       inkscape:transform-center-y="51.511808"
+       transform="rotate(9.0009117)" />
+    <circle
+       style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       id="path1719-2-2"
+       cx="13198.133"
+       cy="-1266.7258"
+       r="18.195576"
+       transform="rotate(9.0009117)" />
+  </g>
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-2-2-0"
+     cx="12309.683"
+     cy="-2438.9585"
+     r="18.195576"
+     transform="rotate(19.925506)" />
+  <circle
+     style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+     id="path1719-2-2-0-6"
+     cx="11759.408"
+     cy="-1093.7328"
+     r="18.195576"
+     transform="rotate(19.925506)" />
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="10357.959"
+     y="2991.5696"
+     id="text1729-1"><tspan
+       sodipodi:role="line"
+       id="tspan1729-5"
+       style="font-style:normal;font-size:63.4964px;stroke-width:11.9056"
+       x="10357.959"
+       y="2991.5696">JN847344 Uncultured Nostoc sp.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
+     x="10632.109"
+     y="3061.8308"
+     id="text1729-1-5"><tspan
+       sodipodi:role="line"
+       id="tspan1729-5-4"
+       style="font-style:normal;font-size:63.4964px;stroke-width:11.9056"
+       x="10632.109"
+       y="3061.8308">(Macrolichen symbiont)</tspan></text>
 </svg>

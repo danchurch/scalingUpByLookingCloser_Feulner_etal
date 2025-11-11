@@ -1301,7 +1301,6 @@ cp Hylocomium_nostoc_OGredo_16s.fa  /media/vol1/daniel/nostoc/nanoporeNostoc16sA
 ## update and synch up
 
 
-## stopping here 23 October
 
 
 
@@ -3878,6 +3877,14 @@ aliview geosiphonNostoc_16s.afa &
 ## Too messy, too short. Not useful for me. 
 ## anyway, they authors mention that these sequences are pretty much identical to 
 ## the PCC73102 cycad N. punctiforme strain, anyway
+## and found two of the lutzoni 2006 strains are from Geosiphon, anyway:
+##  - DQ185208
+##  - DQ185257
+## these are full length, and we already have DQ185257 in the tree
+## it is very close to the canonical punctiforme
+## should we the other? This is probably the second 16s we picked up 
+## above, from the genome of 
+## a fascinating topic, but we need to keep moving 
 
 ## try same for  nostoc azollae 
 ## (https://www.ncbi.nlm.nih.gov/nuccore/298489614)
@@ -4033,12 +4040,37 @@ ln -s $nostocAlignment nostocaceaeTree.afa
 ##   Nostoc pruniforme   62.79  KM019941
 ##   Nostoc punctiforme  65.79  DQ185255
 
-## stopping here 10.11.25
-## consensus seqs
+## this is being saved now in the repo at:
+/home/daniel/Documents/projects/mossSymbiosis/nostoc/16sTree/handCuration16sNostocaceae/nostocaceae_handEdited.svg
 
-## Nostoc punctiform PCC 73102 or whatever its called
+## Nostoc punctiform PCC 73102 or whatever its called. In this cluster are:
+## Nostocaceae_Nostoc_punctiforme_PCC_73102_AF027655.1,Nostocaceae_Nostoc_punctiforme_PCC_73102_AF027655.1,Nostocaceae_Nostoc_pun
+## ctiforme_PCC_73102_AF027655.1
+## OQ600797.1,"OQ600797.1 Nostoc punctiforme PCC 73102 16S ribosomal RNA gene, partial sequence","OQ600797.1 Nostoc punctiforme PCC 73102 16S ribosomal RNA gene, partial sequence"
+## OP901956.1,
+##  - DQ185257 geosiphon symbiont. 
+##  -  these are 
+
 ## root: MH260366
+## MH260366.1 Scytonema pachmarhiense 10A1 PS ## not sure if makes sense, since viewing this as an unrooted tree.
+
 ## nostoc azollae: Nostoc_azollae_16s_NC_014248.1
+## NC_014248.1 Nostoc azollae
+
+## consensus sequences and neighbors:
+## Ambylostegium_nostoc_BC9_16s
+##   - KF494245 KF494244
+## Homalia_nostoc_BC10_16s
+##   - 
+## Hylocomium_nostoc_OGredo_16s
+##   - JN847344
+## Zygodon_Nostoc_BC11_16s
+##   - Compactonostoc spp:
+##     - MH598843
+##     - KU219709
+## Gunnera symbiont, KF142669
+
+## at the end, find hidden families: nodulariaceae, Scytonemataceae etc
 
 ## multifurcate, using defaults of boostrap < 50 (may increase this boostrap cutoff, let's see)
 
@@ -4047,6 +4079,7 @@ ln -s $nostocAlignment nostocaceaeTree.afa
 
 ## right now the unrooted tree has a nice aesthetic. 
 ## I'd like to color by symbiosis (lichen, bryophyte? (only ours?), other plant, free-living)
+## but good lord, that's like doing another study
 
 cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 grep "^>" nostocaceaeTree.afa | sed "s|^>||" > symbiosis_temp.csv
