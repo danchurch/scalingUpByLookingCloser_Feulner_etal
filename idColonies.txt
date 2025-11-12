@@ -4055,6 +4055,9 @@ grep "Y" $ourSeqs ## no
 
 ln -s $nostocAlignment nostocaceaeTree.afa
 
+i="MT176763"
+esearch -db "Nucleotide" -query $i | efetch -format "abstract" 
+
 ## just realized we need to find the bryophyte (sphagnum, hornwort, liverwort) symbionts, they are of 
 ## interest:
 
@@ -4207,7 +4210,10 @@ rm symbiosis_temp.csv
 
 ## to save some time, can we find the titles of the articles for these?:
 
-i="FM161350"
+#i="FM161350"
+#i="DQ185250" 
+i="AB251864.1"
+esearch -db "Nucleotide" -query $i | efetch -format "abstract" 
 
 esearch -db "Nucleotide" -query $i | efetch -format "abstract" | grep -m1 -A3 "TITLE"
 
@@ -4249,6 +4255,7 @@ grep $seq $extraNostocs
 ## make labels prettier somehow
 ## category symbols?
 
+EF174222 Pannaria Nostoc 
 
 ################# nifH ########################
 
