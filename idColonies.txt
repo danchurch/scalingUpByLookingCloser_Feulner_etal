@@ -3901,7 +3901,42 @@ aliview ${organism}_16s.afa &
 ## much better. 3 copies, all identical, all full length. 
 ## add this to the alignment, also
 
-## do the work here:
+##### add on 12.11.2025 placing PCC73102 16s from genome onto our tree: ####
+## can we resolve some of the issues around the PCC73102 16s this way?
+
+cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
+
+esearch -db "Nucleotide" -query "NC_010628.1" | efetch -format "fasta" > NC_010628.fa
+
+organism="PCC73102"
+genome=NC_010628.fa
+barrnap  -k bac -o temp_16s.fa  < $genome 
+
+grep -A1 "^>16S_" temp_16s.fa > ${organism}_16s.fa && rm temp_16s.fa
+muscle5 -align ${organism}_16s.fa -output ${organism}_16s.afa 
+aliview ${organism}_16s.afa &
+
+## this looks good, three exact matches. 
+
+grep -a1 -m1 "^>" PCC73102_16s.fa | sed "s/>16S_.*$/>NC_010628_PCC73102_16s/" > NC_010628_PCC73102_16s.fa
+
+## how do we add it to our tree without fucking 
+## everything up? 
+
+## but we need a phylip format for the alignment for our tree
+## for papara:
+
+## for phylip format, get rid of the dots from the ssu-aligner:
+cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali 
+sed "/>/! s|\.|-|g" nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa > nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria_noDots.afa
+
+## meh, never mind, papara is so finicky.
+## just hope the other versions of PCC73102 16s are accurate. 
+
+############################################################################
+
+## anyway, do the work here:
+
 cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 
 cat $cyanoseqNostocaceae $extraNostocs $ourSeqs |
@@ -4020,6 +4055,81 @@ grep "Y" $ourSeqs ## no
 
 ln -s $nostocAlignment nostocaceaeTree.afa
 
+## just realized we need to find the bryophyte (sphagnum, hornwort, liverwort) symbionts, they are of 
+## interest:
+
+## the KF49... accessions seem to be from anthoceros (hornwort): 
+grep "KF494248" $seqs2align ## in there. Isolate Any other anthoceros symbionts?
+
+grep "KF4942.." $seqs2align ## 9 seqs in there - all from anthoceros?
+
+for i in KF49424{0..9}; do
+  esearch -db "Nucleotide" -query $i | efetch -format "abstract" >> hornwortNostocsChile.txt
+done
+
+less  hornwortNostocsChile.txt
+
+## KF494240 is from Gunnera
+## KF494241 is from Gunnera
+## KF494242 is from Gunnera
+## KF494243 is from Gunnera
+## KF494244 is from Gunnera
+
+## KF494245 is from Anthoceros
+## KF494246 is from Anthoceros
+## KF494247 is from Anthoceros
+## KF494248 is from Anthoceros
+## KF494249 is from Anthoceros
+
+## why do KF494244 and KF494245 line up exactly on our tree? identical sequence?:
+muscle5 -align \
+<(cat <(grep -A1 KF494244 seqs2alignNostocaceae.fa) <(grep -A1 KF494245 seqs2alignNostocaceae.fa)) \
+-output sameseq.afa
+## yup
+
+
+## label these accordingly.  
+
+esearch -db "Nucleotide" -query $i | efetch -format "abstract"
+
+## those are hornwort-symbionts (anthoceros). What about liverworts (e.g. Blasia?)
+
+## the lutzoni 2005 paper says these are from blasia, from Germany:
+DQ185211
+DQ185212
+
+grep "DQ185211" $seqs2align ## in there. 
+grep "DQ185212" $seqs2align ## in there. 
+## okay, label these. Any others?
+
+## these are from Norway:
+grep "EU022742" $seqs2align ## in there. Two others also
+
+for i in EU02274{0..2}; do
+  esearch -db "Nucleotide" -query $i | efetch -format "abstract" >> liverwortNostocsNortway.txt
+done
+
+## nope. only EU022742 is endophytic to Blasia
+## anyway, that's three, not bad.
+
+
+grep "NR_074317" $seqs2align ## this is the JGI version of the N. punctiforme PCC73102
+## would be nice to have, but it's not in our collection. We have other versions
+## of PCC 73102, hopefully they do the trick for now.
+## this nostoc is confrimed to be able to enter into symbiosis with hornworts, liverworts
+## even though it was isolated from a cycad.
+
+## what about sphagnum?:
+
+## cannot find any 16s data for sphagnum-nostocs, although Carrell et al. 2022 used
+## UTEX 1037 Nostoc muscorum to inoculate sphagnum 
+## I can't find a genome or 16s for this organism. 
+
+## okay, keep moving. What needs to change? Keep labeling. 
+
+
+
+
 ## get local for iTOL:
 
 ## and look at in arb
@@ -4132,12 +4242,12 @@ grep $seq $extraNostocs
 ## just realized we have a problem with desmonostoc. 
 ## I don't want to try to fix it. I cannot enter into this
 ## argument with the experts, I'm not qualified.
-##  I will remove all mentions of it in our pretty tree
-## tomorrow:
-## label "northern" clade, as mixed or something
-## find a way to characterize the home clade of the compactonostoc/zygodon and 
-## etc, etc. Label every clade that is clearly a nostoc.  
+##  I will remove all mentions of it in our pretty tree,
+## maybe use the old Nostoc name if this seems appropriate. 
 
+## next steps?
+## make labels prettier somehow
+## category symbols?
 
 
 ################# nifH ########################
