@@ -3321,7 +3321,6 @@ wget https://zenodo.org/records/7864137/files/CyanoSeq_1.2_newick.txt
 ## this looks promising. Now to hang some of our sequences on it...
 
 ## we need a concatenated fasta of all of our 16s consensus sequences
-
 cat /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/get_consensus_seq/16s/consensusSequences/*fa > all16sConsensusSeqs.fa
 
 ## try following this tutorial for epa-ng:
@@ -3334,7 +3333,6 @@ conda create -n epa-ng
 conda activate epa-ng
 
 conda install bioconda::epa-ng
-
 
 ## they recommend PaPaRa for aligning our reads to the tree:
 wget https://cme.h-its.org/exelixis/resource/download/software/papara_nt-2.5-static_x86_64.tar.gz
@@ -4015,6 +4013,8 @@ grep -m1 -A1 "^>" nostocAzollae_16s.fa | sed "/^>/ s|>16S.*|>Nostoc_azollae_16s_
 
 vim seqs2alignNostocaceae.fa ## looks okay. Move it into the repo, this was a lot of work:
 
+find . -name seqs2alignNostocaceae.fa
+
 cp seqs2alignNostocaceae.fa /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/16sTree/seqs2align
 
 ## work from that from now on:
@@ -4028,6 +4028,8 @@ conda activate ssu-align
 ssu-align -n bacteria $seqs2align nostocaceaeCyanoseqPlusOurSeqs_ali 
 ssu-mask --pf 0.9999 --pt 0.9999 nostocaceaeCyanoseqPlusOurSeqs_ali
 ssu-mask --stk2afa nostocaceaeCyanoseqPlusOurSeqs_ali
+
+Structural RNA Homology Search
 
 ## okay make a tree:
 
