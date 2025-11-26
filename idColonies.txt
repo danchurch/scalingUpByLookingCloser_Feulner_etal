@@ -1644,6 +1644,7 @@ wc -l nostoc_16S_barcode09_cyanoMatches.csv ## and 3861 of these 4367 matched to
 ## download full silva db, blast against this?
 
 wget https://www.arb-silva.de/fileadmin/silva_databases/release_138/Exports/SILVA_138_SSURef_tax_silva.fasta.gz
+     https://www.arb-silva.de/fileadmin/silva_databases/current/Exports/SILVA_138.2_SSURef_NR99_tax_silva.fasta.gz
 
 mv SILVA_138_SSURef_tax_silva.fasta.gz /media/vol1/daniel/databases/silva
 
@@ -4276,6 +4277,7 @@ EF174222 Pannaria Nostoc
 ## they translated the nifH sequence with framebot, then blastp 
 ##  to a curated NifH database
 
+
 ## one database they used is from the NifHTool authors:
 
 cd /media/vol1/daniel/nostoc/nifHdatabases
@@ -4474,7 +4476,6 @@ SeqIO.write(highBits, "Barcode12_NifH_reads2align.fa", "fasta")
 
 ## looks like our install of vsearch doesn't have the orient function,
 ## and we have the latest version from apt. Update with binaries.
-
 
 #sudo apt purge vsearch
 wget https://github.com/torognes/vsearch/releases/download/v2.30.0/vsearch-2.30.0-linux-x86_64.tar.gz
@@ -5552,4 +5553,13 @@ bioc
 medline  
 native   
 native   
+
+2023-11-21T14:27:57.148700+01:00
+2023-11-23T13:38:22.432756+01:00
+
+getFile=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/report_FBA42671_20250718_1457_2ed2dc90.html
+#getFile=/var/lib/minknow/data/lowPoresNostoc/Nostoc2/20231121_1424_MN40608_FAX46654_7c69c392/report_FAX46654_20231121_1427_7c69c392.html
+putHere=/home/daniel/Documents/projects/mossSymbiosis/
+rsync -auv test@132.180.112.115:$getFile $putHere
+
 
