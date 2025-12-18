@@ -4041,6 +4041,8 @@ less $nostocAlignment
 
 FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 
+nostocaceaeTree.nwk
+
 ## hmm, turns out there are a lot of funny characters in our fasta to align. 
 ## why?
 
@@ -4237,8 +4239,6 @@ rsync -auv test@132.180.112.115:$getFile $putHere
 ## find all the above sequences. place labels on these
 
 ## find nearest neighbors of our consensus sequences
-
-## 
 
 cyanoseqNostocaceae=/media/vol1/daniel/nostoc/16sTree/cyanoSeq/nostocaceae_maybe_cleaned.fa
 extraNostocs=/media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases/NOSTOC_fromCyanoseqFolks.fasta
@@ -5399,6 +5399,7 @@ alignment="nifHseqs2align.afa"
 FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
 
 find . -name nifHseqs2align.nwk
+
 arb &
 
 ## and the tree is weird, very different from the results of 
@@ -5515,6 +5516,8 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 ## I think we need to get these onto the github repo, everything is getting confusing..
 ## working on laptop
 
+## which files are need to rebuild these trees, if necessary?
+
 #getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHtree*.svg
 getFile=/media/vol1/daniel/nostoc/nifHtree/testNifH.svg
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
@@ -5538,8 +5541,8 @@ getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.nwk
 putItHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree
 rsync -auv test@132.180.112.115:$getFile $putItHere
 
-
-#### make a notebook #####
+## need to get a scale-bar for the simplified nifH tree and full tree
+## get rid of the non-cyanobacterial from Kubota:
 
 ## these may be useful:
 https://dmnfarrell.github.io/bioinformatics/bokeh-sequence-aligner
@@ -5547,21 +5550,4 @@ https://plotly.com/python/alignment-chart/
 https://etetoolkit.org/ipython_notebook/
 https://github.com/etetoolkit/ete
 ## the last one, ete, looks like the best option, at first glance.
-
-
-
-abstract 
-bioc     
-medline  
-native   
-native   
-
-2023-11-21T14:27:57.148700+01:00
-2023-11-23T13:38:22.432756+01:00
-
-getFile=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/report_FBA42671_20250718_1457_2ed2dc90.html
-#getFile=/var/lib/minknow/data/lowPoresNostoc/Nostoc2/20231121_1424_MN40608_FAX46654_7c69c392/report_FAX46654_20231121_1427_7c69c392.html
-putHere=/home/daniel/Documents/projects/mossSymbiosis/
-rsync -auv test@132.180.112.115:$getFile $putHere
-
 
