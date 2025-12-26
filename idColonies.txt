@@ -5544,10 +5544,23 @@ rsync -auv test@132.180.112.115:$getFile $putItHere
 ## need to get a scale-bar for the simplified nifH tree and full tree
 ## get rid of the non-cyanobacterial from Kubota:
 
-## these may be useful:
+## note, for jupyter notebook, these may be useful:
 https://dmnfarrell.github.io/bioinformatics/bokeh-sequence-aligner
 https://plotly.com/python/alignment-chart/
 https://etetoolkit.org/ipython_notebook/
 https://github.com/etetoolkit/ete
 ## the last one, ete, looks like the best option, at first glance.
 
+## for the manuscript, we need to supply the newick files and 
+## alignments for the full nifH tree and 16s tree.
+
+## nif alignments are here (laptop):
+
+## put links here:
+
+cd /home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/manuscript/suppData
+
+ln -s ../../nifHtree/nifHseqs2align.nwk nifHFullTree.nwk
+ln -s ../../nifHtree/nifHseqs2align.afa nifHfullAlignment.afa
+
+cd manuscript/suppData/
