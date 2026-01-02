@@ -1,0 +1,31 @@
+## let's get the reads from the moss project onto SRA
+
+## a sort-of recent example on how to do this is here, on the laptop:
+
+less /home/daniel/Documents/analyses/graham/grass-endophyte-community/SRAsubmission/submitGrahamReads.txt
+
+## this is bioproject PRJNA1160472
+## https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1160472
+
+## most basic question - what are we submitting?
+
+## 1,2 - raw, passed reads from both sequencing runs
+## 3 - finished nifH and 16s sequences 
+
+## raw passing reads are where? 
+
+## on the nanopore computer: 
+/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/duplexTrial/trimmed
+
+## these have been demultiplexed. 
+## the barcodes we need are:
+
+barcode  9 16S Amblystegium 
+barcode 10 16S Homalia
+barcode 11 16S Zygodon
+barcode 12 NifH OG Hylocomium
+barcode 13 NifH OG Zygodon
+barcode 14 NifH Homalia
+
+## we also need OG hylocomium reads - these are 
+
