@@ -15,7 +15,8 @@ less /home/daniel/Documents/analyses/graham/grass-endophyte-community/SRAsubmiss
 ## raw passing reads are where? 
 
 ## on the nanopore computer: 
-/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/duplexTrial/trimmed
+
+cd /media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/duplexTrial/trimmed
 
 ## these have been demultiplexed. 
 ## the barcodes we need are:
@@ -27,5 +28,41 @@ barcode 12 NifH OG Hylocomium
 barcode 13 NifH OG Zygodon
 barcode 14 NifH Homalia
 
-## we also need OG hylocomium reads - these are 
+## corresponding files are:
 
+2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode09.fastq
+2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode10.fastq
+2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq
+2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode12.fastq
+2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode13.fastq
+2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode14.fastq
+
+## get these on the laptop:
+
+trimmedDemuxedReadDir=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/duplexTrial/trimmed
+putHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/reads2upload2SRA
+for i in ${trimmedDemuxedReadDir}/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode{09..14}.fastq; do
+  rsync -auv test@132.180.112.115:$i $putHere
+done
+
+## we also need OG hylocomium reads - these are here:
+
+getFile=/media/vol1/daniel/nostoc/minionReadsNostoc/allNostoc2.fasta
+putHere=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/reads2upload2SRA
+rsync -auv test@132.180.112.115:$getFile $putHere
+
+## let's rename these accordingly:
+
+for i in *barcode??.fastq; do
+  mv $i ${i##2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_}
+done
+
+mv allNostoc2.fasta 16S_Hylocomium.fastq
+mv SQK-RBK114-24_barcode09.fastq SQK-RBK114-24_barcode09_16S_Amblystegium.fastq 
+mv SQK-RBK114-24_barcode10.fastq SQK-RBK114-24_barcode10_16S_Homalia.fastq 
+mv SQK-RBK114-24_barcode11.fastq SQK-RBK114-24_barcode11_16S_Zygodon.fastq 
+mv SQK-RBK114-24_barcode12.fastq SQK-RBK114-24_barcode12_NifH_Hylocomium.fastq
+mv SQK-RBK114-24_barcode13.fastq SQK-RBK114-24_barcode13_NifH_Zygodon.fastq
+mv SQK-RBK114-24_barcode14.fastq SQK-RBK114-24_barcode14_NifH_Homalia.fastq
+
+## okay, renamed. That's the easy part...
