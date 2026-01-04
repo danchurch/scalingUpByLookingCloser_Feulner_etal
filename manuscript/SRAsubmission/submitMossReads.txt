@@ -65,4 +65,30 @@ mv SQK-RBK114-24_barcode12.fastq SQK-RBK114-24_barcode12_NifH_Hylocomium.fastq
 mv SQK-RBK114-24_barcode13.fastq SQK-RBK114-24_barcode13_NifH_Zygodon.fastq
 mv SQK-RBK114-24_barcode14.fastq SQK-RBK114-24_barcode14_NifH_Homalia.fastq
 
+## moved these out of the github repo:
+cd /home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/reads2upload2SRA
+
+## zip them all:
+gzip *
+
+
 ## okay, renamed. That's the easy part...
+
+## get our credentials from the SRA site by requesting a new submission folder
+
+ftp -i ftp-private.ncbi.nlm.nih.gov
+
+open ftp-private.ncbi.nlm.nih.gov
+
+subftp
+
+CrasHeshyevVafivgud2
+
+cd uploads/danchurchthomas_gmail.com_VxAdPqLf
+
+#mkdir nostocRawReads
+
+cd nostocRawReads
+
+mput  *fastq.gz
+
