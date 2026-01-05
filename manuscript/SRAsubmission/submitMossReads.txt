@@ -2,7 +2,7 @@
 
 ## a sort-of recent example on how to do this is here, on the laptop:
 
-less /home/daniel/Documents/analyses/graham/grass-endophyte-community/SRAsubmission/submitGrahamReads.txt
+vim -M /home/daniel/Documents/analyses/graham/grass-endophyte-community/SRAsubmission/submitGrahamReads.txt
 
 ## this is bioproject PRJNA1160472
 ## https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1160472
@@ -91,4 +91,10 @@ cd uploads/danchurchthomas_gmail.com_VxAdPqLf
 cd nostocRawReads
 
 mput  *fastq.gz
+
+## there were three associated files before...
+
+## we'll try using "MIGS.ba.plant-associated" 
+## example here: 
+## See SAMN02866194 for an example record of this type of BioSample (https://www.ncbi.nlm.nih.gov/biosample/SAMN02866194).
 
