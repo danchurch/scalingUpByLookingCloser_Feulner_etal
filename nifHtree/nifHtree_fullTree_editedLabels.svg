@@ -13,9 +13,9 @@
    id="svg1234"
    sodipodi:docname="nifHtree_fullTree_editedLabels.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   inkscape:export-filename="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/nifHtree/nifHtree_fullTree_editedLabels.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   inkscape:export-filename="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/manuscript/imagesForPaper/suppFigs/supplemental_figure_2.jpeg"
+   inkscape:export-xdpi="96.5"
+   inkscape:export-ydpi="96.5"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -37,9 +37,9 @@
      fit-margin-top="10"
      fit-margin-right="10"
      fit-margin-bottom="10"
-     inkscape:zoom="0.19578929"
-     inkscape:cx="717.6082"
-     inkscape:cy="748.25339"
+     inkscape:zoom="1.1075515"
+     inkscape:cx="337.23038"
+     inkscape:cy="1423.4101"
      inkscape:window-width="1204"
      inkscape:window-height="656"
      inkscape:window-x="76"
@@ -47,7 +47,8 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1234"
      showguides="false"
-     inkscape:lockguides="true" />
+     inkscape:lockguides="true"
+     inkscape:object-paths="true" />
   <rect
      style="fill:#ffffff;stroke-width:7.99746;stroke-dashoffset:1.676;stop-color:#000000;stroke:none"
      id="rect1469"
@@ -5535,4 +5536,44 @@
        x="18433.539"
        y="19116.85"
        id="tspan15911" /></text>
+  <g
+     id="g27566"
+     transform="translate(-73.418877,-1448.5032)">
+    <g
+       id="g27556"
+       transform="translate(413.70212,427.00259)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M -98.009099,21685.309 H 2736.9557"
+         id="path2829"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -98.0091,21685.309 v -35.732 h -0.572437"
+         id="path15285" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -98.0091,21721.041 v -35.732 h -0.57244"
+         id="path15285-7" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2737.5281,21685.309 v -35.732 h -0.5724"
+         id="path15285-5" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2737.5281,21721.041 v -35.732 h -0.5724"
+         id="path15285-7-3" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:158.68px;line-height:1.25;font-family:ariel;-inkscape-font-specification:ariel;word-spacing:0px;stroke-width:11.901"
+       x="1556.8448"
+       y="22053.742"
+       id="text18795"><tspan
+         sodipodi:role="line"
+         id="tspan18793"
+         style="font-size:158.68px;stroke-width:11.901"
+         x="1556.8448"
+         y="22053.742">0.10</tspan></text>
+  </g>
 </svg>
