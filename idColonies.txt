@@ -5564,3 +5564,24 @@ ln -s ../../nifHtree/nifHseqs2align.nwk nifHFullTree.nwk
 ln -s ../../nifHtree/nifHseqs2align.afa nifHfullAlignment.afa
 
 cd manuscript/suppData/
+
+############# simplify code for manuscript ################
+
+## we need to reduce the above mess to a useable pipeline for 
+## readers to repeat if they like.
+
+## as per the manuscript, we should include the following code:
+
+## processing nanopore reads: demultiplexing, trimming, reorientation, 
+## finding of 16s and nifH matches via blastn, blastx 
+## alignment of reads with muscle
+## cleaning of alignments with CIAalign
+## trees of barcodes with fastree
+## construction of HMMs
+
+## alignment of consensus nifH with kubota/ininbergs nifH with muscle
+## tree of nifH with fastree
+## also need the following files in the repo:
+## Kubota reads
+## custom nifH databases
+## 
