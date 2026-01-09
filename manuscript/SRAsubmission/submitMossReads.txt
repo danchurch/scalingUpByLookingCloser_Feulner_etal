@@ -4,7 +4,7 @@
 
 vim -M /home/daniel/Documents/analyses/graham/grass-endophyte-community/SRAsubmission/submitGrahamReads.txt
 
-## this is bioproject PRJNA1160472
+## this was bioproject PRJNA1160472
 ## https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1160472
 
 ## most basic question - what are we submitting?
@@ -92,19 +92,60 @@ cd nostocRawReads
 
 mput  *fastq.gz
 
+## I think that succeeded. Now we need to send the metadata to NCBI...
+
+## using the NCBI SRA submission page (log in first):
+https://submit.ncbi.nlm.nih.gov/subs/sra/SUB15915318/
+
 ## there were three associated files before...
 
-## we'll try using "MIGS.ba.plant-associated" 
+## we'll try using "Package MIMARKS: specimen, plant-associated; version 6.0"
 ## example here: 
 ## See SAMN02866194 for an example record of this type of BioSample (https://www.ncbi.nlm.nih.gov/biosample/SAMN02866194).
 ## https://genomicsstandardsconsortium.github.io/mixs/term_list/
 
+## this looks basically like the sample sheet, as per:
+
+vim -M /home/daniel/Documents/projects/grass-endophyte-community/SRAsubmission/sampleSheet.tsv
+
+## these are the fields:
+
+*sample_name - different for each
+sample_title - needed?
+bioproject_accession - no bioproject yet
+*organism - Nostoc or Compactonostoc
+*strain - not sure, maybe we assign a name?
+*collection_date - varies 
+*env_broad_scale - "temperate broadleaf forest biome" or "temperate coniferous forest biome"
+*env_local_scale - "temperate deciduous broadleaf forest" or "temperate evergreen needleleaf forest" 
+*env_medium - "understory" for hylocomium, "forest canopy" for others
+*geo_loc_name - varies, table 1 
+*host - "Hylocomium splendens", etc
+*isol_growth_condt - give doi for the rippka paper with BG110: 10.1099/00221287-111-1-1
+*lat_lon - use table 1, is already in correct format.
+*num_replicons - ??? how do I know ???? just say 1???
+*ref_biomaterial - 
+
+biotic_relationship
+elev
+host_phenotype
+host_subspecf_genlin
+host_taxid
+light_regm
+misc_param
+plant_struc
+description
+
+###################
 
 *sample_name
 sample_title
 bioproject_accession
 *organism
-*strain
+strain
+isolate
+cultivar
+ecotype
 *collection_date
 *env_broad_scale
 *env_local_scale
@@ -113,13 +154,30 @@ bioproject_accession
 *host
 *isol_growth_condt
 *lat_lon
-*num_replicons
-*ref_biomaterial
-
+air_temp_regm
+altitude
+ances_data
+antibiotic_regm
+biol_stat
+biotic_regm
 biotic_relationship
+chem_administration
+chem_mutagen
+climate_environment
+collection_method
+cult_root_med
+depth
 elev
-
-
+extrachrom_elements
+fertilizer_regm
+fungicide_regm
+gaseous_environment
+genetic_mod
+gravity
+growth_facil
+growth_habit
+growth_hormone_regm
+herbicide_regm
 host_age
 host_common_name
 host_disease
@@ -145,7 +203,6 @@ non_mineral_nutr_regm
 omics_observ_id
 organism_count
 oxy_stat_samp
-pathogenicity
 perturbation
 pesticide_regm
 ph_regm
