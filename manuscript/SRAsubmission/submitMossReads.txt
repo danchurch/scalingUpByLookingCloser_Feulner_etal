@@ -104,7 +104,9 @@ https://submit.ncbi.nlm.nih.gov/subs/sra/SUB15915318/
 
 ## sample-sheet. Things have changed a bit. My old templates don't quite work. 
 ## We'll try using "Package MIMARKS: specimen, plant-associated; version 6.0"
+## definitions:
 ## https://genomicsstandardsconsortium.github.io/mixs/term_list/
+## https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/
 
 ## this looks very similar but not exactly like the old sample sheet, as per:
 vim -M /home/daniel/Documents/projects/grass-endophyte-community/SRAsubmission/sampleSheet.tsv
@@ -127,3 +129,36 @@ elev -table 1
 host_life_stage "gametophyte"
 host_taxid - look up on NCBI
 
+## metadata file...
+
+## our files are:
+16S_Hylocomium.fastq.gz
+SQK-RBK114-24_barcode09_16S_Amblystegium.fastq.gz
+SQK-RBK114-24_barcode10_16S_Homalia.fastq.gz
+SQK-RBK114-24_barcode11_16S_Zygodon.fastq.gz
+SQK-RBK114-24_barcode12_NifH_Hylocomium.fastq.gz
+SQK-RBK114-24_barcode13_NifH_Zygodon.fastq.gz
+SQK-RBK114-24_barcode14_NifH_Homalia.fastq.gz
+
+## and raw reads submitted.
+## we have an official NCBI bioproject number:
+
+BioProject: 1401537
+PRJNA1401537
+
+## now onto genbank and the consensus sequences.
+Hylocomium-associated Nostoc 16S
+
+SSU-ALIGN, CyanoSeq database
+
+Moss host (Hylocomium splendens) from forest floor
+
+Scaling up by looking closer: extending the range of moss-Nostoc symbioses deeper into central Europe and to new moss hosts in the forest canopy
+
+Martin Feulner 
+Ulla Spieleder
+Frederic J. P. Dose
+Jona Motzkus
+Daniel C. Thomas
+
+doi: https://doi.org/10.64898/2025.12.22.695964 
