@@ -188,28 +188,47 @@ OG_Zygodon
 ###############
 organism="Nostoc sp."
 mol_type="genomic DNA"
+strain="OG_hylo"
+isolation_source="Moss host from forest floor"
+host="Hylocomium splendens"
+db_xref="taxon:1180"
+geo_loc_name="Germany: Bayern, Zell, Waldstein im Fichtelgebirge"
+lat_lon="50.14233 N 11.86628 E"
+collection_date="May-2023"
+note="PCR_primers=fwd_name: 27F, rev_seq: 1492r"
+###############
+
+
+
+###############
+organism="Nostoc sp."
+mol_type="genomic DNA"
 strain="OG_Homalia"
 isolation_source="Moss on bark of Fagus sylvatica"
 host="Homalia trichomanoides"
 db_xref="taxon:1180"
-geo_loc_name="Germany: Bayern, Schwarzachklamm bei
-steinach"
+geo_loc_name="Germany: Bayern, Schwarzachklamm bei steinach"
 lat_lon="49.352118 N 11.232484 E"
 collection_date="May-2025"
 note="PCR_primers=fwd_name: 27F, rev_name: 1492R"
 ###############
+
+
+############
 organism="Nostoc sp."
 mol_type="genomic DNA"
 strain="OG_Zygodon"
 isolation_source="Moss on bark of Sorbus sp."
 host="Zygodon rupestris"
 db_xref="taxon:1180"
-geo_loc_name="Germany: Bayern, Pfaffenberg bei
-ettendorf"
+geo_loc_name="Germany: Bayern, Pfaffenberg bei Mettendorf"
 lat_lon="49.02075 N 11.35922 E"
 collection_date="Nov-2024"
 note="PCR_primers=fwd_name: 27F, rev_name: 1492R"
 ###############
+
+
+
 organism="Nostoc sp."
 mol_type="genomic DNA"
 strain="OG_Amblystegium"
@@ -220,17 +239,6 @@ geo_loc_name="Germany: Bayern, Pfaffenberg bei
 ettendorf"
 collection_date="Nov-2024"
 note="PCR_primers=fwd_name: 27F, rev_name: 1492R"
-###############
-organism="Nostoc sp."
-mol_type="genomic DNA"
-strain="OG_hylo"
-isolation_source="Moss host from forest floor"
-host="Hylocomium splendens"
-db_xref="taxon:1180"
-geo_loc_name="Germany: Bayern, Zell, Waldstein im Fichtelgebirge"
-lat_lon="50.14233 N 11.86628 E"
-collection_date="May-2023"
-note="PCR_primers=fwd_name: 27F, rev_seq: 1492r"
 ###############
 
 ## we need to relabel the definition line:
@@ -247,6 +255,9 @@ vim Hylocomium_nostoc_BC12_nifH.fa
 
 ## for hylocomium:
 
+collection_date="May-2023"
+note="PCR_primers=fwd_name: 27F, rev_seq: 1492r"
+
 >Seq1
 [organism=Nostoc sp.]
 [strain=OG_hylo]
@@ -255,28 +266,125 @@ vim Hylocomium_nostoc_BC12_nifH.fa
 [Isolation-Source=Moss host from forest floor]
 [Host=Hylocomium splendens]
 [geo_loc_name="Germany: Bayern, Zell, Waldstein im Fichtelgebirge"]
-[collection_date="Nov-2024"]
+[collection_date="Nov-2023"]
 Nostoc sp. nitrogenase component II (nifH) gene, partial cds
 
 ## in one line:
->Seq1 [organism=Nostoc sp.] [strain=OG_hylo] [BioProject=PRJNA1401537] [Latitude-Longitude=50.14233 N 11.86628 E] [Isolation-Source=Moss host from forest floor] [Host=Hylocomium splendens] [geo_loc_name="Germany: Bayern, Zell, Waldstein im Fichtelgebirge"] [collection_date="Nov-2024"] Nostoc sp. nitrogenase component II (nifH) gene, partial cds
+>Seq1 [organism=Nostoc sp.] [strain=OG_hylo] [BioProject=PRJNA1401537] [Latitude-Longitude=50.14233 N 11.86628 E] [Isolation-Source=Moss host from forest floor] [Host=Hylocomium splendens] [geo_loc_name="Germany: Bayern, Zell, Waldstein im Fichtelgebirge"] [collection_date="Nov-2023"] Nostoc sp. nitrogenase component II (nifH) gene, partial cds
 
-## try it for Homalia:
+## add this as a definition line to the files to be submitted to genbank
 
->Seq2 [organism=Nostoc sp.]
-[strain=OG_Homalia]
-[BioProject=PRJNA1401537]
-[Latitude-Longitude=50.14233 N 11.86628 E]
-[lat_lon="49.352118 N 11.232484 E"]
-[isolation_source=Moss on bark of Fagus sylvatica]
-[host="Homalia trichomanoides"]
+mv Hylocomium_nostoc_BC12_nifH.fa Hylocomium_nostoc_nifH.fa 
 
-[geo_loc_name=Germany: Bayern, Schwarzachklamm bei steinach]
+## turns out we need to provide information about the coding region, possibly in the
+## form of an amino acid file, or at listing the coding regions manually. 
 
-[collection_date="Nov-2024"]
-Nostoc sp. nitrogenase component II (nifH) gene, partial cds
+## I think the proper name for the protein coded for by nifH is:
+Dinitrogen reductase (EC 1.18.6.1)
 
-collection_date="May-2025"
-note="PCR_primers=fwd_name: 27F, rev_name: 1492R"
+## ugh. We're just using the barcode...why do we need to do all this?
 
-## ugh, this is a mess. Start again tomorrow. 
+## problem, not sure where the start codon for the nifH gene is 
+## looks like the primers are inside of the stop and start codons.
+
+## run some translations, maybe emboss toolkit as per Dimitri recommends?:
+
+nifDir="/home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/genbankSeqSubmission/nifH/"
+
+sudo apt install emboss
+
+transeq -sequence ${nifDir}Hylocomium_nostoc_nifH.fa -frame=6  -outseq "hyloNifH.faa"
+
+## and if we have a multi-fasta?
+transeq -sequence ${nifDir}Homalia_nostoc_BC14_nifH.fa -frame=6  -outseq "homaliaNifH.faa"
+
+transeq -sequence ${nifDir}Zygodon_nostoc_BC13_nifH.fa -frame=6  -outseq "zygodonNifH.faa"
+
+## assembly program
+MUSCLE (5.1.linux64)
+HMMER 3.3
+
+## feature info:
+Dinitrogen reductase
+Component II or Fe protein of nitrogenase
+1.18.6.1
+nifH is the structural gene for nitrogenase reductase.
+
+Nostoc sp.
+
+## for Hylocomium. Reading frame 1:
+LKADSTRLMLHSKAQTSVLHLAAERGAVEDIELEEVMLTGFRDVRCVESGGPEPGVGCAGRGIITAINFLEENGAYKDVDFVSYDVLGDVVCGGFAMPIREGKA
+
+## for homalia:
+## homalia clade 1, Reading frame 3 seems most likely:
+A*TWCRLPGRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
+## even though it has a stop codon it? but the ntide sequence seems mostly correct. 
+## trim the sequence.
+
+## homalia clade 2, Reading frame 1:
+ADSTRLMLHSKAQTSVLQLAAERGAVEDIELEEVMLTGFRDVRCVESGGPEPGVGCAGRGIITAINFLEENGAYKDVDFVSYDVLGDVVCGGFAMPIREGKAQESTSLPLVK
+
+## homalia clade 3, Reading frame 2:
+SKAQTTVLHLAAERGAVEDIEIEEVMLKGFRDVLCVESGGPEPGVGCAGRGIITAINFLEENGAYQNLDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSVX
+
+## for zygodon:
+## zygodon clade1, reading frame 1:
+KADSTRLILHCKAQTTVLHLAAERGAVEDIELEEVVITGFRDIRCVESGGPEPGVGCAGRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSX
+
+## zygodon clade2, reading frame 1:
+KADSTRLMLHSKAQTSVLQLAAERGAVEDIELEEVMLTGFRDVRCVESGGPEPGVGCAGRGIITAINFLEENGAYKDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSX
+
+## zygodon clade3, reading frame 3:
+ADSTRLMLHSKAQTTVLHLAAERGAVEDIEIEEVMLTGFRNVRCVESGGPEPGVGCAGRGIITAINFLEENGAYQDLDFVSYDVLGDVVCGGFAMPIREGKAQV
+
+## the portion of the read causing the problem homalia clade 1, Reading frame 3 is here:
+                                                  A*TWCRLP GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
+LKADSTRLMLHSKAQTSVLHLAAERGAVEDIELEEVMLTGFRDVRCVESGGPEPGVGCAGRGIITAINFLEENGAYKDVDFVSYDVLGDVVCGGFAMPIREGKA
+ KADSTRLMLHSKAQTSVLQLAAERGAVEDIELEEVMLTGFRDVRCVESGGPEPGVGCAGRGIITAINFLEENGAYKDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSX
+  ADSTRLMLHSKAQTTVLHLAAERGAVEDIEIEEVMLTGFRNVRCVESGGPEPGVGCAGRGIITAINFLEENGAYQDLDFVSYDVLGDVVCGGFAMPIREGKAQV
+
+## is there any other reason to throw this front sequence away?
+## most of the other available sequences have a G at position 23. 
+
+## if this is replaced, how does this affect our AA sequence?
+GTGCCTGAACCTGGTGTAGGTTGC C CGGTCGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGTGTTGGGTGACGTTGTGTGCGGTGGTTTCGCTATGCCAATCCGTGAAGGTAAAGCCCAAGAAATCTACATCGTTACCTCCGGTGAAATG
+
+A*TWCRLP GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
+
+vim testGsubHomaliaClade1.fa
+
+>testGsubHomaliaClade1
+GTGCCTGAACCTGGTGTAGGTTGC G CGGTCGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGTGTTGGGTGACGTTGTGTGCGGTGGTTTCGCTATGCCAATCCGTGAAGGTAAAGCCCAAGAAATCTACATCGTTACCTCCGGTGAAATG
+
+transeq -sequence testGsubHomaliaClade1.fa -frame=6  -outseq "testGsubHomaliaClade1.faa"
+
+cat testGsubHomaliaClade1.fa 
+cat testGsubHomaliaClade1.faa
+
+## nope, doesn't help.
+
+## I think this is the only problematic sequence. 
+## I don't know where the error is, but it makes sense that this would happen in the 
+## Homalia sequences, we had far fewer reads to work with. 
+## Much more likely we picked up an error. 
+
+## the part that makes sense: 
+vvvvvvvv 
+A*TWCRLP GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
+
+## trim to that. 
+
+## that would mean this on the nucleotide side:
+    A   *   T   W   C   R   L   P   G
+GT GCC TGA ACC TGG TGT AGG TTG CCC GGT CGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGTGTTGGGTGACGTTGTGTGCGGTGGTTTCGCTATGCCAATCCGTGAAGGTAAAGCCCAAGAAATCTACATCGTTACCTCCGGTGAAATG
+
+## which gives us our new sequence:
+GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
+
+GGTCGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGTGTTGGGTGACGTTGTGTGCGGTGGTTTCGCTATGCCAATCCGTGAAGGTAAAGCCCAAGAAATCTACATCGTTACCTCCGGTGAAATG
+
+
+
+## so to upload these...break them up into individual fastas? 
+
+## oops, for Homolia trichomanoides clade1, I think I mixed up the collection date. Should be May 2025, not May 2023. Email?
