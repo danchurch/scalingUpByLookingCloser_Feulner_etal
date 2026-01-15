@@ -3153,7 +3153,7 @@ nostocMatches.query("bitscore > 600").shape
 
 ## we have three top hits, with 322, 157, and 44 strong matches. Extract just these reads into a fasta: 
 
-minBitscore = 900 ## with these AA/nt blast matches, the bitscores are much lower.
+minBitscore = 900
 
 
 nostocMatches.query(f"bitscore > {minBitscore}").shape ## 449 seqs
@@ -4036,6 +4036,8 @@ Structural RNA Homology Search
 cd /media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq
 
 nostocAlignment=/media/vol1/daniel/nostoc/16sTree/nostocaceae_cyanoseq/nostocaceaeCyanoseqPlusOurSeqs_ali/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
+
+find . -name nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
 
 less $nostocAlignment
 
@@ -5584,4 +5586,18 @@ cd manuscript/suppData/
 ## also need the following files in the repo:
 ## Kubota reads
 ## custom nifH databases
-## 
+
+## let's start a new text file for this.
+
+## make softlinks for supp data, for reader to rebuild 
+## trees, alignments:
+
+ln -s ../../16sTree/seqs2align/seqs2alignNostocaceae.fa /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/suppData/seqs2alignNostocaceae.fa
+
+find . -name nostocaceaeTree.nwk
+
+cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/suppData/
+
+ln -s ../../16sTree/currentAlignTree/nostocaceaeTree.nwk nostocaceaeTree.nwk
+
+

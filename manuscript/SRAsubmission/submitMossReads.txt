@@ -266,7 +266,7 @@ note="PCR_primers=fwd_name: 27F, rev_seq: 1492r"
 [Isolation-Source=Moss host from forest floor]
 [Host=Hylocomium splendens]
 [geo_loc_name="Germany: Bayern, Zell, Waldstein im Fichtelgebirge"]
-[collection_date="Nov-2023"]
+[collection_date="May-2023"]
 Nostoc sp. nitrogenase component II (nifH) gene, partial cds
 
 ## in one line:
@@ -383,8 +383,8 @@ GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
 
 GGTCGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGTGTTGGGTGACGTTGTGTGCGGTGGTTTCGCTATGCCAATCCGTGAAGGTAAAGCCCAAGAAATCTACATCGTTACCTCCGGTGAAATG
 
-
-
 ## so to upload these...break them up into individual fastas? 
 
 ## oops, for Homolia trichomanoides clade1, I think I mixed up the collection date. Should be May 2025, not May 2023. Email?
+
+

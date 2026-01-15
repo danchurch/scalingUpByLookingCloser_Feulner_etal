@@ -1,0 +1,214 @@
+## steps for bioinformatics from Feulner et al. (2026) are outlined here, with code examples.
+## code is written variously in GNU bash, version 5.0.17(1)-release (x86_64-pc-linux-gnu),
+## or python 3.8.10 on linux.
+
+############ step one - processing raw nanopore reads ############
+
+## if basecalling was not done concurrently with sequencing, 
+## use GPU-enabled Dorado basecaller on pod5 files to call sequences. 
+##  
+
+## In terminal:
+
+pod5="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/20250718_1454_MN40608_FBA42671_2ed2dc90/pod5"
+demuxDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/demuxed"
+basecalledDir="/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/basecalled"
+
+## for the moment, keep the outputs as alignments and don't trim, seems to reduce our output
+dorado basecaller -v --no-trim --device cuda:all  -o $basecalledDir sup $pod5
+
+## now demultiplex
+dorado demux -v --kit-name SQK-RBK114-24 -o $demuxDir $basecalledDir
+
+## now trim off the nanopore adaptors with sample info etc. 
+
+cd $basecalledDir
+for demuxedFile in *bam; do
+  echo "Starting ${demuxedFile}"
+  dorado trim \
+    -k SQK-RBK114-24 \
+    -v \
+    --no-trim-primers \
+    --emit-fastq \
+    $demuxedFile > ${trimmedDir}/${demuxedFile/\.bam/\.fastq}
+  echo "Done ${demuxedFile}"
+done
+
+## following this step, each de-multiplexed fastq file is 
+## handled individually, through all of the following steps.
+## we had two barcodes, 16S and nifH...
+
+
+########## 16S pipeline ###############
+
+############ 16S step 1 - filtering reads to just Nostoc 16S ############
+
+## either due to co-culturing or just noisy nanopore data,
+## there are a lot of reads we cannot confirm as originating 
+## from Nostoc, or as cyanobacterial nifH genes. So we will 
+## blast these reads against the Silva database to get a list of the
+## higher quality matches. 
+
+## example: 16S reads from the Compactonostoc we cultured from Zygodon moss (barcode 11):
+
+## we have a local copy of the silva database here:
+blastDB="/media/vol1/daniel/databases/silva/silva138_SSU_reformathead.fasta"
+## one of our demultiplexed read files
+readFile="2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq"
+
+## need a fasta, not a fastq:
+seqtk seq -A ${readFile} > ${readFile/\.fastq/\.fasta}
+
+blastn -db $blastDB \
+  -query ${readFile/\.fastq/\.fasta} \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode9-allSilva.csv \
+  -outfmt 10
+
+## take out just those that blast first to Nostoc.
+grep "Nostocaceae;Nostoc" round2Barcode11-allSilva.csv > barcode11_nostocMatches.csv
+##  and insert a header
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' barcode11_nostocMatches.csv
+
+## now we have a csv of reads that blasted to nostoc
+## but we can do a bit more quality control...into python/pandas...
+
+python3
+import pandas as pd
+from Bio import SeqIO
+
+nostocMatches = pd.read_csv('barcode11_nostocMatches.csv', index_col='qseqid')
+## all of these have been id'd to nostoc, so get rid of taxonomy
+nostocMatches['sseqid'] = nostocMatches['sseqid'].str.split(';', expand=True)[[0]]
+
+## examining this, we see some pretty high bitscores, so we can set the bar high:
+minBitscore = 900
+strongMatches = nostocMatches.query(f'bitscore > {minBitscore}')
+wantedReads=strongMatches.reset_index().qseqid
+
+## this gives us a list of nanopore sequence IDs that we can use to find our 
+## high-quality, nostoc-like reads, to pick out from our total read file:
+
+rawReadsBarcode = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                   "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                   "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode11.fastq")
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+SeqIO.write(highBits, "Barcode11_strongNostocMatches.fa", "fasta")
+
+## this is a new fasta of just our high-confidence nostoc 16S matches
+
+## back in the terminal, reorient these reads to coding strand, 5'-3', using vsearch:
+silvaDB=/media/vol1/daniel/databases/silva/dada2silva/silva_nr99_v138.2_toGenus_trainset.fa
+vsearch \
+   --orient Barcode11_strongNostocMatches.fa \
+   --db $silvaDB \
+   --fastaout  barcode11_strongNostocMatches_oriented.fa \
+   --notmatched barcode11_strongNostocMatches_NotOriented.fa
+
+
+############ 16S step 2 - alignment of all 16S raw reads and 16S consensus sequence  ############
+
+## we make one large 16S tree of all reads that strongly matched to 
+## nostoc: 
+
+muscle5 -align barcode11_strongNostocMatches_oriented.fa -output barcode11_strongNostocMatches.afa
+
+## there are many small insertions in the sequences so we remove vertical gaps:
+CIAlign --infile barcode11_strongNostocMatches.afa \
+        --outfile_stem barcode11_strongNostocMatches_msaEdits \
+        --insertion_min_perc 0.7 \
+        --insertion_min_flank 1 \
+        --insertion_min_size 1 \
+        --insertion_max_size 400 \
+        --remove_insertions
+
+## following this, we trim low-confidence ends of the alignment manually
+
+## then build a tree from the polished alignment using fastTree2:
+
+alignment="barcode11_strongNostocMatches.afa"
+FastTree -gtr -nt < ${alignment} > barcode11_strongNostocMatches.nwk
+
+## in the case of this and the other 16S reads, we didn't see
+## any real structure in the resulting trees, which is good.
+## Theoretically, this is a single organism with one version of 16S,
+## or if intragenomic variation occurs, the 16S will be highly 
+## similar. 
+
+## since we don't see an obvious structure in the 16S tree 
+## then we build a consensus sequence from the alignment:
+
+alignFile="Barcode11_strongNostocMatches_handEdited.afa"
+finalFileName="Zygodon_Nostoc_BC11_16s.fa"
+hmmbuild ${alignFile/_handEdited\.afa/\.hmm} ${alignFile}
+hmmemit -c -o $finalFileName ${alignFile/_handEdited\.afa/\.hmm}
+
+
+############ 16S step 3 - total 16S tree ############
+
+## we can then put our 16S sequences for these nostoc-like
+## organisms into a phylogeny of Nostocaceae. 
+## Surprisingly, it is hard to find a recent, agreed-upon 
+## tree for Nostacaceae. Both Cydrasil and CyanoSeq (v1.2)
+## databases have Nostoc sequences in their all-Cyanobacterial 
+## phylogenies but they are not extensive enough for 
+## for our nostoc-centered purpose, not resolved enough. 
+## Both of these packages are intended to address the 
+## known weaknesses of the Silva database for cyanobacteria.
+## Nostocaceae phylogeny appears to be in flux, when no
+## consensus even at the family boundaries. Since we are not
+## qualified to participate in this discussion, our 
+## approach is to make a denovo 16S tree of all sequences
+## obviously within nostocaceae and adjacent to it in 
+## the Cyanoseq tree. Additionally we add in ~700 sequences
+## that have been identified as Nostoc sp. by the Cyanoseq
+## software, and some other sequences of interest. 
+## For rooting, if we need it, we'll use 16S data from Scytonema:
+## MH260366.1 Scytonema pachmarhiense
+
+## since there is so much interest in "Nostoc" azollae, let's 
+## extract its 16S sequence from the genome on NCBI, using 
+## barrnap:
+
+esearch -db "Nucleotide" -query "NC_014248.1" | efetch -format "fasta" > NC_014248.fa
+barrnap  -k bac -o temp_16s.fa  < NC_014248.fa
+grep -A1 "^>16S_" temp_16s.fa > nostocAzollae_16s.fa 
+
+## make sure they align exactly:
+muscle5 -align nostocAzollae_16s.fa -output nostocAzollae_16s.afa
+aliview ${organism}_16s.afa &
+## looks good, all copies identical.  
+
+## all of the above sequences, including our new 16S data,
+##  are in the file, from "root" of repo:
+seqs2align=./manuscript/suppData/seqs2alignNostocaceae.fa
+
+## align these. Since we are dealing with SSU rRNA, use an appropriate aligner,
+ssu-align -n bacteria $seqs2align nostocaceaeCyanoseqPlusOurSeqs_ali
+ssu-mask --pf 0.9999 --pt 0.9999 nostocaceaeCyanoseqPlusOurSeqs_ali
+ssu-mask --stk2afa nostocaceaeCyanoseqPlusOurSeqs_ali
+
+## gives us the following alignment fasta, from "root" of repo:
+nostocAlignment=./16sTree/currentAlignTree/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
+
+## use FastTree2 to make the tree, with defaults:
+FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
+
+## this raw newick file is in the supplementary methods.
+
+## from here we used the ARB GUI and inkscape to produce a polished 
+## image of the tree, highlighting our sequences
+
+########## nifH pipeline ###############
+
+############ nifH step 1 -  ############
+
+## 
