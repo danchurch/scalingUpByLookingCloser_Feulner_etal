@@ -35,7 +35,7 @@ for demuxedFile in *bam; do
 done
 
 ## following this step, each de-multiplexed fastq file is 
-## handled individually, through all of the following steps.
+## handled individually, through step 1 in each pipeline.
 ## we had two barcodes, 16S and nifH...
 
 
@@ -174,8 +174,8 @@ hmmemit -c -o $finalFileName ${alignFile/_handEdited\.afa/\.hmm}
 ## For rooting, if we need it, we'll use 16S data from Scytonema:
 ## MH260366.1 Scytonema pachmarhiense
 
-## since there is so much interest in "Nostoc" azollae, let's 
-## extract its 16S sequence from the genome on NCBI, using 
+## since there is so much interest in "Nostoc" azollae, we included it
+## we extracted its 16S sequence from the genome on NCBI, using 
 ## barrnap:
 
 esearch -db "Nucleotide" -query "NC_014248.1" | efetch -format "fasta" > NC_014248.fa
@@ -212,7 +212,7 @@ FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 ## as above with 16S, step 1 is repeated for each organism
 ## for which PCR of nifH was successful. 
 
-############ nifH step 1 - generate nifH  ############
+############ nifH step 1 - filtering to nifH  ############
 
 ## as per the 16S barcode data above, we need
 ## to sift these reads a bit, then 
@@ -221,15 +221,8 @@ FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 ## present in these organisms. The pipeline is 
 ## similar to the 16S above, but we constructed
 ## a custom nifH database from several sources.
-## As before, we did not want to construct our
-## own denovo tree. Instead, we wanted to 
-## hang our sequence data onto the Kubota-Ininbergs
-## tree that has been used for the last decade
-## around these questions. However, neither 
-## author group could make the alignment behind their
-## trees or the trees themselves available, 
-## so we attempted to recreate the tree below.  
-
+## This database contains nifH sequences from numerous
+## clades of bacteria, not just cyanobacteria.
 ## our custom database is explained in the paper, 
 ## is included in the supplementary material, and 
 ## code for constructing it is in the total code file.
@@ -337,10 +330,31 @@ hmmemit -c -o ${alignFile/_handEdited.afa/_consensus.fasta} ${alignFile/\.afa/\.
 
 ############ nifH step 3 - total nifH tree ############
 
+## As before, we did not want to construct our
+## own denovo tree. Instead, we wanted to 
+## hang our sequence data onto the Kubota-Ininbergs
+## tree that has been used for the last decade
+## around these questions. However, neither 
+## author group could make the alignment behind their
+## trees or the trees themselves available, 
+## so we attempted to recreate the tree below.  
+
 ## since alignment files for the kubota-ininbergs tree are not 
-## available from the authors or elsewhere,  we need to reconstruct from 
+## available from the authors or elsewhere,  we reconstructed from 
 ## the sequences that were kindly supplied to us by Masayuki Kubota
-## these sequences include both the original Ininbergs et al.
+## These sequences include both the original Ininbergs et al.
 ## study and his study. 
 
+## aligning the file that contains the sequences from their studies and 
+## my additional nifH genes, and making a tree:
+
+muscle5 -align nifHseqs2align.fa -output nifHseqs2align.afa
+alignment="nifHseqs2align.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
+  
+## (hand curation of alignment was tried but actually changed the
+##  tree topology further away from that of the published Ininbergs-
+##  Kubota-tree)
+
+## resulting tree was visualized in ARB and polished with Inkscape
 
