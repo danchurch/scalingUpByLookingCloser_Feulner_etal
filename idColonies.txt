@@ -4647,6 +4647,7 @@ vsearch \
 ## all reoriented.
 
 ## reoriented references maybe handy here?
+
 reorientedRefs=/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode12/NifH_NcommuneRefSeqs_oriented.fa
 
 grep -c ">" Barcode13_NifH_reads2align_oriented.fa
@@ -5600,4 +5601,15 @@ cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/suppData/
 
 ln -s ../../16sTree/currentAlignTree/nostocaceaeTree.nwk nostocaceaeTree.nwk
 
+## make the custom nifH database available:
 
+find . -name allNifHdbs.faa -exec ls -lh {} \;
+
+cp /media/vol1/daniel/nostoc/nifHdatabases/allNifHdbs.faa /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/refDatabases
+
+cd /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/manuscript/suppData
+
+ln -s ../../refDatabases/allNifHdbs.faa ./allNifHdbs.faa
+
+## the unalign sequences and alignment of our reads + kubota + ininberg:
+getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/thomasKubotaIninbergs_handEdited.afa

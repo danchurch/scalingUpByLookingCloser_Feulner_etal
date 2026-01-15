@@ -209,6 +209,138 @@ FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 
 ########## nifH pipeline ###############
 
-############ nifH step 1 -  ############
+## as above with 16S, step 1 is repeated for each organism
+## for which PCR of nifH was successful. 
 
-## 
+############ nifH step 1 - generate nifH  ############
+
+## as per the 16S barcode data above, we need
+## to sift these reads a bit, then 
+## align them. Unlike the 16S data,
+## we seem to find multiple, alternate nifH
+## present in these organisms. The pipeline is 
+## similar to the 16S above, but we constructed
+## a custom nifH database from several sources.
+## As before, we did not want to construct our
+## own denovo tree. Instead, we wanted to 
+## hang our sequence data onto the Kubota-Ininbergs
+## tree that has been used for the last decade
+## around these questions. However, neither 
+## author group could make the alignment behind their
+## trees or the trees themselves available, 
+## so we attempted to recreate the tree below.  
+
+## our custom database is explained in the paper, 
+## is included in the supplementary material, and 
+## code for constructing it is in the total code file.
+## So I won't provide that code here. 
+
+## the nifH reference database:
+blastDB=./refDatabases/allNifHdbs.faa
+
+## an example fastq of reads from a nifH pcr reaction 
+nifH13reads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode13.fastq
+
+seqtk seq -A $nifH13reads > nifH13.fasta
+
+## look for matches to these reads in the custom ref db:
+blastx -db $blastDB \
+  -query nifH13.fasta \
+  -num_threads 10 \
+  -num_alignments 1 \
+  -out round2Barcode13-nifH.csv \
+  -outfmt 10 &
+
+## add in a header to this
+sed -i '1i qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore' round2Barcode13-nifH.csv
+
+## use pandas/biopython for the finer work:
+
+python3
+import pandas as pd
+from Bio import SeqIO
+
+nifhMatches = pd.read_csv('round2Barcode13-nifH.csv', index_col='qseqid')
+strongMatches = nifhMatches.query('bitscore > 90')
+## bitscores are much lower for these ntide-AA blastx matches, 
+## as compared to ntide-ntide blastn matches from 16S above
+
+wantedReads=strongMatches.reset_index().qseqid
+
+rawReadsBarcode = ("/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/"
+                   "OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/"
+                   "2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode13.fastq")
+
+highBits=[]
+for rec in SeqIO.parse(rawReadsBarcode, "fastq"):
+    print(rec.id)
+    if wantedReads.str.match(rec.id).any():
+      print("yes!: " + rec.id)
+      highBits.append(rec)
+
+SeqIO.write(highBits, "Barcode13_NifH_reads2align.fa", "fasta")
+
+## out of python, back to terminal. Re-orient all reads to 5'-3' +
+## we used the reads provided by Kubota, et al, for correcting
+## the direction of these reads 
+
+vsearch \
+   --orient Barcode13_NifH_reads2align.fa \
+   --db /media/vol1/daniel/nostoc/nifHtree/kubotaTreeSeqsPart.fa \
+   --fastaout  Barcode13_NifH_reads2align_oriented.fa \
+   --notmatched Barcode13_NifH_reads2align_NotOriented.fa
+
+## this leaves us with just oriented reads that are highly likely to 
+## be nifH genes
+
+############ nifH step 2 - alignment of nifH raw reads and nifH consensus sequences  ############
+
+## align these with muscle. 
+
+muscle5 -align Barcode13_NifH_reads2align_oriented.fa -output BC13_noRefSeqs.afa
+
+## remove vertical gaps
+CIAlign --infile BC13_noRefSeqs.afa \
+        --outfile_stem BC13_andrefSeqs_handEdits \
+        --insertion_min_perc 0.7 \
+        --insertion_min_flank 1 \
+        --insertion_min_size 1 \
+        --insertion_max_size 400 \
+        --remove_insertions
+
+## hand curate - trim edges, etc.
+
+## make tree
+alignment="BC13_andrefSeqs_handEdits.afa"
+FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
+
+## examine the tree in arb - do we see obvious clustering?
+## in this case, yes. Save these subtrees as three separate clades:
+barcode13_clade1.fa
+barcode13_clade2.fa
+barcode13_clade3.fa
+
+## run alignments on these individually
+muscle5 -align barcode13_clade1.fa -output barcode13_clade1.afa
+muscle5 -align barcode13_clade2.fa -output barcode13_clade2.afa
+muscle5 -align barcode13_clade3.fa -output barcode13_clade3.afa
+
+## curate them manually again, and make hmms for each:
+alignFile="barcode13_clade1_handEdited.afa"
+#alignFile="barcode13_clade2_handEdited.afa"
+#alignFile="barcode13_clade3_handEdited.afa"
+hmmbuild ${alignFile/\.afa/\.hmm} ${alignFile}
+hmmemit -c -o ${alignFile/_handEdited.afa/_consensus.fasta} ${alignFile/\.afa/\.hmm}
+
+## and this gives us a consensus sequence for each of these 
+## three possible nifH genes. 
+
+############ nifH step 3 - total nifH tree ############
+
+## since alignment files for the kubota-ininbergs tree are not 
+## available from the authors or elsewhere,  we need to reconstruct from 
+## the sequences that were kindly supplied to us by Masayuki Kubota
+## these sequences include both the original Ininbergs et al.
+## study and his study. 
+
+
