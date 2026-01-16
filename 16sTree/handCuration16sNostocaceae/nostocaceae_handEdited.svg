@@ -32,22 +32,22 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="357.79603"
-     inkscape:cy="202.93965"
+     inkscape:zoom="1"
+     inkscape:cx="253.99999"
+     inkscape:cy="317.99999"
      inkscape:window-width="1850"
      inkscape:window-height="1016"
      inkscape:window-x="1350"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1718" />
+     inkscape:current-layer="g1799" />
   <rect
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.30615;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
      id="rect1815"
      width="9454.4678"
      height="10333.519"
-     x="30.619076"
-     y="-5.305294"
+     x="43.246845"
+     y="-13.723807"
      ry="10.242565" />
   <path
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#9eb49e;fill-opacity:1;stroke:none;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
@@ -5866,7 +5866,7 @@
      d="m 2177.5134,1454.1299 -243,-367" />
   <g
      id="g1787"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9546.2036,-497.4036)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-9"
@@ -7092,14 +7092,14 @@
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
      id="path1719-27-0-8-7"
-     cx="4927.5664"
-     cy="3012.885"
+     cx="4876.7061"
+     cy="3016.2339"
      r="50.098942"
      inkscape:transform-center-x="19.10144"
      inkscape:transform-center-y="51.511808" />
   <g
      id="g1799"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9091.9055,-509.57817)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-5"
@@ -7118,7 +7118,7 @@
          id="tspan1718-6-61-2"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="14042.001"
-         y="3491.2852">Homalia_nostoc_BC10_16s</tspan></text>
+         y="3491.2852">Homalia Nostoc</tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
@@ -7168,7 +7168,7 @@
        y="9854.4932" /></text>
   <g
      id="g1811"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9039.1079,-453.42452)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-2"
@@ -7212,8 +7212,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-0"
-       width="777.9812"
-       height="84.507881"
+       width="965.14874"
+       height="84.171249"
        x="13492.276"
        y="627.27515"
        ry="10.242565" />
@@ -7227,11 +7227,11 @@
          id="tspan1726"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="13519.141"
-         y="690.67761">Amblystegium Nostoc</tspan></text>
+         y="690.67761">Pseudoamblystegium Nostoc</tspan></text>
   </g>
   <g
      id="g1782"
-     transform="translate(-8936.3236,-470.01614)">
+     transform="translate(-8927.3656,-438.51274)">
     <rect
        style="font-variation-settings:normal;opacity:1;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782"
@@ -7297,14 +7297,14 @@
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
      id="path1719-27-0-8-7-7"
-     cx="7401.1465"
-     cy="5907.8091"
+     cx="7405.3403"
+     cy="5936.0361"
      r="50.098942"
      inkscape:transform-center-x="19.10144"
      inkscape:transform-center-y="51.511808" />
   <g
      id="g1806"
-     transform="translate(-9140.9488,-423.83595)">
+     transform="translate(-8996.6574,-463.24917)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-03"
@@ -7614,7 +7614,7 @@
      d="m 3079.3984,1774.2945 175.51,-391.7105" />
   <g
      id="g1790"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9010.9174,-469.51535)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-73"
@@ -7756,7 +7756,7 @@
      sodipodi:nodetypes="cc" />
   <g
      id="g1786"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-8956.51,-420.40457)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-15"
@@ -7854,36 +7854,39 @@
   <text
      xml:space="preserve"
      style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
-     x="297.73096"
-     y="4998.1685"
+     x="446.10315"
+     y="4914.4224"
      id="text1779"><tspan
        sodipodi:role="line"
        id="tspan1779"
        style="stroke-width:11.9056"
-       x="297.73096"
-       y="4998.1685">Nostoc lichen symbionts, especially Pannaria and Nephroma</tspan></text>
+       x="446.10315"
+       y="4914.4224">Nostoc lichen symbionts, especially Pannaria and Nephroma</tspan></text>
   <g
      id="g1794"
-     transform="translate(-9036.4869,-471.87008)">
-    <rect
-       style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect1782-9-8"
-       width="2032.1135"
-       height="96.764061"
-       x="11449.252"
-       y="3289.0664"
-       ry="10.242565" />
-    <text
-       xml:space="preserve"
-       style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
-       x="11473.248"
-       y="3360.1042"
-       id="text1728-3-7"><tspan
-         sodipodi:role="line"
-         id="tspan1728-2-4"
-         style="font-size:63.4964px;stroke-width:11.9056"
+     transform="translate(-9007.0221,-471.87008)">
+    <g
+       id="g1">
+      <rect
+         style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1782-9-8"
+         width="2032.1135"
+         height="96.764061"
+         x="11449.252"
+         y="3289.0664"
+         ry="10.242565" />
+      <text
+         xml:space="preserve"
+         style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
          x="11473.248"
-         y="3360.1042">KF142670 Gunnera Nostoc symbiont (vascular plant symbiont)</tspan></text>
+         y="3360.1042"
+         id="text1728-3-7"><tspan
+           sodipodi:role="line"
+           id="tspan1728-2-4"
+           style="font-size:63.4964px;stroke-width:11.9056"
+           x="11473.248"
+           y="3360.1042">KF142670 Gunnera Nostoc symbiont (vascular plant symbiont)</tspan></text>
+    </g>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -7901,7 +7904,7 @@
      transform="rotate(19.925506)" />
   <g
      id="g1785"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9011.9343,-486.04138)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-1"
@@ -8080,7 +8083,7 @@
      transform="rotate(19.925506)" />
   <g
      id="g1796"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9036.4869,-451.9519)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-93"
@@ -8103,7 +8106,7 @@
   </g>
   <g
      id="g1784"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-8993.4047,-510.33799)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-7"
@@ -8133,7 +8136,7 @@
      transform="rotate(19.925506)" />
   <g
      id="g1788"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-8805.1833,-367.45064)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-77"
@@ -8193,7 +8196,7 @@
      transform="rotate(19.925506)" />
   <g
      id="g1797"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9004.9473,-482.76215)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-90"
@@ -8223,7 +8226,7 @@
      transform="rotate(19.925506)" />
   <g
      id="g1798"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9023.9105,-471.87008)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-88"
@@ -8287,7 +8290,7 @@
      transform="rotate(19.925506)" />
   <g
      id="g1814"
-     transform="translate(-9036.4869,-471.87008)">
+     transform="translate(-9073.0654,-451.48806)">
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-97"

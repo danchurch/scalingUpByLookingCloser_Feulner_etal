@@ -5612,4 +5612,16 @@ cd /media/vol1/daniel/nostoc/nanoporeNostoc16sAlignments_repo/manuscript/suppDat
 ln -s ../../refDatabases/allNifHdbs.faa ./allNifHdbs.faa
 
 ## the unalign sequences and alignment of our reads + kubota + ininberg:
-getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/thomasKubotaIninbergs_handEdited.afa
+
+ /home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/thomasKubotaIninbergs_handEdited.afa
+
+ls /home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/thomasKubotaIninbergs_handEdited.afa
+
+Declarations
+Funding - University of Bayreuth
+Conflicts of interest/Competing interests - the authors declare no conflicts of interest
+Ethics approval - not applicable
+Consent to participate - not applicable
+Consent for publication - not applicable
+Availability of data and material - code and supporting files are available at the associated github.com repo "scalingUpByLookingCloser_Feulner_etal",  in the folder "suppData":
+Authors' contributions

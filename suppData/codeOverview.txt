@@ -2,6 +2,15 @@
 ## code is written variously in GNU bash, version 5.0.17(1)-release (x86_64-pc-linux-gnu),
 ## or python 3.8.10 on linux.
 
+## demuxed raw reads are available on NCBI SRA, associated with
+## bioproject PRJNA1160472:
+## https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1160472
+
+## readers will have to source Silva database themselves
+
+## other data are mostly available in the "suppData" folder of our
+## github.
+
 ############ step one - processing raw nanopore reads ############
 
 ## if basecalling was not done concurrently with sequencing, 
@@ -187,9 +196,9 @@ muscle5 -align nostocAzollae_16s.fa -output nostocAzollae_16s.afa
 aliview ${organism}_16s.afa &
 ## looks good, all copies identical.  
 
-## all of the above sequences, including our new 16S data,
-##  are in the file, from "root" of repo:
-seqs2align=./manuscript/suppData/seqs2alignNostocaceae.fa
+## all of the above sequences, including our new 16S data, are in this
+## fasta in the suppData folder of the repo:
+seqs2align=seqs2alignNostocaceae.fa
 
 ## align these. Since we are dealing with SSU rRNA, use an appropriate aligner,
 ssu-align -n bacteria $seqs2align nostocaceaeCyanoseqPlusOurSeqs_ali
@@ -202,7 +211,7 @@ nostocAlignment=./16sTree/currentAlignTree/nostocaceaeCyanoseqPlusOurSeqs_ali.ba
 ## use FastTree2 to make the tree, with defaults:
 FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 
-## this raw newick file is in the supplementary methods.
+## this raw newick file is in the suppData folder in the repo.
 
 ## from here we used the ARB GUI and inkscape to produce a polished 
 ## image of the tree, highlighting our sequences
@@ -228,8 +237,9 @@ FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 ## code for constructing it is in the total code file.
 ## So I won't provide that code here. 
 
-## the nifH reference database:
-blastDB=./refDatabases/allNifHdbs.faa
+## the nifH reference database we made is in the 
+## suppData form in the github repo:
+blastDB=allNifHdbs.faa
 
 ## an example fastq of reads from a nifH pcr reaction 
 nifH13reads=/media/vol1/daniel/rawDataNanopore/NostocColonyPCRsRound2/OGZygodonHylocomiumHomalia/OGZygodonHylocomiumHomalia_baseCalled/trimmed/2ed2dc90-9ec6-43dc-b1a6-362b75c1ab18_SQK-RBK114-24_barcode13.fastq
@@ -348,9 +358,11 @@ hmmemit -c -o ${alignFile/_handEdited.afa/_consensus.fasta} ${alignFile/\.afa/\.
 ## aligning the file that contains the sequences from their studies and 
 ## my additional nifH genes, and making a tree:
 
-muscle5 -align nifHseqs2align.fa -output nifHseqs2align.afa
-alignment="nifHseqs2align.afa"
+muscle5 -align nifHseqs2align.fa -output nifHfullAlignment.afa
+alignment="nifHfullAlignment.afa"
 FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
+
+## the resulting tree file is called "nifHFullTree.nwk" in the suppData folder
   
 ## (hand curation of alignment was tried but actually changed the
 ##  tree topology further away from that of the published Ininbergs-
