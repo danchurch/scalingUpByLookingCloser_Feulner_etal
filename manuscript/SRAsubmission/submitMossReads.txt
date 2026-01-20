@@ -368,7 +368,7 @@ cat testGsubHomaliaClade1.faa
 ## Homalia sequences, we had far fewer reads to work with. 
 ## Much more likely we picked up an error. 
 
-## the part that makes sense: 
+## the part that doesn't make sense, based on alignments with existing nifH from genbank: 
 vvvvvvvv 
 A*TWCRLP GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
 
@@ -377,6 +377,9 @@ A*TWCRLP GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
 ## that would mean this on the nucleotide side:
     A   *   T   W   C   R   L   P   G
 GT GCC TGA ACC TGG TGT AGG TTG CCC GGT CGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGTGTTGGGTGACGTTGTGTGCGGTGGTTTCGCTATGCCAATCCGTGAAGGTAAAGCCCAAGAAATCTACATCGTTACCTCCGGTGAAATG
+
+## funny, that is the "opal" stop codon, sometimes it means selenocysteine instead of a stop codon. 
+## but probably not the issue here, I think that is a pretty rare protein.
 
 ## which gives us our new sequence:
 GRGIITAINFLEENGAYSDVDFVSYDVLGDVVCGGFAMPIREGKAQEIYIVTSGEM
@@ -387,4 +390,14 @@ GGTCGCGGTATTATCACCGCCATCAACTTCCTCGAAGAAAACGGCGCTTACTCAGATGTAGATTTCGTATCCTACGACGT
 
 ## oops, for Homolia trichomanoides clade1, I think I mixed up the collection date. Should be May 2025, not May 2023. Email?
 
+##### fixing homalia sequences ######
 
+## genbank is refusing our homalia 2 and 3 nifH versions. 
+## they say they are aligning poorly.
+
+## we need a lot of nifH sequences to align to, nucleotide, not AA... 
+
+## how does our old alignment look?
+## looks fine. Probably a missed nucleotide somewhere around site 304 in Homalia_cyanobacteria_BC14_nifH_clade3
+
+## other than that, not sure what to do here. Wait. Submit without. 
