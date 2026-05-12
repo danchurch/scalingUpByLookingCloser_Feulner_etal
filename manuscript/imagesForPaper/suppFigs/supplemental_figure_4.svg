@@ -1,0 +1,5579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.7a -->
+
+<!-- CreationDate: 2025-10-08 14:53:50 -->
+
+<!-- Magnification: 1.05 -->
+
+<svg
+   width="1584.912pt"
+   height="1329.24pt"
+   viewBox="-12 -12 25149.359 21088.377"
+   version="1.1"
+   id="svg1234"
+   sodipodi:docname="nifHtree_fullTree_editedLabels.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:export-filename="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/manuscript/imagesForPaper/suppFigs/supplemental_figure_2.jpeg"
+   inkscape:export-xdpi="96.5"
+   inkscape:export-ydpi="96.5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1238" />
+  <sodipodi:namedview
+     id="namedview1236"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:snap-global="false"
+     fit-margin-left="10"
+     fit-margin-top="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10"
+     inkscape:zoom="1.1075515"
+     inkscape:cx="337.23038"
+     inkscape:cy="1423.4101"
+     inkscape:window-width="1204"
+     inkscape:window-height="656"
+     inkscape:window-x="76"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1234"
+     showguides="false"
+     inkscape:lockguides="true"
+     inkscape:object-paths="true" />
+  <rect
+     style="fill:#ffffff;stroke-width:7.99746;stroke-dashoffset:1.676;stop-color:#000000;stroke:none"
+     id="rect1469"
+     width="25269.771"
+     height="21269.436"
+     x="3.596848"
+     y="-62.85606" />
+  <polyline
+     points=" 0,0"
+     stroke="#ffffff"
+     stroke-width="8px"
+     id="polyline2"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 24828,20775"
+     stroke="#ffffff"
+     stroke-width="8px"
+     id="polyline4"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13208,270 13669,270"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline6"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13208,368 13208,270"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline8"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13208,465 13983,465"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline10"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13208,368 13208,465"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline12"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,1050 13619,1050"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline14"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,1148 13603,1050"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline16"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,1245 13619,1245"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline18"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,1148 13603,1245"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline20"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,855 13620,855"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline22"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,953 13603,855"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline24"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,1148"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline26"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,953 13603,1148"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline28"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,660 13620,660"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline30"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,758 13603,660"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline32"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,953"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline34"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13603,758 13603,953"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline36"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2805 15530,2805"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline38"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2903 15383,2805"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline40"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,3000 15571,3000"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline42"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2903 15383,3000"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline44"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2610 15398,2610"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline46"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2708 15383,2610"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline48"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2903"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline50"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15383,2708 15383,2903"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline52"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2415 15078,2415"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline54"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2513 15059,2415"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline56"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2708 15383,2708"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline58"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2513 15059,2708"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline60"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2220 15173,2220"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline62"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2318 15059,2220"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline64"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2513"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline66"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15059,2318 15059,2513"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline68"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,2025 15064,2025"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline70"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,2123 14564,2025"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline72"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,2318 15059,2318"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline74"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,2123 14564,2318"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline76"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1830 14880,1830"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline78"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1928 14564,1830"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline80"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,2123"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline82"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1928 14564,2123"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline84"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1635 15155,1635"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline86"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1733 14564,1635"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline88"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1928"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline90"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14564,1733 14564,1928"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline92"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13731,1440 14117,1440"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline94"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13731,1538 13731,1440"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline96"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13731,1733 14564,1733"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline98"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13731,1538 13731,1733"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline100"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13298,758 13603,758"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline102"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13298,1343 13298,758"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline104"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13298,1538 13731,1538"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline106"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13298,1343 13298,1538"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline108"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17520,236 17579,236"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline110"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17579,3034 17520,3034"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline112"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17579,3034 17579,236"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline114"
+     transform="translate(436.30385,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12842,368 13208,368"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline116"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12842,563 12842,368"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline118"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12842,1343 13298,1343"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline120"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12842,563 12842,1343"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline122"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12842,488 12917,563"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline124"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12917,563 12842,638"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline126"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12842,638 12767,563"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline128"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12767,563 12842,488"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline130"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polygon
+     points="12842,488 12917,563 12842,638 12767,563 "
+     fill="#5d5d5d"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     id="polygon132"
+     transform="translate(150.67985,146.63193)" />
+  <polyline
+     points=" 12417,563 12842,563"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline134"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3098 12417,563"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline136"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3195 12631,3195"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline138"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3098 12417,3195"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline140"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3098"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline142"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3293 12417,3098"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline144"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3390 12870,3390"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline146"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12417,3293 12417,3390"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline148"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3585 14354,3585"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline150"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3683 14265,3585"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline152"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3780 15129,3780"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline154"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3683 14265,3780"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline156"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3683"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline158"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3878 14265,3683"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline160"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3975 15327,3975"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline162"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14265,3878 14265,3975"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline164"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,3293 12417,3293"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline166"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,3488 11833,3293"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline168"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,3878 14265,3878"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline170"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,3488 11833,3878"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline172"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12787,4170 12978,4170"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline174"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12787,4268 12787,4170"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline176"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12787,4365 13796,4365"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline178"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12787,4268 12787,4365"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline180"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12758,4560 12773,4560"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline182"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12758,4658 12758,4560"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline184"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12758,4755 12838,4755"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline186"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12758,4658 12758,4755"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline188"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5535 12565,5535"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline190"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5633 12545,5535"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline192"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5730 12565,5730"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline194"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5633 12545,5730"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline196"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5340 12756,5340"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline198"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5438 12545,5340"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline200"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5633"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline202"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12545,5438 12545,5633"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline204"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12275,5145 12779,5145"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline206"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12275,5243 12275,5145"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline208"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12275,5438 12545,5438"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline210"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12275,5243 12275,5438"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline212"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4950 12667,4950"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline214"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5048 12256,4950"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline216"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5243 12275,5243"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline218"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5048 12256,5243"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline220"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4658 12758,4658"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline222"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4853 12256,4658"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline224"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5048"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline226"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4853 12256,5048"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline228"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4268 12787,4268"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline230"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4463 12256,4268"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline232"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4853"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline234"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4463 12256,4853"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline236"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12530,5925 12546,5925"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline238"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12530,6023 12530,5925"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline240"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12530,6120 12557,6120"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline242"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12530,6023 12530,6120"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline244"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12481,6023 12530,6023"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline246"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12481,6218 12481,6023"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline248"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12481,6315 12649,6315"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline250"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12481,6218 12481,6315"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline252"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,4463"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline254"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5828 12256,4463"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline256"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,6218 12481,6218"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline258"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5828 12256,6218"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline260"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,5828"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline262"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,6413 12256,5828"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline264"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,6510 12435,6510"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline266"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12256,6413 12256,6510"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline268"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,3488"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline270"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,4073 11833,3488"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline272"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,6413 12256,6413"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline274"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,4073 11833,6413"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline276"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6705 12325,6705"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline278"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6803 12308,6705"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline280"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6900 12325,6900"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline282"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6803 12308,6900"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline284"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6803"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline286"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6998 12308,6803"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline288"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,7095 12325,7095"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline290"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12308,6998 12308,7095"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline292"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12192,7290 12208,7290"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline294"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12192,7388 12192,7290"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline296"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12192,7485 12208,7485"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline298"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12192,7388 12192,7485"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline300"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7388 12192,7388"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline302"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7583 12171,7388"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline304"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7680 12192,7680"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline306"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7583 12171,7680"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline308"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7583"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline310"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7778 12171,7583"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline312"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7875 12192,7875"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline314"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7778 12171,7875"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline316"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,6998 12308,6998"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline318"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7193 12171,6998"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline320"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7778"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline322"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12171,7193 12171,7778"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline324"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,4073"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline326"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,6608 11833,4073"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline328"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,7193 12171,7193"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline330"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,6608 11833,7193"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline332"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,6608"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline334"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,7973 11833,6608"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline336"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,8070 12138,8070"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline338"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11833,7973 11833,8070"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline340"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12099,8265 13286,8265"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline342"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12099,8363 12099,8265"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline344"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12099,8460 12926,8460"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline346"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12099,8363 12099,8460"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline348"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,7973 11833,7973"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline350"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8168 11395,7973"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline352"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8363 12099,8363"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline354"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8168 11395,8363"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline356"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8168"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline358"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8558 11395,8168"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline360"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8655 11477,8655"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline362"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11395,8558 11395,8655"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline364"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 19196,236 19254,236"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline366"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 19254,8884 19196,8884"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline368"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 19254,8884 19254,236"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline370"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10096,8558 11395,8558"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline372"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10096,8753 10096,8558"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline374"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10096,8850 10463,8850"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline376"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10096,8753 10096,8850"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline378"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10096,8678 10171,8753"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline380"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10171,8753 10096,8828"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline382"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10096,8828 10021,8753"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline384"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10021,8753 10096,8678"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline386"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polygon
+     points="10096,8678 10171,8753 10096,8828 10021,8753 "
+     fill="#5d5d5d"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     id="polygon388"
+     transform="translate(150.67985,146.63193)" />
+  <polyline
+     points=" 10874,9240 11404,9240"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline390"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10874,9338 10874,9240"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline392"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10874,9435 11607,9435"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline394"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10874,9338 10874,9435"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline396"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9825 10904,9825"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline398"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9923 10761,9825"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline400"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,10020 11197,10020"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline402"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9923 10761,10020"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline404"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9630 10777,9630"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline406"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9728 10761,9630"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline408"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9923"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline410"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10761,9728 10761,9923"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline412"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,9728 10761,9728"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline414"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10118 10446,9728"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline416"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10215 10531,10215"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline418"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10118 10446,10215"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline420"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10118"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline422"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10313 10446,10118"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline424"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10410 10792,10410"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline426"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10313 10446,10410"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline428"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,9338 10874,9338"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline430"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,9533 10446,9338"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline432"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,10313"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline434"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10446,9533 10446,10313"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline436"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,9045 9867,9045"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline438"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,9143 9263,9045"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline440"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,9533 10446,9533"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline442"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,9143 9263,9533"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline444"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14640,10639 14581,10639"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline448"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14640,10639 14640,9011"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline450"
+     transform="translate(888.54185,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,9143"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline452"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10508 9263,9143"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline454"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10605 12000,10605"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline456"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10508 9263,10605"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline458"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10433 9338,10508"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline460"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9338,10508 9263,10583"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline462"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10583 9188,10508"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline464"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9188,10508 9263,10433"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline466"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polygon
+     points="9263,10433 9338,10508 9263,10583 9188,10508 "
+     fill="#5d5d5d"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     id="polygon468"
+     transform="translate(150.67985,146.63193)" />
+  <polyline
+     points=" 13539,10800 13612,10800"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline470"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13539,10898 13539,10800"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline472"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13539,10995 14426,10995"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline474"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13539,10898 13539,10995"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline476"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11385 13908,11385"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline478"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11483 13690,11385"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline480"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11580 14632,11580"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline482"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11483 13690,11580"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline484"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11190 14549,11190"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline486"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11288 13690,11190"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline488"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11483"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline490"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13690,11288 13690,11483"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline492"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13302,10898 13539,10898"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline494"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13302,11093 13302,10898"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline496"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13302,11288 13690,11288"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline498"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13302,11093 13302,11288"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline500"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,11775 14733,11775"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline502"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,11873 14656,11775"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline504"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,11970 16346,11970"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline506"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,11873 14656,11970"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline508"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15740,12360 16037,12360"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline510"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15740,12458 15740,12360"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline512"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15740,12555 16327,12555"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline514"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15740,12458 15740,12555"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline516"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12165 15701,12165"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline518"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12263 15338,12165"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline520"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12458 15740,12458"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline522"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12263 15338,12458"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline524"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16643,12750 17108,12750"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline526"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16643,12848 16643,12750"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline528"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16643,12945 16659,12945"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline530"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16643,12848 16643,12945"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline532"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12263"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline534"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12653 15338,12263"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline536"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12848 16643,12848"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline538"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15338,12653 15338,12848"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline540"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,11873"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline542"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,12068 14656,11873"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline544"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,12653 15338,12653"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline546"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14656,12068 14656,12653"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline548"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13140 14169,13140"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline550"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13238 13246,13140"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline552"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13335 13265,13335"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline554"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13238 13246,13335"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline556"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,12068 14656,12068"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline558"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13043 13246,12068"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline560"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13238"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline562"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13246,13043 13246,13238"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline564"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17425,13725 20435,13725"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline566"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17425,13823 17425,13725"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline568"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17425,13920 22065,13920"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline570"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 17425,13823 17425,13920"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline572"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15463,13530 18521,13530"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline574"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15463,13628 15463,13530"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline576"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15463,13823 17425,13823"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline578"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15463,13628 15463,13823"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline580"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,15090 16403,15090"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline582"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,15188 15886,15090"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline584"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,15285 17732,15285"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline586"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,15188 15886,15285"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline588"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,14895 16650,14895"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline590"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,14993 15886,14895"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline592"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,15188"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline594"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15886,14993 15886,15188"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline596"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16038,15870 16118,15870"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline598"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16038,15968 16038,15870"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline600"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16038,16065 16182,16065"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline602"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 16038,15968 16038,16065"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline604"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15880,15675 15895,15675"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline606"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15880,15773 15880,15675"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline608"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15880,15968 16038,15968"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline610"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15880,15773 15880,15968"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline612"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15480 15669,15480"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline614"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15578 15505,15480"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline616"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15773 15880,15773"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline618"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15578 15505,15773"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline620"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,14993 15886,14993"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline622"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15383 15505,14993"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline624"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15578"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline626"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15383 15505,15578"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline628"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,14700 15523,14700"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline630"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,14798 15505,14700"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline632"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,15383"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline634"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15505,14798 15505,15383"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline636"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14505 15851,14505"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline638"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14603 15169,14505"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline640"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14798 15505,14798"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline642"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14603 15169,14798"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline644"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14310 16156,14310"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline646"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14408 15169,14310"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline648"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14603"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline650"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14408 15169,14603"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline652"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14115 15593,14115"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline654"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14213 15169,14115"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline656"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14408"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline658"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14213 15169,14408"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline660"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15566,16260 15636,16260"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline662"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15566,16358 15566,16260"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline664"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15566,16455 15582,16455"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline666"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15566,16358 15566,16455"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline668"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,14213"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline670"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,16163 15169,14213"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline672"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,16358 15566,16358"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline674"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 15169,16163 15169,16358"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline676"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13951,13628 15463,13628"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline678"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13951,14018 13951,13628"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline680"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13951,16163 15169,16163"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline682"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 13951,14018 13951,16163"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline684"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,13043 13246,13043"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline686"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,13433 12863,13043"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline688"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,14018 13951,14018"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline690"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,13433 12863,14018"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline692"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 23532,10766 23591,10766"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline694"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 23591,16489 23532,16489"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline696"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 23591,16489 23591,10766"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline698"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,11093 13302,11093"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline700"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,11678 12863,11093"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline702"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,13433"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline704"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,11678 12863,13433"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline706"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,11603 12938,11678"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline708"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12938,11678 12863,11753"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline710"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12863,11753 12788,11678"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline712"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 12788,11678 12863,11603"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline714"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polygon
+     points="12863,11603 12938,11678 12863,11753 12788,11678 "
+     fill="#5d5d5d"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     id="polygon716"
+     transform="translate(150.67985,146.63193)" />
+  <polyline
+     points=" 9761,11678 12863,11678"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline718"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16553 9761,11678"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline720"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16650 11331,16650"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline722"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16553 9761,16650"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline724"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10295,16845 11727,16845"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline726"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10295,16943 10295,16845"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline728"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10295,17040 11325,17040"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline730"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 10295,16943 10295,17040"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline732"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16553"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline734"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16748 9761,16553"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline736"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16943 10295,16943"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline738"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9761,16748 9761,16943"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline740"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10508"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline742"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10703 9263,10508"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline744"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,16748 9761,16748"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline746"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 9263,10703 9263,16748"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline748"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,10703 9263,10703"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline750"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,17138 8595,10703"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline752"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,17235 9042,17235"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline754"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,17138 8595,17235"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline756"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,8753 10096,8753"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline758"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,8948 8595,8753"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline760"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,17138"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline762"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8595,8948 8595,17138"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline764"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7312,8948 8595,8948"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline766"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7312,17333 7312,8948"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline768"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7312,17430 8363,17430"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline770"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7312,17333 7312,17430"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline772"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 6480,17333 7312,17333"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline774"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 6480,17528 6480,17333"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline776"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 6480,17625 8565,17625"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline778"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 6480,17528 6480,17625"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline780"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18015 11251,18015"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline782"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18113 11229,18015"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline784"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <path
+     id="polyline786"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="m 11379.68,18356.632 h 2599.078"
+     sodipodi:nodetypes="cc" />
+  <polyline
+     points=" 11229,18113 11229,18210"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline788"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18113"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline790"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18308 11229,18113"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline792"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18405 11584,18405"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline794"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18308 11229,18405"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline796"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18308"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline798"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18503 11229,18308"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline800"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18600 11245,18600"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline802"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 11229,18503 11229,18600"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline804"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8256,17820 9386,17820"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline806"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8256,17918 8256,17820"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline808"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8256,18503 11229,18503"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline810"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 8256,17918 8256,18503"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline812"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,17528 6480,17528"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline814"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,17723 4028,17528"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline816"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,17918 8256,17918"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline818"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,17723 4028,17918"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline820"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7982,18795 12947,18795"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline822"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7982,18893 7982,18795"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline824"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7982,18990 9145,18990"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline826"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 7982,18893 7982,18990"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline828"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,18893 7982,18893"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline830"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19088 4028,18893"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline832"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19185 7044,19185"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline834"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19088 4028,19185"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline836"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 5021,19380 7267,19380"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline838"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 5021,19478 5021,19380"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline840"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 5021,19575 5962,19575"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline842"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 5021,19478 5021,19575"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline844"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19088"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline846"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19283 4028,19088"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline848"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19478 5021,19478"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline850"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19283 4028,19478"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline852"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19283"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline854"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19673 4028,19283"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline856"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19770 5847,19770"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline858"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19673 4028,19770"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline860"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,17723"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline862"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,18698 4028,17723"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline864"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,19673"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline866"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 4028,18698 4028,19673"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline868"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,18698 4028,18698"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline870"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,19868 3183,18698"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline872"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,19965 5955,19965"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline874"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,19868 3183,19965"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline876"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,19868"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline878"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,20063 3183,19868"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline880"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,20160 8651,20160"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline882"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 3183,20063 3183,20160"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline884"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 0,75 3183,75"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline886"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 0,173 0,75"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline888"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 0,20063 3183,20063"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline890"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 0,173 0,20063"
+     stroke="#5d5d5d"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline892"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14805,1755 14955,1755"
+     stroke="#ffffff"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline894"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14955,1905 14805,1905"
+     stroke="#ffffff"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline896"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14805,1755 14805,1905"
+     stroke="#ffffff"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline898"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 14955,1905 14955,1755"
+     stroke="#ffffff"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline900"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <polyline
+     points=" 0,20745 2831,20745"
+     stroke="#ffffff"
+     stroke-width="8px"
+     stroke-linecap="round"
+     id="polyline902"
+     transform="translate(150.67985,146.63193)"
+     style="fill:none" />
+  <text
+     xml:space="preserve"
+     x="3435.6794"
+     y="296.63196"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text904">638109037 Trichodesmium erythraeum: NC_008312</text>
+  <text
+     xml:space="preserve"
+     x="13920.68"
+     y="491.63196"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text906">LC716873 Kubota et al. (2023)</text>
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:19.9461;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035"
+     width="3314.3738"
+     height="170.58641"
+     x="14179.985"
+     y="547.92822" />
+  <text
+     xml:space="preserve"
+     x="14235.68"
+     y="686.63196"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text908">Homalia-associated Nostoc-like colony nifH clade3</text>
+  <text
+     xml:space="preserve"
+     x="13875.68"
+     y="881.63196"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text910">JF827754 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13875.68"
+     y="1076.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text912">JF827757 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13860.68"
+     y="1271.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text914">JF827755 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13860.68"
+     y="1466.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text916">JF827756 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="14370.68"
+     y="1661.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text918">LC716867 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15405.68"
+     y="1856.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text920">LC716870 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15120.68"
+     y="2051.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text922">JF827753 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15315.68"
+     y="2246.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text924">JF827752 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15420.68"
+     y="2441.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text926">LC716860 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15330.68"
+     y="2636.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text928">JF827722 Stigonema ocellatum</text>
+  <text
+     xml:space="preserve"
+     x="15645.68"
+     y="2831.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text930">JF827761 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15780.68"
+     y="3026.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text932">JF827759 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15825.68"
+     y="3221.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text934">JF827765 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15270.68"
+     y="3034.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text936">84%</text>
+  <text
+     xml:space="preserve"
+     x="14940.68"
+     y="2644.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text938">81%</text>
+  <text
+     xml:space="preserve"
+     x="14445.68"
+     y="2059.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text940">97%</text>
+  <text
+     xml:space="preserve"
+     x="13485.68"
+     y="889.63196"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text942">88%</text>
+  <text
+     xml:space="preserve"
+     x="13605.68"
+     y="1864.632"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text944">87%</text>
+  <text
+     xml:space="preserve"
+     x="18100.105"
+     y="1768.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text946">Stigonema cluster</text>
+  <text
+     xml:space="preserve"
+     x="17790.68"
+     y="1930.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text948" />
+  <text
+     xml:space="preserve"
+     x="13095.68"
+     y="499.63196"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text950">94%</text>
+  <text
+     xml:space="preserve"
+     x="13185.68"
+     y="1669.632"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text952">93%</text>
+  <text
+     xml:space="preserve"
+     x="12885.68"
+     y="3416.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text954">LC716877 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="12720.68"
+     y="694.63196"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text956">92%</text>
+  <text
+     xml:space="preserve"
+     x="13125.68"
+     y="3611.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text958">JF827743 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="14595.68"
+     y="3806.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text960">L15551 Nostoc sp. 'J. Gallon'</text>
+  <text
+     xml:space="preserve"
+     x="15375.68"
+     y="4001.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text962">AY271821 Nodularia sp. KAC 13</text>
+  <text
+     xml:space="preserve"
+     x="15570.68"
+     y="4196.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text964">L23514 Nostoc commune UTEX 584</text>
+  <text
+     xml:space="preserve"
+     x="12300.68"
+     y="3424.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text966">93%</text>
+  <text
+     xml:space="preserve"
+     x="14145.68"
+     y="4204.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text968">97%</text>
+  <text
+     xml:space="preserve"
+     x="13230.68"
+     y="4391.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text970">642599733 Nostoc punctiforme PCC 73102: NC_010628</text>
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7"
+     width="3346.366"
+     height="200.58116"
+     x="13995.03"
+     y="4441.6992" />
+  <text
+     xml:space="preserve"
+     x="14040.68"
+     y="4586.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text972">Zygodon-associated Nostoc-like colony nifH clade3</text>
+  <text
+     xml:space="preserve"
+     x="13020.68"
+     y="4781.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text974">JF827740 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13080.68"
+     y="4976.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text976">JF827741 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12915.68"
+     y="5171.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text978">JF827735 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13020.68"
+     y="5366.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text980">JF827736 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13005.68"
+     y="5561.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text982">JF827737 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12810.68"
+     y="5756.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text984">JF827738 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12810.68"
+     y="5951.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text986">JF827739 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12420.68"
+     y="5764.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text988">91%</text>
+  <text
+     xml:space="preserve"
+     x="12150.68"
+     y="5569.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text990">89%</text>
+  <text
+     xml:space="preserve"
+     x="12645.68"
+     y="4789.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text992">96%</text>
+  <text
+     xml:space="preserve"
+     x="12660.68"
+     y="4399.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text994">92%</text>
+  <text
+     xml:space="preserve"
+     x="12795.68"
+     y="6146.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text996">JF827731 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12810.68"
+     y="6341.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text998">JF827732 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12900.68"
+     y="6536.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1000">JF827734 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12360.68"
+     y="6544.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1002">87%</text>
+  <text
+     xml:space="preserve"
+     x="12675.68"
+     y="6731.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1004">LC716859 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="12135.68"
+     y="6739.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1006">93%</text>
+  <text
+     xml:space="preserve"
+     x="12570.68"
+     y="6926.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1008">JF827733 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12570.68"
+     y="7121.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1010">JF827726 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12570.68"
+     y="7316.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1012">JF827758 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12450.68"
+     y="7511.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1014">JF827728 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12450.68"
+     y="7706.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1016">JF827730 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12435.68"
+     y="7901.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1018">JF827729 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12435.68"
+     y="8096.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1020">JF827727 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="12195.68"
+     y="7129.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1022">82%</text>
+  <text
+     xml:space="preserve"
+     x="12045.68"
+     y="7519.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1024">89%</text>
+  <text
+     xml:space="preserve"
+     x="12390.68"
+     y="8291.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1026">JF827742 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="13530.68"
+     y="8486.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1028">LC716868 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="13170.68"
+     y="8681.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1030">LC716883 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="11715.68"
+     y="8104.6318"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1032">88%</text>
+  <text
+     xml:space="preserve"
+     x="11985.68"
+     y="8689.6328"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1034">96%</text>
+  <text
+     xml:space="preserve"
+     x="11730.68"
+     y="8876.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1036">LC716866 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="10710.68"
+     y="9071.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1038">LC716881 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="19470.68"
+     y="4693.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1040">Nostoc cluster I</text>
+  <text
+     xml:space="preserve"
+     x="19470.68"
+     y="4855.6318"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1042" />
+  <text
+     xml:space="preserve"
+     x="11280.68"
+     y="8689.6328"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1044">95%</text>
+  <text
+     xml:space="preserve"
+     x="10110.68"
+     y="9266.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1046">LC716876 Kubota et al. (2023)</text>
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.1549;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-0"
+     width="3161.6392"
+     height="201.15912"
+     x="11593.149"
+     y="9315.5322" />
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-6"
+     width="3346.366"
+     height="200.58116"
+     x="11535.229"
+     y="16725.414" />
+  <text
+     xml:space="preserve"
+     x="11655.68"
+     y="9461.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1048">Hylocomium-associated Nostoc-like colony nifH</text>
+  <text
+     xml:space="preserve"
+     x="11850.68"
+     y="9656.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1050">642600311 Nostoc punctiforme PCC 73102: NC_010628</text>
+  <text
+     xml:space="preserve"
+     x="11025.68"
+     y="9851.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1052">JF827745 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="11145.68"
+     y="10046.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1054">JF827747 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="11445.68"
+     y="10241.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1056">JF827746 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="10785.68"
+     y="10436.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1058">LC716862 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="10635.68"
+     y="9859.6328"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1060">90%</text>
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-9"
+     width="3346.366"
+     height="200.58116"
+     x="11006.233"
+     y="10475.052" />
+  <text
+     xml:space="preserve"
+     x="11040.68"
+     y="10631.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1062">Homalia-associated Nostoc-like colony nifH clade2</text>
+  <text
+     xml:space="preserve"
+     x="10755.68"
+     y="9469.6328"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1064">91%</text>
+  <text
+     xml:space="preserve"
+     x="12240.68"
+     y="10826.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1066">U04054 Nostoc muscorum UTEX 1933</text>
+  <text
+     xml:space="preserve"
+     x="15588.541"
+     y="9958.6328"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1068">Nostoc cluster II</text>
+  <text
+     xml:space="preserve"
+     x="14850.68"
+     y="10120.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1070" />
+  <text
+     xml:space="preserve"
+     x="13860.68"
+     y="11021.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1072">LC716858 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="14670.68"
+     y="11216.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1074">LC716882 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="14790.68"
+     y="11411.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1076">LC716871 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="14160.68"
+     y="11606.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1078">LC716880 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="14880.68"
+     y="11801.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1080">LC716879 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="13425.68"
+     y="11029.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1082">83%</text>
+  <text
+     xml:space="preserve"
+     x="13575.68"
+     y="11614.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1084">89%</text>
+  <text
+     xml:space="preserve"
+     x="14985.68"
+     y="11996.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1086">LC716864 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="16590.68"
+     y="12191.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1088">LC716874 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15945.68"
+     y="12386.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1090">LC716875 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="16290.68"
+     y="12581.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1092">LC716865 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="16575.68"
+     y="12776.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1094">LC716857 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15615.68"
+     y="12784.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1096">89%</text>
+  <text
+     xml:space="preserve"
+     x="17355.68"
+     y="12971.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1098">JF827762 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="16905.68"
+     y="13166.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1100">JF827766 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15225.68"
+     y="12979.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1102">90%</text>
+  <text
+     xml:space="preserve"
+     x="14415.68"
+     y="13361.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1104">LC716878 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="13515.68"
+     y="13556.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1106">LC716884 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="14535.68"
+     y="12199.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1108">97%</text>
+  <text
+     xml:space="preserve"
+     x="18765.68"
+     y="13751.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1110">646569556 Anabaena variabilis ATCC 29413</text>
+  <text
+     xml:space="preserve"
+     x="20685.68"
+     y="13946.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1112">U73129 Calothrix sp.</text>
+  <text
+     xml:space="preserve"
+     x="22296.877"
+     y="14070.227"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1114"><tspan
+       sodipodi:role="line"
+       id="tspan10129"
+       x="22296.877"
+       y="14070.227">U49515 Fischerella </tspan><tspan
+       sodipodi:role="line"
+       id="tspan10131"
+       x="22296.877"
+       y="14250.227">UTEX1931 alternative </tspan></text>
+  <text
+     xml:space="preserve"
+     x="17310.68"
+     y="14149.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1116">93%</text>
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-3"
+     width="3346.366"
+     height="200.58116"
+     x="15812.646"
+     y="14191.571" />
+  <text
+     xml:space="preserve"
+     x="15840.68"
+     y="14336.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1118">Zygodon-associated Nostoc-like colony nifH clade1</text>
+  <rect
+     style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-06"
+     width="3346.366"
+     height="200.58116"
+     x="16357.99"
+     y="14394.453" />
+  <text
+     xml:space="preserve"
+     x="16410.68"
+     y="14531.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1120">Homalia-associated Nostoc-like colony nifH clade1</text>
+  <text
+     xml:space="preserve"
+     x="16095.68"
+     y="14726.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1122">LC716869 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15765.68"
+     y="14921.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1124">LC716861 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="16905.68"
+     y="15116.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1126">JF827748 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="16650.68"
+     y="15311.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1128">JF827750 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="17985.68"
+     y="15506.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1130">642604820 Nostoc punctiforme PCC 73102: NC_010628</text>
+  <text
+     xml:space="preserve"
+     x="15915.68"
+     y="15701.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1132">JF827749 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="16140.68"
+     y="15896.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1134">JF827764 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="16365.68"
+     y="16091.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1136">JF827760 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="16425.68"
+     y="16286.632"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1138">JF827763 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15915.68"
+     y="16294.632"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1140">88%</text>
+  <text
+     xml:space="preserve"
+     x="15765.68"
+     y="16099.632"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1142">91%</text>
+  <text
+     xml:space="preserve"
+     x="15765.68"
+     y="15124.632"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1144">84%</text>
+  <text
+     xml:space="preserve"
+     x="15390.68"
+     y="15124.632"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1146">91%</text>
+  <text
+     xml:space="preserve"
+     x="15885.68"
+     y="16481.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1148">LC716872 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="15825.68"
+     y="16676.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1150">JF827751 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="15450.68"
+     y="16684.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1152">94%</text>
+  <text
+     xml:space="preserve"
+     x="15345.68"
+     y="13759.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1154">92%</text>
+  <text
+     xml:space="preserve"
+     x="15045.68"
+     y="16489.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1156">97%</text>
+  <text
+     xml:space="preserve"
+     x="13125.68"
+     y="13174.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1158">83%</text>
+  <text
+     xml:space="preserve"
+     x="13830.68"
+     y="14344.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1160">88%</text>
+  <text
+     xml:space="preserve"
+     x="23805.68"
+     y="13760.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1162">nifH2 cluster</text>
+  <text
+     xml:space="preserve"
+     x="23805.68"
+     y="13922.633"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1164" />
+  <text
+     xml:space="preserve"
+     x="13185.68"
+     y="11224.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1166">84%</text>
+  <text
+     xml:space="preserve"
+     x="11580.68"
+     y="16871.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1168">Zygodon-associated Nostoc-like colony nifH clade2</text>
+  <text
+     xml:space="preserve"
+     x="11970.68"
+     y="17066.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1170">JF827724 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="11565.68"
+     y="17261.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1172">DQ531684 Scytonema hofmanni UTEX 2349</text>
+  <text
+     xml:space="preserve"
+     x="10170.68"
+     y="17269.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1174">84%</text>
+  <text
+     xml:space="preserve"
+     x="9645.6797"
+     y="17074.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1176">85%</text>
+  <text
+     xml:space="preserve"
+     x="9285.6797"
+     y="17456.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1178">LC716863 Kubota et al. (2023)</text>
+  <text
+     xml:space="preserve"
+     x="9150.6797"
+     y="10834.633"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1180">94%</text>
+  <text
+     xml:space="preserve"
+     x="9975.6797"
+     y="8884.6328"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1182">97%</text>
+  <text
+     xml:space="preserve"
+     x="8610.6797"
+     y="17651.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1184">JF827723 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="8475.6797"
+     y="9079.6328"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1186">93%</text>
+  <text
+     xml:space="preserve"
+     x="8805.6797"
+     y="17846.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1188">637231238 Nostoc sp. PCC 7120: NC_003272</text>
+  <text
+     xml:space="preserve"
+     x="7185.6797"
+     y="17464.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1190">85%</text>
+  <text
+     xml:space="preserve"
+     x="9630.6797"
+     y="18041.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1192">M63686 Anabaena oscillarioides</text>
+  <text
+     xml:space="preserve"
+     x="11505.68"
+     y="18236.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1194">FJ895145 Aphanizomenon aphanizomenoides UADFA13</text>
+  <text
+     xml:space="preserve"
+     x="14093.896"
+     y="18431.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1196">EF570567 Mastigocladus laminosus CCMEE 5268</text>
+  <text
+     xml:space="preserve"
+     x="11835.68"
+     y="18626.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1198">JF827744 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="11490.68"
+     y="18821.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1200">EU381369 Anabaena sp. LG2</text>
+  <text
+     xml:space="preserve"
+     x="11115.68"
+     y="18829.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1202">99%</text>
+  <text
+     xml:space="preserve"
+     x="6360.6797"
+     y="17659.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1204">92%</text>
+  <text
+     xml:space="preserve"
+     x="8130.6797"
+     y="18244.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1206">98%</text>
+  <text
+     xml:space="preserve"
+     x="13200.68"
+     y="19016.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1208">U49514 Fischerella UTEX 1931</text>
+  <text
+     xml:space="preserve"
+     x="9390.6797"
+     y="19211.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1210">DQ225763 Richelia sp. SC01</text>
+  <text
+     xml:space="preserve"
+     x="7290.6797"
+     y="19406.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1212">647107234 Cylindrospermopsis raciborskii CS-505</text>
+  <text
+     xml:space="preserve"
+     x="7860.6797"
+     y="19024.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1214">95%</text>
+  <text
+     xml:space="preserve"
+     x="7515.6797"
+     y="19601.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1216">U89346 Anabaena variabilis</text>
+  <text
+     xml:space="preserve"
+     x="6210.6797"
+     y="19796.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1218">637231821 Nostoc sp. PCC 7120: NC_003272</text>
+  <text
+     xml:space="preserve"
+     x="4905.6802"
+     y="19804.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1220">86%</text>
+  <text
+     xml:space="preserve"
+     x="6090.6797"
+     y="19991.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1222">JF827725 Ininbergs et al. (2011)</text>
+  <text
+     xml:space="preserve"
+     x="6210.6797"
+     y="20186.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1224">AY221817 Tolypothrix sp. PCC 7101</text>
+  <text
+     xml:space="preserve"
+     x="3915.6794"
+     y="18829.631"
+     fill="#3d8a99"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1226">82%</text>
+  <text
+     xml:space="preserve"
+     x="8895.6797"
+     y="20381.631"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1228">646569746 Anabaena variabilis ATCC 29413 NC_007413</text>
+  <text
+     xml:space="preserve"
+     x="1380.6793"
+     y="20891.631"
+     fill="#ffffff"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1230">0.10</text>
+  <path
+     id="polyline698-1"
+     style="fill:none;stroke:#5d5d5d;stroke-width:8px;stroke-linecap:round"
+     d="M 17817.744,20256.75 V 16905.444"
+     sodipodi:nodetypes="cc" />
+  <text
+     xml:space="preserve"
+     x="17885.697"
+     y="18493.115"
+     fill="#5d5d5d"
+     font-family="Helvetica"
+     font-style="normal"
+     font-weight="normal"
+     font-size="144px"
+     text-anchor="start"
+     id="text1162-2"
+     style="word-spacing:0px">Mixed &quot;cluster&quot;</text>
+  <text
+     xml:space="preserve"
+     style="font-size:354.264px;line-height:1.25;font-family:ariel;-inkscape-font-specification:ariel;word-spacing:0px;stroke-width:11.901;fill:#00ff00"
+     x="18433.539"
+     y="19116.85"
+     id="text15909"><tspan
+       sodipodi:role="line"
+       style="stroke-width:11.901;fill:#00ff00"
+       x="18433.539"
+       y="19116.85"
+       id="tspan15911" /></text>
+  <g
+     id="g27566"
+     transform="translate(-73.418877,-1448.5032)">
+    <g
+       id="g27556"
+       transform="translate(413.70212,427.00259)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M -98.009099,21685.309 H 2736.9557"
+         id="path2829"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -98.0091,21685.309 v -35.732 h -0.572437"
+         id="path15285" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -98.0091,21721.041 v -35.732 h -0.57244"
+         id="path15285-7" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2737.5281,21685.309 v -35.732 h -0.5724"
+         id="path15285-5" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:11.901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2737.5281,21721.041 v -35.732 h -0.5724"
+         id="path15285-7-3" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:158.68px;line-height:1.25;font-family:ariel;-inkscape-font-specification:ariel;word-spacing:0px;stroke-width:11.901"
+       x="1556.8448"
+       y="22053.742"
+       id="text18795"><tspan
+         sodipodi:role="line"
+         id="tspan18793"
+         style="font-size:158.68px;stroke-width:11.901"
+         x="1556.8448"
+         y="22053.742">0.10</tspan></text>
+  </g>
+</svg>
