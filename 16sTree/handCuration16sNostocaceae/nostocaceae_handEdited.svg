@@ -12,7 +12,7 @@
    version="1.1"
    id="svg1718"
    sodipodi:docname="nostocaceae_handEdited.svg"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    inkscape:export-filename="nostocaceae_handEdited.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
@@ -33,14 +33,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      inkscape:zoom="1"
-     inkscape:cx="253.99999"
-     inkscape:cy="317.99999"
-     inkscape:window-width="1850"
-     inkscape:window-height="1016"
-     inkscape:window-x="1350"
-     inkscape:window-y="27"
+     inkscape:cx="364"
+     inkscape:cy="341"
+     inkscape:window-width="1646"
+     inkscape:window-height="894"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1799" />
+     inkscape:current-layer="svg1718"
+     showgrid="false" />
   <rect
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.30615;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none"
      id="rect1815"
@@ -5885,7 +5886,11 @@
          id="tspan1728-2-4-0-4-7-7-1"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="10995.682"
-         y="1826.3875">EU022742 Blasia Nostoc symbiont </tspan></text>
+         y="1826.3875">EU022742 <tspan
+   style="font-style:italic"
+   id="tspan2328">Blasia</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2330">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <path
      id="polyline1457"
@@ -7007,7 +7012,11 @@
          id="tspan1720"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="14368.159"
-         y="6742.2393">KM019927.1 Nostoc insulare SAG 54.79</tspan></text>
+         y="6742.2393">KM019927.1 <tspan
+   style="font-style:italic"
+   id="tspan6429">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan6431">insulare</tspan> SAG 54.79</tspan></text>
   </g>
   <g
      id="g1809"
@@ -7030,7 +7039,11 @@
          id="tspan1720-6"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="14050.166"
-         y="7393.8882">KM019926.1 Nostoc calcicola SAG 1453-1</tspan></text>
+         y="7393.8882">KM019926.1 <tspan
+   style="font-style:italic"
+   id="tspan6433">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan6435">calcicola</tspan> SAG 1453-1</tspan></text>
   </g>
   <g
      id="g1807"
@@ -7053,7 +7066,11 @@
          id="tspan1718-6"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="12350.046"
-         y="4994.6143">KM019942.1 Nostoc parmelioides SAG 58.79 (freshwater, free-living)</tspan></text>
+         y="4994.6143">KM019942.1 <tspan
+   style="font-style:italic"
+   id="tspan4419">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan4421">parmelioides</tspan> SAG 58.79 (freshwater, free-living)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -7064,7 +7081,11 @@
          id="tspan1718-6-6"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="12349.317"
-         y="5088.1323">GQ287653.1 Nostoc microscopicum SAG 40.87 (wet rock, free-living)</tspan></text>
+         y="5088.1323">GQ287653.1 <tspan
+   style="font-style:italic"
+   id="tspan4423">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan4425">microscopicum</tspan> SAG 40.87 (wet rock, free-living)</tspan></text>
   </g>
   <g
      id="g1801"
@@ -7087,7 +7108,11 @@
          id="tspan1718-6-61"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="13863.135"
-         y="3610.7141">KM019941.1 Nostoc pruniforme SAG 62.79 (freshwater free-living)</tspan></text>
+         y="3610.7141">KM019941.1 <tspan
+   style="font-style:italic"
+   id="tspan2420">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2422">pruniforme</tspan> SAG 62.79 (freshwater free-living)</tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -7103,8 +7128,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-5"
-       width="895.06982"
-       height="109.0757"
+       width="516.87933"
+       height="109.07568"
        x="14029.678"
        y="3409.656"
        ry="10.242565" />
@@ -7118,7 +7143,11 @@
          id="tspan1718-6-61-2"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="14042.001"
-         y="3491.2852">Homalia Nostoc</tspan></text>
+         y="3491.2852"><tspan
+   style="font-style:italic"
+   id="tspan2416">Homalia</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2418">Nostoc</tspan></tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
@@ -7147,7 +7176,11 @@
          id="tspan1718-1-3"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="10039.041"
-         y="2609.9136">DQ185255.1 Nostoc punctiforme SAG 65.79</tspan></text>
+         y="2609.9136">DQ185255.1 <tspan
+   style="font-style:italic"
+   id="tspan2364">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2366">punctiforme</tspan> SAG 65.79</tspan></text>
   </g>
   <circle
      style="fill:#783400;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none"
@@ -7187,7 +7220,11 @@
          id="tspan1721"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="14622.335"
-         y="9668.9258">MH260366.1 Scytonema pachmarhiense 10A1 PS </tspan></text>
+         y="9668.9258">MH260366.1 <tspan
+   style="font-style:italic"
+   id="tspan6441">Scytonema</tspan> <tspan
+   style="font-style:italic"
+   id="tspan6443">pachmarhiense</tspan> 10A1 PS </tspan></text>
     <text
        xml:space="preserve"
        style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -7212,8 +7249,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-0"
-       width="965.14874"
-       height="84.171249"
+       width="886.27399"
+       height="84.171265"
        x="13492.276"
        y="627.27515"
        ry="10.242565" />
@@ -7227,7 +7264,11 @@
          id="tspan1726"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="13519.141"
-         y="690.67761">Pseudoamblystegium Nostoc</tspan></text>
+         y="690.67761"><tspan
+   style="font-style:italic"
+   id="tspan2332">Pseudoamblystegium</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2334">Nostoc</tspan></tspan></text>
   </g>
   <g
      id="g1782"
@@ -7235,8 +7276,8 @@
     <rect
        style="font-variation-settings:normal;opacity:1;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782"
-       width="1632.7438"
-       height="154.68434"
+       width="1528.4828"
+       height="154.68439"
        x="13510.633"
        y="1011.4565"
        ry="10.242565" />
@@ -7284,7 +7325,11 @@
          id="tspan1729"
          style="font-style:normal;font-size:63.4964px;stroke-width:11.9056"
          x="10830.008"
-         y="3182.427">Hylocomium Nostoc</tspan></text>
+         y="3182.427"><tspan
+   style="font-style:italic"
+   id="tspan2380">Hylocomium</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2382">Nostoc</tspan></tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -7323,7 +7368,11 @@
          id="tspan1718-6-61-2-6"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="16488.055"
-         y="6472.2915">Zygodon Nostoc</tspan></text>
+         y="6472.2915"><tspan
+   style="font-style:italic"
+   id="tspan6425">Zygodon</tspan> <tspan
+   style="font-style:italic"
+   id="tspan6427">Nostoc</tspan></tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
@@ -7358,7 +7407,11 @@
          id="tspan1718-6-61-2-6-3"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="16255.178"
-         y="6143.6104">KU219709 Compactonostoc shennongjiaensis</tspan></text>
+         y="6143.6104">KU219709 <tspan
+   style="font-style:italic"
+   id="tspan4429">Compactonostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan6501">shennongjiaensis</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -7392,7 +7445,9 @@
          id="tspan1718-6-61-2-6-3-9"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="16206.12"
-         y="6033.4878">MH598843 Compactonostoc sp.</tspan></text>
+         y="6033.4878">MH598843 <tspan
+   style="font-style:italic"
+   id="tspan4427">Compactonostoc</tspan> sp.</tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -7458,8 +7513,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-76"
-       width="951.66852"
-       height="187.9599"
+       width="984.47906"
+       height="187.95996"
        x="16291.866"
        y="7993.7319"
        ry="10.242565" />
@@ -7473,7 +7528,11 @@
          id="tspan1725"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="16310.163"
-         y="8067.8555">NC_014248.1 Nostoc azollae</tspan></text>
+         y="8067.8555">NC_014248.1 <tspan
+   style="font-style:italic"
+   id="tspan6437">Trichormus</tspan> <tspan
+   style="font-style:italic"
+   id="tspan6439">azollae</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -7633,7 +7692,11 @@
          id="tspan1728-2-4-0-4-7-7-0"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="11275.465"
-         y="2251.8186">DQ185212 Blasia Nostoc symbiont </tspan></text>
+         y="2251.8186">DQ185212 <tspan
+   style="font-style:italic"
+   id="tspan2358">Blasia</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2356">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <path
      id="polyline1198"
@@ -7760,8 +7823,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-15"
-       width="2276.658"
-       height="118.33959"
+       width="2060.4917"
+       height="118.3396"
        x="11921.016"
        y="1645.1426"
        ry="10.242565" />
@@ -7775,7 +7838,11 @@
          id="tspan1718"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="11931.808"
-         y="1730.191">KM019936.1 Nostoc caeruleum SAG 52.79 (free-living, sandy wet soil)</tspan></text>
+         y="1730.191">KM019936.1 <tspan
+   style="font-style:italic"
+   id="tspan2342">Nostoc</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2344">caeruleum</tspan> SAG 52.79 (free-living, sandy wet soil)</tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:6.34964;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -7815,7 +7882,7 @@
      id="text1775"><tspan
        sodipodi:role="line"
        id="tspan1775"
-       style="stroke-width:11.9056"
+       style="stroke-width:11.9056;font-style:italic"
        x="4576.5752"
        y="6437.5146">Anabaena</tspan></text>
   <text
@@ -7861,7 +7928,11 @@
        id="tspan1779"
        style="stroke-width:11.9056"
        x="446.10315"
-       y="4914.4224">Nostoc lichen symbionts, especially Pannaria and Nephroma</tspan></text>
+       y="4914.4224">Nostoc lichen symbionts, especially <tspan
+   style="font-style:italic"
+   id="tspan6445">Pannaria</tspan> and <tspan
+   style="font-style:italic"
+   id="tspan6447">Nephroma</tspan></tspan></text>
   <g
      id="g1794"
      transform="translate(-9007.0221,-471.87008)">
@@ -7885,7 +7956,11 @@
            id="tspan1728-2-4"
            style="font-size:63.4964px;stroke-width:11.9056"
            x="11473.248"
-           y="3360.1042">KF142670 Gunnera Nostoc symbiont (vascular plant symbiont)</tspan></text>
+           y="3360.1042">KF142670 <tspan
+   style="font-style:italic"
+   id="tspan2408">Gunnera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2410">Nostoc</tspan> symbiont (vascular plant symbiont)</tspan></text>
     </g>
   </g>
   <circle
@@ -7908,8 +7983,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-1"
-       width="2026.8292"
-       height="102.74654"
+       width="1893.6239"
+       height="102.74658"
        x="12416.37"
        y="1872.8464"
        ry="10.242565" />
@@ -7923,7 +7998,11 @@
          id="tspan1728-2-4-4"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="12428.616"
-         y="1943.8453">KF142669 Gunnera Nostoc symbiont (vascular plant symbiont)</tspan></text>
+         y="1943.8453">KF142669 <tspan
+   style="font-style:italic"
+   id="tspan2346">Gunnera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2348">Nostoc</tspan> symbiont (vascular plant symbiont)</tspan></text>
   </g>
   <g
      id="g1800"
@@ -7946,7 +8025,11 @@
          id="tspan1728-2-4-44"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="11340.052"
-         y="3486.0732">KF142672 Gunnera Nostoc symbiont (vascular plant symbiont)</tspan></text>
+         y="3486.0732">KF142672 <tspan
+   style="font-style:italic"
+   id="tspan2412">Gunnera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2414">Nostoc</tspan> symbiont (vascular plant symbiont)</tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
@@ -7994,7 +8077,9 @@
          id="tspan1780"
          style="stroke-width:11.9056"
          x="10283.682"
-         y="2139.0728">Nostoc PCC 73102</tspan></text>
+         y="2139.0728"><tspan
+   style="font-style:italic"
+   id="tspan2350">Nostoc</tspan> PCC 73102</tspan></text>
   </g>
   <g
      id="g1792"
@@ -8017,7 +8102,11 @@
          id="tspan1728-2-4-0"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="11365.895"
-         y="2766.6523">KF494240 Gunnera Nostoc symbiont </tspan></text>
+         y="2766.6523">KF494240 <tspan
+   style="font-style:italic"
+   id="tspan2372">Gunnera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2374">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <g
      id="g1795"
@@ -8040,7 +8129,11 @@
          id="tspan1728-2-4-0-6"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="13090.014"
-         y="2980.4456">KF494241 Gunnera Nostoc symbiont </tspan></text>
+         y="2980.4456">KF494241 <tspan
+   style="font-style:italic"
+   id="tspan2384">Gunnera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2386">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -8102,7 +8195,11 @@
          id="tspan1728-2-4-0-6-5"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="12945.135"
-         y="3107.4158">KF494242 Gunnera Nostoc symbiont </tspan></text>
+         y="3107.4158">KF494242 <tspan
+   style="font-style:italic"
+   id="tspan2388">Gunnera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2390">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <g
      id="g1784"
@@ -8110,8 +8207,8 @@
     <rect
        style="font-variation-settings:normal;fill:#ffffff;fill-opacity:0.414201;stroke:#000000;stroke-width:6.10316;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1782-9-7"
-       width="1733.022"
-       height="109.79967"
+       width="1587.5861"
+       height="109.79968"
        x="12575.796"
        y="1526.056"
        ry="10.242565" />
@@ -8125,7 +8222,13 @@
          id="tspan1728-2-4-0-4"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="12596.313"
-         y="1606.473">KF494244 Gunnera and Anthoceros Nostoc symbiont </tspan></text>
+         y="1606.473">KF494244 <tspan
+   style="font-style:italic"
+   id="tspan2336">Gunnera</tspan> and <tspan
+   style="font-style:italic"
+   id="tspan2338">Anthoceros</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2340">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -8155,7 +8258,11 @@
          id="tspan1728-2-4-0-4-7"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="10837.715"
-         y="1979.5981">KF494248 Anthoceros Nostoc symbiont </tspan></text>
+         y="1979.5981">KF494248 <tspan
+   style="font-style:italic"
+   id="tspan2352">Anthoceros</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2354">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <g
      id="g1812"
@@ -8178,7 +8285,11 @@
          id="tspan1728-2-4-0-4-7-7"
          style="font-size:63.4964px;stroke-width:11.9056"
          x="10620.894"
-         y="2351.5193">DQ185211 Blasia Nostoc symbiont </tspan></text>
+         y="2351.5193">DQ185211 <tspan
+   style="font-style:italic"
+   id="tspan2362">Blasia</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2360">Nostoc</tspan> symbiont </tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -8215,7 +8326,11 @@
          id="tspan1781"
          style="stroke-width:11.9056"
          x="14996.277"
-         y="2590.7344">KF359715 Peltigera Nostoc symbiont</tspan></text>
+         y="2590.7344">KF359715 <tspan
+   style="font-style:italic"
+   id="tspan2368">Peltigera</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2370">Nostoc</tspan> symbiont</tspan></text>
   </g>
   <circle
      style="font-variation-settings:normal;vector-effect:none;fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:2.30614;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
@@ -8245,7 +8360,11 @@
          id="tspan1782"
          style="stroke-width:11.9056"
          x="14526.531"
-         y="2816.5776">AB251864 Nostoc c.f. commune sp. (free-living)</tspan></text>
+         y="2816.5776">AB251864 <tspan
+   style="font-style:italic"
+   id="tspan2376">Nostoc</tspan> c.f. <tspan
+   style="font-style:italic"
+   id="tspan2378">commune</tspan> sp. (free-living)</tspan></text>
   </g>
   <g
      id="g1793"
@@ -8268,7 +8387,9 @@
          id="tspan1729-5"
          style="font-style:normal;font-size:63.4964px;stroke-width:11.9056"
          x="9359.5908"
-         y="3063.2944">JN847344 Nostoc sp.</tspan></text>
+         y="3063.2944">JN847344 <tspan
+   style="font-style:italic"
+   id="tspan4413">Nostoc</tspan> sp.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:63.4964px;line-height:1.25;font-family:sans-serif;stroke-width:11.9056"
@@ -8309,7 +8430,11 @@
          id="tspan1813"
          style="stroke-width:11.9056"
          x="10510.599"
-         y="3920.6335">JN847338 Lobaria Nostoc</tspan></text>
+         y="3920.6335">JN847338 <tspan
+   style="font-style:italic"
+   id="tspan2424">Lobaria</tspan> <tspan
+   style="font-style:italic"
+   id="tspan2426">Nostoc</tspan></tspan></text>
   </g>
   <g
      id="g1815"
@@ -8332,6 +8457,10 @@
          id="tspan1814"
          style="stroke-width:11.9056"
          x="11023.378"
-         y="4720.5137">EF174222 Pannaria Nostoc</tspan></text>
+         y="4720.5137">EF174222 <tspan
+   style="font-style:italic"
+   id="tspan4415">Pannaria</tspan> <tspan
+   style="font-style:italic"
+   id="tspan4417">Nostoc</tspan></tspan></text>
   </g>
 </svg>
