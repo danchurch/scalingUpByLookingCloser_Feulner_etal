@@ -5666,4 +5666,48 @@ nostocPeltNif_all.afa
 1229540-1230433 (WP_012407784.1)
 7297077-7298042 (WP_012412139.1)
 
-## 
+## recover the original trees of raw reads on minion:
+
+BC13_andrefSeqs_handEdits.afa
+BC13_andrefSeqs_handEdits.nwk
+
+cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising/multiNif/recoverNifNames
+
+rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13/BC13_andrefSeqs_handEdits.* .
+
+## how do we recover which clade was which?
+
+## check code above, and try to line up the nostoc punctiforme reads 
+## first check code...here it is:
+
+## BC13 (Zygodon)
+## clade1 has >ref|NC_010628.1_7297077-7298042 (WP_012412139)
+## clade2 didn't contain any refseq, but is near >ref|NC_010628.1_1229540-1230433 (WP_012407784)
+## clade3 has >ref|NC_010628.1_512909-513802 (WP_012407220)
+
+## BC14 (Homalia)
+## clade1  contained ref7927 = WP_012412139.1 (  NC_010628.1 (7,297,077..7,298,042)  )
+## clade2  contained ref1229 = WP_012407784.1 (  NC_010628.1 (1,229,540..1,230,433)  )
+## clade3 contained no reference sequence, technically,
+## but it was closest to refseq WP_012407220.1 ( NC_010628.1 (512,909..513,802)  ), which fell into no clade
+
+## great, labeled. 
+## Now can we relable the nifH tree with the appropriate refseq WP number?
+## this is figure 
+
+## we have three nifH genes from kubota/ininberg. It looks like they saw these
+## nifH and used them, also?:
+
+642599733 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (-)strand
+642600311 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (-)strand
+642604820 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (+)strand
+
+## gotta blast the sequences, no other way, find them in "reference_Ininbergs.fa"
+
+642599733 512909 to 513802   ## matches WP_012407220
+642600311 1229540 to 1230433 ## matches WP_012407784
+642604820 7297077 to 7298042 ## matches WP_012412139
+
+## these are in fingure 4 of Kubota, and also in ininbergs 
+
+## okay, figures updated.

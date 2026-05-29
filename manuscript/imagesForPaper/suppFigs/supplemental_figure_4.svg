@@ -11,11 +11,11 @@
    viewBox="-12 -12 25149.359 21088.377"
    version="1.1"
    id="svg1234"
-   sodipodi:docname="nifHtree_fullTree_editedLabels.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   inkscape:export-filename="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/manuscript/imagesForPaper/suppFigs/supplemental_figure_2.jpeg"
-   inkscape:export-xdpi="96.5"
-   inkscape:export-ydpi="96.5"
+   sodipodi:docname="supplemental_figure_4.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="supplemental_figure_4.svg"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -37,25 +37,27 @@
      fit-margin-top="10"
      fit-margin-right="10"
      fit-margin-bottom="10"
-     inkscape:zoom="1.1075515"
-     inkscape:cx="337.23038"
-     inkscape:cy="1423.4101"
-     inkscape:window-width="1204"
-     inkscape:window-height="656"
-     inkscape:window-x="76"
-     inkscape:window-y="27"
+     inkscape:zoom="0.27688788"
+     inkscape:cx="971.51238"
+     inkscape:cy="884.8347"
+     inkscape:window-width="1646"
+     inkscape:window-height="894"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1234"
      showguides="false"
      inkscape:lockguides="true"
-     inkscape:object-paths="true" />
+     inkscape:object-paths="true"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <rect
-     style="fill:#ffffff;stroke-width:7.99746;stroke-dashoffset:1.676;stop-color:#000000;stroke:none"
+     style="fill:#ffffff;stroke:none;stroke-width:7.99746;stroke-dashoffset:1.676;stop-color:#000000"
      id="rect1469"
      width="25269.771"
      height="21269.436"
      x="3.596848"
-     y="-62.85606" />
+     y="-85.650314" />
   <polyline
      points=" 0,0"
      stroke="#ffffff"
@@ -4017,6 +4019,13 @@
      font-size="144px"
      text-anchor="start"
      id="text968">97%</text>
+  <rect
+     style="fill:#c1c1c1;fill-opacity:0.35;stroke:#5e5e5e;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-36"
+     width="4848.7686"
+     height="200.58105"
+     x="13203.179"
+     y="4242.7134" />
   <text
      xml:space="preserve"
      x="13230.68"
@@ -4027,7 +4036,7 @@
      font-weight="normal"
      font-size="144px"
      text-anchor="start"
-     id="text970">642599733 Nostoc punctiforme PCC 73102: NC_010628</text>
+     id="text970">642599733 Nostoc punctiforme PCC 73102: NC_010628 (WP_012407220)</text>
   <rect
      style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
      id="rect17035-7"
@@ -4454,6 +4463,13 @@
      text-anchor="start"
      id="text1046">LC716876 Kubota et al. (2023)</text>
   <rect
+     style="fill:#c1c1c1;fill-opacity:0.35;stroke:#5e5e5e;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-36-7"
+     width="4848.7686"
+     height="200.58105"
+     x="11809.192"
+     y="9522.0332" />
+  <rect
      style="fill:#00ff00;fill-opacity:0.35;stroke:#00aa00;stroke-width:21.1549;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
      id="rect17035-7-0"
      width="3161.6392"
@@ -4488,7 +4504,7 @@
      font-weight="normal"
      font-size="144px"
      text-anchor="start"
-     id="text1050">642600311 Nostoc punctiforme PCC 73102: NC_010628</text>
+     id="text1050">642600311 Nostoc punctiforme PCC 73102: NC_010628 (WP_012407784)</text>
   <text
      xml:space="preserve"
      x="11025.68"
@@ -4947,6 +4963,13 @@
      font-size="144px"
      text-anchor="start"
      id="text1128">JF827750 Ininbergs et al. (2011)</text>
+  <rect
+     style="fill:#c1c1c1;fill-opacity:0.35;stroke:#5e5e5e;stroke-width:21.7329;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:19.9461;stroke-opacity:1;stop-color:#000000"
+     id="rect17035-7-36-7-5"
+     width="4848.7686"
+     height="200.58105"
+     x="17948.27"
+     y="15361.278" />
   <text
      xml:space="preserve"
      x="17985.68"
@@ -4957,7 +4980,7 @@
      font-weight="normal"
      font-size="144px"
      text-anchor="start"
-     id="text1130">642604820 Nostoc punctiforme PCC 73102: NC_010628</text>
+     id="text1130">642604820 Nostoc punctiforme PCC 73102: NC_010628 (WP_012412139)</text>
   <text
      xml:space="preserve"
      x="15915.68"
