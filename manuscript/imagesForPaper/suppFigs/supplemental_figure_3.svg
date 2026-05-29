@@ -11,11 +11,11 @@
    viewBox="-12 -12 74354.889 18824.525"
    version="1.1"
    id="svg1666"
-   sodipodi:docname="supplemental_figure_1.svg"
+   sodipodi:docname="supplemental_figure_3.svg"
    inkscape:export-filename="/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/manuscript/imagesForPaper/suppFigs/supplemental_figure_1.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +33,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      inkscape:export-bgcolor="#ffffffff"
-     inkscape:zoom="0.10748192"
-     inkscape:cx="-302.37644"
-     inkscape:cy="1111.8149"
-     inkscape:window-width="1204"
-     inkscape:window-height="656"
-     inkscape:window-x="76"
-     inkscape:window-y="27"
+     inkscape:zoom="3.4394214"
+     inkscape:cx="241.46503"
+     inkscape:cy="684.99893"
+     inkscape:window-width="1646"
+     inkscape:window-height="894"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="g1666"
      inkscape:pageshadow="2"
@@ -6397,6 +6397,28 @@
        stroke-linecap="round"
        id="polyline794"
        transform="translate(-24961.766,19809.143)" />
+    <text
+       xml:space="preserve"
+       x="-3151.7649"
+       y="30925.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1548">f829df1f-f6a</text>
+    <text
+       xml:space="preserve"
+       x="-3421.7649"
+       y="30935.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1549">133dbfdb-b18</text>
     <!-- Line -->
     <polyline
        points=" 21085,11034 21666,12453"
@@ -6845,6 +6867,50 @@
        stroke-linecap="round"
        id="polyline850"
        transform="translate(-24961.766,19809.143)" />
+    <text
+       xml:space="preserve"
+       x="-2851.7649"
+       y="30841.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1544">2182b823-fc2</text>
+    <text
+       xml:space="preserve"
+       x="-2701.7649"
+       y="30952.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1550">17e75927-06c</text>
+    <text
+       xml:space="preserve"
+       x="-2821.7649"
+       y="30908.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1547">21d112d6-9d3</text>
+    <text
+       xml:space="preserve"
+       x="-2986.7649"
+       y="30898.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1635">52063ed3-d29</text>
     <!-- Line -->
     <polyline
        points=" 21455,11050 22000,10968"
@@ -8404,7 +8470,8 @@
        stroke-width="8px"
        stroke-linecap="round"
        id="polyline1045"
-       transform="translate(-24961.766,19809.143)" />
+       transform="translate(-24961.766,19809.143)"
+       style="stroke:#ffe560;stroke-opacity:1" />
     <!-- Line -->
     <polyline
        points=" 21430,11072 21827,11052"
@@ -8422,45 +8489,10 @@
        id="polyline1047"
        transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 22563,11043 22563,10953"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1048"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 22563,10953 22653,10953"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1049"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 22653,10953 22653,11043"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1050"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 22653,11043 22563,11043"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1051"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polygon
-       points="22653,11043 22563,11043 22563,10953 22653,10953 "
-       fill="#cccccc"
-       stroke="#ffe560"
-       stroke-width="8px"
-       id="polygon1051"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
     <polyline
        points=" 17500,9962 19001,8082"
@@ -8470,45 +8502,10 @@
        id="polyline1052"
        transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 18956,8127 18956,8037"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1053"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 18956,8037 19046,8037"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1054"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 19046,8037 19046,8127"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1055"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 19046,8127 18956,8127"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1056"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polygon
-       points="19046,8127 18956,8127 18956,8037 19046,8037 "
-       fill="#cccccc"
-       stroke="#ffe560"
-       stroke-width="8px"
-       id="polygon1056"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
     <polyline
        points=" 14755,7018 14741,7022"
@@ -8541,6 +8538,17 @@
        stroke-linecap="round"
        id="polyline1060"
        transform="translate(-24961.766,19809.143)" />
+    <text
+       xml:space="preserve"
+       x="-13036.766"
+       y="27530.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1645">fa0224ed-31e</text>
     <!-- Line -->
     <polyline
        points=" 13858,7408 12535,7994"
@@ -8653,6 +8661,17 @@
        stroke-linecap="round"
        id="polyline1074"
        transform="translate(-24961.766,19809.143)" />
+    <text
+       xml:space="preserve"
+       x="-12901.766"
+       y="27509.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1644">4fad86b3-bf0</text>
     <!-- Line -->
     <polyline
        points=" 13407,7517 12674,7774"
@@ -8958,53 +8977,33 @@
        id="polyline1112"
        transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 14572,7065 12252,7646"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1113"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 12207,7691 12207,7601"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1114"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 12207,7601 12297,7601"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1115"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polyline
-       points=" 12297,7601 12297,7691"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1116"
-       transform="translate(-24961.766,19809.143)" />
+    <text
+       xml:space="preserve"
+       x="-13051.766"
+       y="27579.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1643">701f9af5-efd</text>
+    <text
+       xml:space="preserve"
+       x="-12826.766"
+       y="27580.145"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text1638">fecb34ef-b80</text>
     <!-- Line -->
-    <polyline
-       points=" 12297,7691 12207,7691"
-       stroke="#ffe560"
-       stroke-width="8px"
-       stroke-linecap="round"
-       id="polyline1117"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Line -->
-    <polygon
-       points="12297,7691 12207,7691 12207,7601 12297,7601 "
-       fill="#cccccc"
-       stroke="#ffe560"
-       stroke-width="8px"
-       id="polygon1117"
-       transform="translate(-24961.766,19809.143)" />
     <!-- Text -->
     <text
        xml:space="preserve"
@@ -14130,17 +14129,6 @@
        text-anchor="start"
        id="text1543">aa4f3012-fff</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-2851.7649"
-       y="30841.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1544">2182b823-fc2</text>
     <!-- Text -->
     <text
        xml:space="preserve"
@@ -14166,53 +14154,9 @@
        text-anchor="start"
        id="text1546">3ec66171-acb</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-2821.7649"
-       y="30908.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1547">21d112d6-9d3</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-3151.7649"
-       y="30925.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1548">f829df1f-f6a</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-3421.7649"
-       y="30935.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1549">133dbfdb-b18</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-2701.7649"
-       y="30952.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1550">17e75927-06c</text>
     <!-- Text -->
     <text
        xml:space="preserve"
@@ -15222,53 +15166,9 @@
        text-anchor="start"
        id="text1634">b9e047e5-510</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-2986.7649"
-       y="30898.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1635">52063ed3-d29</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-2206.7649"
-       y="30842.145"
-       fill="#ffe560"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1636">ref|NC_01062</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-6076.7651"
-       y="27819.145"
-       fill="#ffe560"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1637">ref|NC_01062</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-12826.766"
-       y="27580.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1638">fecb34ef-b80</text>
     <!-- Text -->
     <text
        xml:space="preserve"
@@ -15318,41 +15218,8 @@
        text-anchor="start"
        id="text1642">880ffeee-7d5</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-13051.766"
-       y="27579.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1643">701f9af5-efd</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-12901.766"
-       y="27509.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1644">4fad86b3-bf0</text>
     <!-- Text -->
-    <text
-       xml:space="preserve"
-       x="-13036.766"
-       y="27530.145"
-       fill="#622300"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1645">fa0224ed-31e</text>
     <!-- Text -->
     <text
        xml:space="preserve"
@@ -15596,17 +15463,6 @@
     <!-- Text -->
     <text
        xml:space="preserve"
-       x="-13921.766"
-       y="27537.145"
-       fill="#ffe560"
-       font-family="Helvetica"
-       font-style="normal"
-       font-weight="normal"
-       font-size="144px"
-       text-anchor="start"
-       id="text1666">ref|NC_01062</text>
-    <text
-       xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:380.929px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:11.904"
        x="-6825.688"
        y="24137.645"
@@ -15631,1181 +15487,1268 @@
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#000000;stroke-width:11.904"
          x="21768.922"
          y="3729.0034" /></text>
-    <g
-       fill="none"
-       id="g274"
-       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)">
-      <!-- Line -->
-      <polyline
-         points=" 0,0"
-         stroke="#ffffff"
-         stroke-width="8px"
-         id="polyline2-3" />
-      <!-- Line -->
-      <polyline
-         points=" 21039,17643"
-         stroke="#ffffff"
-         stroke-width="8px"
-         id="polyline4-6" />
-      <!-- Line -->
-      <polyline
-         points=" 9451,15052 9571,15052"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline6-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9571,15172 9451,15172"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline8-5" />
-      <!-- Line -->
-      <polyline
-         points=" 9451,15052 9451,15172"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline10-3" />
-      <!-- Line -->
-      <polyline
-         points=" 9571,15172 9571,15052"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline12-5" />
-      <!-- Line -->
-      <polyline
-         points=" 9511,15112"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline14-6" />
-      <!-- Line -->
-      <polyline
-         points=" 9511,15112 9526,15105"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline16-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9526,15105 9537,15093"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline18-9" />
-      <!-- Line -->
-      <polyline
-         points=" 9537,15093 6082,14840"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline20-1" />
-      <!-- Line -->
-      <polyline
-         points=" 9537,15093 9548,15081"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline22-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9548,15081 9558,15069"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline24-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9558,15069 10498,13754"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline26-0" />
-      <!-- Line -->
-      <polyline
-         points=" 10498,13754 11559,12016"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline28-9" />
-      <!-- Line -->
-      <polyline
-         points=" 11559,12016 10454,9866"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline30-3" />
-      <!-- Line -->
-      <polyline
-         points=" 10454,9866 10328,9660"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline32-6" />
-      <!-- Line -->
-      <polyline
-         points=" 10328,9660 9946,9126"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline34-0" />
-      <!-- Line -->
-      <polyline
-         points=" 9946,9126 9653,9038"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline36-6" />
-      <!-- Line -->
-      <polyline
-         points=" 9653,9038 7142,8479"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline38-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9653,9038 9638,9032"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline40-6" />
-      <!-- Line -->
-      <polyline
-         points=" 9946,9126 9920,9075"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline42-1" />
-      <!-- Line -->
-      <polyline
-         points=" 9920,9075 9905,9067"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline44-8" />
-      <!-- Line -->
-      <polyline
-         points=" 9920,9075 9913,9060"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline46-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9913,9060 9906,9046"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline48-9" />
-      <!-- Line -->
-      <polyline
-         points=" 9906,9046 9896,9033"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline50-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9896,9033 9693,8788"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline52-0" />
-      <!-- Line -->
-      <polyline
-         points=" 9693,8788 8714,8032"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline54-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9693,8788 9683,8774"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline56-3" />
-      <!-- Line -->
-      <polyline
-         points=" 9683,8774 9077,8146"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline58-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9683,8774 9674,8760"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline60-5" />
-      <!-- Line -->
-      <polyline
-         points=" 9674,8760 8678,7368"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline62-9" />
-      <!-- Line -->
-      <polyline
-         points=" 9674,8760 7784,5084"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline64-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9896,9033 9891,9017"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline66-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9906,9046 9847,8511"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline68-8" />
-      <!-- Line -->
-      <polyline
-         points=" 9847,8511 9242,5233"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline70-9" />
-      <!-- Line -->
-      <polyline
-         points=" 9847,8511 9827,7961"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline72-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9913,9060 9915,9044"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline74-3" />
-      <!-- Line -->
-      <polyline
-         points=" 10328,9660 10518,8934"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline76-6" />
-      <!-- Line -->
-      <polyline
-         points=" 10454,9866 14543,243"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline78-1" />
-      <!-- Line -->
-      <polyline
-         points=" 11559,12016 13148,11900"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline80-2" />
-      <!-- Line -->
-      <polyline
-         points=" 13148,11900 13587,11835"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline82-9" />
-      <!-- Line -->
-      <polyline
-         points=" 13587,11835 13686,11733"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline84-3" />
-      <!-- Line -->
-      <polyline
-         points=" 13686,11733 14104,11230"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline86-1" />
-      <!-- Line -->
-      <polyline
-         points=" 14104,11230 14215,11075"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline88-9" />
-      <!-- Line -->
-      <polyline
-         points=" 14215,11075 14700,10281"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline90-4" />
-      <!-- Line -->
-      <polyline
-         points=" 14215,11075 15014,10115"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline92-7" />
-      <!-- Line -->
-      <polyline
-         points=" 14104,11230 14116,11219"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline94-8" />
-      <!-- Line -->
-      <polyline
-         points=" 13686,11733 13970,11545"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline96-4" />
-      <!-- Line -->
-      <polyline
-         points=" 13587,11835 13602,11838"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline98-5" />
-      <!-- Line -->
-      <polyline
-         points=" 13602,11838 13670,11843"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline100-0" />
-      <!-- Line -->
-      <polyline
-         points=" 13670,11843 13687,11843"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline102-3" />
-      <!-- Line -->
-      <polyline
-         points=" 13687,11843 13798,11818"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline104-6" />
-      <!-- Line -->
-      <polyline
-         points=" 13798,11818 13813,11813"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline106-1" />
-      <!-- Line -->
-      <polyline
-         points=" 13813,11813 13828,11806"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline108-0" />
-      <!-- Line -->
-      <polyline
-         points=" 13813,11813 13829,11810"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline110-6" />
-      <!-- Line -->
-      <polyline
-         points=" 13829,11810 13845,11805"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline112-3" />
-      <!-- Line -->
-      <polyline
-         points=" 13829,11810 14214,11753"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline114-2" />
-      <!-- Line -->
-      <polyline
-         points=" 13798,11818 14949,11818"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline116-0" />
-      <!-- Line -->
-      <polyline
-         points=" 13687,11843 13701,11847"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline118-6" />
-      <!-- Line -->
-      <polyline
-         points=" 13701,11847 13718,11849"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline120-1" />
-      <!-- Line -->
-      <polyline
-         points=" 13701,11847 13715,11852"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline122-5" />
-      <!-- Line -->
-      <polyline
-         points=" 13715,11852 13950,11923"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline124-5" />
-      <!-- Line -->
-      <polyline
-         points=" 13715,11852 14291,12122"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline126-4" />
-      <!-- Line -->
-      <polyline
-         points=" 13670,11843 14803,12592"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline128-7" />
-      <!-- Line -->
-      <polyline
-         points=" 13602,11838 13922,12124"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline130-6" />
-      <!-- Line -->
-      <polyline
-         points=" 13148,11900 13838,12728"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline132-5" />
-      <!-- Line -->
-      <polyline
-         points=" 10498,13754 10826,14292"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline134-6" />
-      <!-- Line -->
-      <polyline
-         points=" 9558,15069 9565,15084"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline136-9" />
-      <!-- Line -->
-      <polyline
-         points=" 9548,15081 9552,15097"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline138-3" />
-      <!-- Line -->
-      <polyline
-         points=" 9526,15105 9522,15121"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline140-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9522,15121 9516,15281"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline142-4" />
-      <!-- Line -->
-      <polyline
-         points=" 9516,15281 9528,15597"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline144-5" />
-      <!-- Line -->
-      <polyline
-         points=" 9528,15597 9686,17036"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline146-2" />
-      <!-- Line -->
-      <polyline
-         points=" 9528,15597 9510,16073"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline148-5" />
-      <!-- Line -->
-      <polyline
-         points=" 9516,15281 9445,15666"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline150-4" />
-      <!-- Line -->
-      <polyline
-         points=" 9522,15121 9515,15135"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline152-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9515,15135 9508,15151"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline154-4" />
-      <!-- Line -->
-      <polyline
-         points=" 9508,15151 9503,15166"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline156-4" />
-      <!-- Line -->
-      <polyline
-         points=" 9508,15151 9467,15230"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline158-3" />
-      <!-- Line -->
-      <polyline
-         points=" 9515,15135 9505,15149"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline160-0" />
-      <!-- Line -->
-      <polyline
-         points=" 9511,15112"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline162-7" />
-      <!-- Line -->
-      <polyline
-         points=" 9511,15112 9497,15120"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline164-8" />
-      <!-- Line -->
-      <polyline
-         points=" 9497,15120 9485,15131"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline166-6" />
-      <!-- Line -->
-      <polyline
-         points=" 9485,15131 9209,15418"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline168-8" />
-      <!-- Line -->
-      <polyline
-         points=" 9485,15131 8604,15811"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline170-8" />
-      <!-- Line -->
-      <polyline
-         points=" 9497,15120 9301,15195"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline172-4" />
-      <!-- Line -->
-      <polyline
-         points=" 9301,15195 9286,15203"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline174-3" />
-      <!-- Line -->
-      <polyline
-         points=" 9301,15195 9002,15285"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline176-1" />
-      <!-- Line -->
-      <polyline
-         points=" 9002,15285 8685,15406"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline178-4" />
-      <!-- Line -->
-      <polyline
-         points=" 9002,15285 8986,15288"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline180-9" />
-      <!-- Line -->
-      <polyline
-         points=" 9511,15112 8645,15175"
-         stroke="#622300"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline182-2" />
-      <!-- Line -->
-      <polyline
-         points=" 8004,17613 11019,17613"
-         stroke="#ffffff"
-         stroke-width="8px"
-         stroke-linecap="round"
-         id="polyline184-0" />
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="0"
-         y="14874"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text186">8f377bf6-74b, 8f377bf6-74bd-4801-9958-14e7cb, 8f377bf6-74bd-4801-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3525"
-         y="8491"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text188">ref|NC_01062, ref, ref|NC_010628.1_7297</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3750"
-         y="9024"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text190">6816d68d-675, 6816d68d-675b-4248-8313-a03c4d, 6816d68d-675b-4248-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="4215"
-         y="9038"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text192">1523187e-ec8, 1523187e-ec85-4d08-9b1c-0b8734, 1523187e-ec85-4d08-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3270"
-         y="7986"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text194">cc3c467f-447, cc3c467f-4479-4fee-98ee-a7789f, cc3c467f-4479-4fee-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3945"
-         y="8083"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text196">9dbcc77e-c30, 9dbcc77e-c30a-4bfe-8cce-89549c, 9dbcc77e-c30a-4bfe-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3900"
-         y="7291"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text198">01619f0e-857, 01619f0e-857d-4e76-a8be-ab3b67, 01619f0e-857d-4e76-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3390"
-         y="4995"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text200">3e76b7ce-475, 3e76b7ce-475f-4b93-8b9e-5aa174, 3e76b7ce-475f-4b93-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="5910"
-         y="8920"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text202">6fa91fd0-76e, 6fa91fd0-76e6-4f9c-98a1-f2e27c, 6fa91fd0-76e6-4f9c-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="5700"
-         y="5130"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text204">25b8156c-f20, 25b8156c-f205-4952-bb5b-066199, 25b8156c-f205-4952-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="6750"
-         y="7856"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text206">3a093206-c48, 3a093206-c480-4187-9dac-38b9b4, 3a093206-c480-4187-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="7290"
-         y="8940"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text208">e42f2e31-573, e42f2e31-5733-4de5-8ce7-9e1708, e42f2e31-5733-4de5-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="8340"
-         y="8833"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text210">22701ee1-2af, 22701ee1-2af8-4708-9b98-ddc853, 22701ee1-2af8-4708-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="12795"
-         y="150"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text212">10b93d53-bfe, 10b93d53-bfee-470f-880a-537117, 10b93d53-bfee-470f-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13350"
-         y="10198"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text214">6a379c4b-e95, 6a379c4b-e950-44f8-9925-804652, 6a379c4b-e950-44f8-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="14040"
-         y="10045"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text216">76037ed8-1af, 76037ed8-1af2-4c35-8f88-7327af, 76037ed8-1af2-4c35-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13470"
-         y="11164"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text218">ae58895b-69f, ae58895b-69f4-4685-8224-45884d, ae58895b-69f4-4685-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13605"
-         y="11507"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text220">31022141-420, 31022141-420a-4b5d-8a45-65cb52, 31022141-420a-4b5d-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13680"
-         y="11787"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text222">9452b979-17c, 9452b979-17c6-4c99-b273-cd6884, 9452b979-17c6-4c99-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13860"
-         y="11807"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text224">db587b6c-2f7, db587b6c-2f7a-4378-b57d-9cffc9, db587b6c-2f7a-4378-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="14325"
-         y="11776"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text226">42686a6c-db5, 42686a6c-db52-43aa-bccc-80913b, 42686a6c-db52-43aa-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="15105"
-         y="11863"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text228">d6071563-b23, d6071563-b234-4cc3-932c-56aa90, d6071563-b234-4cc3-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13830"
-         y="11916"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text230">cca44a0e-1f2, cca44a0e-1f2a-4c40-ac03-927af5, cca44a0e-1f2a-4c40-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13965"
-         y="12011"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text232">91616e13-022, 91616e13-022e-4807-bf86-a30389, 91616e13-022e-4807-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="14145"
-         y="12231"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text234">18f0fb1b-2c0, 18f0fb1b-2c03-4313-953b-8230fd, 18f0fb1b-2c03-4313-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="14430"
-         y="12720"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text236">b42ed90c-c99, b42ed90c-c993-4c67-ae38-751607, b42ed90c-c993-4c67-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13275"
-         y="12270"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text238">6914bb14-635, 6914bb14-635e-4fb9-a522-7d26aa, 6914bb14-635e-4fb9-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="13305"
-         y="12888"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text240">ref|NC_01062, ref, ref|NC_010628.1_1229</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="10065"
-         y="14465"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text242">ref|NC_01062, ref, ref|NC_010628.1_5129</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="7815"
-         y="15267"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text244">2f390753-0b3, 2f390753-0b37-43ff-b095-75e461, 2f390753-0b37-43ff-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="7365"
-         y="15287"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text246">10b36954-a39, 10b36954-a39b-4bc5-90a4-85880f, 10b36954-a39b-4bc5-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="7050"
-         y="17230"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text248">29e59e94-3dc, 29e59e94-3dcd-4c36-b2f3-92a7cc, 29e59e94-3dcd-4c36-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="6420"
-         y="16268"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text250">5f245dee-b56, 5f245dee-b565-493e-89f7-65fce6, 5f245dee-b565-493e-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="5910"
-         y="15858"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text252">7d16669a-cfc, 7d16669a-cfce-469e-82df-2a6f30, 7d16669a-cfce-469e-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="5520"
-         y="15353"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text254">94d117aa-ea0, 94d117aa-ea05-4248-b771-918b46, 94d117aa-ea05-4248-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="5070"
-         y="15409"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text256">e27ebb88-46d, e27ebb88-46df-48d1-a3c8-237daf, e27ebb88-46df-48d1-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="4725"
-         y="15316"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text258">91098feb-ee4, 91098feb-ee49-42e6-8df0-b9d974, 91098feb-ee49-42e6-8</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="4080"
-         y="15571"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text260">6a2b5f80-374, 6a2b5f80-374f-4d7e-a002-653d40, 6a2b5f80-374f-4d7e-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3165"
-         y="15948"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text262">a81a13fb-122, a81a13fb-1225-4542-a13c-992099, a81a13fb-1225-4542-a</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="3600"
-         y="15322"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text264">02c714e7-a46, 02c714e7-a46e-4b71-bd9d-319d8b, 02c714e7-a46e-4b71-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="2805"
-         y="15505"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text266">03969a49-b40, 03969a49-b404-40f7-92c9-ae81db, 03969a49-b404-40f7-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="2970"
-         y="15366"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text268">336fe11b-eb8, 336fe11b-eb81-4ee5-9054-e6aa20, 336fe11b-eb81-4ee5-9</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="2565"
-         y="15231"
-         fill="#622300"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text270">85ed92db-1cb, 85ed92db-1cb1-447a-b098-e2fd86, 85ed92db-1cb1-447a-b</text>
-      <!-- Text -->
-      <text
-         xml:space="preserve"
-         x="9330"
-         y="17613"
-         fill="#ffffff"
-         font-family="Helvetica"
-         font-style="normal"
-         font-weight="normal"
-         font-size="144px"
-         text-anchor="start"
-         id="text272">0.10</text>
-    </g>
+    <polyline
+       points=" 0,0"
+       stroke="#ffffff"
+       stroke-width="8px"
+       id="polyline2-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 21039,17643"
+       stroke="#ffffff"
+       stroke-width="8px"
+       id="polyline4-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9451,15052 9571,15052"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline6-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9571,15172 9451,15172"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline8-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9451,15052 9451,15172"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline10-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9571,15172 9571,15052"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline12-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9511,15112"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline14-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9511,15112 9526,15105"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline16-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9526,15105 9537,15093"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline18-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9537,15093 6082,14840"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline20-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9537,15093 9548,15081"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline22-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9548,15081 9558,15069"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline24-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9558,15069 10498,13754"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline26-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 10498,13754 11559,12016"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline28-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 11559,12016 10454,9866"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline30-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 10454,9866 10328,9660"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline32-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 10328,9660 9946,9126"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline34-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9946,9126 9653,9038"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline36-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9653,9038 7142,8479"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline38-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9653,9038 9638,9032"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline40-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9946,9126 9920,9075"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline42-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9920,9075 9905,9067"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline44-8"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9920,9075 9913,9060"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline46-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9913,9060 9906,9046"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline48-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9906,9046 9896,9033"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline50-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9896,9033 9693,8788"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline52-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9693,8788 8714,8032"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline54-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9693,8788 9683,8774"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline56-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9683,8774 9077,8146"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline58-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9683,8774 9674,8760"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline60-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9674,8760 8678,7368"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline62-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9674,8760 7784,5084"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline64-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9896,9033 9891,9017"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline66-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9906,9046 9847,8511"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline68-8"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9847,8511 9242,5233"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline70-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9847,8511 9827,7961"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline72-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9913,9060 9915,9044"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline74-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 10328,9660 10518,8934"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline76-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 10454,9866 14543,243"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline78-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 11559,12016 13148,11900"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline80-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13148,11900 13587,11835"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline82-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13587,11835 13686,11733"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline84-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13686,11733 14104,11230"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline86-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 14104,11230 14215,11075"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline88-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 14215,11075 14700,10281"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline90-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 14215,11075 15014,10115"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline92-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 14104,11230 14116,11219"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline94-8"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13686,11733 13970,11545"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline96-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13587,11835 13602,11838"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline98-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13602,11838 13670,11843"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline100-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13670,11843 13687,11843"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline102-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13687,11843 13798,11818"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline104-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13798,11818 13813,11813"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline106-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13813,11813 13828,11806"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline108-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13813,11813 13829,11810"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline110-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13829,11810 13845,11805"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline112-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13829,11810 14214,11753"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline114-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13798,11818 14949,11818"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline116-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13687,11843 13701,11847"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline118-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13701,11847 13718,11849"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline120-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13701,11847 13715,11852"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline122-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13715,11852 13950,11923"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline124-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13715,11852 14291,12122"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline126-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13670,11843 14803,12592"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline128-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13602,11838 13922,12124"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline130-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 13148,11900 13838,12728"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline132-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 10498,13754 10826,14292"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline134-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9558,15069 9565,15084"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline136-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9548,15081 9552,15097"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline138-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9526,15105 9522,15121"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline140-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9522,15121 9516,15281"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline142-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9516,15281 9528,15597"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline144-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9528,15597 9686,17036"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline146-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9528,15597 9510,16073"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline148-5"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9516,15281 9445,15666"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline150-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9522,15121 9515,15135"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline152-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9515,15135 9508,15151"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline154-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9508,15151 9503,15166"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline156-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9508,15151 9467,15230"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline158-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9515,15135 9505,15149"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline160-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9511,15112"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline162-7"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9511,15112 9497,15120"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline164-8"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9497,15120 9485,15131"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline166-6"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9485,15131 9209,15418"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline168-8"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9485,15131 8604,15811"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline170-8"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9497,15120 9301,15195"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline172-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9301,15195 9286,15203"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline174-3"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9301,15195 9002,15285"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline176-1"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9002,15285 8685,15406"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline178-4"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9002,15285 8986,15288"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline180-9"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 9511,15112 8645,15175"
+       stroke="#622300"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline182-2"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <polyline
+       points=" 8004,17613 11019,17613"
+       stroke="#ffffff"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline184-0"
+       transform="matrix(0.99992106,0,0,0.99992106,9176.4232,19490.956)"
+       style="fill:none" />
+    <text
+       xml:space="preserve"
+       x="9176.4229"
+       y="34363.781"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text186"
+       style="stroke-width:0.999921">8f377bf6-74b, 8f377bf6-74bd-4801-9958-14e7cb, 8f377bf6-74bd-4801-9</text>
+    <text
+       xml:space="preserve"
+       x="12701.145"
+       y="27981.285"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text188"
+       style="stroke-width:0.999921">ref|NC_01062, ref, ref|NC_010628.1_7297</text>
+    <text
+       xml:space="preserve"
+       x="12926.127"
+       y="28514.244"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text190"
+       style="stroke-width:0.999921">6816d68d-675, 6816d68d-675b-4248-8313-a03c4d, 6816d68d-675b-4248-8</text>
+    <text
+       xml:space="preserve"
+       x="13391.091"
+       y="28528.242"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text192"
+       style="stroke-width:0.999921">1523187e-ec8, 1523187e-ec85-4d08-9b1c-0b8734, 1523187e-ec85-4d08-9</text>
+    <text
+       xml:space="preserve"
+       x="12446.165"
+       y="27476.326"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text194"
+       style="stroke-width:0.999921">cc3c467f-447, cc3c467f-4479-4fee-98ee-a7789f, cc3c467f-4479-4fee-9</text>
+    <text
+       xml:space="preserve"
+       x="13121.111"
+       y="27573.318"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text196"
+       style="stroke-width:0.999921">9dbcc77e-c30, 9dbcc77e-c30a-4bfe-8cce-89549c, 9dbcc77e-c30a-4bfe-8</text>
+    <text
+       xml:space="preserve"
+       x="13076.115"
+       y="26781.381"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text198"
+       style="stroke-width:0.999921">01619f0e-857, 01619f0e-857d-4e76-a8be-ab3b67, 01619f0e-857d-4e76-a</text>
+    <text
+       xml:space="preserve"
+       x="12566.155"
+       y="24485.562"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text200"
+       style="stroke-width:0.999921">3e76b7ce-475, 3e76b7ce-475f-4b93-8b9e-5aa174, 3e76b7ce-475f-4b93-8</text>
+    <text
+       xml:space="preserve"
+       x="15085.957"
+       y="28410.252"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text202"
+       style="stroke-width:0.999921">6fa91fd0-76e, 6fa91fd0-76e6-4f9c-98a1-f2e27c, 6fa91fd0-76e6-4f9c-9</text>
+    <text
+       xml:space="preserve"
+       x="14875.974"
+       y="24620.551"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text204"
+       style="stroke-width:0.999921">25b8156c-f20, 25b8156c-f205-4952-bb5b-066199, 25b8156c-f205-4952-b</text>
+    <text
+       xml:space="preserve"
+       x="15925.891"
+       y="27346.336"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text206"
+       style="stroke-width:0.999921">3a093206-c48, 3a093206-c480-4187-9dac-38b9b4, 3a093206-c480-4187-9</text>
+    <text
+       xml:space="preserve"
+       x="16465.848"
+       y="28430.25"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text208"
+       style="stroke-width:0.999921">e42f2e31-573, e42f2e31-5733-4de5-8ce7-9e1708, e42f2e31-5733-4de5-8</text>
+    <text
+       xml:space="preserve"
+       x="17515.766"
+       y="28323.258"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text210"
+       style="stroke-width:0.999921">22701ee1-2af, 22701ee1-2af8-4708-9b98-ddc853, 22701ee1-2af8-4708-9</text>
+    <text
+       xml:space="preserve"
+       x="21970.414"
+       y="19640.943"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text212"
+       style="stroke-width:0.999921">10b93d53-bfe, 10b93d53-bfee-470f-880a-537117, 10b93d53-bfee-470f-8</text>
+    <text
+       xml:space="preserve"
+       x="22525.369"
+       y="29688.15"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text214"
+       style="stroke-width:0.999921">6a379c4b-e95, 6a379c4b-e950-44f8-9925-804652, 6a379c4b-e950-44f8-9</text>
+    <text
+       xml:space="preserve"
+       x="23215.314"
+       y="29535.162"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text216"
+       style="stroke-width:0.999921">76037ed8-1af, 76037ed8-1af2-4c35-8f88-7327af, 76037ed8-1af2-4c35-8</text>
+    <text
+       xml:space="preserve"
+       x="22645.359"
+       y="30654.074"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text218"
+       style="stroke-width:0.999921">ae58895b-69f, ae58895b-69f4-4685-8224-45884d, ae58895b-69f4-4685-8</text>
+    <text
+       xml:space="preserve"
+       x="22780.35"
+       y="30997.047"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text220"
+       style="stroke-width:0.999921">31022141-420, 31022141-420a-4b5d-8a45-65cb52, 31022141-420a-4b5d-8</text>
+    <text
+       xml:space="preserve"
+       x="22855.344"
+       y="31277.025"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text222"
+       style="stroke-width:0.999921">9452b979-17c, 9452b979-17c6-4c99-b273-cd6884, 9452b979-17c6-4c99-b</text>
+    <text
+       xml:space="preserve"
+       x="23035.328"
+       y="31297.023"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text224"
+       style="stroke-width:0.999921">db587b6c-2f7, db587b6c-2f7a-4378-b57d-9cffc9, db587b6c-2f7a-4378-b</text>
+    <text
+       xml:space="preserve"
+       x="23500.293"
+       y="31266.027"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text226"
+       style="stroke-width:0.999921">42686a6c-db5, 42686a6c-db52-43aa-bccc-80913b, 42686a6c-db52-43aa-b</text>
+    <text
+       xml:space="preserve"
+       x="24280.23"
+       y="31353.02"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text228"
+       style="stroke-width:0.999921">d6071563-b23, d6071563-b234-4cc3-932c-56aa90, d6071563-b234-4cc3-9</text>
+    <text
+       xml:space="preserve"
+       x="23005.332"
+       y="31406.016"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text230"
+       style="stroke-width:0.999921">cca44a0e-1f2, cca44a0e-1f2a-4c40-ac03-927af5, cca44a0e-1f2a-4c40-a</text>
+    <text
+       xml:space="preserve"
+       x="23140.32"
+       y="31501.008"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text232"
+       style="stroke-width:0.999921">91616e13-022, 91616e13-022e-4807-bf86-a30389, 91616e13-022e-4807-b</text>
+    <text
+       xml:space="preserve"
+       x="23320.307"
+       y="31720.99"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text234"
+       style="stroke-width:0.999921">18f0fb1b-2c0, 18f0fb1b-2c03-4313-953b-8230fd, 18f0fb1b-2c03-4313-9</text>
+    <text
+       xml:space="preserve"
+       x="23605.283"
+       y="32209.951"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text236"
+       style="stroke-width:0.999921">b42ed90c-c99, b42ed90c-c993-4c67-ae38-751607, b42ed90c-c993-4c67-a</text>
+    <text
+       xml:space="preserve"
+       x="22450.375"
+       y="31759.988"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text238"
+       style="stroke-width:0.999921">6914bb14-635, 6914bb14-635e-4fb9-a522-7d26aa, 6914bb14-635e-4fb9-a</text>
+    <text
+       xml:space="preserve"
+       x="22480.373"
+       y="32377.939"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text240"
+       style="stroke-width:0.999921">ref|NC_01062, ref, ref|NC_010628.1_1229</text>
+    <text
+       xml:space="preserve"
+       x="19240.629"
+       y="33954.812"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text242"
+       style="stroke-width:0.999921">ref|NC_01062, ref, ref|NC_010628.1_5129</text>
+    <text
+       xml:space="preserve"
+       x="16990.807"
+       y="34756.75"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text244"
+       style="stroke-width:0.999921">2f390753-0b3, 2f390753-0b37-43ff-b095-75e461, 2f390753-0b37-43ff-b</text>
+    <text
+       xml:space="preserve"
+       x="16540.842"
+       y="34776.75"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text246"
+       style="stroke-width:0.999921">10b36954-a39, 10b36954-a39b-4bc5-90a4-85880f, 10b36954-a39b-4bc5-9</text>
+    <text
+       xml:space="preserve"
+       x="16225.866"
+       y="36719.598"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text248"
+       style="stroke-width:0.999921">29e59e94-3dc, 29e59e94-3dcd-4c36-b2f3-92a7cc, 29e59e94-3dcd-4c36-b</text>
+    <text
+       xml:space="preserve"
+       x="15595.916"
+       y="35757.672"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text250"
+       style="stroke-width:0.999921">5f245dee-b56, 5f245dee-b565-493e-89f7-65fce6, 5f245dee-b565-493e-8</text>
+    <text
+       xml:space="preserve"
+       x="15085.957"
+       y="35347.703"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text252"
+       style="stroke-width:0.999921">7d16669a-cfc, 7d16669a-cfce-469e-82df-2a6f30, 7d16669a-cfce-469e-8</text>
+    <text
+       xml:space="preserve"
+       x="14695.987"
+       y="34842.742"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text254"
+       style="stroke-width:0.999921">94d117aa-ea0, 94d117aa-ea05-4248-b771-918b46, 94d117aa-ea05-4248-b</text>
+    <text
+       xml:space="preserve"
+       x="14246.023"
+       y="34898.738"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text256"
+       style="stroke-width:0.999921">e27ebb88-46d, e27ebb88-46df-48d1-a3c8-237daf, e27ebb88-46df-48d1-a</text>
+    <text
+       xml:space="preserve"
+       x="13901.05"
+       y="34805.746"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text258"
+       style="stroke-width:0.999921">91098feb-ee4, 91098feb-ee49-42e6-8df0-b9d974, 91098feb-ee49-42e6-8</text>
+    <text
+       xml:space="preserve"
+       x="13256.102"
+       y="35060.727"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text260"
+       style="stroke-width:0.999921">6a2b5f80-374, 6a2b5f80-374f-4d7e-a002-653d40, 6a2b5f80-374f-4d7e-a</text>
+    <text
+       xml:space="preserve"
+       x="12341.174"
+       y="35437.695"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text262"
+       style="stroke-width:0.999921">a81a13fb-122, a81a13fb-1225-4542-a13c-992099, a81a13fb-1225-4542-a</text>
+    <text
+       xml:space="preserve"
+       x="12776.139"
+       y="34811.746"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text264"
+       style="stroke-width:0.999921">02c714e7-a46, 02c714e7-a46e-4b71-bd9d-319d8b, 02c714e7-a46e-4b71-b</text>
+    <text
+       xml:space="preserve"
+       x="11981.202"
+       y="34994.73"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text266"
+       style="stroke-width:0.999921">03969a49-b40, 03969a49-b404-40f7-92c9-ae81db, 03969a49-b404-40f7-9</text>
+    <text
+       xml:space="preserve"
+       x="12146.188"
+       y="34855.742"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text268"
+       style="stroke-width:0.999921">336fe11b-eb8, 336fe11b-eb81-4ee5-9054-e6aa20, 336fe11b-eb81-4ee5-9</text>
+    <text
+       xml:space="preserve"
+       x="11741.221"
+       y="34720.754"
+       fill="#622300"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text270"
+       style="stroke-width:0.999921">85ed92db-1cb, 85ed92db-1cb1-447a-b098-e2fd86, 85ed92db-1cb1-447a-b</text>
+    <text
+       xml:space="preserve"
+       x="18505.688"
+       y="37102.566"
+       fill="#ffffff"
+       font-family="Helvetica"
+       font-style="normal"
+       font-weight="normal"
+       font-size="143.989px"
+       text-anchor="start"
+       id="text272"
+       style="stroke-width:0.999921">0.10</text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:380.929px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';word-spacing:0px;stroke-width:11.904"
@@ -17127,5 +17070,144 @@
    id="tspan1668-9-3">Hylocomium</tspan>-associated <tspan
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:380.929px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Italic'"
    id="tspan1670-2-7">Nostoc</tspan> nifH reads</tspan></text>
+    <g
+       id="g4409"
+       transform="translate(17.52162,8.6053327)">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:#ffe560;stroke-width:15.8721;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect2346"
+         width="1037.5828"
+         height="189.771"
+         x="-13770.402"
+         y="27360.361" />
+      <text
+         xml:space="preserve"
+         x="-13741.331"
+         y="27505.48"
+         fill="#ffe560"
+         font-family="Helvetica"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144px"
+         text-anchor="start"
+         id="text1666">ref|NC_010628</text>
+    </g>
+    <polyline
+       points=" 14572,7065 12252,7646"
+       stroke="#ffe560"
+       stroke-width="8px"
+       stroke-linecap="round"
+       id="polyline1113"
+       transform="translate(-24961.766,19809.143)" />
+    <g
+       id="g4409-3"
+       transform="translate(7777.2802,353.27211)">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:#ffe560;stroke-width:15.8721;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect2346-6"
+         width="1037.5828"
+         height="189.771"
+         x="-13770.402"
+         y="27360.361" />
+      <text
+         xml:space="preserve"
+         x="-13741.331"
+         y="27505.48"
+         fill="#ffe560"
+         font-family="Helvetica"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144px"
+         text-anchor="start"
+         id="text1666-7">ref|NC_010628</text>
+    </g>
+    <g
+       id="g4409-3-5"
+       transform="translate(11418.395,3348.7132)">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:#ffe560;stroke-width:15.8721;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect2346-6-3"
+         width="1037.5828"
+         height="189.771"
+         x="-13770.402"
+         y="27360.361" />
+      <text
+         xml:space="preserve"
+         x="-13741.331"
+         y="27505.48"
+         fill="#ffe560"
+         font-family="Helvetica"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144px"
+         text-anchor="start"
+         id="text1666-7-5">ref|NC_010628</text>
+    </g>
+    <g
+       id="g4409-3-6"
+       transform="translate(27561.482,282.65232)">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:#ffe560;stroke-width:15.8721;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect2346-6-2"
+         width="2142.5132"
+         height="194.27344"
+         x="-13770.402"
+         y="27360.361" />
+      <text
+         xml:space="preserve"
+         x="-13741.331"
+         y="27505.48"
+         fill="#ffe560"
+         font-family="Helvetica"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144px"
+         text-anchor="start"
+         id="text1666-7-9">ref|NC_010628_WP_012412139</text>
+    </g>
+    <g
+       id="g4409-3-6-1"
+       transform="translate(36987.751,5191.5975)">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:#ffe560;stroke-width:15.8721;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect2346-6-2-2"
+         width="2151.355"
+         height="194.27344"
+         x="-13770.402"
+         y="27360.361" />
+      <text
+         xml:space="preserve"
+         x="-13741.331"
+         y="27505.48"
+         fill="#ffe560"
+         font-family="Helvetica"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144px"
+         text-anchor="start"
+         id="text1666-7-9-7">ref|NC_010628_WP_012407784</text>
+    </g>
+    <g
+       id="g4409-3-6-1-3"
+       transform="translate(33779.452,6741.3787)">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:#ffe560;stroke-width:15.8721;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="rect2346-6-2-2-6"
+         width="2151.355"
+         height="194.27344"
+         x="-13770.402"
+         y="27360.361" />
+      <text
+         xml:space="preserve"
+         x="-13741.331"
+         y="27505.48"
+         fill="#ffe560"
+         font-family="Helvetica"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144px"
+         text-anchor="start"
+         id="text1666-7-9-7-0">ref|NC_010628_WP_012407220</text>
+    </g>
   </g>
 </svg>

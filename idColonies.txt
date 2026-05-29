@@ -5621,4 +5621,49 @@ ls /home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/
 
 ## dealing with comments from reviewers
 
+## they say that it is unusual for nostoc to have 3 alternate nifH.
+## we have the example from N. punctiforme, now looking for others.
+## So for example, the Peltigera membranaceae symbiont "sp. 232" ref assembly  GCF_002245985.1
+## they have 4 annotated versions of nifH, do we believe this?
+## these were annotated as:  WP_094341471.1 WP_094344321.1 WP_223278350.1 WP_094346394.1, all nifH proteins.
+
+cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising/multiNif/nostocPeltigerNifHcopies
+
+for i in {0..3}; do
+  cp ../ncbi_dataset${i}/data/gene.fna ./nostocPeltNif${i}.fna
+done
+
+cat nostocPeltNif?.fna > nostocPeltNif_all.fna 
+
+muscle -align nostocPeltNif_all.fna -output nostocPeltNif_all.afa
+
+wget https://ormbunkar.se/aliview/downloads/linux/linux-version-1.31.1/aliview_1.31.1_amd64.deb
+
+aliview nostocPeltNif_all.afa ## that's not that pretty. They don't align well. 
+
+## anyway, >2 annotated versions. That's two genomes without much effort. 
+## find a third?  
+
+mkdir Nostoc_azollae
+
+cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising/multiNif/Nostoc_azollae
+
+mv ~/Downloads/WP_01319*  .
+
+cat *fa > nostocAzollae_nifH.faa
+
+muscle -align nostocAzollae_nifH.faa -output nostocAzollae_nifH.afa
+
+aliview nostocAzollae_nifH.afa ## that looks reasonable, 
+
+nostocPeltNif_all.afa
+
+## so there is sufficient evidence to respond that our results were not unreasonable,
+## that multiple nifH genes (>2) is not unheard of. 
+
+## so...
+512909-513802 (WP_012407220.1)
+1229540-1230433 (WP_012407784.1)
+7297077-7298042 (WP_012412139.1)
+
 ## 
