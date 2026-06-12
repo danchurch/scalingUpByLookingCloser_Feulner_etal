@@ -4737,7 +4737,7 @@ hmmbuild ${alignFile/\.afa/\.hmm} ${alignFile}
 hmmemit -c -o ${alignFile/_handEdited.afa/_consensus.fasta} ${alignFile/\.afa/\.hmm}
 
 ## clade3 best match from an identified organism is the nif from a compactonostoc,
-## fits our 15s match. 
+## fits our 16s match. 
 ## clade2 doesn't really blast to much, but closest id'd org is from Scytonenataceae, "Brasilonema" sp. Funny. Kind of like 16s from Zygodon and Homalia
 ##   also therefore makes sense that our reference sequences didn't align at all to this one
 ## clade1 - 2 out of 3 (1rst and 3rd) are to the cyanobacteria from the Kubota paper! still not perfect matches (96% match or so)
@@ -5390,7 +5390,9 @@ muscle5 -align nifHseqs2align.fa -output nifHseqs2align.afa
 
 ## edit manually, locally
 getFile=/media/vol1/daniel/nostoc/nifHtree/nifHseqs2align.afa
+
 putItHere=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs
+
 rsync -auv test@132.180.112.115:$getFile $putItHere
 
 getFile=/home/daniel/Documents/projects/mossSymbiosis/alignmentThomasKubotaIninbergs/nifHseqs2align_handEdited.afa
@@ -5726,4 +5728,52 @@ rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/blastout/round2_Zygodo
 ## I guess the best answer is the alignments with reference sequences as checks, and 
 ## blast results. 
 
+## we have the following request:
+
+## Table 2: Some extra information about how similar these sequences are would be welcome here. You could add sequence identity and coverage based on BLAST alignments, for example.
+
+cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising
+
+## so we need our 16s consensus sequences:
+cat /home/daniel/Documents/projects/mossSymbiosis/nostoc/get_consensus_seq/16s/consensusSequences/* > ourCons16s.fa
+
+
+## and we need these close matches
  
+
+for i in JN847344 KM019941 KF142669 AB275347 MH598843 KU219709
+do
+  esearch -db "Nucleotide" -query $i | 
+  efetch -format "fasta" >> close16Smatches4nostocs.fa
+  echo $i
+done
+
+makeblastdb -in close16Smatches4nostocs.fa -dbtype "nucl"
+
+nostoc16Seqs=ourCons16s.fa
+blastDB=close16Smatches4nostocs.fa
+blastn -db $blastDB \
+  -query $nostoc16Seqs \
+  -out consSeq16matches.txt
+
+seqtk seq -l 0 close16Smatches4nostocs.fa > close16Smatches4nostocs_noLB.fa
+
+seqtk seq -l 0 ourCons16s.fa > ourCons16s_noLB.fa 
+
+## they recommend coverage and %identity for each entry in the table:
+Moss host          , Accession, alignment scores 
+Hylocomium         , JN847344 , Identities = 1395/1405 (99%), Gaps = 8/1405 (1%)
+Homalia            , KM019941 , Identities = 1353/1383 (98%), Gaps = 6/1383 (0%)
+Pseudoambylostegium, KF142669 , ## this match is really bad. Why are they neighbors on the tree?
+Pseudoambylostegium, AB275347 , 
+Zygodon            , MH598843 , 
+Zygodon            , KU219709 , 
+
+1395/1405 = 99.3
+
+JN847344
+KM019941
+KF142669
+AB275347
+MH598843
+KU219709
