@@ -1951,7 +1951,9 @@ ugene -ui howisourconsensus.afa &
 
 
 getFile="/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode09/howisourconsensus.afa"
+
 putHere="/home/daniel/Documents/projects/mossSymbiosis/alignmentsBarcode09"
+
 rsync -auv test@132.180.112.115:$getFile $putHere
 
 ## get rid of linebreaks, hand edit the sequence in vim
@@ -5711,3 +5713,17 @@ rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/blastout/round2_Zygodo
 ## these are in fingure 4 of Kubota, and also in ininbergs 
 
 ## okay, figures updated.
+
+#####  chimeras #####
+
+## reviewer 1 is concerned with chimeras, especially with 16S seq of the pseudoamblystegium-associated Nostoc-like organism
+## fair. we only had one good 16s sequence, and ~10 other bad ones, plus all the 16s from the other cyanobacteria that
+## overgrew the culture. 
+
+## line ~1953 above deals with the construction of this 16s sequence. 
+## not sure what to say. The rest of the reads were obviously some weird cyano 
+
+## I guess the best answer is the alignments with reference sequences as checks, and 
+## blast results. 
+
+ 
