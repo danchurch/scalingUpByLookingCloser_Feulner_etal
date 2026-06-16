@@ -5656,124 +5656,165 @@ mv ~/Downloads/WP_01319*  .
 
 cat *fa > nostocAzollae_nifH.faa
 
-muscle -align nostocAzollae_nifH.faa -output nostocAzollae_nifH.afa
+    muscle -align nostocAzollae_nifH.faa -output nostocAzollae_nifH.afa
 
-aliview nostocAzollae_nifH.afa ## that looks reasonable, 
+    aliview nostocAzollae_nifH.afa ## that looks reasonable, 
 
-nostocPeltNif_all.afa
+    nostocPeltNif_all.afa
 
-## so there is sufficient evidence to respond that our results were not unreasonable,
-## that multiple nifH genes (>2) is not unheard of. 
+    ## so there is sufficient evidence to respond that our results were not unreasonable,
+    ## that multiple nifH genes (>2) is not unheard of. 
 
-## so...
-512909-513802 (WP_012407220.1)
-1229540-1230433 (WP_012407784.1)
-7297077-7298042 (WP_012412139.1)
+    ## so...
+    512909-513802 (WP_012407220.1)
+    1229540-1230433 (WP_012407784.1)
+    7297077-7298042 (WP_012412139.1)
 
-## recover the original trees of raw reads on minion:
+    ## recover the original trees of raw reads on minion:
 
-BC13_andrefSeqs_handEdits.afa
-BC13_andrefSeqs_handEdits.nwk
+    BC13_andrefSeqs_handEdits.afa
+    BC13_andrefSeqs_handEdits.nwk
 
-cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising/multiNif/recoverNifNames
+    cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising/multiNif/recoverNifNames
 
-rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13/BC13_andrefSeqs_handEdits.* .
+    rsync -auv test@132.180.112.115:/media/vol1/daniel/nostoc/blastout/round2_ZygodonHomaliaAmbylostegium/barcode13/BC13_andrefSeqs_handEdits.* .
 
-## how do we recover which clade was which?
+    ## how do we recover which clade was which?
 
-## check code above, and try to line up the nostoc punctiforme reads 
-## first check code...here it is:
+    ## check code above, and try to line up the nostoc punctiforme reads 
+    ## first check code...here it is:
 
-## BC13 (Zygodon)
-## clade1 has >ref|NC_010628.1_7297077-7298042 (WP_012412139)
-## clade2 didn't contain any refseq, but is near >ref|NC_010628.1_1229540-1230433 (WP_012407784)
-## clade3 has >ref|NC_010628.1_512909-513802 (WP_012407220)
+    ## BC13 (Zygodon)
+    ## clade1 has >ref|NC_010628.1_7297077-7298042 (WP_012412139)
+    ## clade2 didn't contain any refseq, but is near >ref|NC_010628.1_1229540-1230433 (WP_012407784)
+    ## clade3 has >ref|NC_010628.1_512909-513802 (WP_012407220)
 
-## BC14 (Homalia)
-## clade1  contained ref7927 = WP_012412139.1 (  NC_010628.1 (7,297,077..7,298,042)  )
-## clade2  contained ref1229 = WP_012407784.1 (  NC_010628.1 (1,229,540..1,230,433)  )
-## clade3 contained no reference sequence, technically,
-## but it was closest to refseq WP_012407220.1 ( NC_010628.1 (512,909..513,802)  ), which fell into no clade
+    ## BC14 (Homalia)
+    ## clade1  contained ref7927 = WP_012412139.1 (  NC_010628.1 (7,297,077..7,298,042)  )
+    ## clade2  contained ref1229 = WP_012407784.1 (  NC_010628.1 (1,229,540..1,230,433)  )
+    ## clade3 contained no reference sequence, technically,
+    ## but it was closest to refseq WP_012407220.1 ( NC_010628.1 (512,909..513,802)  ), which fell into no clade
 
-## great, labeled. 
-## Now can we relable the nifH tree with the appropriate refseq WP number?
-## this is figure 
+    ## great, labeled. 
+    ## Now can we relable the nifH tree with the appropriate refseq WP number?
+    ## this is figure 
 
-## we have three nifH genes from kubota/ininberg. It looks like they saw these
-## nifH and used them, also?:
+    ## we have three nifH genes from kubota/ininberg. It looks like they saw these
+    ## nifH and used them, also?:
 
-642599733 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (-)strand
-642600311 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (-)strand
-642604820 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (+)strand
+    642599733 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (-)strand
+    642600311 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (-)strand
+    642604820 Mo-nitrogenase iron protein subunit NifH (EC 1.18.6.1) [Nostoc punctiforme PCC 73102: NC_010628] (+)strand
 
-## gotta blast the sequences, no other way, find them in "reference_Ininbergs.fa"
+    ## gotta blast the sequences, no other way, find them in "reference_Ininbergs.fa"
 
-642599733 512909 to 513802   ## matches WP_012407220
-642600311 1229540 to 1230433 ## matches WP_012407784
-642604820 7297077 to 7298042 ## matches WP_012412139
+    642599733 512909 to 513802   ## matches WP_012407220
+    642600311 1229540 to 1230433 ## matches WP_012407784
+    642604820 7297077 to 7298042 ## matches WP_012412139
 
-## these are in fingure 4 of Kubota, and also in ininbergs 
+    ## these are in fingure 4 of Kubota, and also in ininbergs 
 
-## okay, figures updated.
+    ## okay, figures updated.
 
-#####  chimeras #####
+    #####  chimeras #####
 
-## reviewer 1 is concerned with chimeras, especially with 16S seq of the pseudoamblystegium-associated Nostoc-like organism
-## fair. we only had one good 16s sequence, and ~10 other bad ones, plus all the 16s from the other cyanobacteria that
-## overgrew the culture. 
+    ## reviewer 1 is concerned with chimeras, especially with 16S seq of the pseudoamblystegium-associated Nostoc-like organism
+    ## fair. we only had one good 16s sequence, and ~10 other bad ones, plus all the 16s from the other cyanobacteria that
+    ## overgrew the culture. 
 
-## line ~1953 above deals with the construction of this 16s sequence. 
-## not sure what to say. The rest of the reads were obviously some weird cyano 
+    ## line ~1953 above deals with the construction of this 16s sequence. 
+    ## not sure what to say. The rest of the reads were obviously some weird cyano 
 
-## I guess the best answer is the alignments with reference sequences as checks, and 
-## blast results. 
+    ## I guess the best answer is the alignments with reference sequences as checks, and 
+    ## blast results. 
 
-## we have the following request:
+    ## we have the following request:
 
-## Table 2: Some extra information about how similar these sequences are would be welcome here. You could add sequence identity and coverage based on BLAST alignments, for example.
+    ## Table 2: Some extra information about how similar these sequences are would be welcome here. You could add sequence identity and coverage based on BLAST alignments, for example.
 
-cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising
+    cd /home/daniel/Documents/projects/mossSymbiosis/nostoc/manuscript/oecologiaStuff/revising
 
-## so we need our 16s consensus sequences:
-cat /home/daniel/Documents/projects/mossSymbiosis/nostoc/get_consensus_seq/16s/consensusSequences/* > ourCons16s.fa
+    ## so we need our 16s consensus sequences:
+    cat /home/daniel/Documents/projects/mossSymbiosis/nostoc/get_consensus_seq/16s/consensusSequences/* > ourCons16s.fa
 
 
-## and we need these close matches
- 
+    ## and we need these close matches
+     
 
-for i in JN847344 KM019941 KF142669 AB275347 MH598843 KU219709
-do
-  esearch -db "Nucleotide" -query $i | 
-  efetch -format "fasta" >> close16Smatches4nostocs.fa
-  echo $i
-done
+    for i in JN847344 KM019941 KF142669 AB275347 MH598843 KU219709
+    do
+      esearch -db "Nucleotide" -query $i | 
+      efetch -format "fasta" >> close16Smatches4nostocs.fa
+      echo $i
+    done
 
-makeblastdb -in close16Smatches4nostocs.fa -dbtype "nucl"
+    makeblastdb -in close16Smatches4nostocs.fa -dbtype "nucl"
 
-nostoc16Seqs=ourCons16s.fa
-blastDB=close16Smatches4nostocs.fa
-blastn -db $blastDB \
-  -query $nostoc16Seqs \
-  -out consSeq16matches.txt
+    nostoc16Seqs=ourCons16s.fa
+    blastDB=close16Smatches4nostocs.fa
+    blastn -db $blastDB \
+      -query $nostoc16Seqs \
+      -out consSeq16matches.txt
 
-seqtk seq -l 0 close16Smatches4nostocs.fa > close16Smatches4nostocs_noLB.fa
+    seqtk seq -l 0 close16Smatches4nostocs.fa > close16Smatches4nostocs_noLB.fa
 
-seqtk seq -l 0 ourCons16s.fa > ourCons16s_noLB.fa 
+    seqtk seq -l 0 ourCons16s.fa > ourCons16s_noLB.fa 
 
-## they recommend coverage and %identity for each entry in the table:
-Moss host          , Accession, alignment scores 
-Hylocomium         , JN847344 , Identities = 1395/1405 (99%), Gaps = 8/1405 (1%)
-Homalia            , KM019941 , Identities = 1353/1383 (98%), Gaps = 6/1383 (0%)
-Pseudoambylostegium, KF142669 , ## this match is really bad. Why are they neighbors on the tree?
-Pseudoambylostegium, AB275347 , 
-Zygodon            , MH598843 , 
-Zygodon            , KU219709 , 
+    ## they recommend coverage and %identity for each entry in the table:
+    Moss host          , queryAccession,  Match Accession, alignment scores 
+    Hylocomium         , PX869778      ,  JN847344       , "Identities = 1395/1405 (99%), Gaps = 8/1405 (1%)"
+    Homalia            , PX856665      ,  KM019941       , "Identities = 1353/1383 (98%), Gaps = 6/1383 (0%)"
+    Pseudoambylostegium, PX856664      ,  KF142669       , "Identities = 450/460 (98%), Gaps = 5/460 (1%)" ## this match is really bad. Drop it.
+    Pseudoambylostegium, PX856664      ,  AB275347       , "Identities = 677/710 (95%), Gaps = 11/710 (2%)"
+    Zygodon            , PX856666      ,  MH598843       , "Identities = 1150/1168 (98%), Gaps = 8/1168 (1%)"
+    Zygodon            , PX856666      ,  KU219709       , "Identities = 904/915 (99%), Gaps = 6/915 (1%)"
 
-1395/1405 = 99.3
+    ## drop the first ambylostegium neighbor above. 
 
-JN847344
-KM019941
-KF142669
-AB275347
-MH598843
-KU219709
+    ## so a csv might look like this:
+    "Moss host"          ,"queryAccession","Match Accession", "alignment scores"
+    "Hylocomium"         ,"PX869778"      ,"JN847344", "Identities = 1395/1405 (99%), Gaps = 8/1405 (1%)"
+    "Homalia"            ,"PX856665"      ,"KM019941", "Identities = 1353/1383 (98%), Gaps = 6/1383 (0%)"
+    "Pseudoambylostegium","PX856664"      ,"AB275347", "Identities = 677/710 (95%), Gaps = 11/710 (2%)"
+    "Zygodon"            ,"PX856666"      ,"MH598843", "Identities = 1150/1168 (98%), Gaps = 8/1168 (1%)"
+    "Zygodon"            ,"PX856666"      ,"KU219709", "Identities = 904/915 (99%), Gaps = 6/915 (1%)"
+
+## on laptop:
+cd /home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/manuscript/oecologiaStuff/revising
+
+## why are those blastn matches so bad on the pseudoambylostegium? Let's check the alignments.
+
+## let's also include the best blast match on NCBI (EU022708)
+
+    for i in PX856664 KF142669 AB275347 EU022708
+    do
+      esearch -db "Nucleotide" -query $i | 
+      efetch -format "fasta" >> ambylostegiumCloserLook.fa
+      echo $i
+    done
+
+## with our old version of muscle on the laptop:
+muscle -in ambylostegiumCloserLook.fa -out ambylostegiumCloserLook.afa
+
+aliview ambylostegiumCloserLook.afa &
+
+## these are fine, highly similar. The blast match scores are 
+## low because in some cases the primer sets are different, covering
+## different regions. 
+
+PX869778      
+PX856665      
+PX856664      
+PX856666      
+
+PX869778 (Hylocomium)
+PX856665 (Homalia)
+PX856664 (Pseudoambylostegium)
+PX856666 (Zygodon)
+
+
+
+
+
+
+
