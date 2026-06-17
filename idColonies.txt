@@ -4047,6 +4047,20 @@ FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
 
 nostocaceaeTree.nwk
 
+
+### note jun 17 ####
+## we lost track of our scale bar... let's run it again...
+
+cd ~/Desktop
+
+nostocAlignment=/home/daniel/Documents/projects/mossCyanobacteria/culturingCyanos/nanoporeNostoc16sAlignments/16sTree/currentAlignTree/nostocaceaeCyanoseqPlusOurSeqs_ali.bacteria.afa
+
+FastTree -gtr -nt < $nostocAlignment > nostocaceaeTree.nwk
+
+cp $nostocAlignment ~/Desktop
+
+####################
+
 ## hmm, turns out there are a lot of funny characters in our fasta to align. 
 ## why?
 
@@ -5402,12 +5416,13 @@ rsync -auv $getFile test@132.180.112.115:$putItHere
 ## make tree
 
 #alignment="nifHseqs2align_handEdited.afa"
-alignment="nifHseqs2align.afa"
 FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
 
 ### note jun 17 ####
-
-
+## we lost track of our scale bar... let's run it again...
+alignment="nifHseqs2align.afa"
+FastTree -gtr -nt < ${alignment} > ~/Desktop/${alignment/afa/nwk}  ## 30 sec
+cp $alignment ~/Desktop
 ####################
 
 find . -name nifHseqs2align.nwk
