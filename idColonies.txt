@@ -5405,6 +5405,11 @@ rsync -auv $getFile test@132.180.112.115:$putItHere
 alignment="nifHseqs2align.afa"
 FastTree -gtr -nt < ${alignment} > ${alignment/afa/nwk}  ## 30 sec
 
+### note jun 17 ####
+
+
+####################
+
 find . -name nifHseqs2align.nwk
 
 arb &
