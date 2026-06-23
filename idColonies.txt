@@ -5832,9 +5832,28 @@ PX856665 (Homalia)
 PX856664 (Pseudoambylostegium)
 PX856666 (Zygodon)
 
+#### response to unimportance of moss nitrogen fixation ####
 
+## reviewer 2 says that it can be assumed that "nitrogen supply"
+## by moss nitrogen fixers is minor 
 
+## we can do some back-of-napkin calculations from Groß et al 2024 and
+## some other sources. 
 
+## from figure 1 of Groß, total mean from their samples looks 
+## like n-fixation at the biodiversity exploratores is somewhere around
+## 20 μg N / 1 g dry moss / 1 day
+## diekmann (2023) says ~50% moss cover in german coniferous forests
 
+## conversions we need:
 
+1 g N / 10^6 μg N 
+618 g dry moss / 1 m^2 (Stuiver et al 2014)
+10^4 m^2 / 1 ha
 
+## conversion looks like this:
+
+(20 μg N / 1 g dry moss / 1 day) * (1 g N / 10^6 μg N) * (618 g dry moss / 1 m^2) * (10^4 m^2 / 1 ha) * (0.5 moss cover) * (365 days / 1 year ) * ( 1 kg / 1000 g )
+
+## so to feed the python:
+20 * (1/1000000) * (618) * (10000) * (0.5) * (365) * (1/1000)
